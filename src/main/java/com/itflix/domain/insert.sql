@@ -17,7 +17,7 @@ insert into User_Info values('guard7@gmail.com','123','김희철','01088888888')
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'액션');
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'코미디');
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'로맨스');
-insert into category values(CATEGORY_CG_NO_SEQ.nextval,'호러/스릴러');
+insert into category values(CATEGORY_CG_NO_SEQ.nextval,'공포/미스터리');
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'SF/판타지');
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'드라마');
 
