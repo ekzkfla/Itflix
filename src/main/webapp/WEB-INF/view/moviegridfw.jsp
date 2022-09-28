@@ -161,7 +161,7 @@
 							</div>
 						</div>
 						<div class="movie-item-style-2 movie-item-style-1">
-							<img src="images/uploads/mv2.jpg" alt="">
+							<img src="images/코미디/럭키_2.jpg" alt="">
 							<div class="hvr-inner">
 								<a href="moviesingle.jsp">Read more <i
 									class="ion-android-arrow-dropright"></i></a>
