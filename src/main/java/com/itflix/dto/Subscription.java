@@ -8,19 +8,22 @@ public class Subscription {
 	private Date s_start;
 	private Date s_end;
 	private String s_cardName;
+	private String s_cardNumber;
 	private Ticket ticket;
 	private User_Info user_Info;
 	
 	public Subscription() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Subscription(int s_no, Date s_start, Date s_end, String s_cardName, Ticket ticket, User_Info user_Info) {
+	public Subscription(int s_no, Date s_start, Date s_end, String s_cardName, String s_cardNumber, Ticket ticket,
+			User_Info user_Info) {
 		super();
 		this.s_no = s_no;
 		this.s_start = s_start;
 		this.s_end = s_end;
 		this.s_cardName = s_cardName;
+		this.s_cardNumber = s_cardNumber;
 		this.ticket = ticket;
 		this.user_Info = user_Info;
 	}
@@ -57,6 +60,14 @@ public class Subscription {
 		this.s_cardName = s_cardName;
 	}
 
+	public String getS_cardNumber() {
+		return s_cardNumber;
+	}
+
+	public void setS_cardNumber(String s_cardNumber) {
+		this.s_cardNumber = s_cardNumber;
+	}
+
 	public Ticket getTicket() {
 		return ticket;
 	}
@@ -76,7 +87,7 @@ public class Subscription {
 	@Override
 	public String toString() {
 		return "Subscription [s_no=" + s_no + ", s_start=" + s_start + ", s_end=" + s_end + ", s_cardName=" + s_cardName
-				+ ", ticket=" + ticket + ", user_Info=" + user_Info + "]";
+				+ ", s_cardNumber=" + s_cardNumber + ", ticket=" + ticket + ", user_Info=" + user_Info + "]";
 	}
 	
 	
