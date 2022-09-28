@@ -116,49 +116,237 @@ update ticket set t_price=19800 where t_no=1;
 ------------------------------MOVIE SELECT-----------------------------------
 
 --전체 리스트
-select movie, avg(r.r_grade) as r_grade from movie m join Review r on m.m_no=r.m_no group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, 
-m.m_count, m.m_date, m.cg_no ORDER BY m.m_no ASC;
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image, 
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       avg(r.r_grade) as r_grade 
+from movie m 
+join Review r 
+on m.m_no=r.m_no 
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image, 
+         m.m_count,
+         m.m_date,
+         m.cg_no 
+ORDER BY m.m_no ASC;
 
 --영화 번호로 출력
-select m.*, avg(r.r_grade) as r_grade from movie m join Review r on m.m_no=r.m_no where m.m_no = 2 group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, 
-m.m_count, m.m_date, m.cg_no ORDER BY m.m_no ASC;
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image, 
+       m.m_count,
+       m.m_date,
+       m.cg_no ,
+       avg(r.r_grade) as r_grade 
+from movie m 
+join Review r 
+on m.m_no=r.m_no 
+where m.m_no = 1 
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image, 
+         m.m_count,
+         m.m_date,
+         m.cg_no 
+ORDER BY m.m_no ASC;
 
 --카테고리 번호로 출력
-select m.*, avg(r.r_grade) as r_grade from Movie m join Review r on m.m_no=r.m_no where m.cg_no = 1 group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, 
-m.m_count, m.m_date, m.cg_no ORDER BY m.m_no ASC;
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       avg(r.r_grade) as r_grade 
+from Movie m 
+join Review r 
+on m.m_no=r.m_no 
+where m.cg_no = 1 
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image,
+         m.m_count,
+         m.m_date,
+         m.cg_no 
+ORDER BY m.m_no ASC;
 
---영화 이름으로 출력 @@@@
-select * from movie where m_name='공조2';
+--영화 이름으로 출력
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       avg(r.r_grade) as r_grade 
+from movie m 
+left join review r 
+on r.m_no=m.m_no
+where m_name like '%후보%'
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image,
+         m.m_count,
+         m.m_date,
+         m.cg_no;
 
---영화 출연진으로 출력  @@@
-select * from movie where m_actor like '%임%';
+--영화 출연진으로 출력
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       avg(r.r_grade) as r_grade 
+from movie m 
+left join review r 
+on r.m_no=m.m_no
+where m_actor like '%라%'
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image,
+         m.m_count,
+         m.m_date,
+         m.cg_no;
 
---영화 개봉일 내림차순으로 검색 출력  @@@
-select * from movie order by m_date DESC;
+--영화 개봉일 내림차순으로 검색 출력
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       avg(r.r_grade) as r_grade 
+from movie m 
+left join review r 
+on r.m_no=m.m_no
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image,
+         m.m_count,
+         m.m_date,
+         m.cg_no
+order by m_date DESC;
 
---영화 개봉일 오름차순으로 검색 출력  @@
-select * from movie order by m_date ASC;
+--영화 개봉일 오름차순으로 검색 출력
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       avg(r.r_grade) as r_grade 
+from movie m 
+left join review r 
+on r.m_no=m.m_no
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image,
+         m.m_count,
+         m.m_date,
+         m.cg_no 
+order by m_date ASC;
 
---영화 정보 수정 @@- 희철이가 다시보기 @@
+--영화 정보 수정
 update movie 
-set m_name = '극장판 5등분의 신부',
-    m_date = sysdate+30 
+set m_name = 'test',
+	m_actor= 'a',
+	m_info = 'b',
+    m_date = sysdate,
+    m_url  = 'd',
+    cg_no  = '1'
 where m_no = 6;
 
+--영화 전체 클릭수 조회수
+select m_name,
+       m_count 
+from movie;
+
 -- 영화 클릭 조회수
+SELECT m_count FROM movie where m_no=1;
 
-
+-- 영화 클릭수 증가
+update movie set m_count = m_count+1 where m_no=1;
 
 --영화 삭제 (관리자)
 delete from movie where m_no = 6;
 
 --조회수 높은 순으로 출력
-select m.*, avg(r.r_grade) as r_grade from Movie m join Review r on m.m_no=r.m_no group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, 
-m.m_count, m.m_date, m.cg_no ORDER BY m_count DESC;
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no ,
+       avg(r.r_grade) as r_grade 
+from Movie m 
+join Review r 
+on m.m_no=r.m_no 
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image,
+         m.m_count,
+         m.m_date,
+         m.cg_no 
+ORDER BY m_count DESC;
 
 --평점 높은 순으로 출력
-select m.*, avg(r.r_grade) as r_grade from Movie m join Review r on m.m_no=r.m_no group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, 
-m.m_count, m.m_date, m.cg_no ORDER BY r_grade DESC;
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no, 
+       avg(r.r_grade) as r_grade 
+from Movie m 
+join Review r 
+on m.m_no=r.m_no 
+group by m.m_no,
+         m.m_name,
+         m.m_actor,
+         m.m_info,
+         m.m_image,
+         m.m_count,
+         m.m_date,
+         m.cg_no
+ORDER BY r_grade DESC;
 
 -- 리스트 페이지 시작,끝부분
 SELECT *
