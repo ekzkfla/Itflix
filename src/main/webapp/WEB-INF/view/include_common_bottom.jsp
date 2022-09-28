@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="flex-parent-ft">
 				<div class="flex-child-ft item1">
-					<a href="index.jsp"><img class="logo" src="images/logo1.png"
+					<a href="main"><img class="logo" src="images/logo1.png"
 						alt=""></a>
 				</div>
 				<div class="flex-child-ft item2">
@@ -28,7 +28,7 @@
 					<p>
 						Subscribe to our ITFLIX now <br>to get latest movie from us.
 					</p>
-					<a href="landing.jsp" class="btn">Subscribe now <i
+					<a href="landing" class="btn">Subscribe now <i
 						class="ion-ios-arrow-forward"></i></a>
 				</div>
 			</div>

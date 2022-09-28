@@ -110,13 +110,13 @@
 	</div>
 	<!--end of signup form popup-->
 	<div class="landing-hero">
-		<a href="index.jsp">
+		<a href="main">
 			<img src="images/logo1.png" alt="Logo">
 		</a>
 		<div class="row landing-hero-text">
 			<img src="images/payImage.png" alt="Logo">
 		</div>
-		<a href="landing2.jsp"  class="redbtn">BUY NOW</a>
+		<a href="landing2"  class="redbtn">BUY NOW</a>
 	</div>
 
 	<!-- footer v3 section-->
