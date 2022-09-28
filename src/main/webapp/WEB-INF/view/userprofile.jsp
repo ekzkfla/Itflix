@@ -25,7 +25,7 @@
 <script type="text/javascript">
 	
 	function userModify(){
-		document.user.action = "userModify.jsp";
+		document.user.action = "userModify";
 		document.user.submit();
 	}
 </script>
@@ -127,7 +127,7 @@
 					<div class="hero-ct">
 						<h1 align="center">회원의 상세페이지</h1>
 						<ul class="breadcumb">
-							<li class="active"><a href="index.jsp">Home</a></li>
+							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Profile</li>
 						</ul>
 					</div>
@@ -147,9 +147,9 @@
 						<div class="user-fav">
 							<p>상세페이지</p>
 							<ul>
-								<li class="active"><a href="userprofile.jsp">프로필 수정</a></li>
-								<li><a href="userfavoritegrid.jsp">찜한 영화</a></li>
-								<li><a href="userrate.jsp">선호하는 카테고리 영화<br><br></a></li>
+								<li class="active"><a href="userprofile">프로필 수정</a></li>
+								<li><a href="userfavoritegrid">찜한 영화</a></li>
+								<li><a href="userrate">선호하는 카테고리 영화<br><br></a></li>
 								
 								<li><a href="#">로그아웃</a></li>
 							</ul>
