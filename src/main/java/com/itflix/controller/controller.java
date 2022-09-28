@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class controller {
 	public controller() {
-		System.out.println("기본!!");
+		System.out.println("기본!!!");
 	}
 	//ItFlix 메인페이지
 	@RequestMapping(value = "main")
