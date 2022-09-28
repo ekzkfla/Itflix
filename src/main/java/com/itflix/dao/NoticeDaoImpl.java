@@ -1,5 +1,5 @@
 package com.itflix.dao;
 
-public class TestDao {
+public class NoticeDaoImpl {
 
 }
