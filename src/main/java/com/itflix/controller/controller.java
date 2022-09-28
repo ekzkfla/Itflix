@@ -23,6 +23,7 @@ public class controller {
 		
 		return forwardPath;
 	}
+	
 
 	
 	//영화 detail 페이지
@@ -71,9 +72,23 @@ public class controller {
 	}
 
 	
-	//회원 
-
-
+	//회원 찜 영화 페이지
+	@RequestMapping(value = "userfavoritegrid")
+	public String userfavoritegrid() {
+		String forwardPath="";
+		forwardPath = "userfavoritegrid";
+		
+		return forwardPath;
+	}
+	
+	//회원 선호 영화 페이지 
+	@RequestMapping(value = "userrate")
+	public String userrate() {
+		String forwardPath="";
+		forwardPath = "userrate";
+		
+		return forwardPath;
+	}
 
 
 

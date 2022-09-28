@@ -121,7 +121,7 @@
 					<div class="hero-ct">
 						<h1>Edward kennedy’s profile</h1>
 						<ul class="breadcumb">
-							<li class="active"><a href="index.jsp">Home</a></li>
+							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Rated movies</li>
 						</ul>
 					</div>
@@ -141,9 +141,9 @@
 						<div class="user-fav">
 							<p>상세페이지</p>
 							<ul>
-								<li class="active"><a href="userprofile.jsp">프로필 수정</a></li>
-								<li><a href="userfavoritegrid.jsp">찜한 영화</a></li>
-								<li><a href="userrate.jsp">선호하는 카테고리 영화<br><br></a></li>
+								<li class="active"><a href="userprofile">프로필 수정</a></li>
+								<li><a href="userfavoritegrid">찜한 영화</a></li>
+								<li><a href="userrate">선호하는 카테고리 영화<br><br></a></li>
 								
 								<li><a href="#">로그아웃</a></li>
 							</ul>
@@ -166,7 +166,7 @@
 						<img src="images/uploads/mv1.jpg" alt="">
 						<div class="mv-item-infor">
 							<h6>
-								<a href="moviesingle.jsp">oblivion <span>(2012)</span></a>
+								<a href="moviesingle">oblivion <span>(2012)</span></a>
 							</h6>
 							<p class="time sm-text">your rate:</p>
 							<p class="rate">
@@ -192,7 +192,7 @@
 						<img src="images/uploads/mv2.jpg" alt="">
 						<div class="mv-item-infor">
 							<h6>
-								<a href="moviesingle.jsp">into the wild <span>(2014)</span></a>
+								<a href="moviesingle">into the wild <span>(2014)</span></a>
 							</h6>
 							<p class="time sm-text">your rate:</p>
 							<p class="rate">
@@ -204,7 +204,7 @@
 						<img src="images/uploads/mv3.jpg" alt="">
 						<div class="mv-item-infor">
 							<h6>
-								<a href="moviesingle.jsp">blade runner<span>(2015)</span></a>
+								<a href="moviesingle">blade runner<span>(2015)</span></a>
 							</h6>
 							<p class="time sm-text">your rate:</p>
 							<p class="rate">
@@ -232,7 +232,7 @@
 							<option value="saab">10 Movies</option></select>
 						<div class="pagination2">
 							<span>Page 1 of 1:</span><a class="active" href="#">1</a><a
-								href="moviesingle.jsp"><i class="ion-arrow-right-b"></i></a>
+								href="moviesingle"><i class="ion-arrow-right-b"></i></a>
 						</div>
 					</div>
 				</div>
