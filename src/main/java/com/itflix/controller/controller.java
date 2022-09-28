@@ -91,8 +91,23 @@ public class controller {
 	}
 
 
-
-
+	//구독권 안내 페이지 
+	@RequestMapping(value ="landing" )
+	public String landing() {
+		String forwardPath="";
+		forwardPath = "landing";
+		
+		return forwardPath;
+	}
+	
+	//구독권 결제 페이지 
+		@RequestMapping(value ="landing2" )
+		public String landing2() {
+			String forwardPath="";
+			forwardPath = "landing2";
+			
+			return forwardPath;
+		}
 
 
 
