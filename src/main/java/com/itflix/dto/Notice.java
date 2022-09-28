@@ -8,7 +8,7 @@ public class Notice {
 	private Date n_date;	
 	private String n_title;	
 	private String n_content;
-	private int n_gropno;
+	private int n_groupno;
 	private int n_step;
 	private int n_depth;
 	
@@ -16,13 +16,13 @@ public class Notice {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Notice(int n_no, Date n_date, String n_title, String n_content, int n_gropno, int n_step, int n_depth) {
+	public Notice(int n_no, Date n_date, String n_title, String n_content, int n_groupno, int n_step, int n_depth) {
 		super();
 		this.n_no = n_no;
 		this.n_date = n_date;
 		this.n_title = n_title;
 		this.n_content = n_content;
-		this.n_gropno = n_gropno;
+		this.n_groupno = n_groupno;
 		this.n_step = n_step;
 		this.n_depth = n_depth;
 	}
@@ -59,12 +59,12 @@ public class Notice {
 		this.n_content = n_content;
 	}
 
-	public int getN_gropno() {
-		return n_gropno;
+	public int getN_groupno() {
+		return n_groupno;
 	}
 
-	public void setN_gropno(int n_gropno) {
-		this.n_gropno = n_gropno;
+	public void setN_groupno(int n_groupno) {
+		this.n_groupno = n_groupno;
 	}
 
 	public int getN_step() {
@@ -86,7 +86,7 @@ public class Notice {
 	@Override
 	public String toString() {
 		return "Notice [n_no=" + n_no + ", n_date=" + n_date + ", n_title=" + n_title + ", n_content=" + n_content
-				+ ", n_gropno=" + n_gropno + ", n_step=" + n_step + ", n_depth=" + n_depth + "]";
+				+ ", n_groupno=" + n_groupno + ", n_step=" + n_step + ", n_depth=" + n_depth + "]";
 	}
 	
 	
