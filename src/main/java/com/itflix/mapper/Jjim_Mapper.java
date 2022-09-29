@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import com.itflix.dto.Jjim;
 
 @Mapper
-public interface JJim_Mapper {
+public interface Jjim_Mapper {
 	
 	/* 1명 회원 영화 찜 목록보기 */
 	@Select("select m.m_no,"
