@@ -14,10 +14,20 @@ public class NoticeServiceImpl implements NoticeService{
 	@Autowired
 	private NoticeDao noticeDao;
 	
-	public NoticeServiceImpl() {
+	public NoticeServiceImpl() throws Exception{
 
 	}
 	
+	public NoticeDao getNoticeDao() {
+		return noticeDao;
+	}
+
+
+	public void setNoticeDao(NoticeDao noticeDao) {
+		this.noticeDao = noticeDao;
+	}
+
+
 	//공지사항 전체 출력
 	@Override
 	public List<Notice> selectAll() throws Exception {
