@@ -1,34 +1,29 @@
 package com.itflix.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.itflix.dto.Review;
+import com.itflix.dto.User_Info;
 
 public interface ReviewService {
-	
-	//리뷰 전체리스트 출력
+
+	// 리뷰 전체 출력
 	List<Review> selectAll() throws Exception;
-	//리뷰 번호를 이용한 선택 출력
-	
-	//리뷰 수정
-	
-	//리뷰 삭제
-	
-	//회원 아이디로 리뷰보이기
-	
-	//리뷰 추가
-	
-	//최신 리뷰
-	
-	//리뷰 찾기
-	
 
-	
+	// 최신 리뷰 출력
+	List<Review> selectLatest() throws Exception;
 
-	
+	// 선택한 리뷰출력
+	Review selectByNo(int no) throws Exception;
 
-	
-	
-	
-	
+	// 리뷰 추가
+	int insertReview(Review review) throws Exception;
+
+	// 리뷰 수정
+	int updateReview(Review review) throws Exception;
+
+	// 리뷰 삭제
+	int deleteReview(int no) throws Exception;
+
 }
