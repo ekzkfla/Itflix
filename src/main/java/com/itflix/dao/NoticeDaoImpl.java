@@ -13,15 +13,21 @@ import com.itflix.mapper.Notice_Mapper;
 
 @Repository
 public class NoticeDaoImpl implements NoticeDao{
-	private Notice_Mapper notice_Mapper;
 	
 	@Autowired
+	private Notice_Mapper notice_Mapper;
+	
 	public NoticeDaoImpl() {
 	}
 	
 	public NoticeDaoImpl(Notice_Mapper notice_Mapper) {
 		this.notice_Mapper = notice_Mapper;
 	}
+	public void setNotice_Mapper(Notice_Mapper notice_Mapper) {
+		this.notice_Mapper = notice_Mapper;
+	}
+
+	
 	
 	//공지사항 전체 출력
 	@Override

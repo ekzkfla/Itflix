@@ -14,10 +14,19 @@ public class CategoryServiceImpl implements CategoryService{
 	@Autowired
 	private CategoryDao categoryDao;
 	
-	public CategoryServiceImpl() {
+	public CategoryServiceImpl() throws Exception{
 		
 	}
 	
+	public CategoryDao getCategoryDao() {
+		return categoryDao;
+	}
+
+
+	public void setCategoryDao(CategoryDao categoryDao) {
+		this.categoryDao = categoryDao;
+	}
+
 	//카테고리 번호를 이용한 해당 영화 리스트 출력
 	@Override
 	public List<Category> selectByNoMovieList(int no) throws Exception{
