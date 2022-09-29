@@ -1,10 +1,21 @@
 package com.itflix.mapper;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import com.itflix.dto.Ticket;
 
 @Mapper
 public interface Ticket_Mapper {
+	
+	@Select("select * from ticket")
+	public List<Ticket> selectAll();
+	
+	
+	
 	/*
 	 * 메쏘드이름은 	GuestMapper.xml 파일의 id와일치
 	 * 메쏘드인자타입은 GuestMapper.xml 파일의 parameterType 와일치
