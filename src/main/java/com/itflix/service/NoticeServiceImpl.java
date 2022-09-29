@@ -1,5 +1,20 @@
 package com.itflix.service;
 
-public class NoticeServiceImpl {
+import java.util.List;
 
+import com.itflix.dao.NoticeDao;
+import com.itflix.dto.Notice;
+
+public class NoticeServiceImpl implements NoticeDao{
+	
+	private NoticeDao noticeDao;
+	
+	public NoticeServiceImpl() {
+
+	}
+	
+	public List<Notice> selectAll(){
+		return null;
+	}
+	
 }
