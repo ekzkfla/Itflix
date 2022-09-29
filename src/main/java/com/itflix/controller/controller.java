@@ -1,10 +1,22 @@
 package com.itflix.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itflix.dto.Notice;
+import com.itflix.service.NoticeService;
+
 @Controller
 public class controller {
+	
+	@Autowired
+	private NoticeService noticeService;
+	
 	public controller() {
 		System.out.println("기본!!!");
 	}
@@ -37,10 +49,19 @@ public class controller {
 	
 	//공지사항 페이지
 	@RequestMapping(value = "bloglist")
-	public String bloglist() {
+	public String bloglist(HttpServletRequest request) {
 		String forwardPath="";
-		forwardPath = "bloglist";
 		
+		try {
+			List<Notice> noticeList = noticeService.selectAll();
+			request.setAttribute("noticeList", noticeList);
+			forwardPath = "bloglist";
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("error", e.getMessage());
+			forwardPath= "404";
+			}
 		return forwardPath;
 	}
 	
