@@ -1,5 +1,5 @@
 package com.itflix.dao;
 
-public class JjimDaoImpl {
+public class JjimDaoImpl implements JjimDao {
 
 }

@@ -1,31 +1,23 @@
 package com.itflix.mapper;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+
+import com.itflix.dto.Jjim;
+import com.itflix.dto.User_Info;
 
 @Mapper
 public interface JJim_Mapper {
-	/*
-	 * 메쏘드이름은 	GuestMapper.xml 파일의 id와일치
-	 * 메쏘드인자타입은 GuestMapper.xml 파일의 parameterType 와일치
-	 * 메쏘드리턴타입은 GuestMapper.xml 파일의 resultType 와일치
-	 */
-	/*
-	<select id="selectByNo" resultType="com.itwill.guest.Guest" 
-	parameterType="_int">
-		select * from guest where guest_no=#{guest_no}
-	</select>
-	 */
-	public JJim_Mapper selectByNo(int no);
-	/*
-	<select id="selectAll" resultType="com.itwill.guest.Guest">
-		select * from guest
-	</select>
-	 */
-	/*
-	public List<user_info> selectAll();
-	public int insertGuest(user_info guest);
-	public int deleteGuest(int guest_no);
-	public int updateGuest(Guest guest);
-	*/
+	
+	/* 1명 회원 영화 찜 목록보기 */
+	public List<Jjim> jjimList(User_Info user_info);
+		
+	/* 영화 찜하기*/
+	public int jjimInsert(Jjim jjim);
+	
+	/* 영화 찜하기 해제*/
+	public int jjimDelete(Jjim jjim);
+
 }

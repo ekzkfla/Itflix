@@ -1,5 +1,5 @@
 package com.itflix.dao;
 
-public class MovieDaoImpl {
+public class MovieDaoImpl implements MovieDao {
 
 }
