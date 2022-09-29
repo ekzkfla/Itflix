@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper 
 namespace="com.itwill.guest.mapper.GuestMapper">
-	<select id="selectAll" resultType="com.itwill.guest.Guest">
+	<!-- <select id="selectAll" resultType="com.itwill.guest.Guest">
 		SELECT * FROM GUEST ORDER BY GUEST_NO DESC
 	</select>
 	<select id="selectByNo" 
@@ -31,5 +31,5 @@ namespace="com.itwill.guest.mapper.GuestMapper">
 		                  guest_content=#{guest_content} 
 		where guest_no = #{guest_no}
 	</update>
-	
+	 -->
 </mapper>
