@@ -13,7 +13,7 @@ import com.itflix.dto.Category;
 import com.itflix.dto.Notice;
 
 @Mapper
-public interface notice_Mapper {
+public interface Notice_Mapper {
 	
 	//공지사항 전체 출력
 	@Select("select * from notice")
@@ -32,7 +32,7 @@ public interface notice_Mapper {
 	public Notice selectByTitle(String n_title);
 	
 	
-	/**************구현 미정**************
+	/**************구현 미정**************/
 	//공지사항 추가 
 	@Insert("insert into notice (n_no,n_date,n_title,n_content,n_groupno,n_step,n_depth)values(NOTICE_N_NO_SEQ.nextval,#{n_date},#{n_title},#{n_content},#{n_groupno},#{n_step},#{n_depth})")
 	public int insertNotice(Notice notice);
@@ -44,7 +44,7 @@ public interface notice_Mapper {
 	//공지사항 삭제 
 	@Delete("delete from notice where n_no= #{n_no}")
 	public int deleteNotice(int n_no);
-	**************구현 미정**************/
+	/**************구현 미정**************/
 	
 	
 	
