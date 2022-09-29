@@ -1,15 +1,15 @@
-package com.itflix.service;
+package com.itflix.dao;
 
 import java.util.List;
 
 import com.itflix.dto.User_Info;
 
 
-public interface User_InfoService {
+public interface User_InfoDao {
 	
 	// 회원 추가.
-	int insertUser_Info(User_Info user_info) throws Exception;
-
+	int insertUser_Info(User_Info User_info) throws Exception;
+	
 	// 이메일이랑 이름으로 비번 찾기.
 	User_Info selectByEmailAndName(String u_email, String u_name) throws Exception;
 	
@@ -18,12 +18,12 @@ public interface User_InfoService {
 	
 	// 이메일로 회원 찾기.
 	User_Info selectByEmail(String u_email) throws Exception;
-
+	
 	// 전체 회원 찾기.
-	List<User_Info> selectAll() throws Exception;
-
+	List<User_Info> user_InfoSelectAll() throws Exception;
+	
 	// 회원 수정.
-	int updateUser_Info(User_Info user_Info) throws Exception;
+	int updateUser_Info(User_Info guest) throws Exception;
 
 	// 회원 탈퇴.
 	int deleteUser_Info(String u_email) throws Exception;
