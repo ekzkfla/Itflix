@@ -3,23 +3,24 @@ package com.itflix.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.itflix.dto.Jjim;
-import com.itflix.dto.User_Info;
 
 @Mapper
 public interface JJim_Mapper {
 	
 	/* 1명 회원 영화 찜 목록보기 */
 	@Select("select m.m_no,"
-			+ "       m.cg_no,"
-			+ "       m.m_name,"
-			+ "       m.m_image,"
-			+ "       m.m_date,"
-			+ "       m.m_count,"
-			+ "       avg(r.r_grade)"
+			+ "     m.cg_no,"
+			+ "     m.m_name,"
+			+ "     m.m_image,"
+			+ "     m.m_date,"
+			+ "     m.m_count,"
+			+ "     avg(r.r_grade)"
 			+ "from movie m"
 			+ "left join review"
 			+ "on m.m_no=r.m_no"
@@ -34,20 +35,17 @@ public interface JJim_Mapper {
 	public List<Jjim> jjimList(Jjim jjim);
 		
 	/* 영화 찜하기*/
-	//@insert("insert into jjim VALUES(#{u_email},#{m_mo})")
+	@Insert("insert into jjim "
+			+ "VALUES(#{j_groupno},"
+			+ "	      #{j_step},"
+			+ "		  #{j_depth}"
+			+ "       #{u_email},"
+			+ "       #{m_no})")
 	public int jjimInsert(Jjim jjim);
 	
-	
 	/* 영화 찜하기 해제*/
+	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
 	public int jjimDelete(Jjim jjim);
-
-
-		
-	/* 영화 찜하기 해제 (나중에 볼 영화 삭제 기능)
-	   - SQL문 컬럼순서 -> U_EMAIL , M_NO */
-	public static final String JJIM_DELETE=
-			"delete from jjim where u_email=? and m_no=?";
-
 
 	
 }

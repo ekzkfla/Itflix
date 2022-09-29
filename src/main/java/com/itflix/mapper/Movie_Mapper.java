@@ -54,7 +54,7 @@ public interface Movie_Mapper {
 				+ "where m_name LIKE '%'||#{m.m_name}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC;")
-		public Movie selectMovieName(int m_name);
+		public Movie selectMovieName(String m_name);
 		
 		//영화 출연진 이름으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
@@ -65,7 +65,7 @@ public interface Movie_Mapper {
 				+ "where m_name LIKE '%'||#{m.m_actor}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC;")
-		public Movie selectMovieActor(int m_actor);
+		public Movie selectMovieActor(String m_actor);
 		
 		//조회수 높은 순으로 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
@@ -108,7 +108,7 @@ public interface Movie_Mapper {
 		
 		//영화 클릭수 증가 
 		@Update("update Movie set m_count = m_count+1 where m_no = #{m_no}")	
-		public int movieCountPlus(int m_no);
+		public Movie movieCountPlus(int m_no);
 		
 		//영화 추가 
 		@Insert("insert into Movie values(#{m_no}, #{m_name}, #{m_actor}, #{m_info}, #{m_image},\n"

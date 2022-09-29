@@ -19,15 +19,22 @@ public class ReviewServiceImpl implements ReviewService {
 	public ReviewServiceImpl() {
 		System.out.println("R_Serviceimpl test");
 	}
+
 	public ReviewServiceImpl(ReviewDao reviewDao) {
 		System.out.println("R_ServiceImpl test2");
 		this.reviewDao = reviewDao;
 	}
-	
+
 	// 리뷰 전체 출력
 	@Override
 	public List<Review> selectAll() throws Exception {
 		return reviewDao.selectAll();
+	}
+
+	// 본인 리뷰 보기(회원아이디 리뷰 보기)
+	@Override
+	public List<Review> selectWroteReview() throws Exception {
+		return reviewDao.selectWroteReview();
 	}
 
 	// 최신 리뷰 출력
