@@ -232,7 +232,7 @@ group by m.m_no,
          m.m_date,
          m.cg_no;
 
---영화 개봉일 내림차순으로 검색 출력
+--영화 개봉일 최신순으로 검색 출력
 select m.m_no,
        m.m_name,
        m.m_actor,
@@ -255,7 +255,7 @@ group by m.m_no,
          m.cg_no
 order by m_date DESC;
 
---영화 개봉일 오름차순으로 검색 출력
+--영화 개봉일 오래된 순으로 검색 출력
 select m.m_no,
        m.m_name,
        m.m_actor,
@@ -293,7 +293,7 @@ select m_name,
        m_count 
 from movie;
 
--- 영화 클릭 조회수
+-- 영화 조회수
 SELECT m_count FROM movie where m_no=1;
 
 -- 영화 클릭수 증가
