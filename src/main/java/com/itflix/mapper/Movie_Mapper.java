@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
 import com.itflix.dto.Movie;
 
 @Mapper
-public interface movie_Mapper {
+public interface Movie_Mapper {
 		//영화 리스트 전체 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
@@ -45,7 +45,7 @@ public interface movie_Mapper {
 				+ "ORDER BY m.m_no ASC;")
 		public Movie selectCategoryNo(int cg_no);
 		
-		//영화 이름으로 검색
+		//영화 제목으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
@@ -56,7 +56,7 @@ public interface movie_Mapper {
 				+ "ORDER BY m.m_no ASC;")
 		public Movie selectMovieName(int m_name);
 		
-		//영화 출연진으로 검색
+		//영화 출연진 이름으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
@@ -108,7 +108,7 @@ public interface movie_Mapper {
 		
 		//영화 클릭수 증가 
 		@Update("update Movie set m_count = m_count+1 where m_no = #{m_no}")	
-		public int updateMovie(int m_no);
+		public int movieCountPlus(int m_no);
 		
 		//영화 추가 
 		@Insert("insert into Movie values(#{m_no}, #{m_name}, #{m_actor}, #{m_info}, #{m_image},\n"

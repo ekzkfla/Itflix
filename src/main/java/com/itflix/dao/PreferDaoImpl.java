@@ -1,5 +1,5 @@
 package com.itflix.dao;
 
-public class PreferDaoImpl {
+public class PreferDaoImpl implements PreferDao {
 
 }
