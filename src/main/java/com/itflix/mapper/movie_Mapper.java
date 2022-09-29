@@ -102,12 +102,7 @@ public interface movie_Mapper {
 				+ "m_date = #{m_date}, m_url = #{m_url}, cg_no = #{cg_no} where m_no = #{m_no}")	
 		public int updateMovie(Movie movie);
 		
-		
-		//영화 전체 조회수 출력 
-		@Select("select m_name, m_count from Movie")
-		public Movie selectMovieCount(Movie movie);
-		
-		//영화 번호로 조회수 출력 
+		//영화 번호로 조회수 출력
 		@Select("select m_count from Movie where m_no = #{m_no}")
 		public Movie selectMovieCountByNo(int m_no);
 		
@@ -123,9 +118,6 @@ public interface movie_Mapper {
 		//영화 삭제
 		@Delete("delete from Movie where m_no = #{m_no} ")
 		public int deleteMovie(int m_no);
-		
-		
-		
 		
 	//public movie_Mapper selectByNo(int no);
 	/*

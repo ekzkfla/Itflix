@@ -288,12 +288,12 @@ set m_name = 'test',
     cg_no  = '1'
 where m_no = 6;
 
---영화 전체 클릭수 조회수
+--영화 전체 조회수 출력
 select m_name,
        m_count 
 from movie;
 
--- 영화 조회수
+-- 영화 번호로 조회수 출력
 SELECT m_count FROM movie where m_no=1;
 
 -- 영화 클릭수 증가
