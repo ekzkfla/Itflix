@@ -104,17 +104,14 @@ WHERE idx >= 1 AND idx <= 5;
 
 ------------------------------TICKET SELECT-----------------------------------
 
--- 티켓 상품 보기(select)(관리자전용) --
+-- 티켓 상품 보기(select)--
 select * from ticket;
-
---x티켓 상품중 구독권 찾기 
-select * from ticket where t_no=1;
 
 -- 티켓 가격 수정(관리자전용) -- 
 update ticket set t_price=19800 where t_no=1;
 
 ----티켓(구독권) 삭제 (관리자전용)--
---delete from ticket where t_no=1;
+delete from ticket where t_no=1;
 
 ------------------------------MOVIE SELECT-----------------------------------
 
