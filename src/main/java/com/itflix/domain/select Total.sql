@@ -361,18 +361,8 @@ WHERE idx >= 1 AND idx <= 20;
 -- 찜 전체조회
 select * from jjim;
 
--- 회원 찜 조회(select email) --
-select m.m_no,
-       m.m_name,
-       m.m_image,
-       m.m_link,
-       m.m_date,
-       m.m_count
-from jjim j join movie m 
-on j.m_no = m.m_no 
-where j.u_email='guard5@gmail.com';
-
-
+-- 회원 찜 삭제(delete) --
+delete from jjim where u_email='guard5@gmail.com' and m_no=3;
 
 -- 회원별 찜저장목록 출력화면 sql문 (찜,무비,리뷰 테이블 그룹화 및 조인) --
 -- (출력: 영화등록번호,영화장르,영화이름,영화이미지,영화개봉일,영화클릭수,리뷰평균평점(null 포함)) -- 
