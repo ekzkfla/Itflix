@@ -18,7 +18,7 @@ public class ReviewDaoImpl implements ReviewDao {
 		System.out.println("R_DaoImpl test3");
 	}
 
-	public ReviewDaoImpl(Review_Mapper review_Mapper) throws Exception {
+	public ReviewDaoImpl(Review_Mapper review_Mapper) {
 		System.out.println("R_DaoImpl test4");
 		this.review_Mapper = review_Mapper;
 	}
@@ -32,7 +32,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	public List<Review> selectAll() throws Exception {
 		List<Review> ReviewList = review_Mapper.selectAll();
 		return ReviewList;
-	};
+	}
 
 	// 본인 리뷰 보기(회원아이디 리뷰 보기)
 	@Override

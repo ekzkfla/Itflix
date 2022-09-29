@@ -27,44 +27,32 @@ public class TicketDaoImpl implements TicketDao {
 		this.ticket_Mapper = ticket_Mapper;
 	}
 
-	@Override
-	public int insertTicket(Ticket ticket) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int updateTicket(Ticket ticket) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int deleteTicket(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	// 상품 보기
 	@Override
 	public List<Ticket> selectAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Ticket> TicketList = ticket_Mapper.selectAll();
+		return TicketList;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	// 추가
+	@Override
+	public int insertTicket(Ticket ticket) throws Exception {
+		int insertTicket = ticket_Mapper.insertTicket(ticket);
+		return insertTicket;
+	}
+
+	// 수정
+	@Override
+	public int updateTicket(Ticket ticket) throws Exception {
+		int updateTicket = ticket_Mapper.updateTicket(ticket);
+		return updateTicket;
+	}
+
+	// 삭제
+	@Override
+	public int deleteTicket(int no) throws Exception {
+		int deleteTicket = ticket_Mapper.deleteTicket(no);
+		return deleteTicket;
+	}
+
 }
