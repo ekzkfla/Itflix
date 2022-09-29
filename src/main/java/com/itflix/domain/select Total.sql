@@ -370,10 +370,9 @@ select m.m_no,
        m.cg_no,       
        m.m_name,
        m.m_image,
-       m.m_link,
        m.m_date,
        m.m_count,
-       avg(r.r_grade)"총평점" 
+       avg(r.r_grade) 
 from movie m 
 left join review r
 on m.m_no=r.m_no
@@ -384,7 +383,6 @@ group by m.m_no,
          m.cg_no,      
          m.m_name,
          m.m_image,
-         m.m_link,
          m.m_date,
          m.m_count;
 
