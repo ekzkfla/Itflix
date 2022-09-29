@@ -1,5 +1,5 @@
 package com.itflix.service;
 
-public class CategoryService {
+public interface CategoryService {
 
 }

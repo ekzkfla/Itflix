@@ -429,11 +429,20 @@ select c.cg_name,
        m.m_name,
        m.m_actor,
        m.m_info,
-       m.m_date
+       m.m_date,
+       avg(r.r_grade) "총평점"
 from movie m
 join category c
 on m.cg_no=c.cg_no
-where m.cg_no=1;
+join review r 
+on m.m_no =r.m_no
+where m.cg_no=1
+group by c.cg_name,
+       m.m_image,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_date;
 
 ------------------------------REVIEW SELECT-----------------------------------
 
