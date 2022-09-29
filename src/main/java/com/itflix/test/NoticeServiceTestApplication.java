@@ -31,9 +31,9 @@ public class NoticeServiceTestApplication {
 				new SpringApplication(NoticeServiceTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		NoticeService noticeService = context.getBean(NoticeService.class);
-		 System.out.println(noticeService);
-		 System.out.println(noticeService.selectAll());
-		 System.out.println(noticeService.selectByNo(1));
+		CategoryDao categoryDao = context.getBean(CategoryDao.class);
+		 System.out.println(categoryDao);
+		 System.out.println(categoryDao.selectAll());
+		 System.out.println(categoryDao.selectByNoMovieList(1));
 	}
 }
