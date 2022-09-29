@@ -32,6 +32,6 @@ public interface MovieDao {
 		//영화 변경
 		int updateMovie(Movie movie)throws Exception;
 		//영화 삭제
-		int deleteMovie(Movie movie)throws Exception;
+		int deleteMovie(int no)throws Exception;
 		
 }

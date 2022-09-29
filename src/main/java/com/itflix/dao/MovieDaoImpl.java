@@ -25,83 +25,95 @@ public class MovieDaoImpl implements MovieDao {
 		this.movie_Mapper = movie_Mapper;
 	}
 	
-	
+	//영화 리스트 전체 출력
 	@Override
 	public List<Movie> selectAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Movie> movieList= movie_Mapper.selectAll();
+		return movieList;
 	}
-
+	
+	//영화 번호로 출력
 	@Override
-	public Movie selectByNo(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Movie selectByNo(int m_no) throws Exception {
+		Movie movie = movie_Mapper.selectByNo(m_no); 
+		return movie;
 	}
-
+	
+	//카테고리 번호로 출력
 	@Override
-	public Movie selectCategoryNo(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Movie selectCategoryNo(int cg_no) throws Exception {
+		Movie movie = movie_Mapper.selectCategoryNo(cg_no); 
+		return movie;
 	}
 
+	//영화 제목으로 검색
 	@Override
-	public Movie selectMovieName(String name) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Movie selectMovieName(String m_name) throws Exception {
+		Movie movie = movie_Mapper.selectMovieName(m_name); 
+		return movie;
 	}
 
+	//영화 출연진 이름으로 검색
 	@Override
-	public Movie selectMovieActor(String name) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Movie selectMovieActor(String m_actor) throws Exception {
+		Movie movie = movie_Mapper.selectMovieActor(m_actor); 
+		return movie;
 	}
 
+	//조회수 높은 순으로 출력
 	@Override
 	public List<Movie> selectMovieCount() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Movie> movieList = movie_Mapper.selectMovieCount();
+		return movieList;
 	}
 
+	//영화 개봉일 최신순으로 출력
 	@Override
 	public List<Movie> selectMovieNewDate() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Movie> movieList = movie_Mapper.selectMovieNewDate();
+		return movieList;
 	}
 
+	//영화 개봉일 오래된 순으로 출력
 	@Override
 	public List<Movie> selectMovieOldDate() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Movie> movieList = movie_Mapper.selectMovieOldDate();
+		return movieList;
 	}
 
+	//영화 번호로 조회수 출력
 	@Override
-	public Movie selectMovieCountByNo(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Movie selectMovieCountByNo(int m_no) throws Exception {
+		Movie movie = movie_Mapper.selectMovieCountByNo(m_no); 
+		return movie;
 	}
 
+	//영화 클릭수 증가
 	@Override
-	public Movie movieCountPlus(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Movie movieCountPlus(int m_no) throws Exception {
+		Movie movie = movie_Mapper.movieCountPlus(m_no); 
+		return movie;
 	}
 
+	//영화 추가
 	@Override
 	public int insertMovie(Movie movie) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int insertMovie = movie_Mapper.insertMovie(movie);
+		return insertMovie;
 	}
 
+	//영화 변경
 	@Override
 	public int updateMovie(Movie movie) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int updateMovie = movie_Mapper.updateMovie(movie);
+		return updateMovie;
 	}
 
+	//영화 삭제
 	@Override
-	public int deleteMovie(Movie movie) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteMovie(int m_no) throws Exception {
+		int deleteMovie = movie_Mapper.deleteMovie(m_no);
+		return deleteMovie;
 	}
 
 }
