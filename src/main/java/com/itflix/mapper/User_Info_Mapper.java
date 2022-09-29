@@ -1,31 +1,43 @@
 package com.itflix.mapper;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import com.itflix.dto.User_Info;
 
 @Mapper
 public interface User_Info_Mapper {
-	/*
-	 * 메쏘드이름은		User_InfoMapper.xml 파일의 id와일치
-	 * 메쏘드인자타입은 	User_InfoMapper.xml 파일의 parameterType 와일치
-	 * 메쏘드리턴타입은	User_InfoMapper.xml 파일의 resultType 와일치
-	 */
-	/*
-	<select id="selectByNo" resultType="com.itwill.guest.Guest" 
-	parameterType="_int">
-		select * from guest where guest_no=#{guest_no}
-	</select>
-	 */
-	public User_Info_Mapper selectByNo(int no);
-	/*
-	<select id="selectAll" resultType="com.itwill.guest.Guest">
-		select * from guest
-	</select>
-	 */
-	/*
-	public List<user_info> selectAll();
-	public int insertGuest(user_info guest);
-	public int deleteGuest(int guest_no);
-	public int updateGuest(Guest guest);
-	*/
+	
+	// 회원 추가.
+	@Select("insert into User_Info values(#{u_email},#{u_pass},#{u_name},#{u_phone})")
+	public int insertUser_Info(User_Info user_Info);
+	
+	// 이메일이랑 이름으로 비번 찾기.
+	@Select("select u_pass from user_info where u_email = #{u_email} and u_name = #{u_name}")
+	public User_Info selectByEmailAndName(String u_email, String u_name);
+	
+	// 이름이랑 폰번호로 이메일 찾기.
+	@Select("select u_email from user_info where u_name = #{u_name} and u_phone = #{u_phone}")
+	public User_Info selectByNameAndPhone(String u_name, String u_phone);
+	
+	// 이메일로 회원 찾기.
+	@Select("select * from user_info where u_email = #{u_email}")
+	public User_Info selectByEmail(String u_email);
+	
+	// 전체 회원 찾기.
+	@Select("SELECT * FROM USER_INFO ORDER BY U_EMAIL DESC")
+	public List<User_Info> selectAll();
+	
+	// 회원 수정.
+	@Select("update user_info set u_pass = #{u_pass}, u_name = #{u_name}, u_phone = #{u_phone}, where u_email = #{u_email}")
+	public int updateUser_Info(User_Info user_Info);
+	
+	// 회원 탈퇴.
+	@Select("delete from user_info where u_email = #{u_email}")
+	public int deleteUser_Info(String u_email);
+	
+
 }
