@@ -4,7 +4,7 @@ package com.itflix.mapper;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface user_Info_Mapper {
+public interface Subscription_Mapper {
 	/*
 	 * 메쏘드이름은 	GuestMapper.xml 파일의 id와일치
 	 * 메쏘드인자타입은 GuestMapper.xml 파일의 parameterType 와일치
@@ -16,7 +16,7 @@ public interface user_Info_Mapper {
 		select * from guest where guest_no=#{guest_no}
 	</select>
 	 */
-	public user_Info_Mapper selectByNo(int no);
+	public Subscription_Mapper selectByNo(int no);
 	/*
 	<select id="selectAll" resultType="com.itwill.guest.Guest">
 		select * from guest
