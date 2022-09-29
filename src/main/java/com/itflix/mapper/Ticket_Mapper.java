@@ -1,42 +1,27 @@
 package com.itflix.mapper;
 
-
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.itflix.dto.Ticket;
 
 @Mapper
 public interface Ticket_Mapper {
-	
+
 	@Select("select * from ticket")
 	public List<Ticket> selectAll();
-	
-	
-	
-	/*
-	 * 메쏘드이름은 	GuestMapper.xml 파일의 id와일치
-	 * 메쏘드인자타입은 GuestMapper.xml 파일의 parameterType 와일치
-	 * 메쏘드리턴타입은 GuestMapper.xml 파일의 resultType 와일치
-	 */
-	/*
-	<select id="selectByNo" resultType="com.itwill.guest.Guest" 
-	parameterType="_int">
-		select * from guest where guest_no=#{guest_no}
-	</select>
-	 */
-	public Ticket_Mapper selectByNo(int no);
-	/*
-	<select id="selectAll" resultType="com.itwill.guest.Guest">
-		select * from guest
-	</select>
-	 */
-	/*
-	public List<user_info> selectAll();
-	public int insertGuest(user_info guest);
-	public int deleteGuest(int guest_no);
-	public int updateGuest(Guest guest);
-	*/
+
+	@Insert("insert into Ticket values(#{t_no},#{t_price})")
+	public int insertTicket(Ticket ticket);
+
+	@Update("update ticket set t_price=#{t_price} where t_no=#{t_no}")
+	public int updateTicket(Ticket ticket);
+
+	@Delete("delete from ticket where t_no=#{t_no}")
+	public int deleteTicket(int no);
 }
