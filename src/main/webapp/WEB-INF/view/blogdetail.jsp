@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:setProperty property="category" name="category"/>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
