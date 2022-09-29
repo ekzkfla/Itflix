@@ -1,5 +1,5 @@
 package com.itflix.dao;
 
-public class CatgoryDao {
+public class JjimDao {
 
 }
