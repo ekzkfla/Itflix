@@ -7,10 +7,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.CategoryDao;
+import com.itflix.service.CategoryService;
+import com.itflix.service.NoticeService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
-public class CategoryDaoTestApplication {
+public class NoticeServiceTestApplication {
 	public static void main(String[] args) throws Exception {
 		/****************case1********************/
 		/*
@@ -26,12 +28,12 @@ public class CategoryDaoTestApplication {
 		*/
 		
 		SpringApplication application = 
-				new SpringApplication(CategoryDaoTestApplication.class);
+				new SpringApplication(NoticeServiceTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		CategoryDao categoryDao = context.getBean(CategoryDao.class);
-		 System.out.println(categoryDao);
-		 System.out.println(categoryDao.selectAll());
-		 System.out.println(categoryDao.selectByNo(1));
+		NoticeService noticeService = context.getBean(NoticeService.class);
+		 System.out.println(noticeService);
+		 System.out.println(noticeService.selectAll());
+		 System.out.println(noticeService.selectByNo(1));
 	}
 }
