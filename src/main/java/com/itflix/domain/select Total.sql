@@ -2,6 +2,9 @@
 -- 전체회원찾기(select) -- 
 select * from USER_INFO;
 
+-- 이메일로 회원 찾기(select u_email) --
+select * from user_info where u_email = 'admin@gmail.com';
+
 -- 이메일+이름 비번찾기(select u_pass) --
 select u_pass from user_info where u_email='guard5@gmail.com' and u_name='안소진'; 
 
