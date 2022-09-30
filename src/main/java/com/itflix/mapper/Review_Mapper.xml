@@ -1,31 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
+<mapper 
 namespace="com.itflix.mapper.Review_Mapper">
+	<!-- 
+	<resultMap id="ReviewResultMap"
+			   type="com.ifflix.dto.Review">
+	</resultMap>
+	 -->
+	<resultMap id="findReviewUserList"
+			   type="com.itflix.dto.Review">
+		<result column="r_no" property="r_no" />
+		<result column="r_title" property="r_title" />
+		<result column="r_content" property="r_content" />
+		<result column="r_grade" property="r_grade" />
+		<result column="r_date" property="r_date" />
+		<association property="user"
+					 javaType="com.itflix.dto.User_Info">
+					 <result column="u_email" property="u_email"/>
+		</association>
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+		<!-- 			 
+			<association property="user"
+					 javaType="com.itflix.dto.Movie">		 
+			 <result column="m_no" property="m_no" />
+			 <result column="m_name" property="m_name" />
+			 <result column="m_actor" property="m_actor" />
+			 <result column="m_info" property="m_info" />
+			 <result column="m_image" property="m_image" />
+			 <result column="m_count" property="m_count" />
+			 <result column="m_date" property="m_date" />
+			 <result column="m_url" property="m_url" />
+			 <result column="m_groupno" property="m_groupno" />
+			 <result column="m_step" property="m_step" />
+			 <result column="m_depth" property="m_depth" />
+		</association>
+		<collection property="user_Info_List"
+					javaType="java.util.List"
+					ofType="com.itflix.">
+			<result column="" property=""/>
+		
+		</collection>
+ -->
+
+	</resultMap>
 </mapper>
-<!-- 
-<resultMap id="findReviewMovieList" type="com.itflix.dto.Review">
-	<result column="r_no" property="r_no"/>
-	<result column="r_title" property="r_title"/>
-	<result column="r_content" property="r_content"/>
-	<result column="r_grade" property="r_grade"/>
-	<result column="r_date" property="r_date"/>
-	<result column="r_groupno" property="r_groupno"/>
-	<result column="r_step" property="r_step"/>
-	<result column="r_depth" property="r_depth"/>
-	<association property="movie" javaType="com.itflix.dto.Review">
-			<result column="m_no" property="m_no"/>
-			<result column="m_name" property="m_name"/>
-			<result column="m_actor" property="m_actor"/>
-			<result column="m_info" property="m_info"/>
-			<result column="m_image" property="m_image"/>
-			<result column="m_count" property="m_count"/>
-			<result column="m_date" property="m_date"/>
-			<result column="m_url" property="m_url"/>
-			<result column="m_groupno" property="m_groupno"/>
-			<result column="m_step" property="m_step"/>
-			<result column="m_depth" property="m_depth"/>
-	
-	
-	</association>
-</resultMap> -->
