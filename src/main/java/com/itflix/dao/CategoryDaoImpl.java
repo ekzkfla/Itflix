@@ -15,7 +15,7 @@ public class CategoryDaoImpl implements CategoryDao{
 	private Category_Mapper category_Mapper;
 
 	public CategoryDaoImpl() {
-		
+		System.out.println("C_DaoImpl");
 	}
 	
 	public CategoryDaoImpl(Category_Mapper category_Mapper){

@@ -15,7 +15,7 @@ public class CategoryServiceImpl implements CategoryService{
 	private CategoryDao categoryDao;
 	
 	public CategoryServiceImpl() throws Exception{
-		
+		System.out.println("C_ServiceImpl");
 	}
 	
 	public CategoryDao getCategoryDao() {

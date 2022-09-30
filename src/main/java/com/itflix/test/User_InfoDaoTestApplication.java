@@ -6,15 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.itflix.dao.CategoryDao;
-import com.itflix.service.CategoryService;
-import com.itflix.service.NoticeService;
+import com.itflix.dao.User_InfoDao;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
-public class CategoryDaoTestApplication {
-	public static void main(String[] args) throws Exception {
-		/****************case1********************/
+public class User_InfoDaoTestApplication {
+
+	public static void main(String[] args) throws Exception{
 		/*
 		 * application.properties에 설정추가
 		 *    spring.main.web-application-type=none
@@ -28,12 +26,14 @@ public class CategoryDaoTestApplication {
 		*/
 		
 		SpringApplication application = 
-				new SpringApplication(CategoryDaoTestApplication.class);
+				new SpringApplication(User_InfoDaoTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		CategoryDao categoryDao = context.getBean(CategoryDao.class);
-		 System.out.println(categoryDao);
-		 System.out.println(categoryDao.selectAll());
-//		 System.out.println(categoryDao.selectByNoMovieList(1));
+		User_InfoDao user_InfoDao = context.getBean(User_InfoDao.class);
+		 System.out.println(user_InfoDao);
+		 System.out.println(user_InfoDao.user_InfoSelectAll());
+		 System.out.println(user_InfoDao.selectByEmail("admin@gmail.com"));
+
 	}
+
 }
