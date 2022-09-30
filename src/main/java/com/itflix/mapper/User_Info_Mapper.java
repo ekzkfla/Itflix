@@ -4,6 +4,7 @@ package com.itflix.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
 import com.itflix.dto.User_Info;
@@ -26,9 +27,11 @@ public interface User_Info_Mapper {
 	// 이메일로 회원 찾기.
 	@Select("select * from user_info where u_email = #{u_email}")
 	public User_Info selectByEmail(String u_email);
+
 	
 	// 전체 회원 찾기.
 	@Select("SELECT * FROM USER_INFO ORDER BY U_EMAIL DESC")
+	//@ResultMap("User_InfoResultMap")
 	public List<User_Info> selectAll();
 	
 	// 회원 수정.

@@ -51,7 +51,7 @@ public interface Category_Mapper {
 			+ " from movie m "
 		+ "join category c on m.cg_no=c.cg_no  "
 		+ "where m.cg_no =#{cg_no};")
-	@ResultMap("findeCategoryMovieListResultMap")
+	//@ResultMap("findeCategoryMovieListResultMap")
 	public List<Category> selectByNoMovieList(Integer cg_no);
 
 }
