@@ -24,7 +24,6 @@ public interface JjimDao {
 	 */
 	
 	 List<Jjim> jjimListTest() throws Exception;
-	 
-	 
-	 //List<Jjim> jjimListTest2() throws Exception;
+	 List<Jjim> jjimListTest2() throws Exception;
+	// List<Jjim> jjimListTest3() throws Exception;
 }

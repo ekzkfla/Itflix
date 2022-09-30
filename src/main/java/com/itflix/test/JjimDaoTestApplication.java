@@ -35,17 +35,15 @@ public class JjimDaoTestApplication {
 		JjimDao jjimDao = context.getBean(JjimDao.class);
 		System.out.println(jjimDao);
 		//System.out.println(jjimDao.jjimList("guard1@gmail.com"));
-		System.out.println(jjimDao.jjimListAll());
-	
+		//System.out.println(jjimDao.jjimListAll());
 		
 		//System.out.println(jjimDao.jjimListTest());		
-		//System.out.println(jjimDao.jjimListTest2());			
-		
+		System.out.println(jjimDao.jjimListTest2());			
+		//System.out.println(jjimDao.jjimListTest3());			
 
 
 		
-		/* guard1@gmail.com*/
-		
+		/* guard1@gmail.comㅠ*/
 		
 	}
 }

@@ -33,7 +33,7 @@ public interface Jjim_Mapper {
 			+ "         m.m_image,"
 			+ "         m.m_date,"
 			+ "         m.m_count")
-	@ResultMap("jjimListAll2")
+	//@ResultMap("jjimListAll2")
 	public List<Jjim> jjimList(String u_email);
 	
 	/* 영화 찜하기*/
@@ -56,14 +56,20 @@ public interface Jjim_Mapper {
 	@ResultMap("jjimListTest")
 	public List<Jjim> jjimListTest();
 	
+	
+	@Select("select j.u_email, j.m_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no")
+	@ResultMap("jjimListTest2")
+	public List<Jjim> jjimListTest2();
+	 
+	
 	/*
-	 * @Select("select j.u_email, j.m_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no"
-	 * )
+	 * @Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count"
+	 * + "from jjim j" + "join user_info u" + "on j.u_email = u.u_email" +
+	 * "join movie m" + "on j.m_no = m.m_no;")
 	 * 
-	 * @ResultMap("jjimListAll2") public List<Jjim> jjimListTest2();
+	 * @ResultMap("jjimListTest3") public List<Jjim> jjimListTest3();
 	 */
-	
-	
+	 
 	
 	
 	
