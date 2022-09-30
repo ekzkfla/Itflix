@@ -15,18 +15,13 @@ namespace="com.itflix.mapper.Review_Mapper">
 		<result column="r_content" property="r_content" />
 		<result column="r_grade" property="r_grade" />
 		<result column="r_date" property="r_date" />
-		<result column="r_groupno" property="r_groupno" />
-		<result column="r_step" property="r_step" />
-		<result column="r_depth" property="r_depth" />
 			<collection property="userList"
 						 javaType="java.util.List"
 						 ofType="com.itflix.dto.User_Info">
 						 <result column="u_email" property="u_email"/>
-						 <result column="u_name" property="u_name"/>
-						 <result column="u_pass" property="u_pass"/>
-						 <result column="u_phone" property="u_phone"/>
 			</collection> 
-	
+		<!-- 
+	 -->
 	<!-- 	 		 
 	<resultMap id="ReviewWithUserList"
 			   type="com.itflix.dto.User_Info">

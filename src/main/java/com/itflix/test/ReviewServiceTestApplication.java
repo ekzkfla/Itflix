@@ -35,7 +35,7 @@ public class ReviewServiceTestApplication {
 		ConfigurableApplicationContext context=application.run(args);
 		ReviewDao reviewDao = context.getBean(ReviewDao.class);
 		 System.out.println(reviewDao);
-		 System.out.println(reviewDao.selectAll());
+		 //System.out.println(reviewDao.selectAll());
 		 //System.out.println(reviewDao.selectByNo(3));
 		 //System.out.println(reviewDao.deleteReview(11));
 		 System.out.println("check"+reviewDao.selectWroteReview("guard1@gmail.com"));

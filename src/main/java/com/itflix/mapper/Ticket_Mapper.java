@@ -19,9 +19,9 @@ public interface Ticket_Mapper {
 	@Insert("insert into Ticket values(#{t_no},#{t_price})")
 	public int insertTicket(Ticket ticket);
 
-	@Update("update ticket set t_price=#{t_price} where t_no=#{t_no}")
-	public int updateTicket(Ticket ticket);
+	@Update("update Ticket set t_price=#{t_price} where t_no=#{t_no}")
+	public int updateTicket(int no);
 
-	@Delete("delete from ticket where t_no=#{t_no}")
+	@Delete("delete from Ticket where t_no=#{t_no}")
 	public int deleteTicket(int no);
 }

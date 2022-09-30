@@ -42,8 +42,8 @@ public class TicketServiceImpl implements TicketService {
 
 	// 수정
 	@Override
-	public int updateTicket(Ticket ticket) throws Exception {
-		return ticketDao.updateTicket(ticket);
+	public int updateTicket(int no) throws Exception {
+		return ticketDao.updateTicket(no);
 	}
 
 	// 삭제

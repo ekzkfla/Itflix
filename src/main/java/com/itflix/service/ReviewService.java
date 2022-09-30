@@ -12,7 +12,7 @@ public interface ReviewService {
 	List<Review> selectAll() throws Exception;
 
 	// 본인 리뷰 보기(회원아이디 리뷰 보기)
-	Review selectWroteReview(String u_email) throws Exception;
+	List<Review> selectWroteReview(String u_email) throws Exception;
 
 	// 최신 리뷰 출력
 	List<Review> selectLatest() throws Exception;

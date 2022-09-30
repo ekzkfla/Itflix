@@ -6,13 +6,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.itflix.dao.MovieDao;
+import com.itflix.dao.TicketDao;
+import com.itflix.dto.Ticket;
+import com.itflix.service.CategoryService;
+import com.itflix.service.NoticeService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
-public class MovieDaoTestApplication {
-
-	public static void main(String[] args) throws Exception{
+public class TicketDaoTestApplication {
+	public static void main(String[] args) throws Exception {
+		/****************case1********************/
 		/*
 		 * application.properties에 설정추가
 		 *    spring.main.web-application-type=none
@@ -26,25 +29,13 @@ public class MovieDaoTestApplication {
 		*/
 		
 		SpringApplication application = 
-				new SpringApplication(MovieDaoTestApplication.class);
+				new SpringApplication(TicketDaoTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		MovieDao movieDao = context.getBean(MovieDao.class);
-		 System.out.println(movieDao);
-		 System.out.println(movieDao.selectAll());
-		 System.out.println(movieDao.selectByNo(1));
-		 System.out.println(movieDao.selectCategoryNo(1));
-		 /*
-		 System.out.println(movieDao.selectMovieName("탑건"));
-		 System.out.println(movieDao.selectMovieActor("라"));
-		 System.out.println(movieDao.selectMovieCount());
-		 System.out.println(movieDao.selectMovieGrade());
-		 System.out.println(movieDao.selectMovieNewDate());
-		 System.out.println(movieDao.selectMovieOldDate());
-		 System.out.println(movieDao.selectMovieCountByNo(1));
-		 */
-		 //System.out.println(movieDao.movieCountPlus(1));
-
+		TicketDao ticketDao = context.getBean(TicketDao.class);
+		 System.out.println(ticketDao);
+		 //System.out.println(ticketDao.selectAll());
+		 System.out.println(ticketDao.insertTicket(new Ticket(11, "추가는 되는데?")));
+		 //System.out.println("delete"+ticketDao.deleteTicket(3));
 	}
-
 }
