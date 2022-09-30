@@ -49,26 +49,28 @@ public class JjimDaoImpl implements JjimDao {
 	}
 	
 
+	
+
 	 @Override
 	 public List<Jjim> jjimListAll() throws Exception {
-		  List<Jjim>  jjimListAll = jjim_Mapper.jjimListAll();
+		  List<Jjim> jjimListAll = jjim_Mapper.jjimListAll();
 	 return jjimListAll; }
-	 
-	 /*
-	 * @Override public List<Jjim> jjimListAll2() throws Exception { List<Jjim>
-	 * jjimListAll2 = jjim_Mapper.jjimListAll2(); return jjimListAll2; }
-	 * 
-	 */
-	
+	 	
 	@Override
  	public List<Jjim> jjimListTest() throws Exception{
 	 List<Jjim> jjimListTest = jjim_Mapper.jjimListTest();
 	return jjimListTest;
 	}
  	
+	@Override
+	public List<Jjim> jjimListTest2() throws Exception{
+		List<Jjim> jjimListTest2 = jjim_Mapper.jjimListTest2();
+	return jjimListTest2;
+	}
+	
 	/*
-	 * public List<Jjim> jjimListTest2() throws Exception{ List<Jjim> jjimListTest2
-	 * = jjim_Mapper.jjimListTest2(); return jjimListTest2; }
+	 * @Override public List<Jjim> jjimListTest3() throws Exception{ List<Jjim>
+	 * jjimListTest3 = jjim_Mapper.jjimListTest3(); return jjimListTest3; }
 	 */
 }
 

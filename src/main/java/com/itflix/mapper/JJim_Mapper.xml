@@ -26,7 +26,7 @@
 	<!-- <resultMap type="com.itflix.dto.Jjim" id="jjimListAll2"> <association 
 		property="user_Info" javaType="com.itflix.dto.User_Info"> <result column="u_email" 
 		property="u_email" /> </association> -->
-		<resultMap type="com.itflix.dto.Jjim" id="jjimListTest">
+	<resultMap type="com.itflix.dto.Jjim" id="jjimListTest">
 			<collection property="user_Info" javaType="java.util.List"
 			ofType="com.itflix.dto.User_Info">
 				<result column="u_email" property="u_email" />
@@ -42,7 +42,22 @@
 	</resultMap>
 
 
-<!-- 		<resultMap type="com.itflix.dto.Jjim" id="jjimListTest2">
+	<resultMap type="com.itflix.dto.Jjim" id="jjimListTest2">
+			<collection property="user_Info" javaType="java.util.List"
+			ofType="com.itflix.dto.User_Info">
+				<result column="u_email" property="u_email" />
+			</collection> 
+			<collection property="movie" javaType="java.util.List"
+			ofType="com.itflix.dto.Movie">
+				<result column="m_no" property="m_no" />
+<!-- 				<result column="m_name" property="m_name" />
+				<result column="m_image" property="m_image" />
+				<result column="m_date" property="m_date" />
+				<result column="m_count" property="m_count" /> -->
+			</collection> 
+	</resultMap>
+	
+		<resultMap type="com.itflix.dto.Jjim" id="jjimListTest3">
 			<collection property="user_Info" javaType="java.util.List"
 			ofType="com.itflix.dto.User_Info">
 				<result column="u_email" property="u_email" />
@@ -56,7 +71,7 @@
 				<result column="m_count" property="m_count" />
 			</collection> 
 	</resultMap>
- -->
+
 
 
 
