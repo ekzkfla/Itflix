@@ -36,8 +36,8 @@ public class ReviewDaoImpl implements ReviewDao {
 
 	// 본인 리뷰 보기(회원아이디 리뷰 보기)
 	@Override
-	public Review selectWroteReview(String u_email) throws Exception {
-		Review selectWroteReview = review_Mapper.selectWroteReview(u_email);
+	public List<Review> selectWroteReview(String u_email) throws Exception {
+		List<Review> selectWroteReview = review_Mapper.selectWroteReview(u_email);
 		return selectWroteReview;
 	}
 

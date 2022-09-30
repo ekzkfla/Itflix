@@ -38,7 +38,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	// 본인 리뷰 보기(회원아이디 리뷰 보기)
 	@Override
-	public Review selectWroteReview(String u_email) throws Exception {
+	public List<Review> selectWroteReview(String u_email) throws Exception {
 		return reviewDao.selectWroteReview(u_email);
 	}
 

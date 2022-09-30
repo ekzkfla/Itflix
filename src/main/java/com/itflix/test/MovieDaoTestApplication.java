@@ -32,9 +32,9 @@ public class MovieDaoTestApplication {
 		MovieDao movieDao = context.getBean(MovieDao.class);
 		 System.out.println(movieDao);
 		 System.out.println(movieDao.selectAll());
-		 /*
 		 System.out.println(movieDao.selectByNo(1));
-		 System.out.println(movieDao.selectCategoryNo(2));
+		 System.out.println(movieDao.selectCategoryNo(1));
+		 /*
 		 System.out.println(movieDao.selectMovieName("탑건"));
 		 System.out.println(movieDao.selectMovieActor("라"));
 		 System.out.println(movieDao.selectMovieCount());
