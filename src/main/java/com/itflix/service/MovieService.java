@@ -18,6 +18,8 @@ public interface MovieService {
 	Movie selectMovieActor(String name) throws Exception;
 	//조회수 높은 순으로 출력
 	List<Movie> selectMovieCount() throws Exception;
+	//평점 높은 순으로 출력
+	List<Movie> selectMovieGrade() throws Exception;
 	//영화 개봉일 최신순으로 출력
 	List<Movie> selectMovieNewDate() throws Exception;
 	//영화 개봉일 오래된 순으로 출력

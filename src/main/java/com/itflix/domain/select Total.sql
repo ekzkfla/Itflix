@@ -126,7 +126,7 @@ select m.m_no,
        m.cg_no,
        avg(r.r_grade) as r_grade 
 from movie m 
-join Review r 
+right outer join Review r 
 on m.m_no=r.m_no 
 group by m.m_no,
          m.m_name,
@@ -149,7 +149,7 @@ select m.m_no,
        m.cg_no ,
        avg(r.r_grade) as r_grade 
 from movie m 
-join Review r 
+right outer join Review r 
 on m.m_no=r.m_no 
 where m.m_no = 1 
 group by m.m_no,
@@ -173,7 +173,7 @@ select m.m_no,
        m.cg_no,
        avg(r.r_grade) as r_grade 
 from Movie m 
-join Review r 
+right outer join Review r 
 on m.m_no=r.m_no 
 where m.cg_no = 1 
 group by m.m_no,
@@ -196,8 +196,8 @@ select m.m_no,
        m.m_date,
        m.cg_no,
        avg(r.r_grade) as r_grade 
-from movie m 
-left join review r 
+from Movie m 
+left outer join Review r 
 on r.m_no=m.m_no
 where m_name like '%후보%'
 group by m.m_no,
@@ -220,7 +220,7 @@ select m.m_no,
        m.cg_no,
        avg(r.r_grade) as r_grade 
 from movie m 
-left join review r 
+left outer join review r 
 on r.m_no=m.m_no
 where m_actor like '%라%'
 group by m.m_no,
@@ -243,7 +243,7 @@ select m.m_no,
        m.cg_no,
        avg(r.r_grade) as r_grade 
 from movie m 
-left join review r 
+left outer join review r 
 on r.m_no=m.m_no
 group by m.m_no,
          m.m_name,
@@ -266,7 +266,7 @@ select m.m_no,
        m.cg_no,
        avg(r.r_grade) as r_grade 
 from movie m 
-left join review r 
+left outer join review r 
 on r.m_no=m.m_no
 group by m.m_no,
          m.m_name,
@@ -313,7 +313,7 @@ select m.m_no,
        m.cg_no ,
        avg(r.r_grade) as r_grade 
 from Movie m 
-join Review r 
+left outer join Review r 
 on m.m_no=r.m_no 
 group by m.m_no,
          m.m_name,
@@ -336,8 +336,9 @@ select m.m_no,
        m.cg_no, 
        avg(r.r_grade) as r_grade 
 from Movie m 
-join Review r 
-on m.m_no=r.m_no 
+left outer join Review r 
+on m.m_no=r.m_no
+where r_grade is not null
 group by m.m_no,
          m.m_name,
          m.m_actor,
