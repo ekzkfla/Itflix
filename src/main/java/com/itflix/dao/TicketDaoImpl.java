@@ -43,8 +43,8 @@ public class TicketDaoImpl implements TicketDao {
 
 	// 수정
 	@Override
-	public int updateTicket(Ticket ticket) throws Exception {
-		int updateTicket = ticket_Mapper.updateTicket(ticket);
+	public int updateTicket(int no) throws Exception {
+		int updateTicket = ticket_Mapper.updateTicket(no);
 		return updateTicket;
 	}
 

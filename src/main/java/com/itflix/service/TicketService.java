@@ -13,8 +13,10 @@ public interface TicketService {
 	int insertTicket(Ticket ticket) throws Exception;
 
 	// 수정
-	int updateTicket(Ticket ticket) throws Exception;
+	int updateTicket(int no) throws Exception;
 
 	// 삭제
 	int deleteTicket(int no) throws Exception;
+
+	
 }
