@@ -7,13 +7,13 @@ namespace="com.itflix.mapper.Review_Mapper">
 			   type="com.ifflix.dto.Review">
 	</resultMap>
 	 -->
-	<resultMap id="findReviewUserList"
+	<resultMap id="ReviewWithUserList"
 			   type="com.itflix.dto.Review">
-		<result column="r_no" property="r_no" />
-		<result column="r_title" property="r_title" />
-		<result column="r_content" property="r_content" />
-		<result column="r_grade" property="r_grade" />
-		<result column="r_date" property="r_date" />
+		<result column="r_no" property="r.r_no" />
+		<result column="r_title" property="r.r_title" />
+		<result column="r_content" property="r.r_content" />
+		<result column="r_grade" property="r.r_grade" />
+		<result column="r_date" property="r.r_date" />
 		<association property="user"
 					 javaType="com.itflix.dto.User_Info">
 					 <result column="u_email" property="u_email"/>

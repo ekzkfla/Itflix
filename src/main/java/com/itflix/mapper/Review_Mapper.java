@@ -20,7 +20,7 @@ public interface Review_Mapper {
 
 	// 본인 리뷰 보기(회원아이디 리뷰 보기)
 	@Select("select r.r_no, u.u_email, r.r_title, r.r_content, r.r_grade, r.r_date from review r join user_info u on u.u_email=r.u_email where u.u_email = '#{u_email}'")
-	@ResultMap("findReviewUserList")
+	@ResultMap("ReviewWithUserList")
 	public List<Review> selectWroteReview();
 
 	// 최신 리뷰 출력
