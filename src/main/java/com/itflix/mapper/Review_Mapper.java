@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -18,7 +19,8 @@ public interface Review_Mapper {
 	public List<Review> selectAll();
 
 	// 본인 리뷰 보기(회원아이디 리뷰 보기)
-	@Select("select r.r_no, u.u_email, r.r_title, r.r_content, r.r_grade, r.r_date from user_info u join review r on u.u_email=r.u_email")
+	@Select("select r.r_no, u.u_email, r.r_title, r.r_content, r.r_grade, r.r_date from review r join user_info u on u.u_email=r.u_email where u.u_email = '#{u_email}'")
+	@ResultMap("ReviewWithUserList")
 	public List<Review> selectWroteReview();
 
 	// 최신 리뷰 출력
@@ -30,15 +32,15 @@ public interface Review_Mapper {
 	public Review selectByNo(int r_no);
 
 	// 리뷰 추가
-	@Insert("insert into review VALUES('#{r_no}','#{r_title}','#{r_content}','#{r_grade}','#{r_date}','#{r_groupno}','#{r_step}','#{r_depth}','#{m_no}','#{u_email}')")
+	@Insert("insert into review VALUES(#{r_no},'#{r_title}','#{r_content}',#{r_grade},#{r_date},#{r_groupno},#{r_step},#{r_depth},#{m_no},'#{u_email}')")
 	public int insertReview(Review review);
 
 	// 리뷰 수정
-	@Update("update review set r_title='#{r_title}',r_content='#{r_content}',r_grade='#{r_grade}',m_no='#{m_no}' where r_no='#{r_no}'")
+	@Update("update review set r_title='#{r_title}',r_content='#{r_content}',r_grade=#{r_grade},m_no=#{m_no} where r_no=#{r_no}")
 	public int updateReview(Review review);
 
 	// 리뷰 삭제
-	@Delete("delete from review where r_no='#{r_no}'")
+	@Delete("delete from review where r_no=#{r_no}")
 	public int deleteReview(int no);
 
 }
