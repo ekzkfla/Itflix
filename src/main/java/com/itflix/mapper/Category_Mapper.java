@@ -41,9 +41,17 @@ public interface Category_Mapper {
 	
 	
 	//카테고리 번호를 이용하여 해당 카테고리에 영화 리스트 출력
-	@Select("select c.cg_name, m.m_image, m.m_name, m.m_actor, m.m_info, m.m_date, avg(r.r_grade) \"총평점\" from movie m join category c on m.cg_no=c.cg_no join review r  on m.m_no =r.m_no where m.cg_no=#{cg_no}\n"
-			+ "group by c.cg_name, m.m_image, m.m_name, m.m_actor, m.m_info, m.m_date")
-	@ResultMap("findeCategoryMovieList")
+	@Select("select c.cg_no,"
+			+ "c.cg_name,"
+				+ " m.m_image,"
+				+ " m.m_name,"
+				+ " m.m_actor,"
+				+ " m.m_info,"
+				+ " m.m_date"
+			+ " from movie m "
+		+ "join category c on m.cg_no=c.cg_no  "
+		+ "where m.cg_no =#{cg_no};")
+	@ResultMap("findeCategoryMovieListResultMap")
 	public List<Category> selectByNoMovieList(Integer cg_no);
 
 }
