@@ -2,6 +2,9 @@
 -- 전체회원찾기(select) -- 
 select * from USER_INFO;
 
+-- 이메일로 회원 찾기(select u_email) --
+select * from user_info where u_email = 'admin@gmail.com';
+
 -- 이메일+이름 비번찾기(select u_pass) --
 select u_pass from user_info where u_email='guard5@gmail.com' and u_name='안소진'; 
 
@@ -101,17 +104,14 @@ WHERE idx >= 1 AND idx <= 5;
 
 ------------------------------TICKET SELECT-----------------------------------
 
--- 티켓 상품 보기(select)(관리자전용) --
+-- 티켓 상품 보기(select)--
 select * from ticket;
-
---x티켓 상품중 구독권 찾기 
-select * from ticket where t_no=1;
 
 -- 티켓 가격 수정(관리자전용) -- 
 update ticket set t_price=19800 where t_no=1;
 
 ----티켓(구독권) 삭제 (관리자전용)--
---delete from ticket where t_no=1;
+delete from ticket where t_no=1;
 
 ------------------------------MOVIE SELECT-----------------------------------
 
@@ -232,7 +232,7 @@ group by m.m_no,
          m.m_date,
          m.cg_no;
 
---영화 개봉일 최신순으로 검색 출력
+--영화 개봉일 내림차순으로 검색 출력
 select m.m_no,
        m.m_name,
        m.m_actor,
@@ -255,7 +255,7 @@ group by m.m_no,
          m.cg_no
 order by m_date DESC;
 
---영화 개봉일 오래된 순으로 검색 출력
+--영화 개봉일 오름차순으로 검색 출력
 select m.m_no,
        m.m_name,
        m.m_actor,
@@ -288,12 +288,12 @@ set m_name = 'test',
     cg_no  = '1'
 where m_no = 6;
 
---영화 전체 조회수 출력
+--영화 전체 클릭수 조회수
 select m_name,
        m_count 
 from movie;
 
--- 영화 번호로 조회수 출력
+-- 영화 클릭 조회수
 SELECT m_count FROM movie where m_no=1;
 
 -- 영화 클릭수 증가
@@ -361,18 +361,8 @@ WHERE idx >= 1 AND idx <= 20;
 -- 찜 전체조회
 select * from jjim;
 
--- 회원 찜 조회(select email) --
-select m.m_no,
-       m.m_name,
-       m.m_image,
-       m.m_link,
-       m.m_date,
-       m.m_count
-from jjim j join movie m 
-on j.m_no = m.m_no 
-where j.u_email='guard5@gmail.com';
-
-
+-- 회원 찜 삭제(delete) --
+delete from jjim where u_email='guard5@gmail.com' and m_no=3;
 
 -- 회원별 찜저장목록 출력화면 sql문 (찜,무비,리뷰 테이블 그룹화 및 조인) --
 -- (출력: 영화등록번호,영화장르,영화이름,영화이미지,영화개봉일,영화클릭수,리뷰평균평점(null 포함)) -- 
@@ -380,10 +370,9 @@ select m.m_no,
        m.cg_no,       
        m.m_name,
        m.m_image,
-       m.m_link,
        m.m_date,
        m.m_count,
-       avg(r.r_grade)"총평점" 
+       avg(r.r_grade) 
 from movie m 
 left join review r
 on m.m_no=r.m_no
@@ -394,7 +383,6 @@ group by m.m_no,
          m.cg_no,      
          m.m_name,
          m.m_image,
-         m.m_link,
          m.m_date,
          m.m_count;
 
@@ -429,11 +417,20 @@ select c.cg_name,
        m.m_name,
        m.m_actor,
        m.m_info,
-       m.m_date
+       m.m_date,
+       avg(r.r_grade) "총평점"
 from movie m
 join category c
 on m.cg_no=c.cg_no
-where m.cg_no=1;
+join review r 
+on m.m_no =r.m_no
+where m.cg_no=1
+group by c.cg_name,
+       m.m_image,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_date;
 
 ------------------------------REVIEW SELECT-----------------------------------
 
@@ -509,5 +506,6 @@ WHERE idx >= 1 AND idx <= 5;
 
 --select 게시물 총건수 확인
 select count(*) from Notice;
+
 
 
