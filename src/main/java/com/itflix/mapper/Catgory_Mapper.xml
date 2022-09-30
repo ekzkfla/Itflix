@@ -3,3 +3,48 @@
 <mapper 
 namespace="com.itflix.mapper.Category_Mapper">
 </mapper>
+
+
+<resultMap id="findeCategoryMovieList" type="com.itflix.dto.Category">
+	<result  column="cg_no" property="cg_no"/>
+	<result  column="cg_name" property="cg_name"/>
+	<association property="movie" javaType="com.itflix.dto.Movice">
+			<result column="m_no" property="m_no"/>
+			<result column="m_name" property="m_name"/>
+			<result column="m_actor" property="m_actor"/>
+			<result column="m_info" property="m_info"/>
+			<result column="m_image" property="m_image"/>
+			<result column="m_count" property="m_count"/>
+			<result column="m_date" property="m_date"/>
+			<result column="m_url" property="m_url"/>
+			<result column="m_groupno" property="m_groupno"/>
+			<result column="m_step" property="m_step"/>
+			<result column="m_depth" property="m_depth"/>
+	</association>
+</resultMap>
+
+
+
+
+
+
+
+<!-- select c.cg_name,
+			m.m_image,
+			m.m_name,
+			m.m_actor,
+			m.m_info,
+			m.m_date,
+			avg(r.r_grade) \"총평점\" from movie m 
+	join category c 
+	on m.cg_no=c.cg_no 
+	join review r  
+	on m.m_no =r.m_no 
+	where m.cg_no=#{cg_no} 
+	group by c.cg_name,
+			 m.m_image,
+			 m.m_name,
+			 m.m_actor,
+			 m.m_info,
+			 m.m_date
+ -->
