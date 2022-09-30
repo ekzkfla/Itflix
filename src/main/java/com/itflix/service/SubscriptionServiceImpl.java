@@ -13,18 +13,42 @@ import com.itflix.dao.SubscriptionDao;
 public class SubscriptionServiceImpl implements SubscriptonService {
 	
 	@Autowired
-	private Subscription subscription;
+	private SubscriptionDao subscriptionDao;
 	
 	public SubscriptionServiceImpl() throws Exception {
 		
 	}
 	
-	public Subscription getSubscription() {
-		return subscription;
+	public SubscriptionDao getSubscriptionDao() {
+		return subscriptionDao;
 	}
 	
-	public void setSubscription(Subscription subscription) {
-		this.subscription = subscription;
+	public void setSubscriptionDao(SubscriptionDao subscriptionDao) {
+		this.subscriptionDao = subscriptionDao;
+	}
+
+	//전체 구독자리스트
+	@Override
+	public List<Subscription> selectlistAll() throws Exception {
+		return subscriptionDao.selectlistAll();
+	}
+
+	//구독시작날짜 찾기
+	@Override
+	public Subscription selectByStDate(String u_email) throws Exception {
+		return subscriptionDao.selectByStDate(u_email);
+	}
+
+	//구독만료날짜 찾기
+	@Override
+	public Subscription selectByEndDate(String u_email) throws Exception {
+		return subscriptionDao.selectByEndDate(u_email);
+	}
+
+	//구독자 단일 찾기
+	@Override
+	public Subscription selectByNo(String u_email) throws Exception {
+		return subscriptionDao.selectByNo(u_email);
 	}
 	
 	
