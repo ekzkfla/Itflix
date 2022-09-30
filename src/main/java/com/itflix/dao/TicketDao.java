@@ -13,7 +13,7 @@ public interface TicketDao {
 	int insertTicket(Ticket ticket) throws Exception;
 
 	// 수정
-	int updateTicket(int no) throws Exception;
+	int updateTicket(Ticket ticket) throws Exception;
 
 	// 삭제
 	int deleteTicket(int no) throws Exception;

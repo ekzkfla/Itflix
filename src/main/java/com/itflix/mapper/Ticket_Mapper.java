@@ -20,7 +20,7 @@ public interface Ticket_Mapper {
 	public int insertTicket(Ticket ticket);
 
 	@Update("update ticket set t_price='#{t_price}' where t_no=#{t_no}")
-	public int updateTicket(int no);
+	public int updateTicket(Ticket ticket);
 
 	@Delete("delete from ticket where t_no=#{t_no}")
 	public int deleteTicket(int no);

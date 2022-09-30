@@ -35,7 +35,9 @@ public class TicketDaoTestApplication {
 		TicketDao ticketDao = context.getBean(TicketDao.class);
 		 System.out.println(ticketDao);
 		 System.out.println(ticketDao.selectAll());
-		 //System.out.println(ticketDao.insertTicket(new Ticket(0, "19900원")));
+		 //Ticket ticket = new Ticket(17,"15123");
+		 //System.out.println(ticketDao.insertTicket(ticket));
+		 //System.out.println(ticketDao.insertTicket(new Ticket(30, "19900원")));
 		 //System.out.println("delete"+ticketDao.deleteTicket(3));
 	}
 }
