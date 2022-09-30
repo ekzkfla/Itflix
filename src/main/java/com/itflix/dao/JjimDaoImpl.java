@@ -3,11 +3,13 @@ package com.itflix.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.itflix.dto.Jjim;
 import com.itflix.dto.User_Info;
 import com.itflix.mapper.Jjim_Mapper;
 
+@Repository
 public class JjimDaoImpl implements JjimDao {
 	
 	@Autowired
@@ -28,8 +30,8 @@ public class JjimDaoImpl implements JjimDao {
 		
 	/* 1명 회원 영화 찜 목록보기 (u_email 조회) */
 	@Override
-	public List<Jjim> jjimList(Jjim jjim) throws Exception {
-		List<Jjim> jjimList =jjim_Mapper.jjimList(jjim);
+	public List<Jjim> jjimList(String u_email) throws Exception {
+		List<Jjim> jjimList =jjim_Mapper.jjimList(u_email);
 		return jjimList;
 	}
 	/* 영화 찜하기 (u_email 에 m_no로 저장*)*/
@@ -45,5 +47,28 @@ public class JjimDaoImpl implements JjimDao {
 		int jjimDelete = jjim_Mapper.jjimDelete(jjim);
 		return jjimDelete;
 	}
+	
 
+	 @Override
+	 public List<Jjim> jjimListAll() throws Exception {
+		  List<Jjim>  jjimListAll = jjim_Mapper.jjimListAll();
+	 return jjimListAll; }
+	 
+	 /*
+	 * @Override public List<Jjim> jjimListAll2() throws Exception { List<Jjim>
+	 * jjimListAll2 = jjim_Mapper.jjimListAll2(); return jjimListAll2; }
+	 * 
+	 */
+	
+	@Override
+ 	public List<Jjim> jjimListTest() throws Exception{
+	 List<Jjim> jjimListTest = jjim_Mapper.jjimListTest();
+	return jjimListTest;
+	}
+ 	
+	/*
+	 * public List<Jjim> jjimListTest2() throws Exception{ List<Jjim> jjimListTest2
+	 * = jjim_Mapper.jjimListTest2(); return jjimListTest2; }
+	 */
 }
+

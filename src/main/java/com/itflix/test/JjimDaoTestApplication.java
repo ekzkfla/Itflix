@@ -34,10 +34,18 @@ public class JjimDaoTestApplication {
 		ConfigurableApplicationContext context=application.run(args);
 		JjimDao jjimDao = context.getBean(JjimDao.class);
 		System.out.println(jjimDao);
-		User_Info user = new User_Info();
-		user.getU_email();
-		Jjim jjim = new Jjim();
-		System.out.println(jjimDao.jjimList(jjim));
+		//System.out.println(jjimDao.jjimList("guard1@gmail.com"));
+		System.out.println(jjimDao.jjimListAll());
+	
+		
+		//System.out.println(jjimDao.jjimListTest());		
+		//System.out.println(jjimDao.jjimListTest2());			
+		
+
+
+		
+		/* guard1@gmail.com*/
+		
 		
 	}
 }
