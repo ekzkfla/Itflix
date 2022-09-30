@@ -69,4 +69,6 @@ public class Jjim {
 				+ user_Info + ", movie=" + movie + "]";
 	}
 
+
+
 }
