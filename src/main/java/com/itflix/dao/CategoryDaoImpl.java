@@ -27,11 +27,11 @@ public class CategoryDaoImpl implements CategoryDao{
 	}
 
 	//카테고리 번호를 이용한 해당 영화 리스트 출력 
-	@Override
-	public List<Category> selectByNoMovieList(int cg_no)throws Exception{
-		List<Category> selectByNoMovieList = category_Mapper.selectByNoMovieList(cg_no);
-		return selectByNoMovieList;
-	}
+	/*
+	 * @Override public List<Category> selectByNoMovieList(int cg_no)throws
+	 * Exception{ List<Category> selectByNoMovieList =
+	 * category_Mapper.selectByNoMovieList(cg_no); return selectByNoMovieList; }
+	 */
 	
 	//카테고리 전체 출력 
 	@Override
