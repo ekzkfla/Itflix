@@ -10,8 +10,8 @@ import com.itflix.dto.User_Info;
 
 @Service
 public class User_InfoServiceImpl implements User_InfoService{
+	
 	@Autowired
-	//@Qualifier("User_InfoDaoImplMyBatis")
 	private User_InfoDao user_InfoDao;
 	
 	public User_InfoServiceImpl() throws Exception {

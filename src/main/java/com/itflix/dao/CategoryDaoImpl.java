@@ -15,6 +15,7 @@ public class CategoryDaoImpl implements CategoryDao{
 	private Category_Mapper category_Mapper;
 
 	public CategoryDaoImpl() {
+		
 	}
 	
 	public CategoryDaoImpl(Category_Mapper category_Mapper){

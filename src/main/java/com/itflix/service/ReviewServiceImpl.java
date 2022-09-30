@@ -16,12 +16,17 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	private ReviewDao reviewDao;
 
-	public ReviewServiceImpl() {
+	public ReviewServiceImpl() throws Exception {
 		System.out.println("R_Serviceimpl test");
 	}
+	
+	public ReviewDao getReview_Dao() {
+		System.out.println("R_get test2");
+		return reviewDao;
+	}
 
-	public ReviewServiceImpl(ReviewDao reviewDao) {
-		System.out.println("R_ServiceImpl test2");
+	public void setReviewDao(ReviewDao reviewDao) {
+		System.out.println("R_set test3");
 		this.reviewDao = reviewDao;
 	}
 
