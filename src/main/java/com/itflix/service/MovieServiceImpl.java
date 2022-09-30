@@ -62,6 +62,12 @@ public class MovieServiceImpl implements MovieService {
 	public List<Movie> selectMovieCount() throws Exception {
 		return movieDao.selectMovieCount();
 	}
+	
+	//평점 높은 순으로 출력
+	@Override
+	public List<Movie> selectMovieGrade() throws Exception {
+		return movieDao.selectMovieGrade();
+	}
 
 	//영화 개봉일 최신순으로 출력
 	@Override

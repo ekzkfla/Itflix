@@ -17,7 +17,7 @@ public interface Movie_Mapper {
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "join Review r \n"
+				+ "right outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC;")
@@ -27,7 +27,7 @@ public interface Movie_Mapper {
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "join Review r \n"
+				+ "right outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "where m.m_no = #{m.m_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
@@ -38,7 +38,7 @@ public interface Movie_Mapper {
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "join Review r \n"
+				+ "right outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "where m.cg_no = #{m.cg_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
@@ -48,8 +48,8 @@ public interface Movie_Mapper {
 		//영화 제목으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
-				+ "from movie m \n"
-				+ "left join Review r \n"
+				+ "from Movie m \n"
+				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "where m_name LIKE '%'||#{m.m_name}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
@@ -60,7 +60,7 @@ public interface Movie_Mapper {
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "left join Review r \n"
+				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "where m_name LIKE '%'||#{m.m_actor}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
@@ -71,17 +71,28 @@ public interface Movie_Mapper {
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "join Review r \n"
+				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_count DESC;")
 		public List<Movie> selectMovieCount();
 		
+		//평점 높은 순으로 출력
+		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
+				+ "       avg(r.r_grade) as r_grade \n"
+				+ "from movie m \n"
+				+ "left outer join Review r \n"
+				+ "on m.m_no=r.m_no \n"
+				+ "where r_grade is not null \n"
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
+				+ "ORDER BY m_count DESC;")
+		public List<Movie> selectMovieGrade();
+		
 		//영화 개봉일 최신순으로 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "left join Review r \n"
+				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_date DESC;")
@@ -91,7 +102,7 @@ public interface Movie_Mapper {
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "left join Review r \n"
+				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_date ASC;")
@@ -99,7 +110,7 @@ public interface Movie_Mapper {
 		
 		//영화 정보 변경 
 		@Update("update Movie set m_name = #{m_name}, m_actor = #{m_actor}, m_info = #{m_info},\n"
-				+ "m_date = #{m_date}, m_url = #{m_url}, cg_no = #{cg_no} where m_no = #{m_no}")	
+				+ "m_date = #{m_date}, m_url = #{m_url}, cg_no = #{cg_no} where m_no = #{m_no}")
 		public int updateMovie(Movie movie);
 		
 		//영화 번호로 조회수 출력

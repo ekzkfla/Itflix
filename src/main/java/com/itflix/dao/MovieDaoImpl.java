@@ -66,6 +66,13 @@ public class MovieDaoImpl implements MovieDao {
 		List<Movie> movieList = movie_Mapper.selectMovieCount();
 		return movieList;
 	}
+	
+	//평점 높은 순으로 출력
+	@Override
+	public List<Movie> selectMovieGrade() throws Exception {
+		List<Movie> movieList = movie_Mapper.selectMovieGrade();
+		return movieList;
+	}
 
 	//영화 개봉일 최신순으로 출력
 	@Override
