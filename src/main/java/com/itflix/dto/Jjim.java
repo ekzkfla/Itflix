@@ -1,18 +1,20 @@
 package com.itflix.dto;
 
+import java.util.List;
+
 public class Jjim {
 	
 	private int j_groupno;
 	private int j_step;
 	private int j_depth;
-	private User_Info user_Info;
-	private Movie movie;
+	private List<User_Info> user_Info;
+	private List<Movie> movie;
 	
 	public Jjim() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Jjim(int j_groupno, int j_step, int j_depth, User_Info user_Info, Movie movie) {
+	public Jjim(int j_groupno, int j_step, int j_depth, List<User_Info> user_Info, List<Movie> movie) {
 		super();
 		this.j_groupno = j_groupno;
 		this.j_step = j_step;
@@ -45,19 +47,19 @@ public class Jjim {
 		this.j_depth = j_depth;
 	}
 
-	public User_Info getUser_Info() {
+	public List<User_Info> getUser_Info() {
 		return user_Info;
 	}
 
-	public void setUser_Info(User_Info user_Info) {
+	public void setUser_Info(List<User_Info> user_Info) {
 		this.user_Info = user_Info;
 	}
 
-	public Movie getMovie() {
+	public List<Movie> getMovie() {
 		return movie;
 	}
 
-	public void setMovie(Movie movie) {
+	public void setMovie(List<Movie> movie) {
 		this.movie = movie;
 	}
 
@@ -66,5 +68,5 @@ public class Jjim {
 		return "Jjim [j_groupno=" + j_groupno + ", j_step=" + j_step + ", j_depth=" + j_depth + ", user_Info="
 				+ user_Info + ", movie=" + movie + "]";
 	}
-	
+
 }
