@@ -34,5 +34,6 @@ public class CategoryDaoTestApplication {
 		CategoryDao categoryDao = context.getBean(CategoryDao.class);
 		 System.out.println(categoryDao);
 		 System.out.println(categoryDao.selectAll());
+//		 System.out.println(categoryDao.selectByNoMovieList(1));
 	}
 }
