@@ -20,7 +20,7 @@ public interface Movie_Mapper {
 				+ "right outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m.m_no ASC;")
+				+ "ORDER BY m.m_no ASC")
 		public List<Movie> selectAll();
 		
 		//영화 번호로 출력
@@ -31,7 +31,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "where m.m_no = #{m.m_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m.m_no ASC;")
+				+ "ORDER BY m.m_no ASC")
 		public Movie selectByNo(int m_no);
 		
 		//카테고리 번호로 출력
@@ -42,7 +42,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "where m.cg_no = #{m.cg_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m.m_no ASC;")
+				+ "ORDER BY m.m_no ASC")
 		public Movie selectCategoryNo(int cg_no);
 		
 		//영화 제목으로 검색
@@ -53,7 +53,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "where m_name LIKE '%'||#{m.m_name}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m.m_no ASC;")
+				+ "ORDER BY m.m_no ASC")
 		public Movie selectMovieName(String m_name);
 		
 		//영화 출연진 이름으로 검색
@@ -64,7 +64,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "where m_name LIKE '%'||#{m.m_actor}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m.m_no ASC;")
+				+ "ORDER BY m.m_no ASC")
 		public Movie selectMovieActor(String m_actor);
 		
 		//조회수 높은 순으로 출력
@@ -74,7 +74,7 @@ public interface Movie_Mapper {
 				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m_count DESC;")
+				+ "ORDER BY m_count DESC")
 		public List<Movie> selectMovieCount();
 		
 		//평점 높은 순으로 출력
@@ -85,7 +85,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "where r_grade is not null \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m_count DESC;")
+				+ "ORDER BY m_count DESC")
 		public List<Movie> selectMovieGrade();
 		
 		//영화 개봉일 최신순으로 출력
@@ -95,7 +95,7 @@ public interface Movie_Mapper {
 				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m_date DESC;")
+				+ "ORDER BY m_date DESC")
 		public List<Movie> selectMovieNewDate();
 		
 		//영화 개봉일 오래된 순으로 출력
@@ -105,7 +105,7 @@ public interface Movie_Mapper {
 				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m_date ASC;")
+				+ "ORDER BY m_date ASC")
 		public List<Movie> selectMovieOldDate();
 		
 		//영화 정보 변경 
