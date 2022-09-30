@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -157,71 +158,21 @@
 							<p>기사 내용</p>
 						</div>
 					</div>
-					<div class="blog-item-style-1 blog-item-style-3">
-						<img src="images/uploads/bloglist-it2.jpg" alt="">
-						<div class="blog-it-infor">
-							<h3>
-								<a href="blogdetail.html">Magnolia Nabs ‘Lucky’ Starring
-									Harry Dean Stanton</a>
-							</h3>
-							<span class="time">27 Mar 2017</span>
-							<p>Magnolia Pictures has acquired U.S. and international
-								rights to the comedic drama Lucky John Carroll Lynch’s
-								directorial debut. Lynch is an in-demand character actor who ...</p>
+					<c:forEach items="${noticeList}" var ="notice"> 
+						<div class="blog-item-style-1 blog-item-style-3">
+							<img src="images/uploads/bloglist-it2.jpg" alt="">
+							<div class="blog-it-infor">
+								<h3>
+									<a href="blogdetail.html">${notice.n_title }</a>
+								</h3>
+								<span class="time">27 Mar 2017</span>
+								<p>Magnolia Pictures has acquired U.S. and international
+									rights to the comedic drama Lucky John Carroll Lynch’s
+									directorial debut. Lynch is an in-demand character actor who ...</p>
+							</div>
 						</div>
-					</div>
-					<div class="blog-item-style-1 blog-item-style-3">
-						<img src="images/uploads/bloglist-it3.jpg" alt="">
-						<div class="blog-it-infor">
-							<h3>
-								<a href="blogdetail.html">‘Going in Style’ Tops ‘Smurfs: The
-									Lost Village’ at Thursday Box Office</a>
-							</h3>
-							<span class="time">27 Mar 2017</span>
-							<p>New Line’s remake of “Going in Style” launched with a
-								moderate $600,000 on Thursday night, while Sony’s animated
-								“Smurfs: The Lost Village” debuted with $375,000 ...</p>
-						</div>
-					</div>
-					<div class="blog-item-style-1 blog-item-style-3">
-						<img src="images/uploads/bloglist-it4.jpg" alt="">
-						<div class="blog-it-infor">
-							<h3>
-								<a href="blogdetail.html">India’s National Film Awards:
-									‘Kaasav’ Wins Best Picture</a>
-							</h3>
-							<span class="time">27 Mar 2017</span>
-							<p>Although it sporadically errs on the side of
-								sentimentality and simplification, "The Case for Christ"
-								sustains interest, and even generates mild suspense ...</p>
-						</div>
-					</div>
-					<div class="blog-item-style-1 blog-item-style-3">
-						<img src="images/uploads/bloglist-it5.jpg" alt="">
-						<div class="blog-it-infor">
-							<h3>
-								<a href="blogdetail.html">‘Kong: Skull Island’ Tops $500
-									Million at Worldwide Box Office</a>
-							</h3>
-							<span class="time">27 Mar 2017</span>
-							<p>King Kong is still a box office giant. “Kong: Skull
-								Island” has crossed the $500 million mark at the worldwide box
-								office. It’s the third 2017 title to hit the milestone after
-								Disney’s ...</p>
-						</div>
-					</div>
-					<div class="blog-item-style-1 blog-item-style-3">
-						<img src="images/uploads/bloglist-it6.jpg" alt="">
-						<div class="blog-it-infor">
-							<h3>
-								<a href="blogdetail.html">Film Review: ‘Aftermath’</a>
-							</h3>
-							<span class="time">27 Mar 2017</span>
-							<p>"Aftermath" is a plane crash movie without a plane crash.
-								Instead, the closest we get is a scene set in the control tower,
-								where a computer screen shows two ...</p>
-						</div>
-					</div>
+					</c:forEach>
+					
 					<ul class="pagination">
 						<li class="icon-prev"><a href="#"><i
 								class="ion-ios-arrow-left"></i></a></li>
