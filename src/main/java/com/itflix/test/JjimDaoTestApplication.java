@@ -38,9 +38,9 @@ public class JjimDaoTestApplication {
 		//System.out.println(jjimDao.jjimListAll());
 		
 		//System.out.println(jjimDao.jjimListTest());		
-		System.out.println(jjimDao.jjimListTest2());			
+		//System.out.println(jjimDao.jjimListTest2());			
 		//System.out.println(jjimDao.jjimListTest3());			
-
+		System.out.println(jjimDao.jjimListTest4());
 
 		
 		/* guard1@gmail.comㅠ*/
