@@ -47,13 +47,13 @@ public class MovieServiceImpl implements MovieService {
 
 	//영화 제목으로 검색
 	@Override
-	public Movie selectMovieName(String name) throws Exception {
+	public List<Movie> selectMovieName(String name) throws Exception {
 		return movieDao.selectMovieName(name);
 	}
 
 	//영화 출연진 이름으로 검색
 	@Override
-	public Movie selectMovieActor(String name) throws Exception {
+	public List<Movie> selectMovieActor(String name) throws Exception {
 		return movieDao.selectMovieActor(name);
 	}
 
