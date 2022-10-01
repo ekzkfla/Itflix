@@ -10,6 +10,8 @@ public interface CategoryDao {
 	List<Category> selectByNoMovieList(int no) throws Exception;
 	//카테고리 전체 출력
 	List<Category> selectAll() throws Exception;
+	////카테고리별  영화 한개 상세 상세페이지 검색 (리뷰 추가 -리뷰없을시 null표시)
+	Category selectByNoByM_NoAndReview(int cg_no,int m_no)throws Exception;
 	//카테고리 번호를 이용한 찾기
 	Category selectByNo(int no) throws Exception;
 	//카테고리 이름을 이용한 찾기

@@ -14,6 +14,13 @@ namespace="com.itflix.mapper.Category_Mapper">
 				</collection>
 	</resultMap>
 
+
+	<resultMap  id="findCategoryMovieDetailReviewResultMap" type="com.itflix.dto.Category">
+			<result column="cg_no" property="cg_no"/>
+			<result column="cg_name" property="cg_name"/>
+	</resultMap>
+
+
 </mapper> 
 	<!-- 
 	select 		

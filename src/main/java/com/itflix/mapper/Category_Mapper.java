@@ -42,13 +42,14 @@ public interface Category_Mapper {
 
 	
 	//카테고리 번호를 이용하여 해당 카테고리에 영화 리스트 출력
-	@Select("select c.cg_no,c.cg_name,m.m_name,m.m_image,m.m_date from category c join movie m on c.cg_no = m.cg_no where c.cg_no = 1") 
+	@Select("select c.cg_no,c.cg_name,m.m_name,m.m_image,m.m_date from category c join movie m on c.cg_no = m.cg_no where c.cg_no = #{cg_no}") 
 	@ResultMap("findeCategoryMovieListResultMap")
 	public List<Category> selectByNoMovieList(Integer cg_no);
 	 
-	//카테고리에 맞는 영화 1개 상세 페이지  출력 
-	
-	public Category selectByNoByM_NoAndReview();
+	//카테고리별  영화 한개 상세 상세페이지 검색 (리뷰 추가 -리뷰없을시 null표시)
+	@Select("select * from(select c.cg_no,c.cg_name, m.m_name,m.m_actor,m.m_info,m.m_image,m.m_date,m.m_url,r.r_title,r.r_content,r.r_date,avg(r.r_grade) from category c join movie m on m.cg_no = c.cg_no left JOIN review r on r.m_no = m.m_no where c.cg_no = 4 AND m.m_no=19 GROUP BY c.cg_no,c.cg_name, m.m_name,m.m_actor,m.m_info,m.m_image,m.m_date,m.m_url,r.r_title,r.r_content,r.r_date ORDER BY r.r_date DESC) where ROWNUM<=1")
+	@ResultMap("findCategoryMovieDetailReviewResultMap")
+	public Category selectByNoByM_NoAndReview(Integer cg_no, Integer m_no);
 		
 	
 }

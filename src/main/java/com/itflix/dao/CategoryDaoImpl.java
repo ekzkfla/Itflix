@@ -32,7 +32,13 @@ public class CategoryDaoImpl implements CategoryDao{
 		 List<Category> selectByNoMovieList =category_Mapper.selectByNoMovieList(cg_no); 
 		 return selectByNoMovieList; 
 	}
-	 
+    //카테고리별  영화 한개 상세 상세페이지 검색 (리뷰 추가 -리뷰없을시 null표시) 
+	@Override
+	public Category selectByNoByM_NoAndReview(int cg_no, int m_no) throws Exception {
+		Category category = category_Mapper.selectByNoByM_NoAndReview(cg_no, m_no);
+		return category;
+	}
+	
 	
 	//카테고리 전체 출력 
 	@Override
@@ -75,6 +81,6 @@ public class CategoryDaoImpl implements CategoryDao{
 		int deleteCateogory = category_Mapper.deleteCategory(cg_no);
 		return deleteCateogory;
 	}
-	
+
 		
 }

@@ -40,8 +40,8 @@ public class CategoryDaoTestApplication {
 		 //System.out.println(categoryDao.updateCategory(new Category(7, "변경된 카테고리")));
 		 //System.out.println(categoryDao.deleteCategory(7));
 		 //System.out.println(categoryDao.selectByNoMovieList(1));
-		 //System.out.println(categoryDao.selectByNoMovieList(1));
 		 /**************************테스트 완료 *****************************************/
+		 //System.out.println(categoryDao.selectByNoByM_NoAndReview(1,6));
 		
 	}
 }
