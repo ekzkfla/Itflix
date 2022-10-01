@@ -1,6 +1,7 @@
 package com.itflix.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class Movie {
 	
@@ -16,13 +17,14 @@ public class Movie {
 	private int m_step;
 	private int m_depth;
 	private Category category;
+	private List<Review> reviewList;
 	
 	public Movie() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Movie(int m_no, String m_name, String m_actor, String m_info, String m_image, int m_count, Date m_date,
-			String m_url, int m_groupno, int m_step, int m_depth, Category category) {
+			String m_url, int m_groupno, int m_step, int m_depth, Category category, List<Review> reviewList) {
 		super();
 		this.m_no = m_no;
 		this.m_name = m_name;
@@ -36,6 +38,7 @@ public class Movie {
 		this.m_step = m_step;
 		this.m_depth = m_depth;
 		this.category = category;
+		this.reviewList = reviewList;
 	}
 
 	public int getM_no() {
@@ -134,12 +137,23 @@ public class Movie {
 		this.category = category;
 	}
 
+	public List<Review> getReviewList() {
+		return reviewList;
+	}
+
+	public void setReviewList(List<Review> reviewList) {
+		this.reviewList = reviewList;
+	}
+
 	@Override
 	public String toString() {
 		return "Movie [m_no=" + m_no + ", m_name=" + m_name + ", m_actor=" + m_actor + ", m_info=" + m_info
 				+ ", m_image=" + m_image + ", m_count=" + m_count + ", m_date=" + m_date + ", m_url=" + m_url
 				+ ", m_groupno=" + m_groupno + ", m_step=" + m_step + ", m_depth=" + m_depth + ", category=" + category
-				+ "]";
+				+ ", reviewList=" + reviewList + "]";
 	}
+
+	
+	
 	
 }

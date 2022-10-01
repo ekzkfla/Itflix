@@ -41,19 +41,19 @@ public class MovieServiceImpl implements MovieService {
 
 	//카테고리 번호로 출력
 	@Override
-	public Movie selectCategoryNo(int no) throws Exception {
+	public List<Movie> selectCategoryNo(int no) throws Exception {
 		return movieDao.selectCategoryNo(no);
 	}
 
 	//영화 제목으로 검색
 	@Override
-	public Movie selectMovieName(String name) throws Exception {
+	public List<Movie> selectMovieName(String name) throws Exception {
 		return movieDao.selectMovieName(name);
 	}
 
 	//영화 출연진 이름으로 검색
 	@Override
-	public Movie selectMovieActor(String name) throws Exception {
+	public List<Movie> selectMovieActor(String name) throws Exception {
 		return movieDao.selectMovieActor(name);
 	}
 

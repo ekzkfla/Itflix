@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itflix.mapper.Jjim_Mapper">
 
-
 		<resultMap type="com.itflix.dto.Jjim" id="jjimListTest4">
 			<collection property="user_Info" javaType="java.util.List"
 			ofType="com.itflix.dto.User_Info">

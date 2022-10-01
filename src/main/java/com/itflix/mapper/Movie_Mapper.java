@@ -43,7 +43,7 @@ public interface Movie_Mapper {
 				+ "where m.cg_no = #{m.cg_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
-		public Movie selectCategoryNo(int cg_no);
+		public List<Movie> selectCategoryNo(int cg_no);
 		
 		//영화 제목으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
@@ -54,7 +54,7 @@ public interface Movie_Mapper {
 				+ "where m_name LIKE '%'||#{m.m_name}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
-		public Movie selectMovieName(String m_name);
+		public List<Movie> selectMovieName(String m_name);
 		
 		//영화 출연진 이름으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
@@ -65,7 +65,7 @@ public interface Movie_Mapper {
 				+ "where m_name LIKE '%'||#{m.m_actor}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
-		public Movie selectMovieActor(String m_actor);
+		public List<Movie> selectMovieActor(String m_actor);
 		
 		//조회수 높은 순으로 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"

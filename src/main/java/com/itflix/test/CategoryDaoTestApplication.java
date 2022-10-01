@@ -32,7 +32,7 @@ public class CategoryDaoTestApplication {
 				new SpringApplication(CategoryDaoTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		CategoryDao categoryDao = context.getBean(CategoryDao.class);
+		CategoryService categoryService = context.getBean(CategoryService.class);
 		 //System.out.println(categoryDao);
 		 //System.out.println(categoryDao.selectAll());
 		 //System.out.println(categoryDao.selectByName("액션"));
@@ -41,7 +41,7 @@ public class CategoryDaoTestApplication {
 		 //System.out.println(categoryDao.deleteCategory(7));
 		 //System.out.println(categoryDao.selectByNoMovieList(1));
 		 /**************************테스트 완료 *****************************************/
-		 //System.out.println(categoryDao.selectByNoByM_NoAndReview(1,6));
+		 System.out.println(categoryService.selectByNoByM_NoAndReview(2,30));
 		
 	}
 }

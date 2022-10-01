@@ -34,15 +34,15 @@ public class MovieDaoTestApplication {
 		 System.out.println(movieDao.selectAll());
 		 System.out.println(movieDao.selectByNo(1));
 		 System.out.println(movieDao.selectCategoryNo(1));
-		 /*
-		 System.out.println(movieDao.selectMovieName("탑건"));
+		 
+		 System.out.println(movieDao.selectMovieName("정직"));
 		 System.out.println(movieDao.selectMovieActor("라"));
 		 System.out.println(movieDao.selectMovieCount());
 		 System.out.println(movieDao.selectMovieGrade());
 		 System.out.println(movieDao.selectMovieNewDate());
 		 System.out.println(movieDao.selectMovieOldDate());
 		 System.out.println(movieDao.selectMovieCountByNo(1));
-		 */
+		 
 		 //System.out.println(movieDao.movieCountPlus(1));
 
 	}
