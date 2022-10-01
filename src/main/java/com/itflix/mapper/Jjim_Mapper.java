@@ -37,11 +37,10 @@ public interface Jjim_Mapper {
 	
 	/* 영화 찜하기*/
 	@Insert("insert into jjim VALUES(0,0,0,'guard1@gmail.com',8)")
-	@ResultMap("jjimInsertTest")
 	public int jjimInsert(Jjim jjim);
 	
 	/* 영화 찜하기 해제*/
-	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
+	@Delete("delete from jjim where u_email='guard1@gmail.com' and m_no=8)")
 	public int jjimDelete(Jjim jjim);
 
 	

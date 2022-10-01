@@ -39,15 +39,19 @@ public class JjimDaoTestApplication {
 		/* 리뷰의 총평점 조인안하고 불러오기 성공*/
 		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
 		
+		
+		
+		/*-----------------성공하고싶어요---------------------*/
 	
 		
-		//System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,"guard1@gmail.com",9));
 		
 		/*
-		System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,
+		System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,"guard1@gmail.com",9));
+				System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,
 											new User_Info("guard1@gmail.com", null, null, null),
 											new Movie(8, null, null, null, null, 0, null, null, 0, 0, 0, null))));
 		*/		
+		
 		/* guard1@gmail.com */
 		
 	}
