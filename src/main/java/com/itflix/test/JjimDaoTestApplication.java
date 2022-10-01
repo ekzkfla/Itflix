@@ -39,11 +39,9 @@ public class JjimDaoTestApplication {
 		/* 리뷰의 총평점 조인안하고 불러오기 성공*/
 		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
 		
-		
+		//System.out.println("삭제>>>"+jjimDao.jjimDelete("guard1@gmail.com",8));
 		
 		/*-----------------성공하고싶어요---------------------*/
-		System.out.println(jjimDao.jjimDelete("guard1@gmail.com",8));
-		
 		
 		/*
 		System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,"guard1@gmail.com",9));

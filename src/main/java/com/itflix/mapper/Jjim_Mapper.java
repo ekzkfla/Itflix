@@ -43,28 +43,8 @@ public interface Jjim_Mapper {
 	@Delete("delete from jjim where u_email='guard1@gmail.com' and m_no=8")
 	public int jjimDelete(String u_email,int m_no);
 
+		
 	
-	
-	
-	@Select("select j.u_email from jjim j join user_info u on j.u_email = u.u_email")
-	@ResultMap("jjimListTest")
-	public List<Jjim> jjimListTest();
-	
-	
-	@Select("select j.u_email, j.m_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no")
-	@ResultMap("jjimListTest2")
-	public List<Jjim> jjimListTest2();
-	 
-	
-	
-	  @Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no")
-	  @ResultMap("jjimListTest3")
-	  public List<Jjim> jjimListTest3();
-	 
-	  
-	  @Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no")
-	  @ResultMap("jjimListTest4")
-	  public List<Jjim> jjimListTest4();
 	 
 	  
 	  @Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email='guard1@gmail.com'")
