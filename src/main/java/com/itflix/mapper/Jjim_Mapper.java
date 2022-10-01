@@ -40,7 +40,7 @@ public interface Jjim_Mapper {
 	public int jjimInsert(Jjim jjim);
 	
 	/* 영화 찜하기 해제*/
-	@Delete("delete from jjim where u_email='guard1@gmail.com' and m_no=8")
+	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
 	public int jjimDelete(String u_email,int m_no);
 
 		
