@@ -43,8 +43,8 @@ public class JjimDaoImpl implements JjimDao {
 	
 	/* 영화 찜하기 해제 (u_email 에서 m_no 로 삭제)*/
 	@Override
-	public int jjimDelete(Jjim jjim) throws Exception {
-		int jjimDelete = jjim_Mapper.jjimDelete(jjim);
+	public int jjimDelete(String u_email,int m_no) throws Exception {
+		int jjimDelete = jjim_Mapper.jjimDelete(u_email,m_no);
 		return jjimDelete;
 	}
 	
@@ -56,31 +56,6 @@ public class JjimDaoImpl implements JjimDao {
 		  List<Jjim> jjimListAll = jjim_Mapper.jjimListAll();
 	 return jjimListAll; }
 	 	
-	@Override
- 	public List<Jjim> jjimListTest() throws Exception{
-	 List<Jjim> jjimListTest = jjim_Mapper.jjimListTest();
-	return jjimListTest;
-	}
- 	
-	@Override
-	public List<Jjim> jjimListTest2() throws Exception{
-		List<Jjim> jjimListTest2 = jjim_Mapper.jjimListTest2();
-	return jjimListTest2;
-	}
-	
-	
-	@Override
-	public List<Jjim> jjimListTest3() throws Exception{
-		List<Jjim> jjimListTest3 = jjim_Mapper.jjimListTest3();
-	return jjimListTest3;
-	}
-	
-	@Override
-	public List<Jjim> jjimListTest4() throws Exception{
-		List<Jjim> jjimListTest4 = jjim_Mapper.jjimListTest4();
-	return jjimListTest4;
-	}
-	
 	@Override
 	public List<Jjim> jjimListTest5(String u_email) throws Exception{
 		List<Jjim> jjimListTest5 = jjim_Mapper.jjimListTest5(u_email);

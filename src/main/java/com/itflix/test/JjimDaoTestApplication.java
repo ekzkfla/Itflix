@@ -42,7 +42,7 @@ public class JjimDaoTestApplication {
 		
 		
 		/*-----------------성공하고싶어요---------------------*/
-	
+		System.out.println(jjimDao.jjimDelete("guard1@gmail.com",8));
 		
 		
 		/*

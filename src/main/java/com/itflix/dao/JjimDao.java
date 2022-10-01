@@ -13,7 +13,7 @@ public interface JjimDao {
 	int jjimInsert(Jjim jjim) throws Exception;
 
 	/* 영화 찜하기 해제 */
-	int jjimDelete(Jjim jjim) throws Exception;
+	int jjimDelete(String u_email,int m_no) throws Exception;
 
 	/*
 	 * 회원 전체보기 */
@@ -23,9 +23,5 @@ public interface JjimDao {
 	 * throws Exception;
 	 */
 	
-	 List<Jjim> jjimListTest() throws Exception;
-	 List<Jjim> jjimListTest2() throws Exception;
-	 List<Jjim> jjimListTest3() throws Exception;
-	 List<Jjim> jjimListTest4() throws Exception;
 	 List<Jjim> jjimListTest5(String u_email) throws Exception;
 }
