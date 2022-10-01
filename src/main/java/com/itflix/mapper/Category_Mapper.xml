@@ -3,19 +3,17 @@
 <mapper 
 namespace="com.itflix.mapper.Category_Mapper">
 
-<!-- 
- 
-<resultMap id="findeCategoryMovieListResultMap" type="com.itflix.dto.Movie">
-		<result column="m_image" property="m_image"/>
-		<result column="m_name" property="m_name"/>
-		<result column="m_actor" property="m_actor"/>
-		<result column="m_info" property="m_info"/>
-		<result column="m_date" property="m_date"/>
-	<association property="category" javaType="com.itflix.dto.Cateogory">
-				<result column="cg_no" property="cg_no"/>
-				<result column="cg_name" property="cg_name"/>
-	</association>
-</resultMap>--> 
+	
+	<resultMap id="findeCategoryMovieListResultMap" type="com.itflix.dto.Category">
+ 			<result column="cg_no" property="cg_no"/>
+			<result column="cg_name" property="cg_name"/>
+				 <collection property="movieList" javaType="java.util.List" ofType="com.itflix.dto.Movie">
+							<result column="m_name" property="m_name"/>
+							<result column="m_image" property="m_image"/>
+							<result column="m_date" property="m_date"/>
+				</collection>
+	</resultMap>
+
 </mapper> 
 	<!-- 
 	select 		

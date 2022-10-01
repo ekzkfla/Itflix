@@ -28,10 +28,12 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	//카테고리 번호를 이용한 해당 영화 리스트 출력
-	/*
-	 * @Override public List<Category> selectByNoMovieList(int no) throws Exception{
-	 * return categoryDao.selectByNoMovieList(no); }
-	 */
+	
+	 @Override 
+	 public List<Category> selectByNoMovieList(int no) throws Exception{
+		 return categoryDao.selectByNoMovieList(no); 
+	 }
+	 
 	
 	//카테고리 전체 출력
 	@Override

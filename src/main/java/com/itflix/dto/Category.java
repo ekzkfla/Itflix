@@ -1,20 +1,22 @@
 package com.itflix.dto;
 
-
+import java.util.List;
 
 public class Category {
 
 	private int cg_no;
 	private String cg_name;
+	private List<Movie> movieList;
 
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Category(int cg_no, String cg_name) {
+	public Category(int cg_no, String cg_name, List<Movie> movieList) {
 		super();
 		this.cg_no = cg_no;
 		this.cg_name = cg_name;
+		this.movieList = movieList;
 	}
 
 	public int getCg_no() {
@@ -33,10 +35,19 @@ public class Category {
 		this.cg_name = cg_name;
 	}
 
+	public List<Movie> getMovieList() {
+		return movieList;
+	}
+
+	public void setMovieList(List<Movie> movieList) {
+		this.movieList = movieList;
+	}
+
 	@Override
 	public String toString() {
-		return "Category [cg_no=" + cg_no + ", cg_name=" + cg_name + "]";
+		return "Category [cg_no=" + cg_no + ", cg_name=" + cg_name + ", movieList=" + movieList + "]";
 	}
+	
 	
 
 }
