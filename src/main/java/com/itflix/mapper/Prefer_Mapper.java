@@ -28,15 +28,7 @@ public interface Prefer_Mapper {
 	
 	
 	//총평점없이 회원선호카테고리 영화리스트 불러오기
-	@Select("select p.cg_no,"
-			+ "       m.m_no,"
-			+ "       m.m_name,"
-			+ "       m.m_image,"
-			+ "       m.m_date,"
-			+ "       m.m_count"
-			+ "from prefer p LEFT join movie m"
-			+ "on p.cg_no=m.cg_no"
-			+ "where p.u_email=#{u_email} and p.cg_no=#{cg_no};")
+	@Select("select p.cg_no,m.m_no,m.m_name, m.m_image,m.m_date,m.m_count from prefer p LEFT join movie m on p.cg_no=m.cg_no where p.u_email='guard1@gmail.com' and p.cg_no=#{u_email}")
 	@ResultMap("selectPreferCgMovieList")
 	public List<Prefer> selectPreferCgMovieList(String u_email,int cg_no);
 
