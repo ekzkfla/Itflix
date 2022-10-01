@@ -6,11 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.itflix.dao.JjimDao;
+import com.itflix.dao.PreferDao;
+
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
-public class JjimDaoTestApplication {
+public class PreferDaoTestApplication {
 	public static void main(String[] args) throws Exception {
 		/****************case1********************/
 		/*
@@ -26,17 +27,18 @@ public class JjimDaoTestApplication {
 		*/
 		
 		SpringApplication application = 
-				new SpringApplication(JjimDaoTestApplication.class);
+				new SpringApplication(PreferDaoTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		JjimDao jjimDao = context.getBean(JjimDao.class);
-		System.out.println(jjimDao);
+		PreferDao preferDao = context.getBean(PreferDao.class);
+		System.out.println(preferDao);
 
-		/* 리뷰의 총평점 조인안하고 불러오기*/
-		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
+		//System.out.println("선호카테고리조회>>>"+preferDao.selecCgByEmail("guard1@gmail.com"));	
+		//System.out.println("선호카테고리해제>>>"+preferDao.preferDelete("guard1@gmail.com",3));	
+		//System.out.println("선호카테고리선택>>>"+preferDao.preferInsert("guard1@gmail.com",3));	
+		System.out.println("선호카테고리무비리스트>>>"+preferDao.selectPreferCgMovieList("guard1@gmail.com",3));	
 		
-		//System.out.println("삭제>>>"+jjimDao.jjimDelete("guard1@gmail.com",8));	
-		//System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",18));
+			
 
 	}
 }
