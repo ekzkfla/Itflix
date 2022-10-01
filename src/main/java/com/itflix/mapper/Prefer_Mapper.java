@@ -28,8 +28,35 @@ public interface Prefer_Mapper {
 	
 	
 	//총평점없이 회원선호카테고리 영화리스트 불러오기
-	@Select("select p.cg_no,m.m_no,m.m_name, m.m_image,m.m_date,m.m_count from prefer p LEFT join movie m on p.cg_no=m.cg_no where p.u_email='guard1@gmail.com' and p.cg_no=#{u_email}")
+	@Select("select p.cg_no,m.m_no,m.m_name,m.m_image,m.m_date,m.m_count from prefer p LEFT join movie m on p.cg_no=m.cg_no where p.u_email=#{u_email} and p.cg_no=#{cg_no}")
 	@ResultMap("selectPreferCgMovieList")
 	public List<Prefer> selectPreferCgMovieList(String u_email,int cg_no);
+	
+	
+	//회원별 관심카테고리(넘버)로 관련 영화 출력 sql문 (PREFER,무비,리뷰 테이블 그룹화 및 조인) --
+	//(출력: 카테고리번호,영화등록번호,영화장르,영화이름,영화이미지,영화개봉일,영화클릭수,리뷰평균평점(리뷰평점 NULL 포함)) -- 
+	//guard1@gmail.com 의 카테고리 6 번 관련 영화 전체 출력(리뷰평점 NULL 포함)
+	
+	@Select("select p.cg_no, "
+			+ "       m.m_no, "
+			+ "       m.m_name, "
+			+ "       m.m_image, "
+			+ "       m.m_date, "
+			+ "       m.m_count, "
+			+ "       avg(r.r_grade) 총평점 "
+			+ "from prefer p left join movie m "
+			+ "on p.cg_no = m.cg_no "
+			+ "left join review r "
+			+ "on m.m_no=r.m_no "
+			+ "where p.u_email=#{u_email} and p.cg_no=#{cg_no} "
+			+ "group by p.cg_no, "
+			+ "         m.m_no, "
+			+ "         m.m_name, "
+			+ "         m.m_image, "
+			+ "         m.m_date, "
+			+ "         m.m_count "
+			+ "ORDER By avg(r.r_grade) desc")
+	@ResultMap("test")
+	public List<Prefer> selectPreferCgMovieList222(String u_email,int cg_no);
 
 }
