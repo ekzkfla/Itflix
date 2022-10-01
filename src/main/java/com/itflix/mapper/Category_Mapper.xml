@@ -11,6 +11,9 @@ namespace="com.itflix.mapper.Category_Mapper">
 							<result column="m_name" property="m_name"/>
 							<result column="m_image" property="m_image"/>
 							<result column="m_date" property="m_date"/>
+							<collection property="reviewList" javaType="java.util.List" ofType="com.itflix.dto.Review">
+								<result column="r_grade" property="r_grade"/>
+							</collection>
 				</collection>
 	</resultMap>
 
