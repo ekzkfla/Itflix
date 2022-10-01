@@ -27,11 +27,15 @@ public class CategoryServiceImpl implements CategoryService{
 		this.categoryDao = categoryDao;
 	}
 
-	//카테고리 번호를 이용한 해당 영화 리스트 출력
-	
+	 //카테고리 번호를 이용한 해당 영화 리스트 출력
 	 @Override 
 	 public List<Category> selectByNoMovieList(int no) throws Exception{
 		 return categoryDao.selectByNoMovieList(no); 
+	 }
+	 //카테고리별  영화 한개 상세 상세페이지 검색 (리뷰 추가 -리뷰없을시 null표시)
+	 @Override
+	 public Category selectByNoByM_NoAndReview(int cg_no, int m_no) throws Exception {
+		return categoryDao.selectByNoByM_NoAndReview(cg_no, m_no);
 	 }
 	 
 	
@@ -70,5 +74,7 @@ public class CategoryServiceImpl implements CategoryService{
 	public int deleteCategory(int no)throws Exception{
 		return categoryDao.deleteCategory(no);
 	}
+
+	
 	
 }

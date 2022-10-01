@@ -47,7 +47,7 @@ public interface Category_Mapper {
 	public List<Category> selectByNoMovieList(Integer cg_no);
 	 
 	//카테고리별  영화 한개 상세 상세페이지 검색 (리뷰 추가 -리뷰없을시 null표시)
-	@Select("select * from(select c.cg_no,c.cg_name, m.m_name,m.m_actor,m.m_info,m.m_image,m.m_date,m.m_url,r.r_title,r.r_content,r.r_date,avg(r.r_grade) from category c join movie m on m.cg_no = c.cg_no left JOIN review r on r.m_no = m.m_no where c.cg_no = 4 AND m.m_no=19 GROUP BY c.cg_no,c.cg_name, m.m_name,m.m_actor,m.m_info,m.m_image,m.m_date,m.m_url,r.r_title,r.r_content,r.r_date ORDER BY r.r_date DESC) where ROWNUM<=1")
+	@Select("select * from(select c.cg_no,c.cg_name,m.m_no, m.m_name,m.m_actor,m.m_info,m.m_image,m.m_date,m.m_url,r.r_title,r.r_content,r.r_date,avg(r.r_grade) from category c join movie m on m.cg_no = c.cg_no left JOIN review r on r.m_no = m.m_no where c.cg_no = 1 AND m.m_no=6 GROUP BY c.cg_no,c.cg_name,m.m_no ,m.m_name,m.m_actor,m.m_info,m.m_image,m.m_date,m.m_url,r.r_title,r.r_content,r.r_date ORDER BY r.r_date DESC) where ROWNUM<=1")
 	@ResultMap("findCategoryMovieDetailReviewResultMap")
 	public Category selectByNoByM_NoAndReview(Integer cg_no, Integer m_no);
 		

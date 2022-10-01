@@ -18,6 +18,22 @@ namespace="com.itflix.mapper.Category_Mapper">
 	<resultMap  id="findCategoryMovieDetailReviewResultMap" type="com.itflix.dto.Category">
 			<result column="cg_no" property="cg_no"/>
 			<result column="cg_name" property="cg_name"/>
+			<collection property="movieList" javaType="java.util.List" ofType="com.itflix.dto.Movie">
+					<result column="m_no" property="m_no"/>
+					<result column="m_name" property="m_name"/>
+					<result column="m_actor" property="m_actor"/>
+					<result column="m_info" property="m_info"/>
+					<result column="m_image" property="m_image"/>
+					<result column="m_date" property="m_date"/>
+					<result column="m_url" property="m_url"/>
+					<collection property="reviewList" javaType="java.util.List" ofType="com.itflix.dto.Review">
+						<result column="r_title" property="r_title"/>
+						<result column="r_content" property="r_content"/>
+						<result column="r_date" property="r_date"/>
+						<result column="r_grade" property="r_grade"/>
+					</collection>
+			</collection>
+			
 	</resultMap>
 
 
