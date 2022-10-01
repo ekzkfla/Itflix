@@ -125,8 +125,8 @@ select m.m_no,
        m.m_date,
        m.cg_no,
        avg(r.r_grade) as r_grade 
-from movie m 
-right outer join Review r 
+from Movie m 
+left outer join Review r 
 on m.m_no=r.m_no 
 group by m.m_no,
          m.m_name,
