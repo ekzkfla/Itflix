@@ -15,13 +15,7 @@ public interface JjimDao {
 	/* 영화 찜하기 해제 */
 	int jjimDelete(String u_email,int m_no) throws Exception;
 
-	/*
-	 * 회원 전체보기 */
-	 List<Jjim> jjimListAll() throws Exception; 
-	 /*
-	 * List<Jjim> jjimListAll2()
-	 * throws Exception;
-	 */
-	
-	 List<Jjim> jjimListTest5(String u_email) throws Exception;
+
+	/* 리뷰의 총평점 조인안하고 불러오기*/
+	List<Jjim> jjimListTest5(String u_email) throws Exception;
 }

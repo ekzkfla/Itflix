@@ -49,13 +49,7 @@ public class JjimDaoImpl implements JjimDao {
 	}
 	
 
-	
-
-	 @Override
-	 public List<Jjim> jjimListAll() throws Exception {
-		  List<Jjim> jjimListAll = jjim_Mapper.jjimListAll();
-	 return jjimListAll; }
-	 	
+	/* 리뷰의 총평점 조인안하고 불러오기*/
 	@Override
 	public List<Jjim> jjimListTest5(String u_email) throws Exception{
 		List<Jjim> jjimListTest5 = jjim_Mapper.jjimListTest5(u_email);
