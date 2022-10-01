@@ -38,8 +38,10 @@ public class ReviewServiceTestApplication {
 		 System.out.println(reviewDao.selectAll());
 		 //System.out.println(reviewDao.selectByNo(3));
 		 //System.out.println(reviewDao.deleteReview(11));
-		 //System.out.println("check"+reviewDao.selectWroteReview("guard1@gmail.com"));
-		 //System.out.println("check2"+reviewDao.selectLatest());
+		 //System.out.println("check"+reviewDao.selectWroteReview("guard2@gmail.com"));
+		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
+		 
+		 System.out.println("check2"+reviewDao.selectLatest(6));
 		 //System.out.println("check3"+reviewDao.updateReview(new Review(3, "수정확인", "수정확인중", 50, 20220930, 0, 0, 0, 3, null)));
 													 /*(int r_no, String r_title, String r_content,
 													  *  int r_grade, Date r_date, int r_groupno,

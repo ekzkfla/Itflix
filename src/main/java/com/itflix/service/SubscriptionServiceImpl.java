@@ -29,8 +29,8 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 
 	//전체 구독자리스트
 	@Override
-	public List<Subscription> selectlistAll() throws Exception {
-		return subscriptionDao.selectlistAll();
+	public List<Subscription> selectListAll() throws Exception {
+		return subscriptionDao.selectListAll();
 	}
 
 	//구독시작날짜 찾기
@@ -51,6 +51,16 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 		return subscriptionDao.selectByNo(u_email);
 	}
 	
+	//구독권 추가
+	@Override
+	public Subscription insertSubscription(Subscription subscription) throws Exception {
+		return subscriptionDao.insertSubscription(subscription);
+	}
 	
+	//구독권 업데이트
+	@Override
+	public Subscription updateSubscription(int t_no, String u_email) throws Exception {
+		return subscriptionDao.updateSubscription(t_no, u_email);
+	}
 
 }
