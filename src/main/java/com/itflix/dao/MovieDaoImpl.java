@@ -41,9 +41,9 @@ public class MovieDaoImpl implements MovieDao {
 	
 	//카테고리 번호로 출력
 	@Override
-	public Movie selectCategoryNo(int cg_no) throws Exception {
-		Movie movie = movie_Mapper.selectCategoryNo(cg_no); 
-		return movie;
+	public List<Movie> selectCategoryNo(int cg_no) throws Exception {
+		List<Movie> movieList = movie_Mapper.selectCategoryNo(cg_no); 
+		return movieList;
 	}
 
 	//영화 제목으로 검색
