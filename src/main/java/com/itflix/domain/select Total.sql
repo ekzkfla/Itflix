@@ -42,19 +42,17 @@ update subscription set s_cardname='국민카드', s_cardnumber='987498749874987
 update subscription set t_no = 0 where u_email ='guard4@gmail.com';
 
 ------------------------------PREFER SELECT-----------------------------------
--- prefer 전체리스트 조회
-select * from prefer;
+-- 회원별 prefer 조회(선호카테고리 조회)
+SELECT u_email, cg_no FROM PREFER WHERE u_email = 'guard1@gmail.com';
 
 -- 회원별 관심카테고리(넘버)로 관련 영화 출력 sql문 (PREFER,무비,리뷰 테이블 그룹화 및 조인) --
 -- (출력: 카테고리번호,영화등록번호,영화장르,영화이름,영화이미지,영화개봉일,영화클릭수,리뷰평균평점(리뷰평점 NULL 포함)) -- 
-SELECT * FROM PREFER WHERE u_email = 'guard1@gmail.com';
-
 -- guard1@gmail.com 의 카테고리 1 번 관련 영화 전체 출력(리뷰평점 NULL 미포함)
 select p.cg_no,
        m.m_no,
        m.m_name,
        m.m_image,
-       m.m_link,
+       m.m_url,
        m.m_date,
        m.m_count,
        avg(r.r_grade)"총평점" 
@@ -67,31 +65,16 @@ group by p.cg_no,
          m.m_no,           
          m.m_name,
          m.m_image,
-         m.m_link,
+         m.m_url,
          m.m_date,
          m.m_count
 ORDER By avg(r.r_grade) desc;
 
+-- 선호카테고리 삭제
+delete from prefer where u_email='guard1@gmail.com' and cg_no=3;
 
-
---영화 평점
-select m.m_no,
-       m.m_name,
-       m.m_image,
-       m.m_link,
-       m.m_date,
-       m.m_count,
-       avg(r.r_grade)"총평점" 
-from movie m join review r
-on m.m_no=r.m_no
-where m.m_no=1
-group by m.m_no,
-         m.m_name,
-         m.m_image,
-         m.m_link,
-         m.m_date,
-         m.m_count;
-
+-- 선호카테고리 선택
+insert into prefer values (0,0,0,'guard1@gmail.com',1);
 
 
 -- 리스트 페이지 시작,끝부분

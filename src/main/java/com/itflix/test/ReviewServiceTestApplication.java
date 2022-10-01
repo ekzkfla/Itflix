@@ -47,7 +47,7 @@ public class ReviewServiceTestApplication {
 		 //System.out.println("check2"+reviewDao.selectLatest(10));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 		 
-		 //System.out.println("check3"+reviewDao.updateReview("수정은 이렇게", "그런데 수정이 안대부러쓰~", 13, 3, 14));
+		 System.out.println("check3"+reviewDao.updateReview("수정은 이렇게", "그런데 수정이 안대부러쓰~", 13, 3, 12));
 													 /*(int r_no, String r_title, String r_content,
 													  *  int r_grade, Date r_date, int r_groupno,
 													  *   int r_step, int r_depth, Movie movie, User_Info user_Info)*/
