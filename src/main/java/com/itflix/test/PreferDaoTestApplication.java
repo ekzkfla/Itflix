@@ -36,7 +36,9 @@ public class PreferDaoTestApplication {
 		//System.out.println("선호카테고리조회>>>"+preferDao.selecCgByEmail("guard1@gmail.com"));	
 		//System.out.println("선호카테고리해제>>>"+preferDao.preferDelete("guard1@gmail.com",3));	
 		//System.out.println("선호카테고리선택>>>"+preferDao.preferInsert("guard1@gmail.com",3));	
-		System.out.println("선호카테고리무비리스트>>>"+preferDao.selectPreferCgMovieList("guard1@gmail.com",3));	
+		//System.out.println("선호카테고리무비리스트>>>"+preferDao.selectPreferCgMovieList("guard1@gmail.com",3));
+		
+		System.out.println("선호카테고리무비리스트>>>"+preferDao.selectPreferCgMovieList222("guard1@gmail.com",6));
 		
 			
 

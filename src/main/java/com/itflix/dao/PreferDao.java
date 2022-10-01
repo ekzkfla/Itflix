@@ -17,4 +17,6 @@ public interface PreferDao {
 	
 	//총평점없이 회원선호카테고리 영화리스트 불러오기
 	List<Prefer> selectPreferCgMovieList(String u_email,int cg_no) throws Exception;
+	
+	List<Prefer> selectPreferCgMovieList222(String u_email,int cg_no) throws Exception;
 }

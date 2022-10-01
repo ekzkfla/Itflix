@@ -14,10 +14,8 @@
 	</resultMap>
 
 
-	<resultMap type="com.itflix.dto.Prefer" id="selectPreferCgMovieList">
-		<collection property="userList" javaType="java.util.List" ofType="com.itflix.dto.User_Info">
-			<result column="u_email" property="u_email" />
-		</collection>
+	<resultMap type="com.itflix.dto.Prefer"
+		id="selectPreferCgMovieList">
 		<collection property="categoryList"
 			javaType="java.util.List" ofType="com.itflix.dto.Category">
 			<result column="cg_no" property="cg_no" />
@@ -29,10 +27,24 @@
 				<result column="m_date" property="m_date" />
 				<result column="m_count" property="m_count" />
 			</collection>
-
 		</collection>
+	</resultMap>
 
 
+	<resultMap type="com.itflix.dto.Prefer" id="test">
+		<collection property="categoryList" javaType="java.util.List" ofType="com.itflix.dto.Category">
+			<result column="cg_no" property="cg_no" />
+			<collection property="movieList" javaType="java.util.List" 	ofType="com.itflix.dto.Movie">
+				<result column="m_no" property="m_no" />
+				<result column="m_name" property="m_name" />
+				<result column="m_image" property="m_image" />
+				<result column="m_date" property="m_date" />
+				<result column="m_count" property="m_count" />
+				<collection property="reviewList" javaType="java.util.List" ofType="com.itflix.dto.Review">
+					<result column="r_grade" property="r_grade" />
+				</collection>
+			</collection>
+		</collection>
 	</resultMap>
 
 </mapper>

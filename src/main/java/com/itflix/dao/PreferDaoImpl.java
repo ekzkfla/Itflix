@@ -49,7 +49,13 @@ public class PreferDaoImpl implements PreferDao {
 	@Override
 	public List<Prefer> selectPreferCgMovieList(String u_email, int cg_no) throws Exception {
 		List<Prefer> selectPreferCgMovieList = prefer_Mapper.selectPreferCgMovieList(u_email, cg_no);
-		return null;
+		return selectPreferCgMovieList;
+	}
+
+	@Override
+	public List<Prefer> selectPreferCgMovieList222(String u_email, int cg_no) throws Exception {
+		List<Prefer> selectPreferCgMovieList222 = prefer_Mapper.selectPreferCgMovieList222(u_email, cg_no);
+		return selectPreferCgMovieList222;
 	}
 
 
