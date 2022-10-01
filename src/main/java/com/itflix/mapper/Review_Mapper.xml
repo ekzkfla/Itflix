@@ -46,16 +46,21 @@ namespace="com.itflix.mapper.Review_Mapper">
 	
 	
 <!-- 수정 -->
-	<!--  	
-	<resultMap id="Review_Update" 
+	
+			   <!-- type="com.itflix.dto.Review" > -->
+	<resultMap id="ReviewWithUpdate" 
 			   type="com.itflix.dto.Review" >
-		<result column="r_no" property="r_no"/>
-		<result column="r_title" property="r_title"/>
-		<result column="r_content" property="r_content"/>
-		<result column="r_grade" property="r_grade"/>
-		<result column="m_no" property="movie"/>
+						<result column="r_no" property="r_no"/>
+						<result column="r_title" property="r_title"/>
+						<result column="r_content" property="r_content"/>
+						<result column="r_grade" property="r_grade"/>
+		<association property="movie"
+					 javaType="com.itflix.dto.Movie">
+					<result column="m_no" property="m_no"/>
+			</association>
 	</resultMap>
-   -->
+   
+   
 <!-- 추가 -->
 <!-- 
 	<resultMap 	id="ReviewWithMovieandUser" 
@@ -75,8 +80,6 @@ namespace="com.itflix.mapper.Review_Mapper">
 			</collection>
 	</resultMap>	
  -->
-
-
 <!-- 	 		 
 	<resultMap id="ReviewWithUserList"
 			   type="com.itflix.dto.User_Info">

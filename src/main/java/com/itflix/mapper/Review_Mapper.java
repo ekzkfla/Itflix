@@ -45,8 +45,8 @@ public interface Review_Mapper {
 	public int insertReview(Review review);
 	
 	// 리뷰 수정
-	@Update("update review set r_title='#{r_title}',r_content='#{r_content}',r_grade=#{r_grade},m_no=#{m_no} where r_no=#{r_no}")
-	@ResultMap("Review_Update")
+	@Update("update review set r_title='#{r_title}',r_content='#{r_content}',r_grade=#{r_grade}, m_no=#{m_no} where r_no=#{r_no}")
+	@ResultMap("ReviewWithUpdate")
 	public int updateReview(int r_no);
 	
 	// -- 각 영화 별 최신 리뷰
