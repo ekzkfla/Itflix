@@ -33,15 +33,15 @@ public class CategoryDaoTestApplication {
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
 		CategoryService categoryService = context.getBean(CategoryService.class);
-		 //System.out.println(categoryDao);
-		 //System.out.println(categoryDao.selectAll());
-		 //System.out.println(categoryDao.selectByName("액션"));
-		 //System.out.println(categoryDao.insertCategory(new Category(0,"새로운카테고리", null)));
-		 //System.out.println(categoryDao.updateCategory(new Category(7, "변경된 카테고리")));
-		 //System.out.println(categoryDao.deleteCategory(7));
-		 //System.out.println(categoryDao.selectByNoMovieList(1));
+		 //System.out.println(categoryService);
+		 //System.out.println(categoryService.selectAll());
+		 //System.out.println(categoryService.selectByName("액션"));
+		 //System.out.println(categoryService.insertCategory(new Category(0,"새로운카테고리", null)));
+		 //System.out.println(categoryService.updateCategory(new Category(7, "변경된 카테고리")));
+		 //System.out.println(categoryService.deleteCategory(7));
+		 //System.out.println(categoryService.selectByNoMovieList(1));
 		 /**************************테스트 완료 *****************************************/
-		 System.out.println(categoryService.selectByNoByM_NoAndReview(2,30));
+		 System.out.println(categoryService.selectByNoByM_NoAndReview(1,6));
 		
 	}
 }

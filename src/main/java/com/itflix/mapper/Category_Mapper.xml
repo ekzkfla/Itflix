@@ -27,6 +27,7 @@ namespace="com.itflix.mapper.Category_Mapper">
 					<result column="m_date" property="m_date"/>
 					<result column="m_url" property="m_url"/>
 					<collection property="reviewList" javaType="java.util.List" ofType="com.itflix.dto.Review">
+						<result column="r_no" property="r_no"/>
 						<result column="r_title" property="r_title"/>
 						<result column="r_content" property="r_content"/>
 						<result column="r_date" property="r_date"/>
