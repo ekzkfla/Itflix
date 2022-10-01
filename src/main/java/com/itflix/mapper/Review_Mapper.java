@@ -41,9 +41,9 @@ public interface Review_Mapper {
 	
 	// 리뷰 추가
 	//public int insertReview(Review review);
-	@Insert("insert into review VALUES (${r_no}, #{r_title}, #{r_content}, #{r_grade}, #{r_date}, #{r_groupno}, #{r_step}, #{r_depth}, #{m_no}, #{u_email})")
+	@Insert("insert into review VALUES (#{r_no}, #{r_title}, #{r_content}, #{r_grade}, sysdate, #{r_groupno}, #{r_step}, #{r_depth}, #{m_no}, #{u_email})")
 	@SelectKey(statement = "select REVIEW_R_NO_SEQ.nextval from dual", keyProperty = "r_no",before = true, resultType = Integer.class)
-	@ResultMap("ReviewWithMovieandUser")
+	//@ResultMap("ReviewWithMovieandUser")
 	public int insertReview(int r_no, String r_title, String r_content, int r_grade, Date r_date, int r_groupno, int r_step, int r_depth, int m_no, String u_email);
 	
 	// 리뷰 수정
