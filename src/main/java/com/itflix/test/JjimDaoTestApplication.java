@@ -40,9 +40,10 @@ public class JjimDaoTestApplication {
 		//System.out.println(jjimDao.jjimListTest());		
 		//System.out.println(jjimDao.jjimListTest2());			
 		//System.out.println(jjimDao.jjimListTest3());			
-		System.out.println(jjimDao.jjimListTest4());
-
+		//System.out.println(jjimDao.jjimListTest4());
+		System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
 		
+				
 		/* guard1@gmail.comㅠ*/
 		
 	}

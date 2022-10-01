@@ -73,8 +73,7 @@ public interface Jjim_Mapper {
 	  public List<Jjim> jjimListTest4();
 	 
 	  
-	  @Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim"
-	  		+ "join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email='guard1@gmail.com'")
+	  @Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email='guard1@gmail.com'")
 	  @ResultMap("jjimListTest4")
 	  public List<Jjim> jjimListTest5(String u_email);
 	
