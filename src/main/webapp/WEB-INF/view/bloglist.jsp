@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!--preloading-->
+	<!--Start of preloading<로고 그림 부분>-->
 	<div id="preloader">
 		<img class="logo" src="images/logo1.png" alt="" width="119"
 			height="58">
@@ -33,8 +33,10 @@
 			<span></span><span></span>
 		</div>
 	</div>
-	<!--end of preloading-->
-	<!--login form popup-->
+	<!--end of preloading<로고 그림 부분>-->
+	
+	
+	<!--login form popup<로그인 팝업>-->
 	<div class="login-wrapper" id="login-content">
 		<div class="login-content">
 			<a href="#" class="close">x</a>
@@ -73,8 +75,9 @@
 			</div>
 		</div>
 	</div>
-	<!--end of login form popup-->
-	<!--signup form popup-->
+	<!--end of login form popup<로그인 팝업>-->
+	
+	<!--signup form popup <회원가입 팝업>-->
 	<div class="login-wrapper" id="signup-content">
 		<div class="login-content">
 			<a href="#" class="close">x</a>
@@ -109,7 +112,7 @@
 			</form>
 		</div>
 	</div>
-	<!--end of signup form popup-->
+	<!--end of signup form popup <회원가입 팝업>-->
 
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
