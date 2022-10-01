@@ -36,8 +36,8 @@ public class JjimDaoImpl implements JjimDao {
 	}
 	/* 영화 찜하기 (u_email 에 m_no로 저장*)*/
 	@Override
-	public int jjimInsert(Jjim jjim) throws Exception {
-		int jjimInsert = jjim_Mapper.jjimInsert(jjim);
+	public int jjimInsert(String u_email,int m_no) throws Exception {
+		int jjimInsert = jjim_Mapper.jjimInsert(u_email,m_no);
 		return jjimInsert;
 	}
 	

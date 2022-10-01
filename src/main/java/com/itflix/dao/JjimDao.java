@@ -10,7 +10,7 @@ public interface JjimDao {
 	List<Jjim> jjimList(String u_email) throws Exception;
 
 	/* 영화 찜하기 */
-	int jjimInsert(Jjim jjim) throws Exception;
+	int jjimInsert(String u_email,int m_no) throws Exception;
 
 	/* 영화 찜하기 해제 */
 	int jjimDelete(String u_email,int m_no) throws Exception;

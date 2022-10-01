@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.JjimDao;
+import com.itflix.dto.Category;
 import com.itflix.dto.Jjim;
 import com.itflix.dto.Movie;
 import com.itflix.dto.User_Info;
@@ -45,13 +46,16 @@ public class JjimDaoTestApplication {
 		
 		/*-----------------성공하고싶어요---------------------*/
 		
-		/*
-		System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,"guard1@gmail.com",9));
-				System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,
-											new User_Info("guard1@gmail.com", null, null, null),
-											new Movie(8, null, null, null, null, 0, null, null, 0, 0, 0, null))));
-		*/		
+	
+		System.out.println(jjimDao.jjimInsert(new Jjim("guard1@gmail.com",8));
 		
+		
+	/*
+		System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,
+											new User_Info("guard1@gmail.com", null, null, null),
+											new Movie(8, null, null, null, null, 0, null, null, 0, 0, 0, new Category(0, null, null))));
+	 */
+ 
 		/* guard1@gmail.com */
 		
 	}

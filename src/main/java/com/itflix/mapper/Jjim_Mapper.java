@@ -35,9 +35,10 @@ public interface Jjim_Mapper {
 			+ "         m.m_count")
 	public List<Jjim> jjimList(String u_email);
 	
+	
 	/* 영화 찜하기*/
 	@Insert("insert into jjim VALUES(0,0,0,'guard1@gmail.com',8)")
-	public int jjimInsert(Jjim jjim);
+	public int jjimInsert(String u_email,int m_no);
 	
 	/* 영화 찜하기 해제*/
 	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
