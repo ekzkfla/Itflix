@@ -51,18 +51,16 @@ public class controller {
 	@RequestMapping(value = "bloglist")
 	public String bloglist(HttpServletRequest request) {
 		String forwardPath="";
-		
-		try {
-			List<Notice> noticeList = noticeService.selectAll();
-			request.setAttribute("noticeList", noticeList);
-			forwardPath = "bloglist";
-		
-		} catch (Exception e) {
-			e.printStackTrace();
-			request.setAttribute("error", e.getMessage());
-			forwardPath= "404";
-			}
-		return forwardPath;
+			try {
+				List<Notice> noticeList = noticeService.selectAll();
+				request.setAttribute("noticeList", noticeList);
+				forwardPath = "bloglist";
+			}catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("error", e.getMessage());
+				forwardPath= "404";
+				}
+			return forwardPath;
 	}
 	
 	//공지사항 상세페이지
