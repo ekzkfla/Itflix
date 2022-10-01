@@ -7,7 +7,7 @@ namespace="com.itflix.mapper.Review_Mapper">
 			   type="com.ifflix.dto.Review">
 	</resultMap>
 	 -->
-	
+<!-- 본인 리뷰 보기 -->
 	<resultMap 	id="ReviewWithUserList"
 			   	type="com.itflix.dto.Review">
 		<result column="r_no" property="r_no" />
@@ -21,8 +21,9 @@ namespace="com.itflix.mapper.Review_Mapper">
 						 <result column="u_email" property="u_email"/>
 			</collection> 
 	</resultMap>
-	 		
-	 
+
+<!-- 영화 별 최신 리뷰 *수정필요* -->
+<!-- 
 	<resultMap 	id="ReviewWithLatest" 
 				type="com.itflix.dto.Review" >
 		<result column="r_no" property="r_no" />
@@ -30,10 +31,6 @@ namespace="com.itflix.mapper.Review_Mapper">
 		<result column="r_content" property="r_content" />
 		<result column="r_grade" property="r_grade" />
 		<result column="r_date" property="r_date" />
-			<association property="movie" 
-						 javaType="com.itflix.dto.movie">
-						 <result column="m_no" property="m_no"/>
-			</association>
 			<collection property="userList"
 						javaType="java.util.List"
 						ofType="com.itflix.dto.User_Info">
@@ -41,11 +38,40 @@ namespace="com.itflix.mapper.Review_Mapper">
 			</collection>
 			
 	</resultMap>	
-	
-	
-		<!-- 
-	 -->
-	<!-- 	 		 
+ -->	
+<!-- 수정 -->
+	<resultMap id="Review_Update" 
+			   type="com.itflix.dto.Review" >
+		<result column="r_no" property="r_no"/>
+		<result column="r_title" property="r_title"/>
+		<result column="r_content" property="r_content"/>
+		<result column="r_grade" property="r_grade"/>
+		<result column="m_no" property="movie"/>
+	</resultMap>
+
+ 
+<!-- 추가 -->
+<!-- 
+	<resultMap 	id="ReviewWithMovieandUser" 
+				type="com.itflix.dto.Review">
+		<result column="r_no" property="r_no"/>
+		<result column="r_title" property="r_title"/>
+		<result column="r_content" property="r_content"/>
+		<result column="r_grade" property="r_grade"/>
+		<result column="r_date" property="r_date"/>
+		<result column="r_group" property="r_group"/>
+		<result column="r_step" property="r_step"/>
+		<result column="r_depth" property="r_depth"/>
+				 <collection property="userList"
+							 javaType="java.util.List"
+							 ofType="com.itflix.dto.User_Info">
+					 <result column="u_email" property="u_email"/>
+			</collection>
+	</resultMap>	
+ -->
+
+
+<!-- 	 		 
 	<resultMap id="ReviewWithUserList"
 			   type="com.itflix.dto.User_Info">
 		<result column="u_email" property="u_email" />
@@ -59,7 +85,7 @@ namespace="com.itflix.mapper.Review_Mapper">
 							 <result column="r_date" property="r_date" />
 			</collection>				 
 					 
-				 -->	 
+-->	 
 					 
 					 
 					 
@@ -71,7 +97,7 @@ namespace="com.itflix.mapper.Review_Mapper">
 					 
 					 
 					 
-		<!-- 			 
+<!-- 			 
 			<association property="user"
 					 javaType="com.itflix.dto.Movie">		 
 			 <result column="m_no" property="m_no" />
@@ -92,6 +118,5 @@ namespace="com.itflix.mapper.Review_Mapper">
 			<result column="" property=""/>
 		
 		</collection>
-
- -->
+-->
 </mapper>

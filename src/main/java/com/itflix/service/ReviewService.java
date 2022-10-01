@@ -24,7 +24,7 @@ public interface ReviewService {
 	int insertReview(Review review) throws Exception;
 
 	// 리뷰 수정
-	int updateReview(Review review) throws Exception;
+	int updateReview(String r_title, String r_content, int r_grade,int m_no,int r_no) throws Exception;
 
 	// 리뷰 삭제
 	int deleteReview(int no) throws Exception;

@@ -64,8 +64,8 @@ public class ReviewDaoImpl implements ReviewDao {
 
 	// 리뷰 수정
 	@Override
-	public int updateReview(Review review) throws Exception {
-		int updateReview = review_Mapper.updateReview(review);
+	public int updateReview(String r_title, String r_content, int r_grade,int m_no,int r_no) throws Exception {
+		int updateReview = review_Mapper.updateReview(r_no);
 		return updateReview;
 	}
 
