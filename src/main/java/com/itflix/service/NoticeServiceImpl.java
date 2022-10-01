@@ -36,7 +36,7 @@ public class NoticeServiceImpl implements NoticeService{
 	
 	//공지사항 전체 갯수 출력
 	@Override
-	public List<Notice> totalCount() throws Exception {
+	public int totalCount() throws Exception {
 		return noticeDao.totalCount();
 	}
 	
@@ -48,8 +48,8 @@ public class NoticeServiceImpl implements NoticeService{
 	
 	//공지사항 이름으로 검색
 	@Override
-	public Notice selectByTitle(String title) throws Exception {
-		return noticeDao.selectByTitle(title);
+	public List<Notice> selectByTitle(String n_title) throws Exception {
+		return noticeDao.selectByTitle(n_title);
 	}
 
 	/**************구현 미정**************/
@@ -67,8 +67,8 @@ public class NoticeServiceImpl implements NoticeService{
 	
 	//공지사항 삭제
 	@Override
-	public int deleteNotice(int no) throws Exception {
-		return noticeDao.deleteNotice(no);
+	public int deleteNotice(int n_no) throws Exception {
+		return noticeDao.deleteNotice(n_no);
 	/**************구현 미정**************/
 	}
 	

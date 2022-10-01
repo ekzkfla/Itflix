@@ -38,8 +38,8 @@ public class NoticeDaoImpl implements NoticeDao{
 	
 	//공지사항 전체 갯수 출력
 	@Override
-	public List<Notice> totalCount()throws Exception{
-		List<Notice> totalCount = notice_Mapper.totalCount();
+	public int totalCount()throws Exception{
+		int totalCount = notice_Mapper.totalCount();
 		return totalCount;
 	}
 	
@@ -52,9 +52,9 @@ public class NoticeDaoImpl implements NoticeDao{
 	
 	//공지사항 이름으로 검색
 	@Override
-	public Notice selectByTitle(String n_title)throws Exception{
-		Notice notice = notice_Mapper.selectByTitle(n_title);
-		return notice;
+	public List<Notice> selectByTitle(String n_title)throws Exception{
+		List<Notice> noticeList = notice_Mapper.selectByTitle(n_title);
+		return noticeList;
 	}
 	
 	
