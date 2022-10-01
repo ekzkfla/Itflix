@@ -37,6 +37,8 @@ public class TicketDaoTestApplication {
 		 //System.out.println(ticketDao.selectAll());
 		 //System.out.println(ticketDao.insertTicket(new Ticket(17, "34135")));
 		 //System.out.println(ticketDao.updateTicket(new Ticket(1, "1")));
-		 System.out.println("delete"+ticketDao.deleteTicket(1));
+		 //System.out.println("delete"+ticketDao.deleteTicket(1));
+		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완료↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
+		 
 	}
 }

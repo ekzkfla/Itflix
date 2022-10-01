@@ -8,8 +8,8 @@ namespace="com.itflix.mapper.Review_Mapper">
 	</resultMap>
 	 -->
 	
-	<resultMap id="ReviewWithUserList"
-			   type="com.itflix.dto.Review">
+	<resultMap 	id="ReviewWithUserList"
+			   	type="com.itflix.dto.Review">
 		<result column="r_no" property="r_no" />
 		<result column="r_title" property="r_title" />
 		<result column="r_content" property="r_content" />
@@ -20,6 +20,29 @@ namespace="com.itflix.mapper.Review_Mapper">
 						 ofType="com.itflix.dto.User_Info">
 						 <result column="u_email" property="u_email"/>
 			</collection> 
+	</resultMap>
+	 		
+	 
+	<resultMap 	id="ReviewWithLatest" 
+				type="com.itflix.dto.Review" >
+		<result column="r_no" property="r_no" />
+		<result column="r_title" property="r_title" />
+		<result column="r_content" property="r_content" />
+		<result column="r_grade" property="r_grade" />
+		<result column="r_date" property="r_date" />
+			<association property="movie" 
+						 javaType="com.itflix.dto.movie">
+						 <result column="m_no" property="m_no"/>
+			</association>
+			<collection property="userList"
+						javaType="java.util.List"
+						ofType="com.itflix.dto.User_Info">
+						<result column="u_email" property="u_email"/>
+			</collection>
+			
+	</resultMap>	
+	
+	
 		<!-- 
 	 -->
 	<!-- 	 		 
@@ -71,5 +94,4 @@ namespace="com.itflix.mapper.Review_Mapper">
 		</collection>
 
  -->
-	</resultMap>
 </mapper>
