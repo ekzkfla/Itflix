@@ -36,8 +36,8 @@ public class JjimDaoImpl implements JjimDao {
 	}
 	/* 영화 찜하기 (u_email 에 m_no로 저장*)*/
 	@Override
-	public int jjimInsert(Jjim jjim) throws Exception {
-		int jjimInsert = jjim_Mapper.jjimInsert(jjim);
+	public int jjimInsert(String u_email,int m_no) throws Exception {
+		int jjimInsert = jjim_Mapper.jjimInsert(u_email,m_no);
 		return jjimInsert;
 	}
 	
@@ -49,13 +49,7 @@ public class JjimDaoImpl implements JjimDao {
 	}
 	
 
-	
-
-	 @Override
-	 public List<Jjim> jjimListAll() throws Exception {
-		  List<Jjim> jjimListAll = jjim_Mapper.jjimListAll();
-	 return jjimListAll; }
-	 	
+	/* 리뷰의 총평점 조인안하고 불러오기*/
 	@Override
 	public List<Jjim> jjimListTest5(String u_email) throws Exception{
 		List<Jjim> jjimListTest5 = jjim_Mapper.jjimListTest5(u_email);

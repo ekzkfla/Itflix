@@ -35,9 +35,10 @@ public interface Jjim_Mapper {
 			+ "         m.m_count")
 	public List<Jjim> jjimList(String u_email);
 	
+	
 	/* 영화 찜하기*/
-	@Insert("insert into jjim VALUES(0,0,0,'guard1@gmail.com',8)")
-	public int jjimInsert(Jjim jjim);
+	@Insert("insert into jjim VALUES(0,0,0,#{u_email},#{m_no})")
+	public int jjimInsert(String u_email,int m_no);
 	
 	/* 영화 찜하기 해제*/
 	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
@@ -46,24 +47,12 @@ public interface Jjim_Mapper {
 		
 	
 	 
-	  
-	  @Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email='guard1@gmail.com'")
-	  @ResultMap("jjimListTest4")
-	  public List<Jjim> jjimListTest5(String u_email);
+	/* 리뷰의 총평점 조인안하고 불러오기*/  
+	@Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email='guard1@gmail.com'")
+	@ResultMap("jjimListTest4")
+	public List<Jjim> jjimListTest5(String u_email);
 	
 	
 	
-	
-	 @Select("select * from jjim")
-	 public List<Jjim> jjimListAll();
-	
-	 /*
-	 * @Select("select j.u_email," + "     m.m_no," + "     m.m_name," +
-	 * "     m.m_image," + "     m.m_date," + "     m.m_count" + "from jjim j " +
-	 * "join movie m" + "on j.m_no = m.m_no;")
-	 * 
-	 * @ResultMap("jjimWithMovieResultMap") public List<Jjim> jjimListAll2();
-	 */
-
 	
 }

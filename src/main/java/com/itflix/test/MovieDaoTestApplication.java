@@ -33,7 +33,7 @@ public class MovieDaoTestApplication {
 		 System.out.println(movieDao);
 		 System.out.println(movieDao.selectAll());
 		 System.out.println(movieDao.selectByNo(1));
-		 //System.out.println(movieDao.selectCategoryNo(1));
+		 System.out.println(movieDao.selectCategoryNo(1));
 		 
 		 System.out.println(movieDao.selectMovieName("정직"));
 		 System.out.println(movieDao.selectMovieActor("라"));

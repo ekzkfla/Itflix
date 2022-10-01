@@ -43,7 +43,7 @@ public interface Movie_Mapper {
 				+ "where m.cg_no = #{m.cg_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
-		public Movie selectCategoryNo(int cg_no);
+		public List<Movie> selectCategoryNo(int cg_no);
 		
 		//영화 제목으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"

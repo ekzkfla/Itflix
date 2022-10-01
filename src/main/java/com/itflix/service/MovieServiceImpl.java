@@ -41,7 +41,7 @@ public class MovieServiceImpl implements MovieService {
 
 	//카테고리 번호로 출력
 	@Override
-	public Movie selectCategoryNo(int no) throws Exception {
+	public List<Movie> selectCategoryNo(int no) throws Exception {
 		return movieDao.selectCategoryNo(no);
 	}
 
