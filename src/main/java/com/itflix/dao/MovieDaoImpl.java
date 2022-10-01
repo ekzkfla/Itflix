@@ -48,16 +48,16 @@ public class MovieDaoImpl implements MovieDao {
 
 	//영화 제목으로 검색
 	@Override
-	public Movie selectMovieName(String m_name) throws Exception {
-		Movie movie = movie_Mapper.selectMovieName(m_name); 
-		return movie;
+	public List<Movie> selectMovieName(String m_name) throws Exception {
+		List<Movie> movieList= movie_Mapper.selectMovieName(m_name);
+		return movieList;
 	}
-
+	
 	//영화 출연진 이름으로 검색
 	@Override
-	public Movie selectMovieActor(String m_actor) throws Exception {
-		Movie movie = movie_Mapper.selectMovieActor(m_actor); 
-		return movie;
+	public List<Movie> selectMovieActor(String m_actor) throws Exception {
+		List<Movie> movieList= movie_Mapper.selectMovieActor(m_actor);
+		return movieList;
 	}
 
 	//조회수 높은 순으로 출력
