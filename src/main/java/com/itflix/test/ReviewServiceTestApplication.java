@@ -10,8 +10,11 @@ import org.springframework.context.annotation.FilterType;
 
 import com.itflix.controller.controller;
 import com.itflix.dao.CategoryDao;
+import com.itflix.dao.MovieDao;
 import com.itflix.dao.ReviewDao;
+import com.itflix.dto.Movie;
 import com.itflix.dto.Review;
+import com.itflix.dto.User_Info;
 import com.itflix.mapper.Review_Mapper;
 import com.itflix.service.CategoryService;
 import com.itflix.service.NoticeService;
@@ -48,7 +51,7 @@ public class ReviewServiceTestApplication {
 		 //System.out.println("check3"+reviewDao.updateReview("수정은 이렇게", "드디어 된거 같소?", 13, 3, 12));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 		 
-		 //System.out.println(reviewDao.insertReview(null));
-		 
+		 System.out.println(reviewDao.insertReview(13, "제발제발제발", "제발제발제발제발", 77, null, 1, 1, 1, 3, "guard3@gmail.com"));
+		 																							//↑요기랑 ↑요기도 new로 뽑아야하나..?
 	}
 }

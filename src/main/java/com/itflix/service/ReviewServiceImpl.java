@@ -56,8 +56,8 @@ public class ReviewServiceImpl implements ReviewService {
 
 	// 리뷰 추가
 	@Override
-	public int insertReview(Review review) throws Exception {
-		return reviewDao.insertReview(review);
+	public int insertReview(int r_no, String r_title, String r_content, int r_grade, Date r_date, int r_groupno, int r_step, int r_depth, int m_no, String u_email) throws Exception {
+		return reviewDao.insertReview(r_no, r_title, r_content, r_grade, r_date, r_groupno, r_step, r_depth, m_no, u_email);
 	}
 
 	// 리뷰 수정
