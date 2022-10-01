@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.JjimDao;
 import com.itflix.dto.Jjim;
+import com.itflix.dto.Movie;
 import com.itflix.dto.User_Info;
 
 
@@ -34,17 +35,20 @@ public class JjimDaoTestApplication {
 		ConfigurableApplicationContext context=application.run(args);
 		JjimDao jjimDao = context.getBean(JjimDao.class);
 		System.out.println(jjimDao);
-		//System.out.println(jjimDao.jjimList("guard1@gmail.com"));
-		//System.out.println(jjimDao.jjimListAll());
+
+		/* 리뷰의 총평점 조인안하고 불러오기 성공*/
+		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
 		
-		//System.out.println(jjimDao.jjimListTest());		
-		//System.out.println(jjimDao.jjimListTest2());			
-		//System.out.println(jjimDao.jjimListTest3());			
-		//System.out.println(jjimDao.jjimListTest4());
-		System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
+	
 		
-				
-		/* guard1@gmail.comㅠ*/
+		//System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,"guard1@gmail.com",9));
+		
+		/*
+		System.out.println(jjimDao.jjimInsert(new Jjim(0, 0, 0,
+											new User_Info("guard1@gmail.com", null, null, null),
+											new Movie(8, null, null, null, null, 0, null, null, 0, 0, 0, null))));
+		*/		
+		/* guard1@gmail.com */
 		
 	}
 }

@@ -83,32 +83,32 @@ insert into Subscription values(SUBSCRIPTION_S_NO_SEQ.nextval,'2022-06-22','2022
 
 
 -----insert(jjim)-------
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard1@gmail.com',1);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard1@gmail.com',6);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard1@gmail.com',7);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard2@gmail.com',2);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard2@gmail.com',10);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard2@gmail.com',4);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard3@gmail.com',2);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard3@gmail.com',6);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard4@gmail.com',7);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard4@gmail.com',2);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard5@gmail.com',9);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard5@gmail.com',3);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard6@gmail.com',1);
-insert into jjim VALUES(JJIM_J_GROUPNO_SEQ.nextval,1,0,'guard6@gmail.com',6);
+insert into jjim VALUES(1,0,1,'guard1@gmail.com',1);
+insert into jjim VALUES(1,0,1,'guard1@gmail.com',6);
+insert into jjim VALUES(1,0,1,'guard1@gmail.com',7);
+insert into jjim VALUES(1,0,1,'guard2@gmail.com',2);
+insert into jjim VALUES(1,0,1,'guard2@gmail.com',10);
+insert into jjim VALUES(1,0,1,'guard2@gmail.com',4);
+insert into jjim VALUES(1,0,1,'guard3@gmail.com',2);
+insert into jjim VALUES(1,0,1,'guard3@gmail.com',6);
+insert into jjim VALUES(1,0,1,'guard4@gmail.com',7);
+insert into jjim VALUES(1,0,1,'guard4@gmail.com',2);
+insert into jjim VALUES(1,0,1,'guard5@gmail.com',9);
+insert into jjim VALUES(1,0,1,'guard5@gmail.com',3);
+insert into jjim VALUES(1,0,1,'guard6@gmail.com',1);
+insert into jjim VALUES(1,0,1,'guard6@gmail.com',6);
 
 ---insert(prefer)------
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard1@gmail.com',1);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard1@gmail.com',3);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard2@gmail.com',2);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard2@gmail.com',4);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard3@gmail.com',1);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard3@gmail.com',2);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard4@gmail.com',3);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard4@gmail.com',4);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard5@gmail.com',1);
-insert into prefer VALUES(PREFER_P_GROUPNO_SEQ.nextval,1,0,'guard6@gmail.com',4);
+insert into prefer VALUES(1,0,1,'guard1@gmail.com',1);
+insert into prefer VALUES(1,0,1,'guard1@gmail.com',3);
+insert into prefer VALUES(1,0,1,'guard2@gmail.com',2);
+insert into prefer VALUES(1,0,1,'guard2@gmail.com',4);
+insert into prefer VALUES(1,0,1,'guard3@gmail.com',1);
+insert into prefer VALUES(1,0,1,'guard3@gmail.com',2);
+insert into prefer VALUES(1,0,1,'guard4@gmail.com',3);
+insert into prefer VALUES(1,0,1,'guard4@gmail.com',4);
+insert into prefer VALUES(1,0,1,'guard5@gmail.com',1);
+insert into prefer VALUES(1,0,1,'guard6@gmail.com',4);
 
 ---insert(review)------
 insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이영화 재밌었어요','재밌음','100',sysdate,REVIEW_R_NO_SEQ.currval,1,0,1,'guard1@gmail.com');

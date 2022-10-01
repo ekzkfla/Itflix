@@ -33,16 +33,11 @@ public interface Jjim_Mapper {
 			+ "         m.m_image,"
 			+ "         m.m_date,"
 			+ "         m.m_count")
-	//@ResultMap("jjimListAll2")
 	public List<Jjim> jjimList(String u_email);
 	
 	/* 영화 찜하기*/
-	@Insert("insert into jjim "
-			+ "VALUES(#{j_groupno},"
-			+ "	      #{j_step},"
-			+ "		  #{j_depth}"
-			+ "       #{u_email},"
-			+ "       #{m_no})")
+	@Insert("insert into jjim VALUES(0,0,0,'guard1@gmail.com',8)")
+	@ResultMap("jjimInsertTest")
 	public int jjimInsert(Jjim jjim);
 	
 	/* 영화 찜하기 해제*/
