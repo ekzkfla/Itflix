@@ -43,15 +43,14 @@ public class ReviewServiceTestApplication {
 		ConfigurableApplicationContext context=application.run(args);
 		ReviewDao reviewDao = context.getBean(ReviewDao.class);
 		 System.out.println(reviewDao);
-		 System.out.println(reviewDao.selectAll());
+		 //System.out.println(reviewDao.selectAll());
 		 //System.out.println(reviewDao.selectByNo(3));
 		 //System.out.println(reviewDao.deleteReview(11));
 		 //System.out.println("check"+reviewDao.selectWroteReview("guard2@gmail.com"));
 		 //System.out.println("check2"+reviewDao.selectLatest(10));
 		 //System.out.println("check3"+reviewDao.updateReview("수정은 이렇게", "드디어 된거 같소?", 13, 3, 12));
+		 //System.out.println(reviewDao.insertReview(0, "우리 팀원들 화이팅!", "다 할 수 있어!", 100, null, 0, 0, 0, 23, "guard4@gmail.com"));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 		 
-		 System.out.println(reviewDao.insertReview(13, "제발제발제발", "제발제발제발제발", 77, null, 1, 1, 1, 3, "guard3@gmail.com"));
-		 																							//↑요기랑 ↑요기도 new로 뽑아야하나..?
 	}
 }
