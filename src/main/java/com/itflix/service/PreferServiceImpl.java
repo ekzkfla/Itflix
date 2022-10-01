@@ -9,7 +9,7 @@ import com.itflix.dao.PreferDao;
 import com.itflix.dto.Prefer;
 
 @Service
-public class PreferServiceImpl implements PreferDao {
+public class PreferServiceImpl implements PreferService {
 	
 	@Autowired
 	private PreferDao preferDao;
@@ -45,12 +45,6 @@ public class PreferServiceImpl implements PreferDao {
 	@Override
 	public List<Prefer> selectPreferCgMovieList(String u_email, int cg_no) throws Exception {
 		return preferDao.selectPreferCgMovieList(u_email, cg_no);
-	}
-
-	@Override
-	public List<Prefer> selectPreferCgMovieList222(String u_email, int cg_no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	

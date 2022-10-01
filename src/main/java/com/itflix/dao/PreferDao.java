@@ -14,8 +14,7 @@ public interface PreferDao {
 	int preferDelete(String u_email,int cg_no) throws Exception;
 	//선호카테고리 선택
 	int preferInsert(String u_email,int cg_no) throws Exception;
-	
-	//총평점없이 회원선호카테고리 영화리스트 불러오기
+		//총평점없이 회원선호카테고리 영화리스트 불러오기
 	List<Prefer> selectPreferCgMovieList(String u_email,int cg_no) throws Exception;
 	
 	List<Prefer> selectPreferCgMovieList222(String u_email,int cg_no) throws Exception;
