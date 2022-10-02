@@ -59,8 +59,12 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	
 	//구독권 업데이트
 	@Override
-	public Subscription updateSubscription(int t_no, String u_email) throws Exception {
-		return subscriptionDao.updateSubscription(t_no, u_email);
+	/*
+	 * public Subscription updateSubscription(int t_no, String u_email) throws
+	 * Exception { return subscriptionDao.updateSubscription(t_no, u_email); }
+	 */
+	public Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email) throws Exception {
+		return subscriptionDao.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
 	}
 
 }

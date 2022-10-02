@@ -35,12 +35,13 @@ public interface Subscription_Mapper {
 	public Subscription selectByNo(String u_email);
 	
 	//구독권 추가
-	@Insert("insert into Subscription values(#{s_no},sysdate,sysdate+30,#{s_cardName},#{cardNumber},#{t_no},#{u_email}")
-	@SelectKey(statement = "select Subscription_S_NO_SEQ.nextval from dual", keyProperty = "s_no",before = true, resultType = Integer.class)
-	public Subscription insertSubscription(int s_no, Date s_start, Date s_end, String s_cardName, String s_cardNumber, int t_no, String u_email);
+	@Insert("insert into Subscription VALUES (#{s_no}, sysdate, sysdate+30, #{s_cardName}, #{s_cardNumber}, #{t_no}, #{u_email}")
+	@SelectKey(statement = "select SUBSCRIPTION_S_NO_SEQ.nextval from dual", keyProperty = "s_no",before = true, resultType = Integer.class)
+	public Subscription insertSubscription(Subscription subscription);
 	
 	//구독권 업데이트
-	@Update("update subscription set t_no = #{t_no} where u_email = #{u_email}")
+	@Update("update subscription set s_start=sysdate, s_end=sysdate+30, s_cardName=#{s_cardName}, s_cardNumber=#{s_cardNumber}, t_no=#{t_no} where u_email=#{u_email}")
 	@ResultMap("SubscriptionWithUpdate")
-	public Subscription updateSubscription(int t_no, String u_email);
+	public Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email);
+	//public Subscription updateSubscription(int t_no, String u_email);
 }

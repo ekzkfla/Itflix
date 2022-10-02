@@ -1,5 +1,6 @@
 package com.itflix.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,9 +65,14 @@ public class SubscriptionDaoImpl implements SubscriptionDao{
 	
 	//구독권 업데이트
 	@Override
+	public Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email) throws Exception {
+		Subscription subscription = subscription_Mapper.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
+		return subscription;
+	/*
 	public Subscription updateSubscription(int t_no, String u_email) throws Exception {
 		Subscription subscription = subscription_Mapper.updateSubscription(t_no, u_email);
 		return subscription;
+	*/
 	}
 	
 }
