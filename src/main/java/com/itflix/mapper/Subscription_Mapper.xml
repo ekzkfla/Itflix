@@ -11,14 +11,10 @@ namespace="com.itflix.mapper.Subscription_Mapper">
 		<association property="ticket" 
 					 javaType="com.itflix.dto.Ticket"  >
 					 <result column="t_no"  property="t_no"/>
-					 <result column="t_price"  property="t_price"/>
 		</association>
 		<association property="user_Info" 
 					 javaType="com.itflix.dto.User_Info"  >
 					 <result column="u_email"  property="u_email"/>
-					 <result column="u_pass"  property="u_pass"/>
-					 <result column="u_name"  property="u_name"/>
-					 <result column="u_phone"  property="u_phone"/>
 		</association>		
 </resultMap>
 <!-- 
