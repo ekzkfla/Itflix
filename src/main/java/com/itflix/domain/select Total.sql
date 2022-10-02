@@ -347,7 +347,7 @@ select m.m_no,
        r.r_date,
        r.u_email
 from Movie m 
-right outer join Review r 
+left outer join Review r 
 on m.m_no=r.m_no
 where m.m_no = 10 and rownum = 1
 group by m.m_no,
