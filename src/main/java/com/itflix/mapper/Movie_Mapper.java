@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -21,6 +22,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
+		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectAll();
 		
 		//영화 번호로 출력
@@ -32,6 +34,7 @@ public interface Movie_Mapper {
 				+ "where m.m_no = #{m.m_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
+		@ResultMap("selectMovieResultMap")
 		public Movie selectByNo(int m_no);
 		
 		//카테고리 번호로 출력
@@ -43,6 +46,7 @@ public interface Movie_Mapper {
 				+ "where m.cg_no = #{m.cg_no} \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
+		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectCategoryNo(int cg_no);
 		
 		//영화 제목으로 검색
@@ -54,18 +58,33 @@ public interface Movie_Mapper {
 				+ "where m_name LIKE '%'||#{m.m_name}||'%' \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m.m_no ASC")
+		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieName(String m_name);
 		
 		//영화 출연진 이름으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
+				+ "from Movie m \n"
+				+ "left outer join Review r \n"
+				+ "on m.m_no=r.m_no \n"
+				+ "where m_actor LIKE '%'||#{m.m_actor}||'%' \n"
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
+				+ "ORDER BY m.m_no ASC")
+		@ResultMap("selectMovieResultMap")
+		public List<Movie> selectMovieActor(String m_actor);
+		
+		//가장 최근 작성된 리뷰 평점 출력
+		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
+				+ "r.r_no, r.r_title, r.r_content, r.r_date, r.u_email \n"
 				+ "from movie m \n"
 				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
-				+ "where m_name LIKE '%'||#{m.m_actor}||'%' \n"
-				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m.m_no ASC")
-		public List<Movie> selectMovieActor(String m_actor);
+				+ "where m.m_no = #{m.m_no} and rownum = 1 \n"
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
+				+ "r.r_no, r.r_title, r.r_content, r.r_date, r.u_email \n"
+				+ "ORDER BY r.r_date DESC")
+		@ResultMap("selectMovieRecentReviewResultMap")
+		public Movie selectMovieRecentReview(int m_no);
 		
 		//조회수 높은 순으로 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
@@ -75,6 +94,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_count DESC")
+		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieCount();
 		
 		//평점 높은 순으로 출력
@@ -86,6 +106,7 @@ public interface Movie_Mapper {
 				+ "where r_grade is not null \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_count DESC")
+		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieGrade();
 		
 		//영화 개봉일 최신순으로 출력
@@ -96,6 +117,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_date DESC")
+		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieNewDate();
 		
 		//영화 개봉일 오래된 순으로 출력
@@ -106,6 +128,7 @@ public interface Movie_Mapper {
 				+ "on m.m_no=r.m_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_date ASC")
+		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieOldDate();
 		
 		//영화 정보 변경 

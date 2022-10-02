@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.User_InfoDao;
+import com.itflix.dto.User_Info;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
@@ -31,8 +32,13 @@ public class User_InfoDaoTestApplication {
 		ConfigurableApplicationContext context=application.run(args);
 		User_InfoDao user_InfoDao = context.getBean(User_InfoDao.class);
 		 System.out.println(user_InfoDao);
-		 System.out.println(user_InfoDao.user_InfoSelectAll());
-		 System.out.println(user_InfoDao.selectByEmail("admin@gmail.com"));
+		 //System.out.println(user_InfoDao.user_InfoSelectAll());
+		 //System.out.println(user_InfoDao.selectByEmail("admin@gmail.com"));
+		 //System.out.println(user_InfoDao.deleteUser_Info("guard4@gmail.com"));
+		 //System.out.println("Check" + user_InfoDao.insertUser_Info(new User_Info("guard4@gmail.com","1111", "김희철", "01055555555")));
+		 //System.out.println("Check : "+user_InfoDao.updateUser_Info(new User_Info("guard4@gmail.com", "1234", "희철김", "01012341234")) );
+		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
+		 
 
 	}
 

@@ -190,7 +190,8 @@ group by m.m_no,
          m.m_image,
          m.m_count,
          m.m_date,
-         m.cg_no;
+         m.cg_no
+ORDER BY m.m_no ASC;
 
 --영화 출연진으로 출력
 select m.m_no,
@@ -213,7 +214,8 @@ group by m.m_no,
          m.m_image,
          m.m_count,
          m.m_date,
-         m.cg_no;
+         m.cg_no
+ORDER BY m.m_no ASC;
 
 --영화 개봉일 내림차순으로 검색 출력
 select m.m_no,
@@ -331,6 +333,39 @@ group by m.m_no,
          m.m_date,
          m.cg_no
 ORDER BY r_grade DESC;
+
+--최신 리뷰 1개 불러오기
+select m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       r.r_no,
+       r.r_title,
+       r.r_content,
+       r.r_date,
+       r.u_email
+from Movie m 
+left outer join Review r 
+on m.m_no=r.m_no
+where m.m_no = 10 and rownum = 1
+group by m.m_no,
+       m.m_name,
+       m.m_actor,
+       m.m_info,
+       m.m_image,
+       m.m_count,
+       m.m_date,
+       m.cg_no,
+       r.r_no,
+       r.r_title,
+       r.r_content,
+       r.r_date,
+       r.u_email
+ORDER BY r.r_date DESC;
 
 -- 리스트 페이지 시작,끝부분
 SELECT *
