@@ -24,15 +24,18 @@ public class SubscriptionDaoTestApplication {
 		ConfigurableApplicationContext context=application.run(args);
 		SubscriptionDao subscriptionDao = context.getBean(SubscriptionDao.class);
 		 System.out.println(subscriptionDao);
-		 System.out.println(subscriptionDao.selectListAll());
-		 System.out.println(subscriptionDao.selectByStDate("guard1@gmail.com"));
-		 System.out.println(subscriptionDao.selectByEndDate("guard1@gmail.com"));
-		 System.out.println("update"+subscriptionDao.updateSubscription(1, "guard5@gmail.com"));
-		 //System.out.println("check3"+reviewDao.updateReview(new Review(3, "수정확인", "수정확인중", 50, 20220930, 0, 0, 0, 3, null)));
-													 /*(int r_no, String r_title, String r_content,
-													  *  int r_grade, Date r_date, int r_groupno,
-													  *   int r_step, int r_depth, Movie movie, User_Info user_Info)*/
-		 //System.out.println(reviewDao.insertReview(new Review(25, "abc", "abdc", 5, "2022/10/11", 1, 1, 1, 3, "guard4@gmail.com")));
+		 //전체 구독자 리스트
+		 System.out.println("전체 구독자 리스트"+subscriptionDao.selectListAll());
+		 // 구독 시작 날짜 찾기
+		 System.out.println("구독 시작 날짜 찾기"+subscriptionDao.selectByStDate("guard1@gmail.com"));
+		 // 구독 마지막 날짜 찾기
+		 System.out.println("구독 마지막 날짜 찾기"+subscriptionDao.selectByEndDate("guard1@gmail.com"));
+		 // 구독자 단일 찾기
+		 System.out.println("구독자 단일 찾기"+subscriptionDao.selectByNo("guard1@gmail.com"));
+		 //구독권 업데이트
+		 System.out.println("update"+subscriptionDao.updateSubscription(1, "guard4@gmail.com"));
+		 //구독권 추가
+		 //System.out.println("insert"+subscriptionDao.insertSubscription(null));
 
 	}
 

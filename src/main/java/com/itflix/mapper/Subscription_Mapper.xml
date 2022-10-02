@@ -21,5 +21,20 @@ namespace="com.itflix.mapper.Subscription_Mapper">
 					 <result column="u_phone"  property="u_phone"/>
 		</association>		
 </resultMap>
-	
+
+<resultMap  id="SubscriptionWithUpdate"
+			type="com.itflix.dto.Subscription" >
+		<result column="s_no" property="s_no" />
+		<result column="s_start" property="s_start" />
+		<result column="s_end" property="s_end" />
+		<result column="s_cardName" property="s_cardName" />
+		<association property="ticket" 
+					 javaType="com.itflix.dto.Ticket"  >
+					 <result column="t_no"  property="t_no"/>
+		</association>
+		<association property="user_Info" 
+					 javaType="com.itflix.dto.User_Info"  >
+					 <result column="u_email"  property="u_email"/>
+		</association>		
+</resultMap>	
 </mapper>
