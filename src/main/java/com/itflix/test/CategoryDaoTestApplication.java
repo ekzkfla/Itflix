@@ -6,10 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.itflix.dao.CategoryDao;
-import com.itflix.dto.Category;
 import com.itflix.service.CategoryService;
-import com.itflix.service.NoticeService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
