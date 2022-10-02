@@ -190,7 +190,8 @@ group by m.m_no,
          m.m_image,
          m.m_count,
          m.m_date,
-         m.cg_no;
+         m.cg_no
+ORDER BY m.m_no ASC;
 
 --영화 출연진으로 출력
 select m.m_no,
@@ -213,7 +214,8 @@ group by m.m_no,
          m.m_image,
          m.m_count,
          m.m_date,
-         m.cg_no;
+         m.cg_no
+ORDER BY m.m_no ASC;
 
 --영화 개봉일 내림차순으로 검색 출력
 select m.m_no,
