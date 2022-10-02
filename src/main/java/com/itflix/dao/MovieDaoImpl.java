@@ -59,6 +59,15 @@ public class MovieDaoImpl implements MovieDao {
 		List<Movie> movieList= movie_Mapper.selectMovieActor(m_actor);
 		return movieList;
 	}
+	
+	//가장 최근 작성된 리뷰 평점 출력
+	@Override
+	public Movie selectMovieRecentReview(int m_no) throws Exception {
+		Movie movie = movie_Mapper.selectMovieRecentReview(m_no); 
+		return movie;
+	}
+	
+	
 
 	//조회수 높은 순으로 출력
 	@Override

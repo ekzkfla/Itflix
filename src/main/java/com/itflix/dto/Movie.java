@@ -17,6 +17,7 @@ public class Movie {
 	private int m_step;
 	private int m_depth;
 	private Category category;
+	private Review review;
 	private List<Review> reviewList;
 	
 	public Movie() {
@@ -24,7 +25,7 @@ public class Movie {
 	}
 
 	public Movie(int m_no, String m_name, String m_actor, String m_info, String m_image, int m_count, Date m_date,
-			String m_url, int m_groupno, int m_step, int m_depth, Category category, List<Review> reviewList) {
+			String m_url, int m_groupno, int m_step, int m_depth, Category category, Review review, List<Review> reviewList) {
 		super();
 		this.m_no = m_no;
 		this.m_name = m_name;
@@ -38,6 +39,7 @@ public class Movie {
 		this.m_step = m_step;
 		this.m_depth = m_depth;
 		this.category = category;
+		this.review = review;
 		this.reviewList = reviewList;
 	}
 
@@ -136,6 +138,14 @@ public class Movie {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+	
+	public Review getReview() {
+		return review;
+	}
+	
+	public void setReview(Review review) {
+		this.review = review;
+	}
 
 	public List<Review> getReviewList() {
 		return reviewList;
@@ -150,10 +160,9 @@ public class Movie {
 		return "Movie [m_no=" + m_no + ", m_name=" + m_name + ", m_actor=" + m_actor + ", m_info=" + m_info
 				+ ", m_image=" + m_image + ", m_count=" + m_count + ", m_date=" + m_date + ", m_url=" + m_url
 				+ ", m_groupno=" + m_groupno + ", m_step=" + m_step + ", m_depth=" + m_depth + ", category=" + category
-				+ ", reviewList=" + reviewList + "]";
+				+ ", review=" + review + ", reviewList=" + reviewList + "]";
 	}
 
-	
-	
+
 	
 }

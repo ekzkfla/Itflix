@@ -56,7 +56,13 @@ public class MovieServiceImpl implements MovieService {
 	public List<Movie> selectMovieActor(String name) throws Exception {
 		return movieDao.selectMovieActor(name);
 	}
-
+	
+	//가장 최근 작성된 리뷰 평점 출력
+	@Override
+	public Movie selectMovieRecentReview(int no) throws Exception {
+		return movieDao.selectMovieRecentReview(no);
+	}
+	
 	//조회수 높은 순으로 출력
 	@Override
 	public List<Movie> selectMovieCount() throws Exception {
