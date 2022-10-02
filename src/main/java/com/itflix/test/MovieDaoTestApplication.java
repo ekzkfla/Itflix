@@ -35,8 +35,8 @@ public class MovieDaoTestApplication {
 		 System.out.println(movieDao.selectByNo(1));
 		 System.out.println(movieDao.selectCategoryNo(1));
 		 System.out.println(movieDao.selectMovieName("정직"));
-		 System.out.println(movieDao.selectMovieActor("라"));
-		 System.out.println(movieDao.selectMovieRecentReview(10));
+		 System.out.println(movieDao.selectMovieActor("김"));
+		 //System.out.println(movieDao.selectMovieRecentReview(10));
 		 System.out.println(movieDao.selectMovieCount());
 		 System.out.println(movieDao.selectMovieGrade());
 		 System.out.println(movieDao.selectMovieNewDate());
