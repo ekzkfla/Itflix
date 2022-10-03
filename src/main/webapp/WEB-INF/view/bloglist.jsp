@@ -33,6 +33,7 @@
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
 
+	<!--중앙 타이틀 화면 -->
 	<div class="hero common-hero">
 		<div class="container">
 			<div class="row">
@@ -55,15 +56,14 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
 						<p>
-							Found <span>1,608 celebrities</span>in total
+							Found <span>${noticeTotal}개 </span>in total
 						</p>
-						<label>Sort by:</label><select><option value="popularity">Popularity
-								Descending</option>
-							<option value="popularity">Popularity Ascending</option>
-							<option value="rating">Rating Descending</option>
-							<option value="rating">Rating Ascending</option>
-							<option value="date">Release date Descending</option>
-							<option value="date">Release date Ascending</option></select>
+						<label>Sort by:</label><select><option value="popularity">공지사항</option>
+							<option value="popularity">신규</option>
+							<option value="rating">긴급</option>
+							<option value="rating">점검</option>
+							<option value="date">주의사항</option>
+							<option value="date">구독권</option></select>
 							
 					</div>
 					

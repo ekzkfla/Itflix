@@ -53,7 +53,9 @@ public class controller {
 		String forwardPath="";
 			try {
 				List<Notice> noticeList = noticeService.selectAll();
+				int noticeTotal= noticeService.totalCount();
 				request.setAttribute("noticeList", noticeList);
+				request.setAttribute("noticeTotal", noticeTotal);
 				forwardPath = "bloglist";
 			}catch (Exception e) {
 				e.printStackTrace();
