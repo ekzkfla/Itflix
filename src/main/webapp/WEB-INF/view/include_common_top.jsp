@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header class="ht-header">
+	<!--start of loading<로딩페이지 로고 사진 >-->
 	<div id="preloader">
 		<img class="logo" src="images/mylogo.png" alt="" width="119"
 			height="58">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -23,7 +24,9 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 	
 	<!-- BEGIN | Header -->
@@ -63,16 +66,7 @@
 							<option value="date">Release date Ascending</option></select>
 							
 					</div>
-					<div class="blog-item-style-1 blog-item-style-3">
-						<img src="images/uploads/bloglist-it1.jpg" alt="">
-						<div class="blog-it-infor">
-							<h3>
-								<a href="blogdetail">공지사항</a>
-							</h3>
-							<span class="time">날짜</span>
-							<p>기사 내용</p>
-						</div>
-					</div>
+					
 					<c:forEach items="${noticeList}" var ="notice"> 
 						<div class="blog-item-style-1 blog-item-style-3">
 							<img src="images/mylogo.png" alt="">
@@ -80,10 +74,8 @@
 								<h3>
 									<a href="blogdetail.html">${notice.n_title }</a>
 								</h3>
-								<span class="time">27 Mar 2017</span>
-								<p>Magnolia Pictures has acquired U.S. and international
-									rights to the comedic drama Lucky John Carroll Lynch’s
-									directorial debut. Lynch is an in-demand character actor who ...</p>
+								<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>
+								<p>${notice.n_content}</p>
 							</div>
 						</div>
 					</c:forEach>

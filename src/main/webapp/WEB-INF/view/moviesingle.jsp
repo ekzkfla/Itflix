@@ -120,7 +120,7 @@
 											
 												<div class="title-hd-sm">
 													<h4>User reviews</h4>
-													<a href="" class="time">See All Reviews <i
+													<a href="reviewlist.jsp" class="time">See All Reviews <i
 														class="ion-ios-arrow-right"></i></a>
 												</div>
 												<!-- movie user review -->
