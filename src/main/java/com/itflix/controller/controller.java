@@ -1,5 +1,6 @@
 package com.itflix.controller;
 
+import java.io.Console;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itflix.dto.Notice;
 import com.itflix.service.NoticeService;
+
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 
 @Controller
 public class controller {
@@ -67,9 +70,19 @@ public class controller {
 	
 	//공지사항 상세페이지
 	@RequestMapping(value = "blogdetail")
-	public String blogdetail() {
+	public String blogdetail(HttpServletRequest request) {
 		String forwardPath="";
-		forwardPath = "blogdetail";
+			try {
+				int cg_no=(int) request.getAttribute("cg_no");
+				Notice notice = noticeService.selectByNo(cg_no);
+				System.out.println(notice);
+				request.setAttribute("notice", notice);
+				forwardPath = "blogdetail";
+			} catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("error", e.getMessage());
+				forwardPath="404";
+			}
 		
 		return forwardPath;
 	}

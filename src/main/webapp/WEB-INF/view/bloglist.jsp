@@ -67,16 +67,18 @@
 					</div>
 					<!--분류 보드바 -->
 					<!--공지사항 리스트   -->	
+					<form mame="f" method="post">
 					<c:forEach items="${noticeList}" var ="notice"> 
 						<div class="blog-item-style-1 blog-item-style-3">
 							<img src="images/mylogo.png">
 								<div class="blog-it-infor">
-									<h3><a href="blogdetail.html">${notice.n_title }</a></h3>
+									<h3><a href="blogdetail" class="notice">${notice.n_title }</a></h3>
 									<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>
 									<p>${notice.n_content}</p>
 								</div>
 						</div>
 					</c:forEach>
+					</form>
 					<!--공지사항 리스트   -->	
 					<!--페이징 구현  -->
 					<ul class="pagination">
