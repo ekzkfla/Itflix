@@ -75,7 +75,7 @@
 					</div>
 					<c:forEach items="${noticeList}" var ="notice"> 
 						<div class="blog-item-style-1 blog-item-style-3">
-							<img src="images/uploads/bloglist-it2.jpg" alt="">
+							<img src="images/mylogo.png" alt="">
 							<div class="blog-it-infor">
 								<h3>
 									<a href="blogdetail.html">${notice.n_title }</a>
