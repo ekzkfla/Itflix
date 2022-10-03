@@ -28,11 +28,9 @@
 </head>
 
 <body>
-	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
-
 	<!--중앙 타이틀 화면 -->
 	<div class="hero common-hero">
 		<div class="container">
@@ -49,40 +47,42 @@
 			</div>
 		</div>
 	</div>
-	<!-- blog list section -->
+	<!--중앙 타이틀 화면 -->
+	<!-- 메인 공지사항 리스트  -->
 	<div class="page-single">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9 col-sm-12 col-xs-12">
+					<!--분류 보드바 -->
 					<div class="topbar-filter">
-						<p>
-							Found <span>${noticeTotal}개 </span>in total
-						</p>
-						<label>Sort by:</label><select><option value="popularity">공지사항</option>
+						<p>Found <span>${noticeTotal}개 </span>in total	</p>
+						<select>
+							<option value="popularity">공지사항</option>
 							<option value="popularity">신규</option>
 							<option value="rating">긴급</option>
 							<option value="rating">점검</option>
 							<option value="date">주의사항</option>
-							<option value="date">구독권</option></select>
-							
+							<option value="date">구독권</option>
+						</select>
 					</div>
-					
+					<!--분류 보드바 -->
+					<!--공지사항 리스트   -->	
 					<c:forEach items="${noticeList}" var ="notice"> 
 						<div class="blog-item-style-1 blog-item-style-3">
-							<img src="images/mylogo.png" alt="">
-							<div class="blog-it-infor">
-								<h3>
-									<a href="blogdetail.html">${notice.n_title }</a>
-								</h3>
-								<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>
-								<p>${notice.n_content}</p>
-							</div>
+							<img src="images/mylogo.png">
+								<div class="blog-it-infor">
+									<h3><a href="blogdetail.html">${notice.n_title }</a></h3>
+									<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>
+									<p>${notice.n_content}</p>
+								</div>
 						</div>
 					</c:forEach>
-					
+					<!--공지사항 리스트   -->	
+					<!--페이징 구현  -->
 					<ul class="pagination">
-						<li class="icon-prev"><a href="#"><i
-								class="ion-ios-arrow-left"></i></a></li>
+						<li class="icon-prev">
+							<a href="#"><i class="ion-ios-arrow-left"></i></a>
+						</li>
 						<li class="active"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
@@ -93,8 +93,10 @@
 						<li class="icon-next"><a href="#"><i
 								class="ion-ios-arrow-right"></i></a></li>
 					</ul>
+					<!--페이징 구현  -->
 				</div>
-				<div class="col-md-3 col-sm-12 col-xs-12">
+			 <!--분류 우측 보드바  -->	
+			  	<div class="col-md-3 col-sm-12 col-xs-12">
 					<div class="sidebar">
 						<div class="sb-search sb-it">
 							<h4 class="sb-title">Search</h4>
@@ -110,14 +112,15 @@
 								<li><a href="#">Global (06)</a></li>
 							</ul>
 						</div>
-
-
 					</div>
 				</div>
+			 <!--분류 우측 보드바  -->	
 			</div>
 		</div>
 	</div>
-	<!--end of blog list section-->
+	<!-- 메인 공지사항 리스트  -->
+	
+	
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>
 	<!-- end of footer section-->
