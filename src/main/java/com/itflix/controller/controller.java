@@ -43,11 +43,14 @@ public class controller {
 	public String itflix_main(Model model) {
 		String forwardPath = "";
 		try {
+			int no=1;
 			List<Movie> movieList = movieService.selectAll();
-			System.out.println(movieList);
 			List<Movie> movieCountList = movieService.selectMovieCount();
+			List<Movie> movieCategoryList = movieService.selectCategoryNo(no);
 			model.addAttribute("movieList",movieList);
 			model.addAttribute("movieCountList", movieCountList);
+			model.addAttribute("movieCategoryList", movieCategoryList);
+			
 			forwardPath = "main";
 		}catch (Exception e) {
 			e.printStackTrace();
