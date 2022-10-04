@@ -44,6 +44,8 @@ public class JjimServiceImpl implements JjimDao{
 		return jjimDao.jjimListTest5(u_email);
 	}
 
+
+
 	
 
 }

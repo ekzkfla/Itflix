@@ -8,11 +8,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.User_InfoDao;
 import com.itflix.dto.User_Info;
-import com.itflix.service.User_InfoService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
-public class User_InfoDaoTestApplication {
+public class User_InfoServiceTestApplication {
 
 	public static void main(String[] args) throws Exception{
 		/*
@@ -28,18 +27,19 @@ public class User_InfoDaoTestApplication {
 		*/
 		
 		SpringApplication application = 
-				new SpringApplication(User_InfoDaoTestApplication.class);
+				new SpringApplication(User_InfoServiceTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		User_InfoService user_InfoService = context.getBean(User_InfoService.class);
-		 System.out.println(user_InfoService);
+		User_InfoDao user_InfoDao = context.getBean(User_InfoDao.class);
+		 System.out.println(user_InfoDao);
+		 //System.out.println(user_InfoDao.user_InfoSelectAll());
+		 //System.out.println(user_InfoDao.selectByEmail("admin@gmail.com"));
+		 //System.out.println(user_InfoDao.deleteUser_Info("guard4@gmail.com"));
+		 //System.out.println("Check" + user_InfoDao.insertUser_Info(new User_Info("guard4@gmail.com","1111", "김희철", "01055555555")));
+		 //System.out.println("Check : "+user_InfoDao.updateUser_Info(new User_Info("guard4@gmail.com", "1234", "희철김", "01012341234")) );
+		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
+		 System.out.println("아이디존재여부>>>"+user_InfoDao.existedUser("guard1@gmail.com"));
 		 
-		 
-		 //System.out.println("로그인체크>>" + user_InfoService.login("guard1@gmail.com", "123"));
-		 //System.out.println("로그인체크>>" + user_InfoService.login("guard1@gmail.com", "555"));
-		 //System.out.println("로그인체크>>" + user_InfoService.login("guard100@gmail.com", "123"));
-		 
-		 System.out.println("이메일존재여부>>>" + user_InfoService.existedUser("guard1@gmail.com"));
 
 	}
 

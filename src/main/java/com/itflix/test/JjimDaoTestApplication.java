@@ -36,7 +36,10 @@ public class JjimDaoTestApplication {
 		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
 		
 		//System.out.println("삭제>>>"+jjimDao.jjimDelete("guard1@gmail.com",8));	
-		//System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",18));
+		//System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",3));
+		//System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",6));
+		
+		//System.out.println(jjimDao.jjimList("guard1@gmail.com"));
 
 	}
 }

@@ -74,7 +74,7 @@ public class User_InfoServiceImpl implements User_InfoService{
 	}
 
 	@Override
-	public int login(String u_email, String u_passward) throws Exception {
+	public int login(String u_email, String u_pass) throws Exception {
 		int result = 0;
 		/*
 		 *  1:성공
@@ -83,7 +83,7 @@ public class User_InfoServiceImpl implements User_InfoService{
 		 */
 		if(user_InfoDao.existedUser(u_email)) {
 			User_Info userInfo = user_InfoDao.selectByEmail(u_email);
-			if(userInfo.getU_pass().equals(u_passward)) {
+			if(userInfo.getU_pass().equals(u_pass)) {
 				// 로그인 성공
 				result = 1;
 			} else {
