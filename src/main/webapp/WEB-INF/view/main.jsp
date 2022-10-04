@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -23,6 +25,7 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 	
@@ -37,20 +40,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="slick-multiItemSlider">
-					<c:forEach items="${movieList}" var ="movieCount"> 
+					<c:forEach items="${movieList}" var ="movie"> 
 						<div class="movie-item">
 							<div class="mv-img">
-								<a href=""><img src="images/${movieCount.category.cg_name}/${movieCount.m_name}_1.jpg" alt=""	width="285" height="437"></a>
+								<a href=""><img src="images/드라마/${movie.m_name}_1.jpg" alt=""	width="285" height="437"></a>
 							</div>
 							<div class="title-in">
 								<div class="cate">
-									<span class="blue"><a href="#">${movieCount.category.cg_name}</a></span>
+									<span class="blue"><a href="#">${movie.category.cg_name}</a></span>
 								</div>
 								<h6>
-									<a href="moviesingle?m_no=${movieCount.m_no}">"${movieCount.m_name}"</a>
+									<a href="moviesingle?m_no=1">${movie.m_name}</a>
 								</h6>
 								<p>
-									<i class="ion-android-star"></i><span>${movieCount.review.r_grade}</span>/100
+									<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
 								</p>
 							</div>
 						</div>
@@ -92,7 +95,7 @@
 										<div class="slide-it">
 											<div class="movie-item">
 												<div class="mv-img">
-													<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="" width="185"
+													<img src="images/드라마/국제시장_1.jpg" alt="" width="185"
 														height="284">
 												</div>
 												<div class="hvr-inner">
