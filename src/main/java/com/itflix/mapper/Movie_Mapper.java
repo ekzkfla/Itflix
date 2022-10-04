@@ -15,12 +15,12 @@ import com.itflix.dto.Movie;
 @Mapper
 public interface Movie_Mapper {
 		//영화 리스트 전체 출력
-		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name, avg(r.r_grade) as r_grade \n"
-				+ "    from movie m\n"
-				+ "    right outer join Review r on m.m_no=r.m_no \n"
-				+ "    join category c on m.cg_no = c.cg_no\n"
-				+ "    group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name \n"
-				+ "    ORDER BY m.m_no ASC")
+		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, c.cg_no,c.cg_name, avg(r.r_grade) as r_grade \n"
+				+ "from movie m \n"
+				+ "right outer join Review r on m.m_no=r.m_no  \n"
+				+ "join category c on m.cg_no = c.cg_no \n"
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, c.cg_no,c.cg_name  \n"
+				+ "ORDER BY m.m_no ASC")
 		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectAll();
 		

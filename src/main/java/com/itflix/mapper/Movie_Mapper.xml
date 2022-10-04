@@ -12,8 +12,8 @@
 		<result column="m_count" property="m_count" />
 		<result column="m_date" property="m_date" />
 		<result column="m_url" property="m_url" />
-		<collection property="categoryList"
-			javaType="java.util.List" ofType="com.itflix.dto.Category">
+		<collection property="category"
+			javaType="com.itflix.dto.Category" >
 			<result column="cg_no" property="cg_no" />
 			<result column="cg_name" property="cg_name" />
 		</collection>
