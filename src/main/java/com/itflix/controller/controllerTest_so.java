@@ -21,7 +21,7 @@ import com.itflix.service.ReviewService;
 
 
 @Controller
-public class controller {
+public class controllerTest_so {
 	
 	@Autowired
 	private NoticeService noticeService;
@@ -34,7 +34,7 @@ public class controller {
 
 	
 	
-	public controller() {
+	public controllerTest_so() {
 		System.out.println("기본!!!");
 	}
 	//ItFlix 메인페이지
