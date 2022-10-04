@@ -30,6 +30,7 @@
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
+	
 	<form name="f" method="Post">
 	<div class="slider movie-items">
 		<div class="container">
@@ -54,14 +55,13 @@
 							</div>
 						</div>
 					</c:forEach>
-				
-					
 				</div>
 			</div>
 		</div>
 	</div>
 	</form>
 	<!--조회수 별 영화 리스트  -->
+	
 	<div class="movie-items">
 		<div class="container">
 			<div class="row ipad-width">
