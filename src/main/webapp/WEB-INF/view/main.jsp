@@ -38,12 +38,12 @@
 					<c:forEach items="${movieList}" var ="movie"> 
 						<div class="movie-item">
 							<div class="mv-img">
-								<a href="#"><img src="images/공포미스터리/놉_1.jpg" alt=""
+								<a href="#"><img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt=""
 									width="285" height="437"></a>
 							</div>
 							<div class="title-in">
 								<div class="cate">
-									<span class="blue"><a href="#">Sci-fi</a></span>
+									<span class="blue"><a href="#">${movie.category.cg_name}</a></span>
 								</div>
 								<h6>
 									<a href="#">"${movie.m_name}"</a>
