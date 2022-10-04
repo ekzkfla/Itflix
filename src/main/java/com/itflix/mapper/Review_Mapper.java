@@ -57,8 +57,7 @@ public interface Review_Mapper {
 	public List<Review> selectLatest(int no);
 
 	// 각 영화 리뷰 총 갯수
-	@Select("select count(*) from review r join movie m on m.m_no=r.m_no where r.m_no=6")
-	@ResultMap("ReviewWithMovieCount")
-	public int reviewCount(int no);
+	@Select("select count(*) from review where m_no=6")
+	public int reviewCount(int m_no);
 
 }

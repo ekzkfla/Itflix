@@ -50,9 +50,9 @@ public class ReviewServiceTestApplication {
 		 //System.out.println("check2"+reviewDao.selectLatest(10));
 		 //System.out.println("check3"+reviewDao.updateReview("수정은 이렇게", "드디어 된거 같소?", 13, 3, 12));
 		 //System.out.println(reviewDao.insertReview(0, "우리 팀원들 화이팅!", "다 할 수 있어!", 100, null, 0, 0, 0, 23, "guard4@gmail.com"));
+		 //System.out.println(reviewDao.reviewCount(6));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 		 
-		 System.out.println(reviewDao.reviewCount(6));
 		 
 	}
 }

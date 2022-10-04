@@ -30,6 +30,6 @@ public interface ReviewService {
 	int deleteReview(int no) throws Exception;
 
 	// 각 영화 리뷰 총 갯수
-	int reviewCount(int no) throws Exception;
+	int reviewCount(int m_no) throws Exception;
 
 }

@@ -73,8 +73,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public int reviewCount(int no) throws Exception {
-		return reviewDao.reviewCount(no);
+	public int reviewCount(int m_no) throws Exception {
+		return reviewDao.reviewCount(m_no);
 	}
 
 }

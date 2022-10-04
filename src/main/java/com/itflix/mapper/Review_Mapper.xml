@@ -89,18 +89,6 @@ namespace="com.itflix.mapper.Review_Mapper">
 				</collection>
 	</resultMap>
 		
-<!-- 각 영화 별 리뷰 총 갯수 -->
-	<resultMap id="ReviewWithMovieCount" 
-			   type="com.itflix.dto.Review">
-		<result column="r_no" property="r_no"/>
-		<association property="movie"
-					 javaType="com.itflix.dto.Movie">
-			 <result column="m_no" property="m_no"/>
-		</association>
-	
-	</resultMap>		
-		
-		
 		
 <!-- 	 		 
 	<resultMap id="ReviewWithUserList"
