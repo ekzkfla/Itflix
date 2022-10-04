@@ -119,7 +119,7 @@
 							</a>
 							<!--카테고리 dropdown 설정 부분 -->
 									<ul class="dropdown-menu level1">
-										<li><a href="categoryMoviegrid?cg_no=1"  >액션</a></li>
+										<li><a href="categoryMoviegrid?cg_no=1"   >액션</a></li>
 										<li class="it-last"><a href="categoryMoviegrid?cg_no=2">코미디</a></li>
 										<li class="it-last"><a href="categoryMoviegrid?cg_no=3">로맨스</a></li>
 										<li class="it-last"><a href="categoryMoviegrid?cg_no=4">공포/미스터리</a></li>

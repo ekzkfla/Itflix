@@ -50,8 +50,10 @@ public class controller {
 		return forwardPath;
 	}
 	//카테고리별 영화 리스트 
-	@RequestMapping(value = "categoryMoviegrid")
-	public String categoryMoviegrid()throws Exception {
+	@RequestMapping(value = "categoryMoviegrid",params = "cg_no")
+	public String categoryMoviegrid(String cg_no)throws Exception {
+		List<Category> category = categoryService.selectByNoMovieList(Integer.parseInt(cg_no));
+		System.out.println(category);
 		return "categoryMoviegrid";
 	}
 
