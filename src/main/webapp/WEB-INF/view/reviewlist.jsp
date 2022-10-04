@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -48,28 +50,16 @@
 						<img src="images/uploads/movie-single.jpg" alt="">
 																	
 					</div>
-				</div>
+				</div><!-- 영화 이미지 -->
 				<div class="col-md-7 col-sm-4 col-xs-3">
-					<div class="movie-single-ct main-content">
-						<h1 class="bd-hd">
-							Skyfall: Quantum of Spectre <span>2015</span>
-						</h1>
-						<div class="social-btn">
-							<a href="#" class="parent-btn"><i class="ion-heart"></i>Add
-								to Favorite</a>
-						</div>
+					<div class="movie-single-ct main-content"><!-- 영화 제목 -->
+						<h1 class="bd-hd"> Skyfall: Quantum of Spectre <span>2015</span> </h1>
+						
 						<div class="movie-rate">
 							<div class="rate">
-								<i class="ion-android-star"></i>
 								<p>
-									<span>8.1</span>/10<br> <span class="rv">56 Reviews</span>
+									<p><span class="rv">56 Reviews</span></p> <!-- 총 리뷰 개수 -->
 								</p>
-							</div>
-							<div class="rate-star">
-								<p>Rate This Movie:</p>
-								<i class="ion-ios-star"></i><i class="ion-ios-star"></i><i
-									class="ion-ios-star"></i><i class="ion-ios-star"></i><i
-									class="ion-ios-star-outline"></i>
 							</div>
 						</div>
 						<div class="movie-tabs">

@@ -504,8 +504,8 @@ FROM ( SELECT rownum idx, s.*
              FROM review
              ORDER BY r_no ASC) s)
 WHERE idx >= 1 AND idx <= 5;
-
-
+-- 각 영화 리뷰 총 갯수
+select count(*) from review r join movie m on m.m_no=r.m_no where r.m_no=6;
 
 ------------------------------Notice SELECT------------------------------
 --update

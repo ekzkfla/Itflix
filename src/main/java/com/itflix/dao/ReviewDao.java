@@ -28,6 +28,7 @@ public interface ReviewDao {
 	// 리뷰 삭제
 	int deleteReview(int no) throws Exception;
 
-	
+	// 각 영화 리뷰 총 갯수
+	int reviewCount(int no)throws Exception;
 
 }
