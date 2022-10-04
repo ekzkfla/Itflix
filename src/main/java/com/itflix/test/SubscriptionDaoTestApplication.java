@@ -34,7 +34,7 @@ public class SubscriptionDaoTestApplication {
 		 //System.out.println("구독자 단일 찾기"+subscriptionDao.selectByNo("guard1@gmail.com"));
 		 //구독권 업데이트
 		 //업데이트 DB에는 되는데 스레드 오류가 나온다 ;;해결을 어찌 해야할지;...
-		 System.out.println("update"+subscriptionDao.updateSubscription(null, null, "스레드?", 1234, 0, "guard4@gmail.com"));
+		 //System.out.println("update"+subscriptionDao.updateSubscription(null, null, "스레드?", 1234, 0, "guard4@gmail.com"));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 		 
 		 //구독권 추가
