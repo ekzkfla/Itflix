@@ -44,5 +44,9 @@ public interface User_Info_Mapper {
 	@Delete("delete from user_info where u_email=#{u_email}")
 	public int deleteUser_Info(String u_email);
 	
+	// 회원 email 존재여부 확인(count)
+	@Select("select count(*) from user_info where u_email=#{u_email}")
+	public boolean existedUser(String u_email);
+	
 
 }
