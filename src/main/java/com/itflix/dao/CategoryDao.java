@@ -7,7 +7,7 @@ import com.itflix.dto.Category;
 public interface CategoryDao {
 	
 	//카테고리 번호를 이용한 해당 영화 리스트 출력
-	List<Category> selectByNoMovieList(int no) throws Exception;
+	List<Category> selectByNoMovieList(int cg_no) throws Exception;
 	//카테고리 전체 출력
 	List<Category> selectAll() throws Exception;
 	////카테고리별  영화 한개 상세 상세페이지 검색 (리뷰 추가 -리뷰없을시 null표시)

@@ -11,8 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itflix.dto.Category;
+import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
 import com.itflix.dto.Review;
+import com.itflix.service.CategoryService;
+import com.itflix.service.MovieService;
 import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
 
@@ -24,6 +28,8 @@ public class controller {
 	@Autowired
 	private NoticeService noticeService;
 	private ReviewService reviewService;
+	private MovieService movieService;
+	private CategoryService categoryService;
 	
 	public controller() {
 		System.out.println("기본!!!");
@@ -43,7 +49,11 @@ public class controller {
 		
 		return forwardPath;
 	}
-	
+	//카테고리별 영화 리스트 
+	@RequestMapping(value = "categoryMoviegrid")
+	public String categoryMoviegrid()throws Exception {
+		return "categoryMoviegrid";
+	}
 
 	
 	//영화 detail 페이지
@@ -93,7 +103,6 @@ public class controller {
 	@RequestMapping(value = "blogdetail", params = "n_no")
 	public String blogdetail(@RequestParam int n_no, Model model)throws Exception {
 		Notice notice=noticeService.selectByNo(n_no);
-		System.out.println(notice);
 		model.addAttribute("notice",notice);
 		return "blogdetail";
 	}
