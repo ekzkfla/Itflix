@@ -32,13 +32,13 @@ public class MovieDaoTestApplication {
 		ConfigurableApplicationContext context=application.run(args);
 		MovieService movieService = context.getBean(MovieService.class);
 		 System.out.println(movieService);
-		 System.out.println(movieService.selectAll());
+		 //System.out.println(movieService.selectAll());
 		 //System.out.println(movieService.selectByNo(1));
 		 //System.out.println(movieService.selectCategoryNo(1));
 		 //System.out.println(movieService.selectMovieName("정직"));
 		 //System.out.println(movieService.selectMovieActor("김"));
 		 //System.out.println(movieDao.selectMovieRecentReview(10));
-		 //System.out.println(movieService.selectMovieCount());
+		 System.out.println(movieService.selectMovieCount());
 		 //System.out.println(movieService.selectMovieGrade());
 		 //System.out.println(movieService.selectMovieNewDate());
 		 //System.out.println(movieService.selectMovieOldDate());
