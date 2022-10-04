@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itflix.dto.Notice;
+import com.itflix.dto.Review;
 import com.itflix.service.NoticeService;
+import com.itflix.service.ReviewService;
 
 import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 
@@ -19,6 +21,7 @@ public class controller {
 	
 	@Autowired
 	private NoticeService noticeService;
+	private ReviewService reviewService;
 	
 	public controller() {
 		System.out.println("기본!!!");
@@ -47,6 +50,22 @@ public class controller {
 		String forwardPath="";
 		forwardPath = "moviesingle";
 		
+		return forwardPath;
+	}
+	
+	//리뷰 리스트 페이지
+	@RequestMapping(value = "reviewlist")
+	public String reviewlist(HttpServletRequest request) {
+		String forwardPath = "";
+		try {
+			List<Review> reviewList = reviewService.selectAll();
+			request.setAttribute("reviewList", reviewList);
+			forwardPath = "reviewlist";
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("error", e.getMessage());
+			forwardPath = "404";
+		}
 		return forwardPath;
 	}
 	
