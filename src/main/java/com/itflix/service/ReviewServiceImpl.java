@@ -71,7 +71,7 @@ public class ReviewServiceImpl implements ReviewService {
 	public int deleteReview(int no) throws Exception {
 		return reviewDao.deleteReview(no);
 	}
-
+	// 각 영화 리뷰 총 갯수
 	@Override
 	public int reviewCount(int m_no) throws Exception {
 		return reviewDao.reviewCount(m_no);
