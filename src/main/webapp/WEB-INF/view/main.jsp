@@ -43,7 +43,7 @@
 					<c:forEach items="${movieList}" var ="movie"> 
 						<div class="movie-item">
 							<div class="mv-img">
-								<a href=""><img src="images/드라마/${movie.m_name}_1.jpg" alt=""	width="285" height="437"></a>
+								<a href=""><img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt=""	width="285" height="437"></a>
 							</div>
 							<div class="title-in">
 								<div class="cate">
@@ -95,7 +95,7 @@
 										<div class="slide-it">
 											<div class="movie-item">
 												<div class="mv-img">
-													<img src="images/드라마/국제시장_1.jpg" alt="" width="185"
+													<img src="images/${movie.category.cg_name}/${movie.m_name }_1.jpg" alt="" width="185"
 														height="284">
 												</div>
 												<div class="hvr-inner">
@@ -113,12 +113,11 @@
 											</div>
 										</div>
 										</c:forEach>
-										
-										
-										 
 									</div>
 								</div>
 							</div>
+							
+							<!--카테고리별 영화 리스트  -->
 							<div id="tab2" class="tab">
 								<div class="row">
 									<div class="slick-multiItem">
