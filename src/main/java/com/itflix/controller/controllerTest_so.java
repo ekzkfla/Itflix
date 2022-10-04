@@ -21,7 +21,7 @@ import com.itflix.service.ReviewService;
 
 
 @Controller
-public class controller {
+public class controllerTest_so {
 	
 	@Autowired
 	private NoticeService noticeService;
@@ -34,7 +34,7 @@ public class controller {
 
 	
 	
-	public controller() {
+	public controllerTest_so() {
 		System.out.println("기본!!!");
 	}
 	//ItFlix 메인페이지
@@ -44,9 +44,7 @@ public class controller {
 		String forwardPath = "";
 		try {
 			List<Movie> movieList = movieService.selectAll();
-			List<Movie> movieCountList = movieService.selectMovieCount();
 			model.addAttribute("movieList", movieList);
-			model.addAttribute("movieCountList", movieCountList);
 			forwardPath = "main";
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -107,8 +105,6 @@ public class controller {
 			String forwardPath="";
 	
 					List<Notice> noticeList = noticeService.selectAll();
-					int noticeTotal = noticeService.totalCount();
-					model.addAttribute("noticeTotal", noticeTotal);
 					model.addAttribute("noticeList", noticeList);
 					forwardPath = "bloglist";
 			
