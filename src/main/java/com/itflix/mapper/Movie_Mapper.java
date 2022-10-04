@@ -73,6 +73,8 @@ public interface Movie_Mapper {
 		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieActor(String m_actor);
 		
+		/*
+		//백업용
 		//가장 최근 작성된 리뷰 평점 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "r.r_no, r.r_title, r.r_content, r.r_date, r.u_email \n"
@@ -84,7 +86,20 @@ public interface Movie_Mapper {
 				+ "r.r_no, r.r_title, r.r_content, r.r_date, r.u_email \n"
 				+ "ORDER BY r.r_date DESC")
 		@ResultMap("selectMovieRecentReviewResultMap")
-		public Movie selectMovieRecentReview(int m_no);
+		public Movie selectMovieRecentReview(Integer m_no);
+		*/
+		
+		//가장 최근 작성된 리뷰 평점 출력
+		@Select("select * from(select m.m_no, m.m_name, m.m_actor, m.m_image, m.cg_no, \n"
+				+ "c.cg_name, r.r_no, r.r_title, r.r_content, r.r_grade, r.r_date, r.u_email \n"
+				+ "from Movie m join Review r on m.m_no = r.m_no\n"
+				+ "left JOIN Category c on c.cg_no = m.cg_no \n"
+				+ "where m.m_no = #{m.m_no} \n"
+				+ "GROUP BY m.m_no, m.m_name, m.m_actor, m.m_image, m.cg_no, \n"
+				+ "c.cg_name, r.r_no, r.r_title, r.r_content, r.r_grade, r.r_date, r.u_email \n"
+				+ "ORDER BY r.r_date DESC) where ROWNUM <= 1")
+		@ResultMap("selectMovieRecentReviewResultMap")
+		public Movie selectMovieRecentReview(Integer m_no);
 		
 		//조회수 높은 순으로 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"

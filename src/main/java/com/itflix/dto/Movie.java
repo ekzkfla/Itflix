@@ -19,13 +19,14 @@ public class Movie {
 	private Category category;
 	private Review review;
 	private List<Review> reviewList;
+	private List<Category> categoryList;
 	
 	public Movie() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Movie(int m_no, String m_name, String m_actor, String m_info, String m_image, int m_count, Date m_date,
-			String m_url, int m_groupno, int m_step, int m_depth, Category category, Review review, List<Review> reviewList) {
+			String m_url, int m_groupno, int m_step, int m_depth, Category category, Review review, List<Review> reviewList, List<Category> categoryList) {
 		super();
 		this.m_no = m_no;
 		this.m_name = m_name;
@@ -41,6 +42,7 @@ public class Movie {
 		this.category = category;
 		this.review = review;
 		this.reviewList = reviewList;
+		this.categoryList = categoryList;
 	}
 
 	public int getM_no() {
@@ -154,15 +156,21 @@ public class Movie {
 	public void setReviewList(List<Review> reviewList) {
 		this.reviewList = reviewList;
 	}
+	
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+	
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
+	}
 
 	@Override
 	public String toString() {
 		return "Movie [m_no=" + m_no + ", m_name=" + m_name + ", m_actor=" + m_actor + ", m_info=" + m_info
 				+ ", m_image=" + m_image + ", m_count=" + m_count + ", m_date=" + m_date + ", m_url=" + m_url
 				+ ", m_groupno=" + m_groupno + ", m_step=" + m_step + ", m_depth=" + m_depth + ", category=" + category
-				+ ", review=" + review + ", reviewList=" + reviewList + "]";
+				+ ", review=" + review + ", reviewList=" + reviewList + ", categoryList=" + categoryList + "]";
 	}
 
-
-	
 }
