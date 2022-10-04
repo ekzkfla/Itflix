@@ -89,6 +89,7 @@ namespace="com.itflix.mapper.Review_Mapper">
 				</collection>
 	</resultMap>
 		
+		
 <!-- 	 		 
 	<resultMap id="ReviewWithUserList"
 			   type="com.itflix.dto.User_Info">

@@ -12,11 +12,11 @@
 		<result column="m_count" property="m_count" />
 		<result column="m_date" property="m_date" />
 		<result column="m_url" property="m_url" />
-		<association property="category"
-			javaType="com.itflix.dto.Category">
+		<collection property="categoryList"
+			javaType="java.util.List" ofType="com.itflix.dto.Category">
 			<result column="cg_no" property="cg_no" />
 			<result column="cg_name" property="cg_name" />
-		</association>
+		</collection>
 		<collection property="review"
 			javaType="com.itflix.dto.Review">
 			<result column="r_grade" property="r_grade" />
@@ -30,23 +30,22 @@
 		<result column="m_name" property="m_name" />
 		<result column="m_actor" property="m_actor" />
 		<result column="m_image" property="m_image" />
-		<association property="category"
-			javaType="com.itflix.dto.Category">
+		<collection property="categoryList"
+			javaType="java.util.List" ofType="com.itflix.dto.Category">
 			<result column="cg_no" property="cg_no" />
 			<result column="cg_name" property="cg_name" />
-		</association>
-		<collection property="reviewList"
-			javaType="java.util.List"
+		</collection>
+		<collection property="reviewList" javaType="java.util.List"
 			ofType="com.itflix.dto.Review">
 			<result column="r_no" property="r_no" />
 			<result column="r_title" property="r_title" />
 			<result column="r_content" property="r_content" />
 			<result column="r_grade" property="r_grade" />
 			<result column="r_date" property="r_date" />
-			<association property="userList"
-			javaType="com.itflix.dto.Review">
-			<result column="u_email" property="u_email" />
-		</association>
+			<collection property="userList" javaType="java.util.List"
+				ofType="com.itflix.dto.User_Info">
+				<result column="u_email" property="u_email" />
+			</collection>
 		</collection>
 	</resultMap>
 

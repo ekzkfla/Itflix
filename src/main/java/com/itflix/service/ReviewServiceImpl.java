@@ -72,4 +72,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewDao.deleteReview(no);
 	}
 
+	@Override
+	public int reviewCount(int m_no) throws Exception {
+		return reviewDao.reviewCount(m_no);
+	}
+
 }

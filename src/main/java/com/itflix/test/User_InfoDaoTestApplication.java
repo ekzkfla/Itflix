@@ -38,6 +38,7 @@ public class User_InfoDaoTestApplication {
 		 //System.out.println("Check" + user_InfoDao.insertUser_Info(new User_Info("guard4@gmail.com","1111", "김희철", "01055555555")));
 		 //System.out.println("Check : "+user_InfoDao.updateUser_Info(new User_Info("guard4@gmail.com", "1234", "희철김", "01012341234")) );
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
+		 System.out.println("아이디존재여부>>>"+user_InfoDao.existedUser("guard1@gmail.com"));
 		 
 
 	}
