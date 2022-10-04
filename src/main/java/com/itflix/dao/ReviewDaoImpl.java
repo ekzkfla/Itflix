@@ -83,5 +83,11 @@ public class ReviewDaoImpl implements ReviewDao {
 		int deleteReview = review_Mapper.deleteReview(no);
 		return deleteReview;
 	}
+	// 각 영화 리뷰 총 갯수
+	@Override
+	public int reviewCount(int m_no) throws Exception {
+		int reviewCount = review_Mapper.reviewCount(m_no);
+		return reviewCount;
+	}
 
 }

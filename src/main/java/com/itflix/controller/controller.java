@@ -50,7 +50,6 @@ public class controller {
 			forwardPath = "main";
 		}catch (Exception e) {
 			e.printStackTrace();
-			forwardPath="404";
 		}
 
 		return forwardPath;
