@@ -42,8 +42,8 @@ public class NoticeServiceImpl implements NoticeService{
 	
 	//공지사항 번호로 검색
 	@Override
-	public Notice selectByNo(int no) throws Exception {
-		return noticeDao.selectByNo(no);
+	public Notice selectByNo(int n_no) throws Exception {
+		return noticeDao.selectByNo(n_no);
 	}
 	
 	//공지사항 이름으로 검색

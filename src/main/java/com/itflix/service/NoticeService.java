@@ -11,7 +11,7 @@ public interface NoticeService {
 	//공지사항 전체 갯수 출력
 	int totalCount()throws Exception;
 	//공지사항 번호로 검색
-	Notice selectByNo(int no)throws Exception;
+	Notice selectByNo(int n_no)throws Exception;
 	//공지사항 이름으로 검색
 	List<Notice> selectByTitle(String n_title)throws Exception;
 	
