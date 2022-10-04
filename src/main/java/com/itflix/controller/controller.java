@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itflix.dto.Notice;
 import com.itflix.service.NoticeService;
@@ -69,22 +71,11 @@ public class controller {
 	}
 	
 	//공지사항 상세페이지
-	@RequestMapping(value = "blogdetail")
-	public String blogdetail(HttpServletRequest request) {
-		String forwardPath="";
-			try {
-				int cg_no=(int) request.getAttribute("cg_no");
-				Notice notice = noticeService.selectByNo(cg_no);
-				System.out.println(notice);
-				request.setAttribute("notice", notice);
-				forwardPath = "blogdetail";
-			} catch (Exception e) {
-				e.printStackTrace();
-				request.setAttribute("error", e.getMessage());
-				forwardPath="404";
-			}
-		
-		return forwardPath;
+	@RequestMapping(value = "blogdetail", params = "n_no")
+	public String blogdetail(@RequestParam int n_no, Model model)throws Exception {
+		Notice notice=noticeService.selectByNo(n_no);
+		model.addAttribute("notice",notice);
+		return "blogdetail";
 	}
 
 	//마이페이지 
