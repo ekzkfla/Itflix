@@ -76,4 +76,11 @@ public class User_InfoDaoImpl implements User_InfoDao{
 		return deleteUser_Info;
 	}
 
+	// 회원 email 존재여부 확인(count)
+	@Override
+	public boolean existedUser(String u_email) {
+		boolean existedUser = user_Info_Mapper.existedUser(u_email);
+		return existedUser;
+	}
+
 }

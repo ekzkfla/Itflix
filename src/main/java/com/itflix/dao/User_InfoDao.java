@@ -2,6 +2,8 @@ package com.itflix.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
+
 import com.itflix.dto.User_Info;
 
 
@@ -21,4 +23,6 @@ public interface User_InfoDao {
 	int updateUser_Info(User_Info guest) throws Exception;
 	// 회원 탈퇴.
 	int deleteUser_Info(String u_email) throws Exception;
+	// 회원 email 존재여부 확인(count)
+	boolean existedUser(String u_email);
 }
