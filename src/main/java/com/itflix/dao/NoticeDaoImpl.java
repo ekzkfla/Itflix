@@ -43,6 +43,14 @@ public class NoticeDaoImpl implements NoticeDao{
 		return totalCount;
 	}
 	
+	//가장 최신 공지사항 1개 출력 
+	@Override
+	public Notice noticeOne()throws Exception{
+		Notice noticeOne= notice_Mapper.noticeOne();
+		return noticeOne;
+	}
+	
+	
 	//공지사항 번호로 검색
 	@Override
 	public Notice selectByNo(int n_no)throws Exception{

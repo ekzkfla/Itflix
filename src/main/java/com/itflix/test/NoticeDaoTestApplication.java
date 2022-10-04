@@ -37,7 +37,8 @@ public class NoticeDaoTestApplication {
 		   //System.out.println(noticeService);
 		   //System.out.println(noticeService.selectAll());
 		   //System.out.println(noticeService.totalCount());
-		   System.out.println(noticeService.selectByNo(2));
+			System.out.println(noticeService.noticeOne());
+			//System.out.println(noticeService.selectByNo(2));
 		   //System.out.println(noticeService.selectByTitle("긴급"));
 		   //System.out.println(noticeService.insertNotice(new Notice(0,null, "newTitle2", "newContent2", 0, 0, 0)));
 		   //System.out.println(noticeService.updateNotice(new Notice(10, null, "change", "change", 0, 0, 0)));

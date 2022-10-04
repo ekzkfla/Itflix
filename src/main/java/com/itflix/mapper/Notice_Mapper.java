@@ -24,6 +24,10 @@ public interface Notice_Mapper {
 	@Select("select count(*) from Notice")
 	public int totalCount();
 	
+	//가장 최신 공지사항 1개 출력 
+	@Select("select * from(select * from notice ORDER BY n_date DESC) where rownum<=1")
+	public Notice noticeOne();
+	
 	//공지사항 번호로 검색
 	@Select("select * from notice where n_no = #{n_no}")
 	public Notice selectByNo(int n_no);

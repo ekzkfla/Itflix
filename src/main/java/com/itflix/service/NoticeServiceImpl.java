@@ -40,6 +40,12 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.totalCount();
 	}
 	
+	//가장 최신 공지사항 1개 출력 
+	@Override
+	public Notice noticeOne()throws Exception{
+		return noticeDao.noticeOne();
+	}
+	
 	//공지사항 번호로 검색
 	@Override
 	public Notice selectByNo(int n_no) throws Exception {

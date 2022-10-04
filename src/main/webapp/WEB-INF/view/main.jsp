@@ -983,14 +983,16 @@
 							</div>
 						</div>
 					</div>
-					<!--카테고리별 영화리스트 종료  -->
-					
-					
+				<!--카테고리별 영화리스트 종료  -->
 				</div>
-
 			</div>
 		</div>
 	</div>
+<!--영화 리스트 종료  -->	
+					
+				
+				
+<!--트레일러 영상 및 트레일러 사진  -->				
 	<div class="trailers">
 		<div class="container">
 			<div class="row ipad-width">
@@ -1001,6 +1003,7 @@
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="videos">
+						
 						<!--영상 url  -->
 						<div class="slider-for-2 video-ft">
 							<c:forEach items="${movieList}" var="movie"> 
@@ -1012,28 +1015,30 @@
 						</div>
 						<!--영상 url  -->
 						
+						<!--영상 트레일러 사진  -->
 						<div class="slider-nav-2 thumb-ft">
 							<c:forEach items="${movieList}" var="movie"> 
-							<div class="item">
-								<div class="trailer-img">
-									<img src="images/${movie.category.cg_name }/${movie.m_name}_2.jpg"
-										alt="photo by Barn Images" width="4096" height="2737">
+								<div class="item">
+									<div class="trailer-img">
+										<img src="images/${movie.category.cg_name }/${movie.m_name}_2.jpg"
+											alt="photo by Barn Images" width="4096" height="2737">
+									</div>
+									<div class="trailer-infor">
+										<h4 class="desc">${movie.m_name }</h4>
+										<p style="font-size: 13px; color: #0DEEC9"  ><fmt:formatDate value="${movie.m_date}" pattern="yyyy/MM/dd"/></p>
+									</div>
 								</div>
-								<div class="trailer-infor">
-									<h4 class="desc">${movie.m_name }</h4>
-									<p style="font-size: 13px; color: #0DEEC9"  ><fmt:formatDate value="${movie.m_date}" pattern="yyyy/MM/dd"/></p>
-								</div>
-							</div>
 							</c:forEach>
-							
-							
 						</div>
+						<!--영상 트레일러 사진  -->
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- latest new v1 section-->
+	
+	<!--최신 공지사항 1개-->
 	<div class="latestnew">
 		<div class="container">
 			<div class="row ipad-width">
