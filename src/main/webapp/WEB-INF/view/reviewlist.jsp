@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body> 
 	
 	
 	<!-- BEGIN | Header -->
