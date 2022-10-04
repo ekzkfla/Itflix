@@ -1,6 +1,5 @@
 package com.itflix.controller;
 
-import java.io.Console;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,26 +19,47 @@ import com.itflix.service.MovieService;
 import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
 
-import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 
 @Controller
 public class controller {
 	
 	@Autowired
 	private NoticeService noticeService;
+	@Autowired
 	private ReviewService reviewService;
+	@Autowired
 	private MovieService movieService;
+	@Autowired
 	private CategoryService categoryService;
 	
 	public controller() {
 		System.out.println("기본!!!");
 	}
 	//ItFlix 메인페이지
-	@RequestMapping(value = "main")
-	public String  itflix_main() {
-		
-		return "main";
+	
+	@RequestMapping(value = "/main")
+	public String itflix_main(Model model) {
+		String forwardPath = "";
+		try {
+			List<Movie> movieList = movieService.selectAll();
+			model.addAttribute("movieList", movieList);
+			forwardPath = "main";
+		}catch (Exception e) {
+			e.printStackTrace();
+			forwardPath="404";
+		}
+
+		return forwardPath;
 	}
+	
+//	@RequestMapping(value = "main")
+//	public String  itflix_main() throws Exception{
+//		List<Movie> movieList= movieService.selectAll();
+//		System.out.println(movieList);
+//		
+//		//model.addAttribute("movieList",movieList);
+//		return "main";
+//	}
 	
 	//영화 리스트 페이지
 	@RequestMapping(value = "moviegridfw")
@@ -69,37 +89,26 @@ public class controller {
 	
 	//리뷰 리스트 페이지
 	@RequestMapping(value = "reviewlist")
-	public String reviewlist(HttpServletRequest request) {
-		String forwardPath = "";
-		try {
-			List<Review> reviewList = reviewService.selectAll();
-			request.setAttribute("reviewList", reviewList);
-			forwardPath = "reviewlist";
-		} catch (Exception e) {
-			e.printStackTrace();
-			request.setAttribute("error", e.getMessage());
-			forwardPath = "404";
-		}
+	public String reviewlist(Model model)throws Exception{
+		String forwardPath="";
+		List<Review> reviewList = reviewService.selectAll();
+		model.addAttribute("reviewList", reviewList);
+		forwardPath="reviewlist";
 		return forwardPath;
 	}
 	
 	//공지사항 페이지
-	@RequestMapping(value = "bloglist")
-	public String bloglist(HttpServletRequest request) {
-		String forwardPath="";
-			try {
-				List<Notice> noticeList = noticeService.selectAll();
-				int noticeTotal= noticeService.totalCount();
-				request.setAttribute("noticeList", noticeList);
-				request.setAttribute("noticeTotal", noticeTotal);
-				forwardPath = "bloglist";
-			}catch (Exception e) {
-				e.printStackTrace();
-				request.setAttribute("error", e.getMessage());
-				forwardPath= "404";
-				}
-			return forwardPath;
-	}
+		@RequestMapping(value = "bloglist")
+		public String bloglist(Model model)throws Exception {
+			String forwardPath="";
+	
+					List<Notice> noticeList = noticeService.selectAll();
+					model.addAttribute("noticeList", noticeList);
+					forwardPath = "bloglist";
+			
+					
+				return forwardPath;
+		}
 	
 	//공지사항 상세페이지
 	@RequestMapping(value = "blogdetail", params = "n_no")

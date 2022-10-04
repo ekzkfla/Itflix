@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -29,170 +30,38 @@
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
-
+	<form name="f" method="Post">
 	<div class="slider movie-items">
 		<div class="container">
 			<div class="row">
 				<div class="slick-multiItemSlider">
-					<div class="movie-item">
-						<div class="mv-img">
-							<a href="#"><img src="images/uploads/slider1.jpg" alt=""
-								width="285" height="437"></a>
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="blue"><a href="#">Sci-fi</a></span>
+					<c:forEach items="${movieList}" var ="movie"> 
+						<div class="movie-item">
+							<div class="mv-img">
+								<a href="#"><img src="images/공포미스터리/놉_1.jpg" alt=""
+									width="285" height="437"></a>
 							</div>
-							<h6>
-								<a href="#">Interstellar</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<a href="#"><img src="images/uploads/slider2.jpg" alt=""
-								width="285" height="437"></a>
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="yell"><a href="#">action</a></span>
+							<div class="title-in">
+								<div class="cate">
+									<span class="blue"><a href="#">Sci-fi</a></span>
+								</div>
+								<h6>
+									<a href="#">"${movie.m_name}"</a>
+								</h6>
+								<p>
+									<i class="ion-android-star"></i><span>7.4</span>/10
+								</p>
 							</div>
-							<h6>
-								<a href="#">The revenant</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
 						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<a href="#"><img src="images/uploads/slider3.jpg" alt=""
-								width="285" height="437"></a>
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="green"><a href="#">comedy</a></span>
-							</div>
-							<h6>
-								<a href="#">Die hard</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<a href="#"><img src="images/uploads/slider4.jpg" alt=""
-								width="285" height="437"></a>
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="blue"><a href="#">Sci-fi</a></span><span
-									class="orange"><a href="#">advanture</a></span>
-							</div>
-							<h6>
-								<a href="#">The walk</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<a href="#"><img src="images/uploads/slider1.jpg" alt=""
-								width="285" height="437"></a>
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="blue"><a href="#">Sci-fi</a></span>
-							</div>
-							<h6>
-								<a href="#">Interstellar</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<a href="#"><img src="images/uploads/slider2.jpg" alt=""
-								width="285" height="437"></a>
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="yell"><a href="#">action</a></span>
-							</div>
-							<h6>
-								<a href="#">The revenant</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<img src="images/uploads/slider3.jpg" alt="" width="285"
-								height="437">
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="green"><a href="#">comedy</a></span>
-							</div>
-							<h6>
-								<a href="#">Die hard</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<img src="images/uploads/slider4.jpg" alt="" width="285"
-								height="437">
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="blue"><a href="#">Sci-fi</a></span><span
-									class="orange"><a href="#">advanture</a></span>
-							</div>
-							<h6>
-								<a href="#">The walk</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
-					<div class="movie-item">
-						<div class="mv-img">
-							<img src="images/uploads/slider3.jpg" alt="" width="285"
-								height="437">
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="green"><a href="#">comedy</a></span>
-							</div>
-							<h6>
-								<a href="#">Die hard</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>7.4</span>/10
-							</p>
-						</div>
-					</div>
+					</c:forEach>
+				
+					
 				</div>
 			</div>
 		</div>
 	</div>
+	</form>
+	<!--조회수 별 영화 리스트  -->
 	<div class="movie-items">
 		<div class="container">
 			<div class="row ipad-width">
@@ -716,6 +585,8 @@
 							</div>
 						</div>
 					</div>
+					
+					<!--카테고리별 영화 리스트  -->
 					<div class="title-hd">
 						<h2>카테고리별</h2>
 						<a href="#" class="viewall">View all <i
@@ -1335,6 +1206,9 @@
 							</div>
 						</div>
 					</div>
+					<!--카테고리별 영화리스트 종료  -->
+					
+					
 				</div>
 
 			</div>

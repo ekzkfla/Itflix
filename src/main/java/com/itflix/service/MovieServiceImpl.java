@@ -11,7 +11,7 @@ import com.itflix.dto.Movie;
 @Service
 public class MovieServiceImpl implements MovieService {
 	
-	@Autowired
+	@Autowired()
 	private MovieDao movieDao;
 	
 	public MovieServiceImpl() throws Exception{
