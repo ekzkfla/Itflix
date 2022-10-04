@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -70,7 +71,7 @@
 					<form name="f" method="Post">
 					<c:forEach items="${noticeList}" var ="notice"> 
 						<div class="blog-item-style-1 blog-item-style-3">
-							<img src="images/mylogo.png">
+							<img src="images//mylogo.png">
 								<div class="blog-it-infor">
 									<h3><a href="blogdetail?n_no=${notice.n_no}"  class="notice">${notice.n_title }</a></h3>
 									<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>

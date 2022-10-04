@@ -103,6 +103,8 @@ public class controller {
 			String forwardPath="";
 	
 					List<Notice> noticeList = noticeService.selectAll();
+					int noticeTotal = noticeService.totalCount();
+					model.addAttribute("noticeTotal", noticeTotal);
 					model.addAttribute("noticeList", noticeList);
 					forwardPath = "bloglist";
 			
