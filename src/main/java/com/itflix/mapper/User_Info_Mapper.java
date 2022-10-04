@@ -49,4 +49,5 @@ public interface User_Info_Mapper {
 	public boolean existedUser(String u_email);
 	
 
+
 }

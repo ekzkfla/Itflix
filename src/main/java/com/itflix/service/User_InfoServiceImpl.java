@@ -68,4 +68,33 @@ public class User_InfoServiceImpl implements User_InfoService{
 		return user_InfoDao.deleteUser_Info(u_email);
 	}
 
+	@Override
+	public boolean existedUser(String u_email) throws Exception {
+		return user_InfoDao.existedUser(u_email);
+	}
+
+	@Override
+	public int login(String u_email, String u_passward) throws Exception {
+		int result = 0;
+		/*
+		 *  1:성공
+		 * -1:비밀번호 불일치
+		 * -2:존재하지 않는 회원
+		 */
+		if(user_InfoDao.existedUser(u_email)) {
+			User_Info userInfo = user_InfoDao.selectByEmail(u_email);
+			if(userInfo.getU_pass().equals(u_passward)) {
+				// 로그인 성공
+				result = 1;
+			} else {
+				// 비번 불일치
+				result = -1;
+			}
+		} else  { 
+			// 존재하지 않는 이메일
+			result = -2;
+		}
+		return result;
+	}
+
 }
