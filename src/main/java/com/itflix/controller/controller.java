@@ -93,6 +93,7 @@ public class controller {
 	@RequestMapping(value = "blogdetail", params = "n_no")
 	public String blogdetail(@RequestParam int n_no, Model model)throws Exception {
 		Notice notice=noticeService.selectByNo(n_no);
+		System.out.println(notice);
 		model.addAttribute("notice",notice);
 		return "blogdetail";
 	}
