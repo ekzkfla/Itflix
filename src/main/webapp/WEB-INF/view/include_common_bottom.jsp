@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="flex-parent-ft">
 				<div class="flex-child-ft item1">
-					<a href="main"><img class="logo" src="images/logo1.png"
+					<a href="main"><img class="logo" src="images/mylogo.png" style="width: 250px"
 						alt=""></a>
 				</div>
 				<div class="flex-child-ft item2">
