@@ -97,11 +97,19 @@ public class controller {
 	}
 	
 	//리뷰 리스트 페이지
-	@RequestMapping(value = "reviewlist")
-	public String reviewlist(Model model)throws Exception{
+	@RequestMapping(value = "reviewlist",params = "m_no")
+	public String reviewlist(@RequestParam int m_no, Model model)throws Exception{
 		String forwardPath="";
+		Movie movie = movieService.selectByNo(m_no);
+		model.addAttribute("movie", movie);
+		//Movie movieSelectByNo = movieService.selectByNo(m_no);
+		//model.addAttribute("movieSelectByNo", movieSelectByNo);
+		
+		List<Review> reviewLatest = reviewService.selectLatest(m_no);
+		System.out.println(reviewLatest);
 		List<Review> reviewList = reviewService.selectAll();
 		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("reviewLatest", reviewLatest);
 		forwardPath="reviewlist";
 		return forwardPath;
 	}

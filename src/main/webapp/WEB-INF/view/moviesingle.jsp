@@ -121,7 +121,7 @@
 											
 												<div class="title-hd-sm">
 													<h4>User reviews</h4>
-													<a href="reviewlist" class="time">See All Reviews <i
+													<a href="reviewlist?m_no=${movie.m_no }" class="time">See All Reviews <i
 														class="ion-ios-arrow-right"></i></a>
 												</div>
 												<!-- movie user review -->
