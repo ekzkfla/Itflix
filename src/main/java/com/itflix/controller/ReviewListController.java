@@ -23,14 +23,17 @@ public class ReviewListController {
 	
 	//리뷰 리스트 페이지
 		@RequestMapping(value = "reviewlist")
-		public String reviewlist(Model model)throws Exception{
+		public String reviewlist(Model model,int m_no)throws Exception{
 			String forwardPath="";
 			List<Movie> movieList = movieService.selectAll();
 			model.addAttribute("movieList", movieList);
 			//Movie movieSelectByNo = movieService.selectByNo(no);
 			//model.addAttribute("movieSelectByNo", movieSelectByNo);
+			List<Review> reviewLatest = reviewService.selectLatest(m_no);
+			System.out.println(reviewLatest);
 			List<Review> reviewList = reviewService.selectAll();
 			model.addAttribute("reviewList", reviewList);
+			model.addAttribute("reviewLatest", reviewLatest);
 			forwardPath="reviewlist";
 			return forwardPath;
 		}

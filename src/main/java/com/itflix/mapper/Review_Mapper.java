@@ -52,7 +52,7 @@ public interface Review_Mapper {
 	public int updateReview(String r_title, String r_content, int r_grade, int m_no, int r_no);
 	
 	// -- 각 영화 별 최신 리뷰
-	@Select("select  r.r_no, m.m_no, u.u_email, r.r_title, r.r_content, r.r_grade, r.r_date from user_info u left join review r on u.u_email = r.u_email left join movie m on m.m_no=r.m_no where m.m_no=#{r_no} order by r.r_date desc")
+	@Select("select  r.r_no, m.m_no, u.u_email, r.r_title, r.r_content, r.r_grade, r.r_date from user_info u left join review r on u.u_email = r.u_email left join movie m on m.m_no=r.m_no where m.m_no=#{m_no} order by r.r_date desc")
 	@ResultMap("ReviewWithLatest")
 	public List<Review> selectLatest(int no);
 
