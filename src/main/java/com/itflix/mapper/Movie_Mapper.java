@@ -36,14 +36,14 @@ public interface Movie_Mapper {
 		public List<Movie> selectAll();
 		
 		//영화 번호로 출력
-		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date,m.cg_no, c.cg_name  \n"
+		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image,m.m_url, m.m_count, m.m_date,m.cg_no, c.cg_name  \n"
 				+ "from movie m \n"
 				+ "left join Review r\n"
 				+ "on m.m_no=r.m_no \n"
 				+ "join category c\n"
 				+ "on m.cg_no = c.cg_no\n"
-				+ "where m.m_no =11\n"
-				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name\n"
+				+ "where m.m_no =#{m_no}\n"
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image,m.m_url, m.m_count, m.m_date, m.cg_no,c.cg_name\n"
 				+ "ORDER BY m.m_no ASC")
 		@ResultMap("selectMovieResultMap")
 		public Movie selectByNo(int m_no);

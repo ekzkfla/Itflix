@@ -54,7 +54,7 @@
 										Trailer</a>
 								</div>
 								<div>
-									<a href="https://www.youtube.com/embed/o-0hcF97wy0"
+									<a href="${movie.m_url }"
 										class="item item-2 redbtn fancybox-media hvr-grow"><i
 										class="ion-play"></i></a>
 								</div>
@@ -65,7 +65,7 @@
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
 						<h1 class="bd-hd">
-							${movie.m_name}<span>${movie.m_date}</span>
+							${movie.m_name}<span style="font-size: 17pt"><fmt:formatDate  value="${movie.m_date}" pattern="yyyy/MM/dd"/></span>
 						</h1>
 						<div class="social-btn">
 							<a href="#" class="parent-btn"><i class="ion-heart"></i>Add
@@ -75,7 +75,7 @@
 							<div class="rate">
 								<i class="ion-android-star"></i>
 								<p>
-									<span>8.1</span>/10<br> <span class="rv">56 Reviews</span>
+									<span>${movie.review.r_grade }</span>/10<br> <span class="rv">56 Reviews</span>
 								</p>
 							</div>
 							<div class="rate-star">
