@@ -90,8 +90,14 @@ public class controller {
 	@RequestMapping(value = "moviesingle",params = "m_no")
 	public String moviesingle(@RequestParam int m_no, Model model)throws Exception { 
 			Movie movie = movieService.selectByNo(m_no);
+			Movie movie2= movieService.selectMovieRecentReview(m_no);
+			int review= reviewService.reviewCount(m_no);
+			
 			model.addAttribute("movie",movie );
-			System.out.println(movie);
+			model.addAttribute("movie2",movie2 );
+			model.addAttribute("review",review );
+			
+			System.out.println(movie2);
 		
 		return "moviesingle";
 	}
