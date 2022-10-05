@@ -92,7 +92,7 @@ public class controller {
 		String forwardPath="";
 		try {
 			Movie movie = movieService.selectByNo(m_no);
-			model.addAttribute("movie", "movie");
+			model.addAttribute("movie",movie );
 			forwardPath = "moviesingle";
 		} catch (Exception e) {
 			e.printStackTrace();
