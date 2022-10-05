@@ -18,13 +18,13 @@
 			<h3>Login</h3>
 			<form method="post" action="login.php">
 				<div class="row">
-					<label for="username">Username:<input type="text"
-						name="username" id="username" placeholder="Hugh Jackman"
+					<label for="EMAIL">EMAIL:<input type="text"
+						name="u_email" id="u_email" placeholder="example@iflix.com"
 						pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /></label>
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
-						name="password" id="password" placeholder="******"
+						name="u_pass" id="u_pass" placeholder="******"
 						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
 						required="required" /></label>
 				</div>
