@@ -20,7 +20,7 @@
 				<div class="row">
 					<label for="EMAIL">EMAIL:<input type="text"
 						name="u_email" id="u_email" placeholder="example@iflix.com"
-						pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /></label>
+						pattern="^[a-zA-Z][a-zA-Z0-9-_\.]$" required="required" /></label>
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
@@ -41,6 +41,7 @@
 					<button type="submit">Login</button>
 				</div>
 			</form>
+			<!-- 
 			<div class="row">
 				<p>Or via social</p>
 				<div class="social-btn-2">
@@ -48,6 +49,7 @@
 						class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
 				</div>
 			</div>
+			 -->
 		</div>
 	</div>
 	<!--end of login form popup-->

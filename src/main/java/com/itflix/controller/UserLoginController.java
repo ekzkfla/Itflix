@@ -23,8 +23,7 @@ public class UserLoginController {
 		String u_pass = request.getParameter("u_pass");
 		String forwardPath = "";
 		try {
-			/*
-			 *  1:성공 
+			/*  1:성공 
 			 * -1:비번 불일치 
 			 * -2:email 미존재
 			 */
