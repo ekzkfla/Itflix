@@ -71,9 +71,18 @@ public class controller {
 	
 	//영화 리스트 페이지
 	@RequestMapping(value = "moviegridfw")
-	public String moviegridfw() {
+	public String moviegridfw(Model model) {
 		String forwardPath="";
-		forwardPath = "moviegridfw";
+		try {
+			int movieCount = movieService.movieAllCount();
+			List<Movie> movieList = movieService.selectMovieCount();
+			
+			model.addAttribute("movieCount", movieCount);
+			model.addAttribute("movieList", movieList);
+			forwardPath = "moviegridfw";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return forwardPath;
 	}

@@ -116,5 +116,10 @@ public class MovieServiceImpl implements MovieService {
 	public int deleteMovie(int no) throws Exception {
 		return movieDao.deleteMovie(no);
 	}
-
+	//영화 전체 총 갯수
+	@Override
+	public int movieAllCount()throws Exception{
+		return movieDao.movieAllCount();
+	}
+	
 }

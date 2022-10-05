@@ -29,6 +29,7 @@
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
 	
+	<!--중앙 타이틀 화면 -->
 	<div class="hero common-hero">
 		<div class="container">
 			<div class="row">
@@ -44,13 +45,16 @@
 			</div>
 		</div>
 	</div>
+	<!--중앙 타이틀 화면 -->
+	<!-- 메인 공지사항 리스트  -->
 	<div class="page-single">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
+					<!--분류 보드바 -->
 					<div class="topbar-filter fw">
 						<p>
-							Found <span>1,608 movies</span>in total
+							Found <span>${movieCount}</span>in total
 						</p>
 						<label>Sort by:</label><select><option value="popularity">카테고리</option>
 							<option value="cg=1">액션</option>
@@ -59,6 +63,7 @@
 							<option value="cg=4">코미디</option>
 							<option value="date">드라마</option></select>
 					</div>
+					<!--분류 보드바 -->
 					<div class="flex-wrap-movielist mv-grid-fw">
 						<div class="movie-item-style-2 movie-item-style-1">
 							<img src="images/uploads/mv1.jpg" alt="">

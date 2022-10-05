@@ -131,5 +131,10 @@ public class MovieDaoImpl implements MovieDao {
 		int deleteMovie = movie_Mapper.deleteMovie(m_no);
 		return deleteMovie;
 	}
-
+	//영화 전체 총 갯수
+	@Override
+	public int movieAllCount()throws Exception{
+		int movieAllCount = movie_Mapper.movieAllCount();
+		return movieAllCount;
+	}
 }

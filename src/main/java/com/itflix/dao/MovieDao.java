@@ -37,5 +37,7 @@ public interface MovieDao {
 		int updateMovie(Movie movie)throws Exception;
 		//영화 삭제
 		int deleteMovie(int no)throws Exception;
+		//영화 전체 총 갯수
+		int movieAllCount() throws Exception;
 		
 }

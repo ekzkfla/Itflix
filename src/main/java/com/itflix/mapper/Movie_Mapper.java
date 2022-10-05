@@ -167,6 +167,11 @@ public interface Movie_Mapper {
 		@Delete("delete from Movie where m_no = #{m_no} ")
 		public int deleteMovie(int m_no);
 		
+		//영화 전체 총 갯수
+		@Select("select count(*) from movie")
+		public int movieAllCount();
+		
+		
 	//public movie_Mapper selectByNo(int no);
 	/*
 	<select id="selectAll" resultType="com.itwill.guest.Guest">
