@@ -11,7 +11,7 @@ import com.itflix.service.User_InfoService;
 
 @Controller
 public class UserLoginController {
-	
+	/*
 	@Autowired
 	private User_InfoService user_InfoService;
 	
