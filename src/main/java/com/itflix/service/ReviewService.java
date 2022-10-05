@@ -15,7 +15,7 @@ public interface ReviewService {
 	List<Review> selectWroteReview(String u_email) throws Exception;
 
 	// 최신 리뷰 출력
-	List<Review> selectLatest(int no) throws Exception;
+	List<Review> selectLatest(int m_no) throws Exception;
 
 	// 선택한 리뷰출력
 	Review selectByNo(int no) throws Exception;

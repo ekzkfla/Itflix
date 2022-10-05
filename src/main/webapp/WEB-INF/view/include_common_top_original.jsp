@@ -11,7 +11,7 @@
 	</div>
 	<!--end of loading<로딩페이지 로고 사진 >-->
 	
-	<!--login form popup-->
+	<!--login form popup 로그인 버튼 누르면 작동 -->
 	<div class="login-wrapper" id="login-content">
 		<div class="login-content">
 			<a href="#" class="close">x</a>
@@ -48,9 +48,9 @@
 						class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
-	<!--end of login form popup-->
+	<!--end of login form popup 회원가입 버튼 누르면 작동-->
 	<!--signup form popup-->
 	<div class="login-wrapper" id="signup-content">
 		<div class="login-content">

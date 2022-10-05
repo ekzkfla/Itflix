@@ -50,7 +50,7 @@
 										<span class="blue"><a href="#">${movie.category.cg_name}</a></span>
 									</div>
 									<h6>
-										<a href="moviesingle?m_no=1">${movie.m_name}</a>
+										<a href="moviesingle?m_no=${movie.m_no}">${movie.m_name}</a>
 									</h6>
 									<p>
 										<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
