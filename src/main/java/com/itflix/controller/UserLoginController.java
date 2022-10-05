@@ -33,7 +33,7 @@ public class UserLoginController {
 			User_Info loginUser = user_InfoService.selectByEmail(u_email);
 			session.setAttribute("login_email", loginUser.getU_email());;
 			session.setAttribute("login_user", loginUser);			
-			forwardPath = "";
+			forwardPath = "main.jsp";
 		} else if (result == -1) {
 			request.setAttribute("login_id", u_email);
 		} else if(result == -2) {
