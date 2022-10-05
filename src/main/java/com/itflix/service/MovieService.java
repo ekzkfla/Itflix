@@ -6,6 +6,8 @@ import com.itflix.dto.Movie;
 
 public interface MovieService {
 	
+	//영화 전체 리스트(필터링x)
+	List<Movie> selectAllNoFilter() throws Exception;
 	//영화 리스트 전체 출력
 	List<Movie> selectAll() throws Exception;
 	//영화 번호로 출력

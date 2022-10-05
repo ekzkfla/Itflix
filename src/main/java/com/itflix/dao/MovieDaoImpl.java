@@ -24,6 +24,11 @@ public class MovieDaoImpl implements MovieDao {
 	public void setMovie_Mapper(Movie_Mapper movie_Mapper) {
 		this.movie_Mapper = movie_Mapper;
 	}
+	//영화 전체 리스트(필터링x)
+	public List<Movie> selectAllNoFilter()throws Exception{
+		List<Movie> movieAllList= movie_Mapper.selectAllNoFilter();
+		return movieAllList;
+	}
 	
 	//영화 리스트 전체 출력
 	@Override

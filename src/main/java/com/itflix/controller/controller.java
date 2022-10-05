@@ -75,8 +75,7 @@ public class controller {
 		String forwardPath="";
 		try {
 			int movieCount = movieService.movieAllCount();
-			List<Movie> movieList = movieService.selectMovieCount();
-			
+			List<Movie> movieList = movieService.selectAllNoFilter();
 			model.addAttribute("movieCount", movieCount);
 			model.addAttribute("movieList", movieList);
 			forwardPath = "moviegridfw";

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -53,10 +54,8 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<!--분류 보드바 -->
 					<div class="topbar-filter fw">
-						<p>
-							Found <span>${movieCount}</span>in total
-						</p>
-						<label>Sort by:</label><select><option value="popularity">카테고리</option>
+						<p>Found 총<span>${movieCount}개</span>	</p>
+						<select><option value="popularity">카테고리</option>
 							<option value="cg=1">액션</option>
 							<option value="cg=2" >로맨스</option>
 							<option value="cg=3">SF/미스터리</option>
@@ -64,22 +63,26 @@
 							<option value="date">드라마</option></select>
 					</div>
 					<!--분류 보드바 -->
+					
 					<div class="flex-wrap-movielist mv-grid-fw">
-						<div class="movie-item-style-2 movie-item-style-1">
-							<img src="images/uploads/mv1.jpg" alt="">
-							<div class="hvr-inner">
-								<a href="moviesingle.jsp">Read more <i
-									class="ion-android-arrow-dropright"></i></a>
+						<c:forEach items="${movieList}" var="movie">
+							<div class="movie-item-style-2 movie-item-style-1">
+								<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="">
+								<div class="hvr-inner">
+									<a href="moviesingle?m_no=${movie.m_no}">Read more 
+									<i class="ion-android-arrow-dropright"></i>
+									</a>
+								</div>
+								<div class="mv-item-infor">
+									<h6>
+										<a href="#">oblivion</a>
+									</h6>
+									<p class="rate">
+										<i class="ion-android-star"></i><span>8.1</span>/10
+									</p>
+								</div>
 							</div>
-							<div class="mv-item-infor">
-								<h6>
-									<a href="#">oblivion</a>
-								</h6>
-								<p class="rate">
-									<i class="ion-android-star"></i><span>8.1</span>/10
-								</p>
-							</div>
-						</div>
+						</c:forEach>
 						<div class="movie-item-style-2 movie-item-style-1">
 							<img src="images/코미디/럭키_2.jpg" alt="">
 							<div class="hvr-inner">

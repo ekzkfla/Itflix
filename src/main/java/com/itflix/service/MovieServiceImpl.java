@@ -26,7 +26,11 @@ public class MovieServiceImpl implements MovieService {
 	public void setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 	}
-
+	
+	//영화 전체 리스트(필터링x)
+	public List<Movie> selectAllNoFilter()throws Exception{
+		return movieDao.selectAllNoFilter();
+	}
 	//영화 리스트 전체 출력
 	@Override
 	public List<Movie> selectAll() throws Exception {

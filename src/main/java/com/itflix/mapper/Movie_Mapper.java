@@ -14,6 +14,16 @@ import com.itflix.dto.Movie;
 
 @Mapper
 public interface Movie_Mapper {
+		//영화 전체 리스트(필터링x)
+		@Select("select m.m_no,m.m_name,c.cg_no,c.cg_name,avg(r.r_grade) \n"
+				+ "from movie m \n"
+				+ "join category c on m.cg_no = c.cg_no\n"
+				+ "left join review r on r.m_no = m.m_no\n"
+				+ "GROUP BY m.m_no,m.m_name,c.cg_no,c.cg_name")
+		@ResultMap("selectAllNoFilterResultMap")
+		public List<Movie> selectAllNoFilter();
+	
+	
 		//영화 리스트 전체 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date,m.m_url, c.cg_no,c.cg_name, avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
