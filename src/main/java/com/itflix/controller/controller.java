@@ -40,15 +40,18 @@ public class controller {
 	//ItFlix 메인페이지
 	
 	@RequestMapping(value = "/main")
-	public String itflix_main(Model model) {
+	public String itflix_main(Model model ) {
 		String forwardPath = "";
 		try {
+			
 			List<Movie> movieList = movieService.selectAll();
 			List<Movie> movieCountList = movieService.selectMovieCount();
+			//List<Category> categoryList = categoryService.selectByNoMovieList();
 			Notice noticeOne = noticeService.noticeOne();
 			model.addAttribute("movieList",movieList);
 			model.addAttribute("movieCountList", movieCountList);
 			model.addAttribute("notice", noticeOne);
+			//model.addAttribute("categoryList", categoryList);
 			forwardPath = "main";
 		}catch (Exception e) {
 			e.printStackTrace();
