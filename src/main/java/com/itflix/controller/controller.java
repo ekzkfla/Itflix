@@ -90,18 +90,32 @@ public class controller {
 	@RequestMapping(value = "moviesingle",params = "m_no")
 	public String moviesingle(@RequestParam int m_no, Model model)throws Exception { 
 			Movie movie = movieService.selectByNo(m_no);
+			Movie movie2= movieService.selectMovieRecentReview(m_no);
+			int review= reviewService.reviewCount(m_no);
+			
 			model.addAttribute("movie",movie );
-			System.out.println(movie);
+			model.addAttribute("movie2",movie2 );
+			model.addAttribute("review",review );
+			
+			System.out.println(movie2);
 		
 		return "moviesingle";
 	}
 	
 	//리뷰 리스트 페이지
-	@RequestMapping(value = "reviewlist")
-	public String reviewlist(Model model)throws Exception{
+	@RequestMapping(value = "reviewlist",params = "m_no")
+	public String reviewlist(@RequestParam int m_no, Model model)throws Exception{
 		String forwardPath="";
+		Movie movie = movieService.selectByNo(m_no);
+		model.addAttribute("movie", movie);
+		//Movie movieSelectByNo = movieService.selectByNo(m_no);
+		//model.addAttribute("movieSelectByNo", movieSelectByNo);
+		
+		List<Review> reviewLatest = reviewService.selectLatest(m_no);
+		System.out.println(reviewLatest);
 		List<Review> reviewList = reviewService.selectAll();
 		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("reviewLatest", reviewLatest);
 		forwardPath="reviewlist";
 		return forwardPath;
 	}
