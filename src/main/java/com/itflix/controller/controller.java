@@ -60,14 +60,6 @@ public class controller {
 		return forwardPath;
 	}
 	
-//	@RequestMapping(value = "main")
-//	public String  itflix_main() throws Exception{
-//		List<Movie> movieList= movieService.selectAll();
-//		System.out.println(movieList);
-//		
-//		//model.addAttribute("movieList",movieList);
-//		return "main";
-//	}
 	
 	//영화 리스트 페이지
 	@RequestMapping(value = "moviegridfw")
@@ -95,10 +87,16 @@ public class controller {
 
 	
 	//영화 detail 페이지
-	@RequestMapping(value = "moviesingle")
-	public String moviesingle() { 
+	@RequestMapping(value = "moviesingle",params = "m_no")
+	public String moviesingle(int m_no, Model model) { 
 		String forwardPath="";
-		forwardPath = "moviesingle";
+		try {
+			Movie movie = movieService.selectByNo(m_no);
+			model.addAttribute("movie", "movie");
+			forwardPath = "moviesingle";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return forwardPath;
 	}
