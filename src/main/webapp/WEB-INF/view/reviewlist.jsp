@@ -46,14 +46,26 @@
 		<div class="container">
 			<div class="row ipad-width2">
 				<div class="col-md-2 col-sm-4 col-xs-4">
+				
+					<!-- ↓↓↓이미지↓↓↓ -->
+					<div class="slide-it">
+					<div class="movie-item">
+					<div class="mv-img">
 					<div class="movie-img sticky-sb">
-						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="">
+						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="" width="30" height="30">
+						<div class="hvr-inner" >
+							<a href="moviesingle?m_no=${movie.m_no }">Read more<i class="ion-android-arrow-dropright"></i></a>
+						</div>
 					</div>
+					</div>
+					</div>
+					</div>
+					<!-- ↑↑↑이미지↑↑↑ -->
+
 				</div>
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
 					
-						<%-- <c:forEach items="${reviewLatest }" var="review"> --%>
 						<!-- ↓↓↓영화 타이틀 제목↓↓↓  -->
 						<h1 class="bd-hd">
 							${movie.m_name } Review
@@ -76,29 +88,30 @@
 												
 												
 												<!-- movie user review -->
-												<c:forEach items="${reviewLatest }" var="review">
+												<c:forEach items="${reviewLatest }" var="review" >
 												<div class="mv-user-review-item">
-													<h3>${review.r_title }</h3>
+													<h3>제목 : ${review.r_title }</h3>
+													<!-- ↓↓↓평점↓↓↓ -->
 													<div class="no-star">
+														평점 : ${review.r_grade }
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star last"></i>
 													</div>
-													<!-- 날짜 -->
-													<p class="time">
-													<fmt:formatDate value="${review.r_date}" pattern="yyyy/MM/dd"></fmt:formatDate> 
+													<!-- ↓↓↓날짜↓↓↓ -->
+													<p class="time" style=text-align-last:right;>
+													날짜 : <fmt:formatDate value="${review.r_date}" pattern="yyyy/MM/dd"></fmt:formatDate> 
 													</p>
-													<!-- 내용 -->
-														<p>${review.r_content }</p><hr>
-													<div class="title-hd-sm"></div>
-														<p>${review.user_Info.u_email }</p>
+													<!-- ↓↓↓내용↓↓↓ -->
+														<p>내용 : ${review.r_content }</p><hr>
+													<!-- ↓↓↓유저 이메일↓↓↓ -->
+														<p>글쓴이 : ${review.user_Info.u_email }</p>
 													<div class="title-hd-sm"></div>
 												</div>
 												
 												</c:forEach>
-												
 												
 											</div>
 										</div>
@@ -106,22 +119,19 @@
 								</div>
 							</div>
 						</div>
-						<%-- </c:forEach> --%>
 					</div>
-					
+
 					<!-- ↓↓↓하단 페이지↓↓↓ -->
-												<div class="topbar-filter">
-												<label>Reviews per page:</label>
-												<label> 5 Reviews</label>
-													<div class="pagination2">
-														<span>Page 1 of 5:</span><a class="active" href="#">1</a><a
-															href="#">1</a><a href="#">2</a><a href="#">3</a><a
-															href="#">4</a><a href="#">5</a><a href="#"><i
-															class="ion-arrow-right-b"></i></a>
-													</div>
-												</div>
-												<!-- ↑↑↑하단 페이지↑↑↑ -->
-					
+					<div class="topbar-filter">
+						<label>Reviews per page:</label> <label> 5 Reviews</label>
+						<div class="pagination2">
+							<span>Page 1 of 5:</span><a class="active" href="#">1</a><a
+								href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a
+								href="#">5</a><a href="#"><i class="ion-arrow-right-b"></i></a>
+						</div>
+					</div>
+					<!-- ↑↑↑하단 페이지↑↑↑ -->
+
 				</div>
 			</div>
 		</div>
