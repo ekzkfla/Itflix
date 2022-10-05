@@ -88,17 +88,12 @@ public class controller {
 	
 	//영화 detail 페이지
 	@RequestMapping(value = "moviesingle",params = "m_no")
-	public String moviesingle(int m_no, Model model) { 
-		String forwardPath="";
-		try {
+	public String moviesingle(@RequestParam int m_no, Model model)throws Exception { 
 			Movie movie = movieService.selectByNo(m_no);
 			model.addAttribute("movie",movie );
-			forwardPath = "moviesingle";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			System.out.println(movie);
 		
-		return forwardPath;
+		return "moviesingle";
 	}
 	
 	//리뷰 리스트 페이지

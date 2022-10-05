@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -7,7 +8,7 @@
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>영화 상세페이지</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -45,7 +46,7 @@
 			<div class="row ipad-width2">
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="movie-img sticky-sb">
-						<img src="images/uploads/movie-single.jpg" alt="">
+						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="">
 						<div class="movie-btn">
 							<div class="btn-transform transform-vertical red">
 								<div>
@@ -64,7 +65,7 @@
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
 						<h1 class="bd-hd">
-							Skyfall: Quantum of Spectre <span>2015</span>
+							${movie.m_name}<span>${movie.m_date}</span>
 						</h1>
 						<div class="social-btn">
 							<a href="#" class="parent-btn"><i class="ion-heart"></i>Add

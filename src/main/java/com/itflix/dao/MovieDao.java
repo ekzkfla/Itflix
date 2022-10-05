@@ -11,7 +11,7 @@ public interface MovieDao {
 		//영화 리스트 전체 출력
 		List<Movie> selectAll() throws Exception;
 		//영화 번호로 출력
-		Movie selectByNo(int no) throws Exception;
+		Movie selectByNo(int m_no) throws Exception;
 		//카테고리 번호로 출력
 		List<Movie> selectCategoryNo(int no) throws Exception;
 		//영화 제목으로 검색

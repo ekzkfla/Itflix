@@ -10,7 +10,7 @@
 			<result column="cg_no" property="cg_no"/>
 			<result column="cg_name" property="cg_name"/>
 		</association>
-		<association property="review">
+		<association property="review" javaType="com.itflix.dto.Review">
 			<result column="r_grade" property="r_grade" />
 		</association>
 	</resultMap>
