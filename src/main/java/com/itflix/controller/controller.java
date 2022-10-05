@@ -44,10 +44,11 @@ public class controller {
 		String forwardPath = "";
 		try {
 			List<Movie> movieList = movieService.selectAll();
-			System.out.println(movieList);
 			List<Movie> movieCountList = movieService.selectMovieCount();
+			Notice noticeOne = noticeService.noticeOne();
 			model.addAttribute("movieList",movieList);
 			model.addAttribute("movieCountList", movieCountList);
+			model.addAttribute("notice", noticeOne);
 			forwardPath = "main";
 		}catch (Exception e) {
 			e.printStackTrace();
