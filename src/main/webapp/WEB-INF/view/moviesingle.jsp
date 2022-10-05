@@ -100,7 +100,7 @@
 										<div class="row">
 											<div class="col-md-8 col-sm-12 col-xs-12">
 												<div>
-													<p style="font-size: 23pt"> ${movie.m_info }</p>
+													<p style="font-size: 12pt;  word-breka:keep-all; text-overflow:ellipsis"> ${movie.m_info }</p>
 												</div>
 												
 												<hr>
@@ -128,13 +128,8 @@
 												</div>
 											
 												<div class="title-hd-sm">
-<<<<<<< HEAD
 													<h3>가장 최신 리뷰</h3>
 													<a href="reviewlist" class="time">See All Reviews <i
-=======
-													<h4>User reviews</h4>
-													<a href="reviewlist?m_no=${movie.m_no }" class="time">See All Reviews <i
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team1-itflix.git
 														class="ion-ios-arrow-right"></i></a>
 												</div>
 												<!-- movie user review -->
