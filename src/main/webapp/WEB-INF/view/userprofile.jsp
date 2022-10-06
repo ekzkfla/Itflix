@@ -78,26 +78,26 @@
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
-									<input type="text" placeholder="edwardkennedy"
+									<input type="text" placeholder = ${login_user.u_name}
 										id="u_name">
 									<a></a>
 									
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
-										placeholder="edward@kennedy.com" 
+										placeholder = ${login_user.u_email}
 										id="u_email">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>비밀번호</label><input type="text"
-										placeholder="Edward " 
+										placeholder= ${login_user.u_pass}
 										id="u_pass">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label><input type="text"
-										placeholder="Kennedy" 	
+										placeholder= ${login_user.u_phone} 	
 										id="u_phone">
 								</div>
 							</div>

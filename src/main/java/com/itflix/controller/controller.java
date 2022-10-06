@@ -14,10 +14,12 @@ import com.itflix.dto.Category;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
 import com.itflix.dto.Review;
+import com.itflix.dto.User_Info;
 import com.itflix.service.CategoryService;
 import com.itflix.service.MovieService;
 import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
+import com.itflix.service.User_InfoService;
 
 
 @Controller
@@ -31,6 +33,8 @@ public class controller {
 	private MovieService movieService;
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	private User_InfoService user_InfoService;
 
 	
 	
@@ -163,10 +167,11 @@ public class controller {
 		return "blogdetail";
 	}
 
-	//마이페이지 
+	//마이페이지 로그인한 세션을 불러와야함.
 	@RequestMapping(value = "userprofile")
-	public String userprofile() {
+	public String userprofile()  {
 		String forwardPath="";
+		//User_Info user_Info = user_InfoService.selectByEmail(null);
 		forwardPath = "userprofile";
 		
 		return forwardPath;
