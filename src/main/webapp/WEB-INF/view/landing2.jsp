@@ -78,7 +78,6 @@ input[type="radio"] {
 	<!--end of preloading-->
 	<div class="login-wrapper" id="login-content">
 		<div class="login-content">
-			<a href="#" class="close">x</a>
 			<h3>Login</h3>
 			<form method="post" action="login.php">
 				<div class="row">

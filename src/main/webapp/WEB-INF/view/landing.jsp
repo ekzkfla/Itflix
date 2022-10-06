@@ -14,13 +14,23 @@
 <meta name="keywords" content="">
 <meta name="author" content="">
 <link rel="profile" href="#">
+<!--BootStrap bundle  -->
+<link rel="stylesheet"
+	href='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js' />
 <!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
 <!-- Mobile specific meta -->
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone-no">
+<!--JQuery js  -->
+<link rel="stylesheet"
+	href='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' />
 <!-- CSS files -->
+<link rel="stylesheet"
+	href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' />
+<link rel="stylesheet"
+	href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' />
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
@@ -58,34 +68,88 @@ $(function() {
 <body>
 	<div class="login-wrapper" id="login-content">
 		<div class="login-content">
-			<a href="#" class="close">x</a>
-			<h3>Login</h3>
-			<form method="post" action="login.php">
-				<div class="row">
-					<label for="EMAIL">EMAIL:<input type="text" name="u_email"
-						id="u_email" placeholder="example@iflix.com"
-						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-						required="required" />${user_info.u_email}</label>
-				</div>
-				<div class="row">
-					<label for="password"> Password:<input type="password"
-						name="u_pass" id="u_pass" placeholder="******"
-						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-						required="required" />${user_info.u_pass}</label>
-				</div>
-				<div class="row">
-					<div class="remember">
-						<div>
-							<input type="checkbox" name="remember" value="Remember me"><span>Remember
-								me</span>
-						</div>
-						<a href="#">Forget password ?</a>
+			<div class="card ">
+				<div class="card-header">
+					<!--카드 메뉴바-->
+					<div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+						<ul role="tablist"
+							class="nav bg-light nav-pills rounded nav-fill mb-3">
+							<li class="nav-item"><a data-toggle="pill"
+								href="#credit-card" class="nav-link active "> <i
+									class="fas fa-credit-card mr-2"></i> 신용카드
+							</a></li>
+						</ul>
 					</div>
-				</div>
-				<div class="row">
-					<button type="submit">Login</button>
-				</div>
-			</form>
+					<!--카드 메뉴바 끝  -->
+					
+						<div class="tab-content">
+							<!-- credit card info-->
+							<div id="credit-card" class="tab-pane fade show active pt-3">
+								<form role="form" onsubmit="event.preventDefault()">
+									<div class="form-group">
+										<label for="username">
+											<h6>Card Owner</h6>
+										</label> <input type="text" name="username"
+											placeholder="Card Owner Name" required class="form-control ">
+									</div>
+									<div class="form-group">
+										<label for="cardNumber">
+											<h6>Card number</h6>
+										</label>
+										<div class="input-group">
+											<input type="text" name="cardNumber"
+												placeholder="Valid card number" class="form-control "
+												required>
+											<div class="input-group-append">
+												<span class="input-group-text text-muted"> <i
+													class="fab fa-cc-visa mx-1"></i> <i
+													class="fab fa-cc-mastercard mx-1"></i> <i
+													class="fab fa-cc-amex mx-1"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-8">
+											<div class="form-group">
+												<label><span class="hidden-xs">
+														<h6>Expiration Date</h6>
+												</span></label>
+												<div class="input-group">
+													<input type="number" placeholder="MM" name=""
+														class="form-control" required> <input
+														type="number" placeholder="YY" name=""
+														class="form-control" required>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group mb-4">
+												<label data-toggle="tooltip"
+													title="Three digit CV code on the back of your card">
+													<h6>
+														CVV <i class="fa fa-question-circle d-inline"></i>
+													</h6>
+												</label> <input type="text" required class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="card-footer">
+										<button type="button"
+											class="subscribe btn btn-primary btn-block shadow-sm">
+											Confirm Payment</button>
+									</div>
+									<div class ="card-text">
+											<p class="text-muted">Note: After clicking on the button, you
+								will be directed to a secure gateway for payment. After
+								completing the payment process, you will be redirected back to
+								the website to view details of your order.</p>
+									</div>
+								</form>
+							</div>
+						</div>
+						</div>
+					</div>
 		</div>
 	</div>
 	<!--결제 팝업-->
