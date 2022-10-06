@@ -26,6 +26,12 @@ public class JjimServiceImpl implements JjimService{
 		this.jjimDao = jjimDao;
 	}
 	
+	/* 1명 회원 영화 찜 목록보기(리뷰평점포함) */
+	@Override
+	public List<Jjim> jjimList(String u_email) throws Exception {
+		return jjimDao.jjimList(u_email);
+	}
+	
 	/* 영화 찜하기 */
 	@Override
 	public int jjimInsert(String u_email, int m_no) throws Exception {
@@ -42,11 +48,6 @@ public class JjimServiceImpl implements JjimService{
 	@Override
 	public List<Jjim> jjimListTest5(String u_email) throws Exception {
 		return jjimDao.jjimListTest5(u_email);
-	}
-
-	@Override
-	public List<Jjim> jjimList(String u_email) throws Exception {
-		return jjimDao.jjimList(u_email);
 	}
 
 
