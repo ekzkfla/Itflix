@@ -64,6 +64,9 @@ input[type="radio"] {
 </script>
 
 
+
+
+
 <body>
 	<!--preloading-->
 	<div id="preloader">
@@ -73,6 +76,51 @@ input[type="radio"] {
 		</div>
 	</div>
 	<!--end of preloading-->
+	<div class="login-wrapper" id="login-content">
+		<div class="login-content">
+			<a href="#" class="close">x</a>
+			<h3>Login</h3>
+			<form method="post" action="login.php">
+				<div class="row">
+					<label for="EMAIL">EMAIL:<input type="text"
+						name="u_email" id="u_email" placeholder="example@iflix.com"
+						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required="required" />${user_info.u_email}</label>
+				</div>
+				<div class="row">
+					<label for="password"> Password:<input type="password"
+						name="u_pass" id="u_pass" placeholder="******"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+						required="required" />${user_info.u_pass}</label>
+				</div>
+				<div class="row">
+					<div class="remember">
+						<div>
+							<input type="checkbox" name="remember" value="Remember me"><span>Remember
+								me</span>
+						</div>
+						<a href="#">Forget password ?</a>
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit">Login</button>
+				</div>
+			</form>
+			<!-- 
+			<div class="row">
+				<p>Or via social</p>
+				<div class="social-btn-2">
+					<a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a><a
+						class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
+				</div>
+			</div>
+			 -->
+		</div>
+	</div>
+	
+	
+	
+	
+	
 	
 
 	<div class="landing-hero">

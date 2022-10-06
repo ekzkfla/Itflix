@@ -5,6 +5,7 @@
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
+
 <head>
 <!-- Basic need -->
 <title>Open Pediatrics</title>
@@ -22,18 +23,84 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
+<style>
+ .center {
+	      text-align:  center;
 	
+}
+.rounded {
+	border-radius: 1rem
+}
+
+.nav-pills .nav-link {
+	color: #555
+}
+
+.nav-pills .nav-link.active {
+	color: white
+}
+
+input[type="radio"] {
+	margin-right: 5px
+}
+
+.bold {
+	font-weight: bold
+}
+</style>
+<script type="text/javascript">
+$(function() {
+	$('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</head>
+	<!--결제 팝업-->
+<body>
+	<div class="login-wrapper" id="login-content">
+		<div class="login-content">
+			<a href="#" class="close">x</a>
+			<h3>Login</h3>
+			<form method="post" action="login.php">
+				<div class="row">
+					<label for="EMAIL">EMAIL:<input type="text" name="u_email"
+						id="u_email" placeholder="example@iflix.com"
+						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+						required="required" />${user_info.u_email}</label>
+				</div>
+				<div class="row">
+					<label for="password"> Password:<input type="password"
+						name="u_pass" id="u_pass" placeholder="******"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+						required="required" />${user_info.u_pass}</label>
+				</div>
+				<div class="row">
+					<div class="remember">
+						<div>
+							<input type="checkbox" name="remember" value="Remember me"><span>Remember
+								me</span>
+						</div>
+						<a href="#">Forget password ?</a>
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--결제 팝업-->
+
 	<div class="landing-hero">
-		<a href="main">
-			<img src="images/logo1.png" alt="Logo">
+		<a href="main"> <img src="images/logo1.png" alt="Logo">
 		</a>
 		<div class="row landing-hero-text">
 			<img src="images/payImage.png" alt="Logo">
 		</div>
-		<a href="landing2"  class="redbtn">BUY NOW</a>
+			<div class="center">
+				<li class="loginLink"><a href="#" class="redbtn">결제하기</a></li>
+			</div>
+			<ul class="nav navbar-nav flex-child-menu menu-right">
+			</ul>
 	</div>
 
 	<!-- footer v3 section-->

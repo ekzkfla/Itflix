@@ -79,13 +79,13 @@ public class controller {
 	}
 	
 	//카테고리별 영화 리스트 
-	@RequestMapping(value = "categoryMoviegridfw")
+	@RequestMapping(value = "categoryMoviegrid")
 	public String moviegridfw(Model model,String cg_no) {
 		String forwardPath="";
 		try {
 			List<Movie> movieList = movieService.selectCategoryNo(Integer.parseInt(cg_no));
 			model.addAttribute("movieList", movieList);
-			forwardPath = "categoryMoviegridfw";
+			forwardPath = "categoryMoviegrid";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
