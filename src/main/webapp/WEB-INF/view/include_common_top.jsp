@@ -20,13 +20,13 @@
 				<div class="row">
 					<label for="EMAIL">EMAIL:<input type="text"
 						name="u_email" id="u_email" placeholder="example@iflix.com"
-						pattern="\\w+@\\w+\\.\\w+(\\.\\w+)?" required="required" />${user_info.u_email}</label>
+						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required="required" /></label>
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
 						name="u_pass" id="u_pass" placeholder="******"
-						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-						required="required" />${user_info.u_pass}</label>
+						pattern="(?=^.{5,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+						required="required" /></label>
 				</div>
 				<div class="row">
 					<div class="remember">
@@ -121,12 +121,12 @@
 							</a>
 							<!--카테고리 dropdown 설정 부분 -->
 									<ul class="dropdown-menu level1">
-										<li><a href="categoryMoviegrid?cg_no=1"   >액션</a></li>
-										<li class="it-last"><a href="categoryMoviegrid?cg_no=2">코미디</a></li>
-										<li class="it-last"><a href="categoryMoviegrid?cg_no=3">로맨스</a></li>
-										<li class="it-last"><a href="categoryMoviegrid?cg_no=4">공포/미스터리</a></li>
-										<li class="it-last"><a href="categoryMoviegrid?cg_no=5">SF/판타지</a></li>
-										<li class="it-last"><a href="categoryMoviegrid?cg_no=6">드라마</a></li>
+										<li><a href="categoryMoviegridfw?cg_no=1"   >액션</a></li>
+										<li class="it-last"><a href="categoryMoviegridfw?cg_no=2">코미디</a></li>
+										<li class="it-last"><a href="categoryMoviegridfw?cg_no=3">로맨스</a></li>
+										<li class="it-last"><a href="categoryMoviegridfw?cg_no=4">공포/미스터리</a></li>
+										<li class="it-last"><a href="categoryMoviegridfw?cg_no=5">SF/판타지</a></li>
+										<li class="it-last"><a href="categoryMoviegridfw?cg_no=6">드라마</a></li>
 									</ul>
 						</li>
 						<li class="dropdown first"><a href="bloglist">Notice</a></li>
