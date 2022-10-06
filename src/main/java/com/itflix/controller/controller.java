@@ -38,8 +38,7 @@ public class controller {
 		System.out.println("기본!!!");
 	}
 	//ItFlix 메인페이지
-	
-	@RequestMapping(value = "/main")
+		@RequestMapping(value = "/main")
 	public String itflix_main(Model model ) {
 		String forwardPath = "";
 		try {
@@ -59,7 +58,19 @@ public class controller {
 
 		return forwardPath;
 	}
-	
+		
+	//검색결과페이지
+	@RequestMapping(value="",params = "m_no||n_no")
+	public String search(int m_no, int n_no) throws Exception {
+		/*
+		if() {
+			
+		}else if() {
+			
+		}
+		*/
+		return "a";
+	}
 	
 	//영화 리스트 페이지
 	@RequestMapping(value = "moviegridfw")

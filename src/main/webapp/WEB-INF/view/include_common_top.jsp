@@ -1,6 +1,14 @@
 <%@page import="com.itflix.dto.User_Info"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<<script type="text/javascript">
+$(function(){
+	.search
+	
+});
+</script>
 <% 
 /*
 session.setAttribute("sM_id", loginMember.getM_id());
@@ -308,18 +316,18 @@ String sMember = (String)session.getAttribute("sMember"); %>
 				</div>
 				<!-- /.navbar-collapse -->
 			</nav>
+			
 			<!-- top search form -->
-			<div class="top-search">
-				<select><option value="united">카테고리</option>
-					<option value="saab">액션</option>
-					<option value="saab">코미디</option>
-					<option value="saab">로맨스</option>
-					<option value="saab">호러/스릴러</option>
-					<option value="saab">SF/판타지</option>
-					<option value="saab">드라마</option>
-				</select> <input type="text"
-					placeholder="Serch your Movie and enjoy your Life">
-			</div>
+			<form action="" method="get">
+				<div class="top-search">
+					<select data-trigger="" name="searchType">
+						<option value="saab">영화</option>
+						<option value="saab">감독●출연</option>
+					</select> 
+						<input id="search" type="text" name="category" onclick="search" action="search_result.jsp" placeholder="Serch your Movie and enjoy your Life">
+				</div>	
+						
+			</form>
 		</div>		
 		<%}%>
 		
