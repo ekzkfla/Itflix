@@ -17,6 +17,9 @@ public interface NoticeDao {
 	//공지사항 이름으로 검색
 	List<Notice> selectByTitle(String n_title) throws Exception;
 	
+	// 게시물 리스트를 반환(게시물시작번호,게시물끝번호)
+	List<Notice> selectNoticeList(int start, int last) throws Exception;
+	
 	/**************구현 미정**************/
 	//공지사항 추가
 	int insertNotice(Notice notice) throws Exception;
