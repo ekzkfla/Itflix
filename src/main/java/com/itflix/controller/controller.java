@@ -38,8 +38,7 @@ public class controller {
 		System.out.println("기본!!!");
 	}
 	//ItFlix 메인페이지
-	
-	@RequestMapping(value = "/main")
+		@RequestMapping(value = "/main")
 	public String itflix_main(Model model ) {
 		String forwardPath = "";
 		try {

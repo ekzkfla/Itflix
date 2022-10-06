@@ -54,8 +54,6 @@
 					alert('error!!!');
 			    }
 			});
-		
-		
 			e.preventDefault();
 	    });
 	    

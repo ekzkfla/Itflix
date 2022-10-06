@@ -26,9 +26,8 @@ public class UserLoginRestController {
 	/*로그인*/
 	@RequestMapping(value = "rest_user_login_action")
 	public Map rest_user_login_action(HttpSession session, @RequestParam String u_email, @RequestParam String u_pass) {
-
-		System.out.println(u_email);
-		System.out.println(u_pass);
+		//System.out.println(u_email);
+		//System.out.println(u_pass);
 		Map resultMap = new HashMap();
 		int code = 0;
 		String msg = "";
@@ -62,10 +61,7 @@ public class UserLoginRestController {
 		resultMap.put("code", code);
 		resultMap.put("msg", msg);
 		resultMap.put("data", data);
-		
-		
-		
-		
+			
 		return resultMap;
 	}
 
