@@ -83,8 +83,10 @@ public class controller {
 	public String moviegridfw(Model model,String cg_no) {
 		String forwardPath="";
 		try {
+			int categoryCount = categoryService.countCategory(Integer.parseInt(cg_no));
 			List<Movie> movieList = movieService.selectCategoryNo(Integer.parseInt(cg_no));
 			model.addAttribute("movieList", movieList);
+			model.addAttribute("categoryCount", categoryCount);
 			forwardPath = "categoryMoviegrid";
 		} catch (Exception e) {
 			e.printStackTrace();
