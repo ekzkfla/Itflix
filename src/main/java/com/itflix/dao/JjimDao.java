@@ -6,7 +6,7 @@ import com.itflix.dto.Jjim;
 
 public interface JjimDao {
 
-	/* 1명 회원 영화 찜 목록보기 */
+	/* 1명 회원 영화 찜 목록보기(리뷰평점포함) */
 	List<Jjim> jjimList(String u_email) throws Exception;
 
 	/* 영화 찜하기 */
