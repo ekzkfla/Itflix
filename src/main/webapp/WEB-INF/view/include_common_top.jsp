@@ -16,19 +16,23 @@
 		<div class="login-content">
 			<a href="#" class="close">x</a>
 			<h3>Login</h3>
-			<form method="post" action="user_login_action">
+			<form method="post" action="user_login_action" id="login_form" name="login_form">
 				<div class="row">
 					<label for="EMAIL">EMAIL:
 					<input type="text"
 						name="u_email" id="u_email" placeholder="example@iflix.com"
-						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required="required" />
+						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required="required" 
+						value="guard1@gmail.com"
+						/>
 						</label>
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
 						name="u_pass" id="u_pass" placeholder="********"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-						required="required" /></label>
+						required="required" 
+						value="a123123!"
+						/></label>
 				</div>
 				<div class="row">
 					<div class="remember">

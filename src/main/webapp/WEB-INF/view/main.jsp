@@ -25,7 +25,44 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+	console.log('1.'+$);
+	$(function(){
+	    $(document).on('submit','#login_form',function(e){
+			
+			$.ajax({
+			    method:'POST',
+			    url:'rest_user_login_action',
+			    data:$('#login_form').serialize(),
+			    success:function(jsonResult){
+					console.log(jsonResult);
+					if(jsonResult.code==1){
+						//성공
+						location.href='main';
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						 $('#u_pass').select().focus();
+					}else if(jsonResult.code==3){
+					    alert(jsonResult.msg);
+					    $('#u_email').select().focus();
+					}else if(jsonResult.code==4){
+					    alert(jsonResult.msg);
+					}
+			    },
+			    error:function(){
+					alert('error!!!');
+			    }
+			});
+		
+		
+			e.preventDefault();
+	    });
+	    
+	    
+	    
+	});
+</script>
 </head>
 <body>
 	
