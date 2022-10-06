@@ -57,5 +57,8 @@ public interface Category_Mapper {
 	@ResultMap("findCategoryMovieDetailReviewResultMap")
 	public Category selectByNoByM_NoAndReview(Integer cg_no, Integer m_no);
 		
+	//카테고리별 영화 총 갯수
+	@Select("select count(*) from category c join movie m on c.cg_no=m.cg_no where c.cg_no=#{cg_no}")
+	public int countCategory(Integer cg_no);
 	
 }

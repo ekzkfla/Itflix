@@ -39,9 +39,18 @@ namespace="com.itflix.mapper.Category_Mapper">
 			</collection>
 			
 	</resultMap>
-
-
-</mapper> 
+	
+</mapper>
+ 
+<!-- 카테고리별 영화 갯수 -->
+<!-- 
+	<resultMap id="categoryWithCount" type="com.itflix.dto.Category">
+	   <result column="cg_no" property="cg_no"/>
+	  <collection property="movieList" javaType="java.util.List" ofType="com.itflix.dto.Movie">
+	  </collection>
+	</resultMap>
+ -->	
+	
 	<!-- 
 	select 		
 				c.cg_name,"

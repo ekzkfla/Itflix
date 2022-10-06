@@ -81,6 +81,12 @@ public class CategoryDaoImpl implements CategoryDao{
 		int deleteCateogory = category_Mapper.deleteCategory(cg_no);
 		return deleteCateogory;
 	}
+	//카테고리별 영화 총 갯수
+	@Override
+	public int countCategory(Integer cg_no) throws Exception {
+	int countCategory = category_Mapper.countCategory(cg_no);
+	return countCategory;
+	}
 
 		
 }
