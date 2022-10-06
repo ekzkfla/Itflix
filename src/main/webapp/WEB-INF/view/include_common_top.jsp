@@ -14,7 +14,7 @@ $(function(){
 session.setAttribute("sM_id", loginMember.getM_id());
 session.setAttribute("sMember", loginMember);
 */
-User_Info sMember = (User_Info)session.getAttribute("sMember"); %>
+String sMember = (String)session.getAttribute("sMember"); %>
 <header class="ht-header">
 		<!--start of loading<로딩페이지 로고 사진 >-->
 	<div id="preloader">

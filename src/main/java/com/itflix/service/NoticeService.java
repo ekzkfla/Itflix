@@ -3,9 +3,12 @@ package com.itflix.service;
 import java.util.List;
 
 import com.itflix.dto.Notice;
+import com.itflix.dto.PageMakerDto;
 
 public interface NoticeService {
 	
+	//공지사항 페이징
+	PageMakerDto<Notice> selectNoticeList(int currentPage) throws Exception;
 	//공지사항 전체 출력
 	List<Notice> selectAll()throws Exception;
 	//공지사항 전체 갯수 출력
