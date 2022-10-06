@@ -33,7 +33,6 @@ public class UserLoginController {
 			if (result == 1) {
 				User_Info loginUser = user_InfoService.selectByEmail(u_email);
 				session.setAttribute("login_email", loginUser.getU_email());
-				;
 				session.setAttribute("login_user", loginUser);
 				System.out.println(loginUser);
 				forwardPath = "main";
@@ -67,7 +66,6 @@ public class UserLoginController {
 				//중복일 시 -1 반환
 				request.setAttribute("msg", "이메일 중복");
 				forwardPath = "xxx";
-				
 			}else {
 				//회원가입 성공
 				request.setAttribute("msg", "가입 성공, 짝짝짝");
