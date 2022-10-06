@@ -88,13 +88,13 @@ $(function() {
 								<form role="form" onsubmit="event.preventDefault()">
 									<div class="form-group">
 										<label for="username">
-											<h6>Card Owner</h6>
+											<h6>이름</h6>
 										</label> <input type="text" name="username"
 											placeholder="Card Owner Name" required class="form-control ">
 									</div>
 									<div class="form-group">
 										<label for="cardNumber">
-											<h6>Card number</h6>
+											<h6>카드 번호</h6>
 										</label>
 										<div class="input-group">
 											<input type="text" name="cardNumber"
@@ -113,7 +113,7 @@ $(function() {
 										<div class="col-sm-8">
 											<div class="form-group">
 												<label><span class="hidden-xs">
-														<h6>Expiration Date</h6>
+														<h6>유효기간</h6>
 												</span></label>
 												<div class="input-group">
 													<input type="number" placeholder="MM" name=""
@@ -128,7 +128,7 @@ $(function() {
 												<label data-toggle="tooltip"
 													title="Three digit CV code on the back of your card">
 													<h6>
-														CVV <i class="fa fa-question-circle d-inline"></i>
+														CVV(숫자3개) <i class="fa fa-question-circle d-inline"></i>
 													</h6>
 												</label> <input type="text" required class="form-control">
 											</div>
@@ -140,10 +140,7 @@ $(function() {
 											Confirm Payment</button>
 									</div>
 									<div class ="card-text">
-											<p class="text-muted">Note: After clicking on the button, you
-								will be directed to a secure gateway for payment. After
-								completing the payment process, you will be redirected back to
-								the website to view details of your order.</p>
+											<p class="text-muted">Note: 결제가 될거같이 생겼지만 결제는 안된다... 후....</p>
 									</div>
 								</form>
 							</div>
