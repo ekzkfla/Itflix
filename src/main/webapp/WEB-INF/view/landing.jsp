@@ -152,7 +152,7 @@ $(function() {
 	<!--결제 팝업-->
 
 	<div class="landing-hero">
-		<a href="main"> <img src="images/logo1.png" alt="Logo">
+		<a href="main"> <img src="images/mylogo.png" alt="Logo" width="200px" height="200px">
 		</a>
 		<div class="row landing-hero-text">
 			<img src="images/payImage.png" alt="Logo">
