@@ -15,24 +15,13 @@ import com.itflix.dto.Jjim;
 public interface Jjim_Mapper {
 	
 	/* 1명 회원 영화 찜 목록보기 */
-	@Select("select m.m_no,"
-			+ "     m.cg_no,"
-			+ "     m.m_name,"
-			+ "     m.m_i`mage,"
-			+ "     m.m_date,"
-			+ "     m.m_count,"
-			+ "     avg(r.r_grade)"
-			+ "from movie m"
-			+ "left join review r"
-			+ "on m.m_no=r.m_no"
-			+ "left join jjim j"
-			+ "on m.m_no=j.m_no"
-			+ "where j.u_email='guard1@gmail.com'"
-			+ "group by m.m_no,"
-			+ "         m.cg_no,"
-			+ "         m.m_image,"
-			+ "         m.m_date,"
-			+ "         m.m_count")
+	@Select("select m.m_no, c.cg_no, m.m_name, m.m_image, m.m_date, m.m_count, avg(r.r_grade) as r_grade\r\n"
+			+ "from movie m\r\n"
+			+ "join category c on c.cg_no = m.cg_no\r\n"
+			+ "left join review r on m.m_no=r.m_no left join jjim j on m.m_no=j.m_no\r\n"
+			+ "where j.u_email='guard1@gmail.com' \r\n"
+			+ "group by m.m_no, m.cg_no,m.m_name, m.m_image,  m.m_date, m.m_count")
+	@ResultMap("Test")
 	public List<Jjim> jjimList(String u_email);
 	
 	
@@ -43,8 +32,7 @@ public interface Jjim_Mapper {
 	/* 영화 찜하기 해제*/
 	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
 	public int jjimDelete(String u_email,int m_no);
-
-		
+	
 	
 	 
 	/* 리뷰의 총평점 조인안하고 불러오기*/  

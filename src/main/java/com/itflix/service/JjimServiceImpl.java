@@ -9,8 +9,8 @@ import com.itflix.dao.JjimDao;
 import com.itflix.dto.Jjim;
 
 @Service
-public class JjimServiceImpl implements JjimDao{
-	
+public class JjimServiceImpl implements JjimService{
+
 	@Autowired
 	private JjimDao jjimDao;
 	
@@ -44,8 +44,10 @@ public class JjimServiceImpl implements JjimDao{
 		return jjimDao.jjimListTest5(u_email);
 	}
 
+	@Override
+	public List<Jjim> jjimList(String u_email) throws Exception {
+		return jjimDao.jjimList(u_email);
+	}
 
-
-	
 
 }

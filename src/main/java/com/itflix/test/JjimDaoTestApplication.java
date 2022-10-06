@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.JjimDao;
+import com.itflix.service.JjimService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
@@ -30,7 +31,6 @@ public class JjimDaoTestApplication {
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
 		JjimDao jjimDao = context.getBean(JjimDao.class);
-		System.out.println(jjimDao);
 
 		/* 리뷰의 총평점 조인안하고 불러오기*/
 		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
@@ -39,7 +39,7 @@ public class JjimDaoTestApplication {
 		//System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",3));
 		//System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",6));
 		
-		//System.out.println(jjimDao.jjimList("guard1@gmail.com"));
+		System.out.println(jjimDao.jjimList("guard1@gmail.com"));
 
 	}
 }

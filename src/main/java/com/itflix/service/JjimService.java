@@ -15,5 +15,7 @@ public interface JjimService {
 	/* 리뷰의 총평점 조인안하고 불러오기*/
 	List<Jjim> jjimListTest5(String u_email) throws Exception;
 	
-
+	/* 리뷰의 총평점 조인안하고 불러오기*/
+	List<Jjim> jjimList(String u_email) throws Exception;
+	
 }
