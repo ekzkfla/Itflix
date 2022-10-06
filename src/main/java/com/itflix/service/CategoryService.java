@@ -22,5 +22,7 @@ public interface CategoryService {
 	int updateCategory(Category category) throws Exception;
 	//카테고리 삭제
 	int deleteCategory(int no) throws Exception;
-
+	//카테고리별 영화 총 갯수
+	int countCategory(Integer cg_no) throws Exception;
+	
 }

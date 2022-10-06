@@ -35,7 +35,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1>회원의 찜한 영화리스트</h1>
+						<h2 style="color:white;">${login_user.u_name}님의 찜한 영화</h2>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Favorite movies</li>

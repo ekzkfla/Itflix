@@ -74,6 +74,11 @@ public class CategoryServiceImpl implements CategoryService{
 	public int deleteCategory(int no)throws Exception{
 		return categoryDao.deleteCategory(no);
 	}
+	//카테고리별 영화 총 갯수
+	@Override
+	public int countCategory(Integer cg_no) throws Exception {
+	return categoryDao.countCategory(cg_no);
+	}
 
 	
 	
