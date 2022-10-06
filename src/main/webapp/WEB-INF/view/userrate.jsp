@@ -22,6 +22,46 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+window.URL = window.URL || window.webkitURL;
+
+const fileSelect = document.getElementById("fileSelect"),
+    fileElem = document.getElementById("fileElem"),
+    fileList = document.getElementById("fileList");
+
+fileSelect.addEventListener("click", function (e) {
+  if (fileElem) {
+    fileElem.click();
+  }
+  e.preventDefault(); // "#" 해시로 이동을 방지
+}, false);
+
+function handleFiles(files) {
+  if (!files.length) {
+    fileList.innerHTML = "<p>No files selected!</p>";
+  } else {
+    fileList.innerHTML = "";
+    const list = document.createElement("ul");
+    fileList.appendChild(list);
+    for (let i = 0; i < files.length; i++) {
+      const li = document.createElement("li");
+      list.appendChild(li);
+
+      const img = document.createElement("img");
+      img.src = window.URL.createObjectURL(files[i]);
+      img.height = 60;
+      img.onload = function() {
+        window.URL.revokeObjectURL(this.src);
+      }
+      li.appendChild(img);
+      const info = document.createElement("span");
+      info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
+      li.appendChild(info);
+    }
+  }
+}
+</script>
+
 </head>
 <body>
 	
@@ -51,8 +91,12 @@
 				<div class="col-md-3 col-sm-12 col-xs-12">
 					<div class="user-information">
 						<div class="user-img">
-							<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a><a
-								href="#" class="redbtn">Change avatar</a>
+							<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a>
+								<input type="file" id="fileElem" 
+									   multiple accept="image/*" style="display: none;" 
+									   onchange="handleFiles(this.files)">
+								<button id="fileSelect">select Some File</button>
+							<a  class="redbtn">Change avatar</a>
 						</div>
 						<div class="user-fav">
 							<p>상세페이지</p>
