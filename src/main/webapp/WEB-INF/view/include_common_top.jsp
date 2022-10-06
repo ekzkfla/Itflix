@@ -20,12 +20,12 @@
 				<div class="row">
 					<label for="EMAIL">EMAIL:<input type="text"
 						name="u_email" id="u_email" placeholder="example@iflix.com"
-						pattern="\\w+@\\w+\\.\\w+(\\.\\w+)?" required="required" />${user_info.u_email}</label>
+						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required="required" />${user_info.u_email}</label>
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
 						name="u_pass" id="u_pass" placeholder="******"
-						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" />${user_info.u_pass}</label>
 				</div>
 				<div class="row">
