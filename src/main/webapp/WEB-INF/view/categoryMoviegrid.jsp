@@ -53,13 +53,17 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<!--분류 보드바 -->
 					<div class="topbar-filter fw">
-						<p>Found 총<span>${movieCount}개</span>	</p>
-						<select><option value="popularity">카테고리</option>
-							<option value="cg=1">액션</option>
-							<option value="cg=2" >로맨스</option>
-							<option value="cg=3">SF/미스터리</option>
-							<option value="cg=4">코미디</option>
-							<option value="date">드라마</option></select>
+						<label>Sort by:</label>
+							<p>Found 총<span>${movieCount}개</span>	</p>
+							<select onchange="if(this.value) location.href=(this.value);">
+							<option value="popularity">카테고리</option>
+							<option value="categoryMoviegrid?cg_no=1">액션</option>
+							<option value="categoryMoviegrid?cg_no=2">코미디</option>
+							<option value="categoryMoviegrid?cg_no=3">로맨스</option>
+							<option value="categoryMoviegrid?cg_no=4">공포 미스터리</option>
+							<option value="categoryMoviegrid?cg_no=5">SF 판타지</option>
+							<option value="categoryMoviegrid?cg_no=6">드라마</option>
+							</select>
 					</div>
 					<!--분류 보드바 -->
 					<div class="flex-wrap-movielist mv-grid-fw">
