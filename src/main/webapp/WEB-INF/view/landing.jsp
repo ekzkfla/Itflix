@@ -128,7 +128,7 @@ $(function() {
 												<label data-toggle="tooltip"
 													title="Three digit CV code on the back of your card">
 													<h6>
-														CVV(숫자3개) <i class="fa fa-question-circle d-inline"></i>
+														CVV<a style="font-size: 5pt">(숫자3개)</a> <i class="fa fa-question-circle d-inline"></i>
 													</h6>
 												</label> <input type="text" required class="form-control">
 											</div>
