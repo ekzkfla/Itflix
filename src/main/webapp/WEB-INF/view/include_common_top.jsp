@@ -16,31 +16,35 @@
 		<div class="login-content">
 			<a href="#" class="close">x</a>
 			<h3>Login</h3>
-			<form method="post" action="login.php">
+			<form method="post" action="user_login_action">
 				<div class="row">
-					<label for="EMAIL">EMAIL:<input type="text"
+					<label for="EMAIL">EMAIL:
+					<input type="text"
 						name="u_email" id="u_email" placeholder="example@iflix.com"
-						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required="required" />${user_info.u_email}</label>
+						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required="required" />
+						</label>
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
-						name="u_pass" id="u_pass" placeholder="******"
+						name="u_pass" id="u_pass" placeholder="********"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-						required="required" />${user_info.u_pass}</label>
+						required="required" /></label>
 				</div>
 				<div class="row">
 					<div class="remember">
 						<div>
-							<input type="checkbox" name="remember" value="Remember me"><span>Remember
-								me</span>
+							<input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
 						</div>
 						<a href="#">Forget password ?</a>
 					</div>
-				</div>
+					</div>
 				<div class="row">
 					<button type="submit">Login</button>
 				</div>
-			</form>
+			</form>	
+			
+			
+			
 			<!-- 
 			<div class="row">
 				<p>Or via social</p>
@@ -134,7 +138,7 @@
 					</ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
 
-						<li><a href="userprofile">마이페이지</a></li>
+						<li><a href="userprofile">마이페이지--${login_email}</a></li>
 						<li class="loginLink"><a href="#">로그인</a></li>
 						<li class="btn signupLink"><a href="#">회원가입</a></li>
 					</ul>
