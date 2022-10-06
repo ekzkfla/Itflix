@@ -55,7 +55,7 @@
 											Trailer</a>
 									</div>
 									<div>
-										<a href="${movie.m_url }"
+										<a href="${movie.m_url}"
 											class="item item-2 redbtn fancybox-media hvr-grow"><i
 											class="ion-play"></i></a>
 									</div>

@@ -40,7 +40,7 @@
 		<div class="container">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1 align="center">${login_user.u_name}의 상세페이지</h1>
+						<h2 style="color:white;">${login_user.u_name}님의 상세페이지</h2><br>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Profile</li>

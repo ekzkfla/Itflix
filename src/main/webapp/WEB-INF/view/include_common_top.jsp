@@ -6,7 +6,7 @@
 
 <%
 //String sUserId = (String) session.getAttribute("sUserId");
-User_Info loginUser = (User_Info) session.getAttribute("login_user");
+User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
 
 <header class="ht-header">
@@ -24,20 +24,19 @@ User_Info loginUser = (User_Info) session.getAttribute("login_user");
 	<div class="login-wrapper" id="login-content">
 		<div class="login-content">
 			<a href="#" class="close">x</a>
-			<h3>Login [로그인]</h3>
+			<h3>Login</h3>
 			<form method="post" action="user_login_action" id="login_form"
 				name="login_form">
 				<div class="row">
-					<label for="email">Email: <input type="text"
-						name="u_email" id="u_email" placeholder="example@itflix.com"
+					<label for="email">Email:<input type="text" name="u_email"
+						id="u_email" placeholder="example@itflix.com"
 						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 						required="required" value="guard1@gmail.com" />
 					</label>
 				</div>
 				<div class="row">
-					<label for="password"> Password:<input
-						type="password" name="u_pass" id="u_pass"
-						placeholder="영문자,숫자,특수문자 포함(최소8자리)"
+					<label for="password"> Password:<input type="password"
+						name="u_pass" id="u_pass" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" value="a123123!" /></label>
 				</div>
@@ -54,9 +53,6 @@ User_Info loginUser = (User_Info) session.getAttribute("login_user");
 					<button type="submit">Login</button>
 				</div>
 			</form>
-
-
-
 			<!-- 
 			<div class="row">
 				<p>Or via social</p>
@@ -77,26 +73,25 @@ User_Info loginUser = (User_Info) session.getAttribute("login_user");
 
 			<form method="post" action="CreateUser_action">
 				<div class="row">
-					<label for="email">Email:<input type="text"
-						name="u_email" id="u_email" placeholder="example@itflix.com"
+					<label for="email">Email:<input type="text" name="u_email"
+						id="u_email" placeholder="example@itflix.com"
 						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 						required="required" /></label>
 				</div>
 				<div class="row">
-					<label for=userName>Name:<input type="text"
-						name="u_name" id="u_name" placeholder="홍길동"
-						pattern="^[(가-힣)(a-zA-Z)]{2,}$" required="required" /></label>
+					<label for=userName>Name:<input type="text" name="u_name"
+						id="u_name" placeholder="홍길동" pattern="^[(가-힣)(a-zA-Z)]{2,}$"
+						required="required" /></label>
 				</div>
 				<div class="row">
-					<label for=phone>Phone:<input type="text"
-						name="u_phone" id="u_phone" placeholder="010-0000-0000"
+					<label for=phone>Phone:<input type="text" name="u_phone"
+						id="u_phone" placeholder="010-0000-0000"
 						pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$"
 						required="required" /></label>
 				</div>
 				<div class="row">
-					<label for="password"> Password:<input
-						type="password" name="u_pass" id="u_pass"
-						placeholder="영문자,숫자,특수문자 포함(최소8자리)"
+					<label for="password"> Password:<input type="password"
+						name="u_pass" id="u_pass" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" /></label>
 				</div>
@@ -156,15 +151,15 @@ User_Info loginUser = (User_Info) session.getAttribute("login_user");
 				<ul class="nav navbar-nav flex-child-menu menu-right">
 
 					<%
-					if (loginUser == null) {
+					if (login_user == null) {
 					%>
-					<li class="loginLink"><a href="#">로그인</a></li>
 					<li class="btn signupLink"><a href="#">회원가입</a></li>
+					<li class="loginLink"><a href="#">로그인</a></li>
 					<%
 					} else {
 					%>
-					<li><a href="#">로그아웃</a></li>
-					<li class="btn"><a href="userprofile">${login_user.u_name}님의 마이페이지</a></li>
+					<li class="btn"><a href="userprofile">마이페이지</a></li>
+					<li><a href="user_logout_action">로그아웃</a></li>
 
 					<%
 					}
