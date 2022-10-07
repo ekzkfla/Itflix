@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -68,7 +69,7 @@ public class controller {
 		
 	//검색결과페이지
 	@RequestMapping(value = "movieSearch"/* ,params = "" */)
-	public String search(Model model,String m_name,String m_actor) throws Exception {
+	public String search(Model model,@RequestParam String m_name, @RequestParam String m_actor) throws Exception {
 		String forwardPath="";
 		try {
 		List<Movie> searchActor = movieService.searchActor(m_actor);
