@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.FilterType;
 
-import com.itflix.controller.controller;
+
 import com.itflix.dao.CategoryDao;
 import com.itflix.dao.MovieDao;
 import com.itflix.dao.ReviewDao;
