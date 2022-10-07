@@ -1,5 +1,9 @@
+<%@page import="org.apache.coyote.RequestGroupInfo"%>
+<%@page import="java.io.Console"%>
+<%@page import="com.itflix.dto.Movie"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
@@ -24,7 +28,11 @@
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
+
+
+
 <body>
+
 	
 	
 	<!-- BEGIN | Header -->
@@ -68,7 +76,7 @@
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
 						<h1 class="bd-hd">
-							${movie.m_name}<span style="font-size: 15pt; color:#0DEEC9"><fmt:formatDate  value="${movie.m_date}" pattern="yyyy/MM/dd"/></span>
+							${movie.m_name} <span style="font-size: 15pt; color:#0DEEC9"><fmt:formatDate  value="${movie.m_date}" pattern="yyyy/MM/dd"/></span>
 						</h1>
 						<div class="social-btn">
 							<a href="#" class="parent-btn"><i class="ion-heart"></i>Add
@@ -78,16 +86,65 @@
 							<div class="rate">
 								<i class="ion-android-star"></i>
 								<p>
-									<span>${movie.review.r_grade }</span>/10<br> <span class="rv">56 Reviews</span>
+									<span>${movie2.review.r_grade}</span>/10<br> <span class="rv">56 Reviews</span>
 								</p>
 							</div>
 							<div class="rate-star">
 								<p>Rate This Movie:</p>
+								<c:set var="grade" value="${movie2.review.r_grade}"/>
+									<!--평점이 없는경우  -->
+									<c:if test="${grade==null }">
+										<a style="font-size: 15pt; color:#0DEEC9">리뷰가 없어요!</a> 
+										
+									</c:if>
+									<!--평점 0점 이상 20점 미만일 경우  -->
+									<c:if test="${grade ge 0 && grade lt 20}">
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star-outline"></i> 
+										 <i class="ion-ios-star-outline"></i> 
+										 <i class="ion-ios-star-outline"></i> 
+										 <i class="ion-ios-star-outline"></i> 
+									</c:if>
+									<!--평점 20점 이상 40점 미만일 경우  -->
+									<c:if test="${grade ge 20 && grade lt 40}">
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star-outline"></i> 
+										 <i class="ion-ios-star-outline"></i> 
+										 <i class="ion-ios-star-outline"></i> 
+									</c:if>
+									<!--평점 40점 이상 60점 미만일 경우  -->
+									<c:if test="${grade ge 40 && grade lt 60}">
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star-outline"></i> 
+										 <i class="ion-ios-star-outline"></i> 
+									</c:if>
+									<!--평점 60점 이상 80점 미만일 경우  -->
+									<c:if test="${grade ge 60 && grade lt 80}">
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star"></i>
+										 <i class="ion-ios-star-outline"></i> 
+									</c:if>
+									
+									<!-- 평점 80점 이상인 경우 -->
+									<c:if test="${grade ge 80 }">
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+									</c:if>
+								
+								
+								<!-- <i class="ion-ios-star"></i>
 								<i class="ion-ios-star"></i>
 								<i class="ion-ios-star"></i>
 								<i class="ion-ios-star"></i>
-								<i class="ion-ios-star"></i>
-								<i class="ion-ios-star-outline"></i>
+								<i class="ion-ios-star-outline"></i> -->
 							</div>
 						</div>
 						<div class="movie-tabs">
