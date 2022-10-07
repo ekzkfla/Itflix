@@ -198,15 +198,7 @@ public class controller {
 		return forwardPath;
 	}
 
-	
-	//회원 찜 영화 페이지
-	@RequestMapping(value = "userfavoritegrid")
-	public String userfavoritegrid() {
-		String forwardPath="";
-		forwardPath = "userfavoritegrid";
-		
-		return forwardPath;
-	}
+
 	
 	//회원 선호 영화 페이지 
 	@RequestMapping(value = "userrate")

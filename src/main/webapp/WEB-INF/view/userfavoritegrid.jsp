@@ -75,7 +75,7 @@
 				</div>
 				<div class="mv-item-infor">
 					<h6>
-						<a href="moviesingle">${jjimList[0].movie.m_no}</a>
+						<a href="moviesingle?m_no=${jjimList[0].movieList[0].m_no}">${jjimList[0].movieList[0].m_name}</a>
 					</h6>
 					<p class="rate">
 						<i class="ion-android-star"></i><span>8.1</span>/10

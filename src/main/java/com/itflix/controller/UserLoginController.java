@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dto.Jjim;
@@ -90,14 +91,13 @@ public class UserLoginController {
 	
 	/*찜리스트*/
 	
-	@LoginCheck
-	@RequestMapping("jjimList")
-	public String jjimList(HttpServletRequest request,String u_email) {
+	@RequestMapping("userfavoritegrid")
+	public String jjimList(HttpServletRequest request,@RequestParam String u_email) {
 		String forwardPath = "";
 		try {
 			List<Jjim> jjimList = jjimService.jjimList(u_email);
 			request.setAttribute("jjimList", jjimList);
-			System.out.println(jjimList);
+			System.out.println("너니>>"+jjimList);
 			forwardPath = "userfavoritegrid";
 		} catch (Exception e) {
 			e.printStackTrace();

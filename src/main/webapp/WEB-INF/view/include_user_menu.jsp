@@ -19,7 +19,7 @@
 						<br>
 						<ul>
 							<li class="active"><a href="userprofile">프로필 수정</a></li>
-							<li><a href="userfavoritegrid">내가 찜한 콘텐츠</a></li>
+							<li><a href="userfavoritegrid?u_email=${login_user.u_email}">내가 찜한 콘텐츠</a></li>
 							<li><a href="userrate">나의 리뷰<br> <br></a></li>
 
 							<li><a href="user_logout_action">로그아웃</a></li>
