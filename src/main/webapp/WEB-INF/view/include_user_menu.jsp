@@ -12,11 +12,15 @@
 							href="#" class="redbtn">Change avatar</a>
 					</div>
 					<div class="user-fav">
+						<!-- 
 						<p>상세페이지</p>
+					 -->
+						<p>&nbsp;&nbsp;&nbsp;반가워요!<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${login_user.u_name} 님&nbsp;<img src ="images/emotion.png" width="30px" height="30px"></p>
+						<br>
 						<ul>
 							<li class="active"><a href="userprofile">프로필 수정</a></li>
-							<li><a href="userfavoritegrid">찜한 영화</a></li>
-							<li><a href="userrate">선호하는 카테고리 영화<br> <br></a></li>
+							<li><a href="userfavoritegrid">내가 찜한 콘텐츠</a></li>
+							<li><a href="userrate">나의 리뷰<br> <br></a></li>
 
 							<li><a href="user_logout_action">로그아웃</a></li>
 						</ul>

@@ -35,7 +35,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h2 style="color: white;">${login_user.u_name}님의찜한 영화</h2>
+						<h2 style="color: white;">내가 찜한 콘텐츠</h2>
 						<br>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
@@ -46,22 +46,24 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Start | user leff menu bar-->
 	<jsp:include page="include_user_menu.jsp" />
 	<!-- End | user leff menu bar-->
-	
+
 	<div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="topbar-filter user">
 			<p>
 				Found <span>1,608 movies </span>in total
 			</p>
 			<label>Sort by:</label><select><option value="popularity">카테고리</option>
-				<option value="cg=1">액션</option>
-				<option value="cg=2">로맨스</option>
-				<option value="cg=3">SF/미스터리</option>
-				<option value="cg=4">코미디</option>
-				<option value="date">드라마</option></select>
+				<option value="cg_no=1">액션</option>
+				<option value="cg_no=2">코미디</option>
+				<option value="cg_no=3">로맨스</option>
+				<option value="cg_no=4">공포/미스터리</option>
+				<option value="cg_no=5">SF/판타지</option>
+				<option value="cg_no=6">드라마</option>
+			</select>
 		</div>
 
 		<div class="flex-wrap-movielist grid-fav">
