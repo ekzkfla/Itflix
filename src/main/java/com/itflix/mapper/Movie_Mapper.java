@@ -185,11 +185,11 @@ public interface Movie_Mapper {
 		
 		//배우 이름으로 영화 검색
 		@Select("select m.m_name from Movie m where m_actor LIKE '%'||#{m.m_actor}||'%' ORDER BY m.m_no ASC")
-		public Movie searchActor(Movie movie);
+		public List<Movie> searchActor(String m_actor);
 		
 		//영화 이름으로 영화 검색
 		@Select("select m.m_name from Movie m where m_name LIKE '%'||#{m.m_name}||'%' ORDER BY m.m_no ASC")
-		public Movie searchMovie(Movie movie);
+		public List<Movie> searchMovie(String m_name);
 		
 		
 	//public movie_Mapper selectByNo(int no);
