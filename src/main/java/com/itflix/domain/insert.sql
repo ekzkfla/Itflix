@@ -4,37 +4,37 @@ insert into Ticket values(0,0);
 
 
 --insert(User_Info)------------
-insert into User_Info values('admin@gmail.com','123','admin','01011111111');
-insert into User_Info values('guard1@gmail.com','123','김성준','01022222222');
-insert into User_Info values('guard2@gmail.com','123','김용찬','01033333333');
-insert into User_Info values('guard3@gmail.com','123','김하림','01044444444');
-insert into User_Info values('guard4@gmail.com','123','김희철','01055555555');
-insert into User_Info values('guard5@gmail.com','123','안소진','01066666666');
-insert into User_Info values('guard6@gmail.com','123','유지훈','01077777777');
-insert into User_Info values('guard7@gmail.com','123','김희철','01088888888');
+insert into User_Info values('admin@gmail.com','a123123!','admin','01011111111');
+insert into User_Info values('guard1@gmail.com','a123123!','김성준','01022222222');
+insert into User_Info values('guard2@gmail.com','a123123!','김용찬','01033333333');
+insert into User_Info values('guard3@gmail.com','a123123!','김하림','01044444444');
+insert into User_Info values('guard4@gmail.com','a123123!','김희철','01055555555');
+insert into User_Info values('guard5@gmail.com','a123123!','안소진','01066666666');
+insert into User_Info values('guard6@gmail.com','a123123!','유지훈','01077777777');
+insert into User_Info values('guard7@gmail.com','a123123!','김희철','01088888888');
 
 -----insert(category)-------
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'액션');
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'코미디');
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'로맨스');
-insert into category values(CATEGORY_CG_NO_SEQ.nextval,'공포/미스터리');
-insert into category values(CATEGORY_CG_NO_SEQ.nextval,'SF/판타지');
+insert into category values(CATEGORY_CG_NO_SEQ.nextval,'공포 미스터리');
+insert into category values(CATEGORY_CG_NO_SEQ.nextval,'SF 판타지');
 insert into category values(CATEGORY_CG_NO_SEQ.nextval,'드라마');
 
 -----insert(Movie)-------
 --드라마
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'국제시장','윤제균, 황정민','이것은 가족의 따뜻한 이야기','국제시장.jpg',0,'2014.12.17','https://www.youtube.com/embed/BBEDtovULHY',MOVIE_M_NO_SEQ.currval,1,0,6);
-insert into movie values(MOVIE_M_NO_SEQ.nextval,'그린북 ','피터 패럴티, 비고 모텐슨','이것은 백인과 흑인의 실화이야기','그린북.jpg',0,'2019.01.09','https://www.youtube.com/embed/juHmLAQVmOE',MOVIE_M_NO_SEQ.currval,1,0,6);
+insert into movie values(MOVIE_M_NO_SEQ.nextval,'그린북','피터 패럴티, 비고 모텐슨','이것은 백인과 흑인의 실화이야기','그린북.jpg',0,'2019.01.09','https://www.youtube.com/embed/juHmLAQVmOE',MOVIE_M_NO_SEQ.currval,1,0,6);
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'지금, 이대로가 좋아요','부지영, 공효진, 신민아','“그냥 사는 거야. 너도, 나도” 외모, 성격, 취향은 물론 사고방식도 너무 다른 자매 명주(공효진)와 명은(신민아). 아버지가 다르다는 이유로 이미 두 사람 사이에는 오래전부터 좁힐 수 없는 거리가 있다. 서로 남보다 못한 자매로 살아가고 있던 어느 날, 갑작스러운 어머니의 죽음을 계기로 명주와 명은은 다시 만나게 되고 이미 오래전에 자취를 감춘 명은의 아버지를 찾아 여행을 떠나는데…','지금, 이대로가 좋아요.jpg',0,'2022.09.22','https://www.youtube.com/embed/Zwa3ieiSfko',MOVIE_M_NO_SEQ.currval,1,0,6);
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'다 잘된 거야','프랑소와 오종, 소피 마르소, 앙드레 뒤솔리에, 제랄딘 팔리아스','“도와줘 끝낼 수 있게” 갑자기 쓰러진 아빠 ‘앙드레’로부터 자신의 죽음을 도와 달라고 부탁받은 딸 ‘엠마뉘엘’. 끝을 선택하고 시작된 조금 다른 작별에 관한 이야기를 담은 프랑수아 오종 감독의 품위 있는 마스터피스','다 잘된 거야.jpg',0,'2022.09.07','https://www.youtube.com/embed/vWQN18H9mbs',MOVIE_M_NO_SEQ.currval,1,0,6);
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'보일링 포인트','필립 바랜티니, 스테판 그레이엄','웰컴 투 헬’s 키친! 90분간 쉴 틈 없이 몰아치는 현장 스릴러 365일 중 가장 바쁜 크리스마스, 런던의 고급 레스토랑. 셰프 ‘앤디’는 사고 없이 음식과 직원, 손님 모두를 살펴야 한다. 쏟아지는 주문으로 정신없는 가운데 반갑지 않은 위생 관리관의 급습과 입맛 까다로운 평론가의 눈치까지 보게 되고, 여기에 상황을 아는지 모르는지 직원들은 서로 싸우기까지 한다. 도저히 통제되지 않는 현장에 ‘앤디’는 점점 끓어오르기 시작하는데… 단 한 번의 테이크로 질주하는 키친 서스펜스를 경험하라!','보일링 포인트.jpg',0,'2022.08.04','https://www.youtube.com/embed/Zz8kM9EMXcA',MOVIE_M_NO_SEQ.currval,1,0,6);
 
 --액션
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'공조2','이석훈, 현빈, 유해진','이것은 남북의 합동수사 이야기','공조2.jpg',0,'2022.09.07','https://www.youtube.com/embed/fzUKUfHeIYA',MOVIE_M_NO_SEQ.currval,1,0,1);
-insert into movie values(MOVIE_M_NO_SEQ.nextval,'탑건:메버릭','조셉 코신스키, 톰 크루즈','이것은 전역못한 조종사 이야기','탑건.jpg',0,'2022.06.22','https://www.youtube.com/embed/Mrj9XACVJ8U',MOVIE_M_NO_SEQ.currval,1,0,1);
+insert into movie values(MOVIE_M_NO_SEQ.nextval,'탑건_메버릭','조셉 코신스키, 톰 크루즈','이것은 전역못한 조종사 이야기','탑건.jpg',0,'2022.06.22','https://www.youtube.com/embed/Mrj9XACVJ8U',MOVIE_M_NO_SEQ.currval,1,0,1);
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'늑대사냥','김홍선, 서인국, 장동윤, 최귀화','인간 스스로 먹잇감이 되다 동남아시아로 도피한 인터폴 수배자들을 이송할 움직이는 교도소 ‘프론티어 타이탄’. 극악무도한 이들과 베테랑 형사들이 필리핀 마닐라 항구에 모이고 탈출을 꿈꾸는 종두(서인국), 한국으로 돌아가야만 하는 도일(장동윤)을 비롯해 이들은 각자의 목적과 경계심을 품고 탑승한다. 한국으로 향하던 중, 태평양 한 가운데에서 이들에게는 지금까지 보지 못한 극한의 상황과 마주하게 되는데… 태평양 한 가운데의 지옥, 누가 살아남을 것인가?','늑대사냥.jpg',0,'2022.09.21','https://www.youtube.com/embed/Hkd_9kop8B0',MOVIE_M_NO_SEQ.currval,1,0,1);
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'불릿 트레인','데이빗 레이치, 브래드 피트, 조이 킹, 애런 존슨','"탑승을 환영합니다" 승차는 자유, 하차는 불가?! 초고속 열차에서 벌어지는 "레이디버그"(브래드 피트)와 고스펙 킬러들의 피 튀기는 전쟁! 운이 없기로 유명한 킬러 "레이디버그"(브래드 피트)는 초고속 열차에 탑승해 의문의 서류 가방을 가져오라는 미션을 받는다. 생각보다 쉽게 미션을 클리어한 후 열차에서 내리려는 그를 가로막는 것이 있었으니, 그것은 바로 전세계에서 몰려든 초특급 킬러들! 열차에서 내릴 수 없다면 목숨을 걸고 가방을 지켜야만 한다. 과연 "레이디버그"는 무사히 열차에서 내려 미션을 완수할 수 있을까? 누구도 멈출 수 없는 논스톱 액션 블록버스터 <불릿 트레인>에 탑승하라!','불릿트레인.jpg',0,'2022.08.24','https://www.youtube.com/embed/vR5cn7O46TU',MOVIE_M_NO_SEQ.currval,1,0,1);
-insert into movie values(MOVIE_M_NO_SEQ.nextval,'한산:한산 용의 출현','김한민, 박해일, 변요한, 안성기','나라의 운명을 바꿀 압도적 승리의 전투가 시작된다! 1592년 4월, 조선은 임진왜란 발발 후 단 15일 만에 왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다. 조선을 단숨에 점령한 왜군은 명나라로 향하는 야망을 꿈꾸며 대규모 병역을 부산포로 집결시킨다. 한편, 이순신 장군은 연이은 전쟁의 패배와 선조마저 의주로 파천하며 수세에 몰린 상황에서도 조선을 구하기 위해 전술을 고민하며 출전을 준비한다. 하지만 앞선 전투에서 손상을 입은 거북선의 출정이 어려워지고, 거북선의 도면마저 왜군의 첩보에 의해 도난 당하게 되는데… 왜군은 연승에 힘입어 그 우세로 한산도 앞바다로 향하고, 이순신 장군은 조선의 운명을 가를 전투를 위해 필사의 전략을 준비한다. 1592년 여름, 음력 7월 8일 한산도 앞바다, 압도적인 승리가 필요한 조선의 운명을 건 지상 최고의 해전이 펼쳐진다.','한산 용의 출현.jpg',0,'2022.07.27','https://www.youtube.com/embed/GduEtmvwcI0',MOVIE_M_NO_SEQ.currval,1,0,1);
+insert into movie values(MOVIE_M_NO_SEQ.nextval,'한산_한산 용의 출현','김한민, 박해일, 변요한, 안성기','나라의 운명을 바꿀 압도적 승리의 전투가 시작된다! 1592년 4월, 조선은 임진왜란 발발 후 단 15일 만에 왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다. 조선을 단숨에 점령한 왜군은 명나라로 향하는 야망을 꿈꾸며 대규모 병역을 부산포로 집결시킨다. 한편, 이순신 장군은 연이은 전쟁의 패배와 선조마저 의주로 파천하며 수세에 몰린 상황에서도 조선을 구하기 위해 전술을 고민하며 출전을 준비한다. 하지만 앞선 전투에서 손상을 입은 거북선의 출정이 어려워지고, 거북선의 도면마저 왜군의 첩보에 의해 도난 당하게 되는데… 왜군은 연승에 힘입어 그 우세로 한산도 앞바다로 향하고, 이순신 장군은 조선의 운명을 가를 전투를 위해 필사의 전략을 준비한다. 1592년 여름, 음력 7월 8일 한산도 앞바다, 압도적인 승리가 필요한 조선의 운명을 건 지상 최고의 해전이 펼쳐진다.','한산 용의 출현.jpg',0,'2022.07.27','https://www.youtube.com/embed/GduEtmvwcI0',MOVIE_M_NO_SEQ.currval,1,0,1);
 
 --SF
 insert into movie values(MOVIE_M_NO_SEQ.nextval,'아바타','제임스 카메론, 샘 워싱턴','이것은 2009년 디자인팀 갈린이야기','아바타.jpg',0,'2022.09.21','https://www.youtube.com/embed/IZpaMT1H85o',MOVIE_M_NO_SEQ.currval,1,0,5);
