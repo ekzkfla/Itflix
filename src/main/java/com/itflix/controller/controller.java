@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -68,25 +67,25 @@ public class controller {
 	}
 		
 	//검색결과페이지
-	@RequestMapping(value = "movieSearch"/* ,params = "" */)
-	public String search(Model model,@RequestParam String m_name, @RequestParam String m_actor) throws Exception {
+	@RequestMapping(value = "movieSearch" /* ,params = "m_name||m_actor" */ )
+	public String search(Model model,String m_name) throws Exception {
 		String forwardPath="";
 		try {
-		List<Movie> searchActor = movieService.searchActor(m_actor);
+		//List<Movie> searchActor = movieService.searchActor(m_actor);
 		List<Movie> searchMovie = movieService.searchMovie(m_name);
 		forwardPath = "movieSearch";
+		//model.addAttribute("searchActor", searchActor);
 		model.addAttribute("searchMovie", searchMovie);
-		model.addAttribute("searchActor", searchActor);
 		}catch (Exception e) {
 			e.printStackTrace();
+			/*
+			 * if(movieService.searchActor(m_actor) ==
+			 * null||movieService.searchActor(m_actor).equals("")) { return forwardPath;
+			 * }else
+			 * if(movieService.searchMovie(m_name)==null||movieService.searchMovie(m_name).
+			 * equals("")) { return forwardPath; }
+			 */
 		}
-		/*
-		if() {
-		
-		}else if() {
-			
-		}
-		*/
 		return forwardPath;
 	}
 	

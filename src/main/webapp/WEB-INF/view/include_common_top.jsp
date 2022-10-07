@@ -3,11 +3,22 @@
 	import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<style type="text/css">
+input#search {
+background:url(images/uploads/topsearch.png);
+background-repeat: no-repeat;
+background-position: 0px center;
+width:45px;
+height:45x;
+align-items: center;
+}
+</style>
 <%
 //String sUserId = (String) session.getAttribute("sUserId");
 User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
+
+
 
 <header class="ht-header">
 	<!--start of loading<로딩페이지 로고 사진 >-->
@@ -171,11 +182,12 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 		<!-- top search form -->
 		<form action="" method="get">
 		<div class="top-search">
-			<select data-trigger="" name="movieSearch">
-				<option value="${searchMovie }">영화</option>
-				<option value="${searchActor }">감독●출연</option>
-			</select> <input type="text"
-				placeholder="Serch your Movie and enjoy your Life">
+			<select name="movieSearch">
+				<option value="">영화</option>
+				<option value="">감독●출연</option>
+			</select> 
+			<input type="text" placeholder="Serch your Movie and enjoy your Life" >
+			<input type="submit" id="search" alt="search" value="">
 		</div>
 		</form>
 	</div>
