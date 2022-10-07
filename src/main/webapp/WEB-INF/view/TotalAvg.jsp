@@ -5,11 +5,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	    
 <!DOCTYPE html>
 <%
-	request.getAttribute("movie2");
+	request.getAttribute("movieGrade");
 %>
 	
 	<!--single값 설정  -->
-	<c:set var="grades" value="${movie2.review.r_grade}"/>
+	<c:set var="grades" value="${movieGrade.review.r_grade}"/>
 	<!--MovieSingle 페이지 별점 계산 -->
 	<!--평점이 없는경우  -->
 	<c:if test="${grades==null }">

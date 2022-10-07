@@ -164,7 +164,8 @@ public interface Movie_Mapper {
 		
 		//영화 번호로 평점 출력
 		@Select("select avg(r.r_grade) as r_grade from Movie m left outer join Review r \n"
-				+ "on m.m_no = r.m_no where m.m_no = #{m_no}")
+				+ "on m.m_no = r.m_no where m.m_no = #{m.m_no}")
+		@ResultMap("selectMovieGradeResultMap")
 		public Movie selectMovieGradeByNo(int m_no);
 		
 		//영화 번호로 조회수 출력

@@ -36,6 +36,15 @@
 			<result column="r_grade" property="r_grade" />
 		</collection>
 	</resultMap>
+	
+	<resultMap id="selectMovieGradeResultMap"
+		type="com.itflix.dto.Movie">
+		<result column="m_no" property="m_no" />
+		<collection property="review"
+			javaType="com.itflix.dto.Review">
+			<result column="r_grade" property="r_grade" />
+		</collection>
+	</resultMap>
 
 	<!-- 수정중 -->
 	<resultMap id="selectMovieRecentReviewResultMap"
