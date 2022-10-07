@@ -91,7 +91,7 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.selectMovieOldDate();
 	}
 
-	//영화 번호로 조회수 출력
+	//영화 번호로 평점 출력
 	@Override
 	public Movie selectMovieGradeByNo(int no) throws Exception {
 		return movieDao.selectMovieGradeByNo(no);

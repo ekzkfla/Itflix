@@ -24,7 +24,7 @@ import com.itflix.service.User_InfoService;
 
 
 @Controller
-public class controller {
+public class MainController {
 	
 	@Autowired
 	private NoticeService noticeService;
@@ -39,7 +39,7 @@ public class controller {
 
 	
 	
-	public controller() {
+	public MainController() {
 		System.out.println("기본!!!");
 	}
 	//ItFlix 메인페이지
@@ -127,10 +127,12 @@ public class controller {
 	public String moviesingle(@RequestParam int m_no, Model model)throws Exception { 
 			Movie movie = movieService.selectByNo(m_no);
 			Movie movie2= movieService.selectMovieRecentReview(m_no);
+			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
 			int review= reviewService.reviewCount(m_no);
 			
 			model.addAttribute("movie",movie );
 			model.addAttribute("movie2",movie2 );
+			model.addAttribute("movieGrade",movieGrade );
 			model.addAttribute("review",review );
 			
 			System.out.println(movie2);
