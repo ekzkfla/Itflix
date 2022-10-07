@@ -154,7 +154,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 					if (login_user == null) {
 					%>
 					<li class="btn signupLink"><a href="#">회원가입</a></li>
-					<li class="loginLink"><a href="#">로그인</a></li>
+					<li class="loginLink"><a href="">로그인</a></li>
 					<%
 					} else {
 					%>

@@ -1366,7 +1366,7 @@ fieldset[disabled] input[type="search"],
 fieldset[disabled] input[type="tel"],
 fieldset[disabled] input[type="color"],
 fieldset[disabled] .form-control {
-    background-color: #eeeeee;
+    background-color: #233a50;
     opacity: 1;
 }
 select[disabled],
