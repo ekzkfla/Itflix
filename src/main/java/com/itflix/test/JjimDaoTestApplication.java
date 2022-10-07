@@ -30,16 +30,16 @@ public class JjimDaoTestApplication {
 				new SpringApplication(JjimDaoTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		JjimDao jjimDao = context.getBean(JjimDao.class);
+		JjimService jjimService = context.getBean(JjimService.class);
 
 		/* 리뷰의 총평점 조인안하고 불러오기*/
 		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
 		
-		//System.out.println("삭제>>>"+jjimDao.jjimDelete("guard1@gmail.com",8));	
-		//System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",3));
-		System.out.println("찜하기>>>>"+jjimDao.jjimInsert("guard1@gmail.com",6));
+		//System.out.println("삭제>>>"+jjimService.jjimDelete("guard1@gmail.com",8));	
+		//System.out.println("찜하기>>>>"+jjimService.jjimInsert("guard1@gmail.com",3));
+		//System.out.println("찜하기>>>>"+jjimService.jjimInsert("guard1@gmail.com",6));
 		
-		System.out.println(jjimDao.jjimList("guard1@gmail.com"));
+		System.out.println(jjimService.jjimList("guard1@gmail.com"));
 
 	}
 }

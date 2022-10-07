@@ -138,8 +138,10 @@
 											
 												<div class="title-hd-sm">
 													<h3>가장 최신 리뷰</h3>
+													<a href="reviewWrite?m_no=${movie.m_no}" class="time"  style="right: 500px">리뷰 작성</a>
 													<a href="reviewlist?m_no=${movie.m_no }" class="time">See All Reviews <i
-														class="ion-ios-arrow-right"></i></a>
+														class="ion-ios-arrow-right"></i>
+													</a>
 												</div>
 												<!-- movie user review -->
 												<div class="mv-user-review-item">

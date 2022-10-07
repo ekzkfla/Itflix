@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dto.Jjim;
 import com.itflix.dto.User_Info;
 import com.itflix.service.JjimService;
@@ -88,12 +89,15 @@ public class UserLoginController {
 	
 	
 	/*찜리스트*/
+	
+	@LoginCheck
 	@RequestMapping("jjimList")
 	public String jjimList(HttpServletRequest request,String u_email) {
 		String forwardPath = "";
 		try {
 			List<Jjim> jjimList = jjimService.jjimList(u_email);
 			request.setAttribute("jjimList", jjimList);
+			System.out.println(jjimList);
 			forwardPath = "userfavoritegrid";
 		} catch (Exception e) {
 			e.printStackTrace();
