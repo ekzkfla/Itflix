@@ -15,7 +15,7 @@
 		<a style="font-size: 15pt; color:#0DEEC9">리뷰가 없어요!</a> 
 	</c:if>
 	<!--평점 0점 이상 20점 미만일 경우  -->
-	<c:if test="${grade ge 0 && grade lt 20}">
+	<c:if test="${grade ge 0 && grade lt 1}">
 		 <i class="ion-ios-star-outline"></i> 
 		 <i class="ion-ios-star-outline"></i> 
 		 <i class="ion-ios-star-outline"></i> 
@@ -23,7 +23,7 @@
 		 <i class="ion-ios-star-outline"></i> 
 	</c:if>
 	<!--평점 20점 이상 40점 미만일 경우  -->
-	<c:if test="${grade ge 20 && grade lt 40}">
+	<c:if test="${grade ge 1 && grade lt 2}">
 		 <i class="ion-ios-star"></i>
 		 <i class="ion-ios-star-outline"></i> 
 		 <i class="ion-ios-star-outline"></i> 
@@ -31,7 +31,7 @@
 		 <i class="ion-ios-star-outline"></i> 
 	</c:if>
 	<!--평점 40점 이상 60점 미만일 경우  -->
-	<c:if test="${grade ge 40 && grade lt 60}">
+	<c:if test="${grade ge 2 && grade lt 3}">
 		 <i class="ion-ios-star"></i>
 		 <i class="ion-ios-star"></i>
 		 <i class="ion-ios-star-outline"></i> 
@@ -39,7 +39,7 @@
 		 <i class="ion-ios-star-outline"></i> 
 	</c:if>
 	<!--평점 60점 이상 80점 미만일 경우  -->
-	<c:if test="${grade ge 60 && grade lt 80}">
+	<c:if test="${grade ge 3 && grade lt 4}">
 		 <i class="ion-ios-star"></i>
 		 <i class="ion-ios-star"></i>
 		 <i class="ion-ios-star"></i>
@@ -47,14 +47,14 @@
 		 <i class="ion-ios-star-outline"></i> 
 	</c:if>
 	<!-- 평점 80점 이상인 경우 -->
-	<c:if test="${grade ge 80 && grade lt 90}">
+	<c:if test="${grade ge 4 && grade lt 5}">
 		<i class="ion-ios-star"></i>
 		<i class="ion-ios-star"></i>
 		<i class="ion-ios-star"></i>
 		<i class="ion-ios-star"></i>
 		<i class="ion-ios-star-outline"></i> 
 	</c:if>
-	<c:if test="${grade eq 100}">
+	<c:if test="${grade eq 5}">
 		<i class="ion-ios-star"></i>
 		<i class="ion-ios-star"></i>
 		<i class="ion-ios-star"></i>

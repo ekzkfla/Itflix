@@ -111,15 +111,43 @@ insert into prefer VALUES(1,0,1,'guard5@gmail.com',1);
 insert into prefer VALUES(1,0,1,'guard6@gmail.com',4);
 
 ---insert(review)------
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이영화 재밌었어요','재밌음','100',sysdate,REVIEW_R_NO_SEQ.currval,1,0,1,'guard1@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이영화 뭐야!!','신기해요','50',sysdate,REVIEW_R_NO_SEQ.currval,1,0,2,'guard2@gmail.com');
+--1번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이영화 재밌었어요','재밌음','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,1,'guard1@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'재밌어요!!','재밌네요~!','3',sysdate,REVIEW_R_NO_SEQ.currval,1,0,1,'guard2@gmail.com');
+--2번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이영화 뭐야!!','신기해요','3',sysdate,REVIEW_R_NO_SEQ.currval,1,0,2,'guard2@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이영화 뭐야뭐야!','꿀잼','3',sysdate,REVIEW_R_NO_SEQ.currval,1,0,2,'guard3@gmail.com');
+--3번 영화 리뷰
 insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이영화 재미없어요','비추합니다','1',sysdate,REVIEW_R_NO_SEQ.currval,1,0,3,'guard3@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'다시 보고싶은 추천','강추합니다','100',sysdate,REVIEW_R_NO_SEQ.currval,1,0,4,'guard4@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'이세상 최고의 영화','꿀잼이네요','20',sysdate,REVIEW_R_NO_SEQ.currval,1,0,5,'guard5@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'보면서 울었어요','슬퍼요','50',sysdate,REVIEW_R_NO_SEQ.currval,1,0,6,'guard6@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'뭐해라는 두글짜에 니가 보고 싶어','너의 속마음을 알까 우우우~','90',sysdate,REVIEW_R_NO_SEQ.currval,1,0,7,'guard7@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'나는 아니야','쉽지 않을거 같아이야','80',sysdate,REVIEW_R_NO_SEQ.currval,1,0,8,'guard1@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'바람을 타고 날아오르는 새들은','아름다운 태양 속으로','100',sysdate,REVIEW_R_NO_SEQ.currval,1,0,9,'guard2@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'음표가 되어 나네~','향기나는','100',sysdate,REVIEW_R_NO_SEQ.currval,1,0,10,'guard3@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'잼잼','또 보러가야지!','100',sysdate,REVIEW_R_NO_SEQ.currval,1,0,11,'guard4@gmail.com');
-insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'알만한 사람끼리 이정도','아이유_잼잼','100',sysdate,REVIEW_R_NO_SEQ.currval,1,0,12,'guard5@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'중간?이하?','중하 수준','2',sysdate,REVIEW_R_NO_SEQ.currval,1,0,3,'guard4@gmail.com');
+--4번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'다시 보고싶은 추천','강추합니다','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,4,'guard4@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'언제든 다시봐도 괜찮은 영화','강추합니다','4',sysdate,REVIEW_R_NO_SEQ.currval,1,0,4,'guard5@gmail.com');
+--5번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'중간정도?','보통이에요','3',sysdate,REVIEW_R_NO_SEQ.currval,1,0,5,'guard5@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'소소하게 재밋게본 영화','괜찮네요','4',sysdate,REVIEW_R_NO_SEQ.currval,1,0,5,'guard6@gmail.com');
+--6번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'보면서 울었어요','슬퍼요','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,6,'guard6@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'매우 재밌었어요','재밋게 봤습니다~!','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,6,'guard1@gmail.com');
+--7번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'뭐해라는 두글짜에 니가 보고 싶어','너의 속마음을 알까 우우우~','4',sysdate,REVIEW_R_NO_SEQ.currval,1,0,7,'guard1@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'뭐해라는 두글짜에 니가 보고 싶어22222','너의 속마음을 알까 우우우~22222','3',sysdate,REVIEW_R_NO_SEQ.currval,1,0,7,'guard2@gmail.com');
+--8번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'나는 아니야','쉽지 않을거 같아이야','4',sysdate,REVIEW_R_NO_SEQ.currval,1,0,8,'guard3@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'나는 아니야22222','쉽지 않을거 같아이야222222','4',sysdate,REVIEW_R_NO_SEQ.currval,1,0,8,'guard4@gmail.com');
+--9번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'바람을 타고 날아오르는 새들은','아름다운 태양 속으로','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,9,'guard5@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'222재밌다!!!','꿀잼이에요!','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,9,'guard6@gmail.com');
+--10번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'음표가 되어 나네~','향기나는','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,10,'guard1@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'노잼 시간을 끄는 영화','향기나는','1',sysdate,REVIEW_R_NO_SEQ.currval,1,0,10,'guard6@gmail.com');
+--11번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'잼잼','또 보러가야지!','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,11,'guard4@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'쏘쏘','쏘쏘한 영화','3',sysdate,REVIEW_R_NO_SEQ.currval,1,0,11,'guard5@gmail.com');
+--12번 영화 리뷰
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'알만한 사람끼리 이정도','아이유_잼잼','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,12,'guard2@gmail.com');
+insert into review VALUES(REVIEW_R_NO_SEQ.nextval,'알만한 사람끼리 이정도','아이유_잼잼','5',sysdate,REVIEW_R_NO_SEQ.currval,1,0,12,'guard3@gmail.com');
+
+
+
+
