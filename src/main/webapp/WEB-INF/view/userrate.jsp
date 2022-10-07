@@ -85,31 +85,9 @@ function handleFiles(files) {
 			</div>
 		</div>
 	</div>
-	<div class="page-single">
-		<div class="container">
-			<div class="row ipad-width2">
-				<div class="col-md-3 col-sm-12 col-xs-12">
-					<div class="user-information">
-						<div class="user-img">
-							<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a>
-								<input type="file" id="fileElem" 
-									   multiple accept="image/*" style="display: none;" 
-									   onchange="handleFiles(this.files)">
-								<button id="fileSelect">select Some File</button>
-							<a  class="redbtn">Change avatar</a>
-						</div>
-						<div class="user-fav">
-							<p>상세페이지</p>
-							<ul>
-								<li class="active"><a href="userprofile">프로필 수정</a></li>
-								<li><a href="userfavoritegrid">찜한 영화</a></li>
-								<li><a href="userrate">선호하는 카테고리 영화<br><br></a></li>
-								
-								<li><a href="#">로그아웃</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+	<!-- Start | user leff menu bar-->
+	<jsp:include page="include_user_menu.jsp" />
+	<!-- End | user leff menu bar-->
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
 						<p>
