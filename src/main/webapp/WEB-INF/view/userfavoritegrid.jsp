@@ -90,7 +90,7 @@
 							</div>
 							<div class="mv-item-infor">
 								<h6>
-									<a href="moviesingle">${m_name}</a>
+									<a href="moviesingle?">${Jjim.movie.m_name}</a>
 								</h6>
 								<p class="rate">
 									<i class="ion-android-star"></i><span>8.1</span>/10

@@ -216,15 +216,15 @@ public class controller {
 		return forwardPath;
 	}
 	
-	//구독권 결제 페이지 
-		@RequestMapping(value ="landing2" )
-		public String landing2() {
-			String forwardPath="";
-			forwardPath = "landing2";
-			
-			return forwardPath;
-		}
-
+	//리뷰 작성 페이지 
+	@RequestMapping(value = "reviewWrite",params = "m_no")	
+	public String reviewWrite(@RequestParam int m_no ,Model model) throws Exception {
+		String forwardPath="";
+		Movie movie=movieService.selectByNo(m_no);
+		model.addAttribute("movie", movie);
+		forwardPath = "reviewWrite";
+		return forwardPath;
+	}
 
 
 }
