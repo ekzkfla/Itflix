@@ -12,6 +12,7 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yy년 MM월 dd일");
 %>
+
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -56,6 +57,9 @@
 	<div class="page-single movie-single movie_single">
 		<div class="container">
 			<div class="row ipad-width2">
+				
+				
+				 
 				<div class="col-md-2 col-sm-4 col-xs-4">
 
 					<!-- ↓↓↓이미지↓↓↓ -->
@@ -66,10 +70,12 @@
 									<img
 										src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg"
 										alt="" width="30" height="30">
+									
 									<div class="hvr-inner">
-										<a href="moviesingle?m_no=${movie.m_no }">Read more<i
+										<a href="moviesingle?m_no=${movie.m_no}">Read more <i
 											class="ion-android-arrow-dropright"></i></a>
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -77,9 +83,9 @@
 					<!-- ↑↑↑이미지↑↑↑ -->
 
 				</div>
+				
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
-
 						<!-- ↓↓↓영화 타이틀 제목↓↓↓  -->
 						<h1 class="bd-hd">${movie.m_name } Review 작성</h1>
 						<!-- ↑↑↑영화 타이틀 제목↑↑↑  -->
@@ -95,7 +101,7 @@
 												<!-- 상단 -->
 												<div class="title-hd-sm">
 													<h4>User reviews</h4>
-													<p>글쓴이 : 유저의 이름!!</p>
+													<p>글쓴이 : ${loginUser.u_name }</p>
 												</div>
 												<!-- movie user review -->
 												<div class="mv-user-review-item">

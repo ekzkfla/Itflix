@@ -3,6 +3,7 @@ package com.itflix.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -227,9 +228,11 @@ public class controller {
 	}
 	
 	//리뷰 작성 페이지 
-	@RequestMapping(value = "reviewWrite",params = "m_no")	
-	public String reviewWrite(@RequestParam int m_no ,Model model) throws Exception {
+	@RequestMapping(value = "reviewWrite")	
+	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request) throws Exception {
 		String forwardPath="";
+		
+		System.out.println();
 		Movie movie=movieService.selectByNo(m_no);
 		model.addAttribute("movie", movie);
 		forwardPath = "reviewWrite";
