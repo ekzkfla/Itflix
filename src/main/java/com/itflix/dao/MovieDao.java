@@ -21,13 +21,15 @@ public interface MovieDao {
 		//가장 최근 작성된 리뷰 평점 출력
 		Movie selectMovieRecentReview(int no) throws Exception;
 		//조회수 높은 순으로 출력
-		List<Movie> selectMovieCount() throws Exception;
+		List<Movie> selectMovieCountList() throws Exception;
 		//평점 높은 순으로 출력
-		List<Movie> selectMovieGrade() throws Exception;
+		List<Movie> selectMovieGradeList() throws Exception;
 		//영화 개봉일 최신순으로 출력
 		List<Movie> selectMovieNewDate() throws Exception;
 		//영화 개봉일 오래된 순으로 출력
 		List<Movie> selectMovieOldDate() throws Exception;
+		//영화 번호로 평점 출력
+		Movie selectMovieGradeByNo(int no) throws Exception;
 		//영화 번호로 조회수 출력
 		Movie selectMovieCountByNo(int no) throws Exception;
 		//영화 클릭수 증가

@@ -48,7 +48,7 @@ public class controller {
 		try {
 			
 			List<Movie> movieList = movieService.selectAll();
-			List<Movie> movieCountList = movieService.selectMovieCount();
+			List<Movie> movieCountList = movieService.selectMovieCountList();
 			//List<Category> categoryList = categoryService.selectByNoMovieList();
 			System.out.println(movieList);
 			Notice noticeOne = noticeService.noticeOne();
