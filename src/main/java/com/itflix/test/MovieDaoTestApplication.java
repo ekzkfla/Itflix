@@ -45,8 +45,8 @@ public class MovieDaoTestApplication {
 		 //System.out.println(movieService.selectMovieNewDate());
 		 //System.out.println(movieService.selectMovieOldDate());
 		 //System.out.println(movieService.selectMovieCountByNo(1));
-		 //System.out.println(movieService.searchActor("라"));
-		 //System.out.println(movieService.searchMovie("정"));
+		 System.out.println(movieService.searchActor("라"));
+		 System.out.println(movieService.searchMovie("정"));
 		 //System.out.println(movieDao.movieCountPlus(1));
 
 	}
