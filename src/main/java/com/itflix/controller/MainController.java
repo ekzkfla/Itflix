@@ -1,5 +1,6 @@
 package com.itflix.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,25 +67,25 @@ public class MainController {
 	}
 		
 	//검색결과페이지
-	@RequestMapping(value = "movieSearch"/* ,params = "" */)
-	public String search(Model model,String m_name,String m_actor) throws Exception {
+	@RequestMapping(value = "movieSearch" /* ,params = "m_name||m_actor" */ )
+	public String search(Model model,String m_name) throws Exception {
 		String forwardPath="";
 		try {
-		List<Movie> searchActor = movieService.searchActor(m_actor);
+		//List<Movie> searchActor = movieService.searchActor(m_actor);
 		List<Movie> searchMovie = movieService.searchMovie(m_name);
 		forwardPath = "movieSearch";
+		//model.addAttribute("searchActor", searchActor);
 		model.addAttribute("searchMovie", searchMovie);
-		model.addAttribute("searchActor", searchActor);
 		}catch (Exception e) {
 			e.printStackTrace();
+			/*
+			 * if(movieService.searchActor(m_actor) ==
+			 * null||movieService.searchActor(m_actor).equals("")) { return forwardPath;
+			 * }else
+			 * if(movieService.searchMovie(m_name)==null||movieService.searchMovie(m_name).
+			 * equals("")) { return forwardPath; }
+			 */
 		}
-		/*
-		if() {
-		
-		}else if() {
-			
-		}
-		*/
 		return forwardPath;
 	}
 	
@@ -200,15 +201,7 @@ public class MainController {
 		return forwardPath;
 	}
 
-	
-	//회원 찜 영화 페이지
-	@RequestMapping(value = "userfavoritegrid")
-	public String userfavoritegrid() {
-		String forwardPath="";
-		forwardPath = "userfavoritegrid";
-		
-		return forwardPath;
-	}
+
 	
 	//회원 선호 영화 페이지 
 	@RequestMapping(value = "userrate")
@@ -232,6 +225,25 @@ public class MainController {
 	//리뷰 작성 페이지 
 	@RequestMapping(value = "reviewWrite")	
 	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request) throws Exception {
+		String r_title =request.getParameter("r_title");
+		//grade 의 값 설정 해주기 
+		if(request.getParameter("r_grade1") != null) {
+			String r_grade=request.getParameter("r_grade1");
+		}else if(request.getParameter("r_grade2") != null) {
+			String r_grade=request.getParameter("r_grade2");
+		}else if(request.getParameter("r_grade3") != null) {
+			String r_grade=request.getParameter("r_grade3");
+		}else if(request.getParameter("r_grade4") != null) {
+			String r_grade=request.getParameter("r_grade4");
+		}else if(request.getParameter("r_grade5") != null) {
+			String r_grade=request.getParameter("r_grade5");
+		}
+		
+		
+		
+		
+		
+		
 		String forwardPath="";
 		
 		System.out.println();

@@ -52,6 +52,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
+				<%-- 
+				
 					<!--분류 보드바 -->
 						<p>Found 총<span>${movieCount}개</span>	</p>
 						
@@ -81,7 +83,7 @@
 						</div>
 					</form>
 					
-					
+					 --%>
 					
 					
 					<!--페이징 수정필요!!!!!!!!!!!!  -->
