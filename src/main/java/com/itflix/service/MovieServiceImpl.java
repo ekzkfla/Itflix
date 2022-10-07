@@ -69,14 +69,14 @@ public class MovieServiceImpl implements MovieService {
 	
 	//조회수 높은 순으로 출력
 	@Override
-	public List<Movie> selectMovieCount() throws Exception {
-		return movieDao.selectMovieCount();
+	public List<Movie> selectMovieCountList() throws Exception {
+		return movieDao.selectMovieCountList();
 	}
 	
 	//평점 높은 순으로 출력
 	@Override
-	public List<Movie> selectMovieGrade() throws Exception {
-		return movieDao.selectMovieGrade();
+	public List<Movie> selectMovieGradeList() throws Exception {
+		return movieDao.selectMovieGradeList();
 	}
 
 	//영화 개봉일 최신순으로 출력
@@ -91,6 +91,12 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.selectMovieOldDate();
 	}
 
+	//영화 번호로 조회수 출력
+	@Override
+	public Movie selectMovieGradeByNo(int no) throws Exception {
+		return movieDao.selectMovieGradeByNo(no);
+	}
+	
 	//영화 번호로 조회수 출력
 	@Override
 	public Movie selectMovieCountByNo(int no) throws Exception {

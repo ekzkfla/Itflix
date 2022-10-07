@@ -7,11 +7,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.JjimDao;
+import com.itflix.dto.Jjim;
 import com.itflix.service.JjimService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
-public class JjimDaoTestApplication {
+public class JjimServiceTestApplication {
 	public static void main(String[] args) throws Exception {
 		/****************case1********************/
 		/*
@@ -27,18 +28,12 @@ public class JjimDaoTestApplication {
 		*/
 		
 		SpringApplication application = 
-				new SpringApplication(JjimDaoTestApplication.class);
+				new SpringApplication(JjimServiceTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
 		JjimService jjimService = context.getBean(JjimService.class);
 
-		/* 리뷰의 총평점 조인안하고 불러오기*/
-		//System.out.println(jjimDao.jjimListTest5("guard1@gamil.com"));
-		
-		//System.out.println("삭제>>>"+jjimService.jjimDelete("guard1@gmail.com",8));	
-		//System.out.println("찜하기>>>>"+jjimService.jjimInsert("guard1@gmail.com",3));
-		//System.out.println("찜하기>>>>"+jjimService.jjimInsert("guard1@gmail.com",6));
-		
+				
 		System.out.println(jjimService.jjimList("guard1@gmail.com"));
 
 	}
