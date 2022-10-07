@@ -4,8 +4,8 @@
 		<div class="container">
 			<div class="flex-parent-ft">
 				<div class="flex-child-ft item1">
-					<a href="main"><img class="logo" src="images/mylogo.png" style="width: 250px"
-						alt=""></a>
+					<a href="main"><img class="logo" src="images/mylogo.png"
+						alt=""  width="119" height="58"></a>
 				</div>
 				<div class="flex-child-ft item2">
 					<h4>아이티윌/ITFLIX</h4>
@@ -16,7 +16,7 @@
 					<p>
 						TEL: <a href="#">(02) 6255 8002</a>
 					</p>
-						<li><p>기관명:  <a href="#">아이티윌(직업능력개발훈련시설)대표자 : 조인형TEL : 02-6255-8002FAX : 02-569-8069
+						<li><p>기관명:  <a href="#">아이티윌(직업능력개발훈련시설) 대표자:조인형 TEL:02-6255-8002 FAX:02-569-8069
 </a></p></li>
 						<li><p>이메일:  <a href="#">admin@itwill.co.kr</a></p></li>
 					</ul>

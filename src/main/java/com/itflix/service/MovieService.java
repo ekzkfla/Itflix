@@ -33,6 +33,11 @@ public interface MovieService {
 	//영화 클릭수 증가
 	Movie movieCountPlus(int no) throws Exception;
 	
+	//배우 이름으로 영화 검색
+	List<Movie> searchActor(String name) throws Exception;
+	//영화 이름으로 영화 검색
+	List<Movie> searchMovie(String name) throws Exception;
+	
 	//영화 추가
 	int insertMovie(Movie movie)throws Exception;
 	//영화 변경

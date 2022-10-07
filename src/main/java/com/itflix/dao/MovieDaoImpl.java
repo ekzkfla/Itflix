@@ -142,4 +142,18 @@ public class MovieDaoImpl implements MovieDao {
 		int movieAllCount = movie_Mapper.movieAllCount();
 		return movieAllCount;
 	}
+	
+	//배우 이름으로 영화 검색
+	@Override
+	public List<Movie> searchActor(String name) throws Exception {
+		List<Movie> searchActor = movie_Mapper.searchActor(name);
+		return searchActor;
+	}
+	
+	//영화 이름으로 영화 검색
+	@Override
+	public List<Movie> searchMovie(String name) throws Exception {
+		List<Movie> searchMovie =movie_Mapper.searchMovie(name);
+		return searchMovie;
+	}
 }

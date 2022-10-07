@@ -65,16 +65,26 @@ public class controller {
 	}
 		
 	//검색결과페이지
-	@RequestMapping(value="",params = "m_no||n_no")
-	public String search(int m_no, int n_no) throws Exception {
+	@RequestMapping(value = "movieSearch"/* ,params = "" */)
+	public String search(Model model,String m_name,String m_actor) throws Exception {
+		String forwardPath="";
+		try {
+		List<Movie> searchActor = movieService.searchActor(m_actor);
+		List<Movie> searchMovie = movieService.searchMovie(m_name);
+		forwardPath = "movieSearch";
+		model.addAttribute("searchMovie", searchMovie);
+		model.addAttribute("searchActor", searchActor);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		/*
 		if() {
-			
+		
 		}else if() {
 			
 		}
 		*/
-		return "a";
+		return forwardPath;
 	}
 	
 	//영화 리스트 페이지

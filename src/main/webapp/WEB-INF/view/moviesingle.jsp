@@ -89,7 +89,7 @@
 									<span>
 									<jsp:include page="TotalAvg.jsp"/>
 									</span>/5<br> 
-									<span class="rv">56 Reviews</span>
+									<span class="rv">${review} Reviews</span>
 								</p>
 							</div>
 							<div class="rate-star">
