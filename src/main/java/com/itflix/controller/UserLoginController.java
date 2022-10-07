@@ -90,14 +90,12 @@ public class UserLoginController {
 
 	
 	/*찜리스트*/
-	
 	@RequestMapping("userfavoritegrid")
 	public String jjimList(HttpServletRequest request,@RequestParam String u_email) {
 		String forwardPath = "";
 		try {
 			List<Jjim> jjimList = jjimService.jjimList(u_email);
 			request.setAttribute("jjimList", jjimList);
-			System.out.println("너니>>"+jjimList);
 			forwardPath = "userfavoritegrid";
 		} catch (Exception e) {
 			e.printStackTrace();

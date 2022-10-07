@@ -22,14 +22,13 @@
 	</resultMap>
 
 
-
 	<resultMap type="com.itflix.dto.Jjim" id="Test">
 		<collection property="userList" javaType="java.util.List"
 			ofType="com.itflix.dto.User_Info">
 			<result column="u_email" property="u_email" />
 		</collection>
 		<collection property="movieList" javaType="java.util.List"
-		ofType="com.itflix.dto.Movie">
+			ofType="com.itflix.dto.Movie">
 			<result column="m_no" property="m_no" />
 			<result column="m_name" property="m_name" />
 			<result column="m_image" property="m_image" />
@@ -38,6 +37,7 @@
 			<association property="category"
 				javaType="com.itflix.dto.Category">
 				<result column="cg_no" property="cg_no" />
+				<result column="cg_name" property="cg_name" />
 			</association>
 			<collection property="reviewList"
 				javaType="java.util.List" ofType="com.itflix.dto.Review">

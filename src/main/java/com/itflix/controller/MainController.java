@@ -136,8 +136,6 @@ public class MainController {
 			model.addAttribute("movieGrade",movieGrade );
 			model.addAttribute("review",review );
 			
-			System.out.println(movie2);
-		
 		return "moviesingle";
 	}
 	

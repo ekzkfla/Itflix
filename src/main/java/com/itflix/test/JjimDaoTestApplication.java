@@ -12,7 +12,7 @@ import com.itflix.service.JjimService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
-public class JjimServiceTestApplication {
+public class JjimDaoTestApplication {
 	public static void main(String[] args) throws Exception {
 		/****************case1********************/
 		/*
@@ -28,13 +28,13 @@ public class JjimServiceTestApplication {
 		*/
 		
 		SpringApplication application = 
-				new SpringApplication(JjimServiceTestApplication.class);
+				new SpringApplication(JjimDaoTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		JjimService jjimService = context.getBean(JjimService.class);
+		JjimDao jjimDao = context.getBean(JjimDao.class);
 
 				
-		System.out.println(jjimService.jjimList("guard1@gmail.com"));
+		System.out.println(jjimDao.jjimList("guard1@gmail.com"));
 
 	}
 }

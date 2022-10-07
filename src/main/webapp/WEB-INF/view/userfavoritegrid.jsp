@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -66,308 +68,30 @@
 			</select>
 		</div>
 		<div class="flex-wrap-movielist grid-fav">
-		<!-- start  -->
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv1.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
+
+			<c:forEach var="jjim" items="${jjimList}" >
+				<!-- start  -->
+				<div class="movie-item-style-2 movie-item-style-1 style-3">
+					<img
+						src="images/${jjimList[0].movieList[0].category.cg_name}/${jjimList[0].movieList[0].m_name}_1.jpg"
+						alt="">
+					<div class="hvr-inner">
+						<a href="moviesingle?m_no=${jjimList[0].movieList[0].m_no}">Read
+							more <i class="ion-android-arrow-dropright"></i>
+						</a>
+					</div>
+					<div class="mv-item-infor">
+						<h6>
+							<a href="moviesingle?m_no=${jjimList[0].movieList[0].m_no}">${jjimList[0].movieList[0].m_name}</a>
+						</h6>
+						<p class="rate">
+							<i class="ion-android-star"></i><span>${jjimList[0].movieList[0].reviewList[0].r_grade }</span>/5
+						</p>
+					</div>
 				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle?m_no=${jjimList[0].movieList[0].m_no}">${jjimList[0].movieList[0].m_name}</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>8.1</span>/10
-					</p>
-				</div>
-			</div>
-			<!-- end  -->
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv2.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">into the wild</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.8</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item3.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">Die hard</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item4.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">The walk</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv3.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">blade runner </a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.3</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv4.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">Mulholland pride</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.2</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv5.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">skyfall: evil of boss</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.0</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item1.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">Interstellar</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item2.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">The revenant</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-it10.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">harry potter</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-it11.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">guardians galaxy</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-it12.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">the godfather</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item6.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">blue velvet</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item7.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">gravity</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item8.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">southpaw</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-it9.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">jurassic park</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item9.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">the forest</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item10.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">spectre</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item11.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">strager things</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
-			<div class="movie-item-style-2 movie-item-style-1 style-3">
-				<img src="images/uploads/mv-item12.jpg" alt="">
-				<div class="hvr-inner">
-					<a href="moviesingle">Read more <i
-						class="ion-android-arrow-dropright"></i></a>
-				</div>
-				<div class="mv-item-infor">
-					<h6>
-						<a href="moviesingle">la la land</a>
-					</h6>
-					<p class="rate">
-						<i class="ion-android-star"></i><span>7.4</span>/10
-					</p>
-				</div>
-			</div>
+			</c:forEach>
+			
+		
 		</div>
 		<div class="topbar-filter">
 			<label>Movies per page:</label><select><option value="range">20
@@ -380,12 +104,10 @@
 			</div>
 		</div>
 	</div>
-	
 
 	</div>
 	</div>
 	</div>
-	
 
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>
