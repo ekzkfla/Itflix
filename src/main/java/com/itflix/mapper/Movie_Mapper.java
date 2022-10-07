@@ -183,6 +183,14 @@ public interface Movie_Mapper {
 		@Select("select count(*) from movie")
 		public int movieAllCount();
 		
+		//배우 이름으로 영화 검색
+		@Select("select m.m_name from Movie m where m_actor LIKE '%'||#{m.m_actor}||'%' ORDER BY m.m_no ASC")
+		public Movie searchActor(Movie movie);
+		
+		//영화 이름으로 영화 검색
+		@Select("select m.m_name from Movie m where m_name LIKE '%'||#{m.m_name}||'%' ORDER BY m.m_no ASC")
+		public Movie searchMovie(Movie movie);
+		
 		
 	//public movie_Mapper selectByNo(int no);
 	/*

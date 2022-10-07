@@ -169,16 +169,14 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 			<!-- /.navbar-collapse -->
 		</nav>
 		<!-- top search form -->
+		<form action="" method="get">
 		<div class="top-search">
-			<select><option value="united">카테고리</option>
-				<option value="saab">액션</option>
-				<option value="saab">코미디</option>
-				<option value="saab">로맨스</option>
-				<option value="saab">호러/스릴러</option>
-				<option value="saab">SF/판타지</option>
-				<option value="saab">드라마</option>
+			<select data-trigger="" name="movie">
+				<option value="moviegirdfw">영화</option>
+				<option value="actor">감독●출연</option>
 			</select> <input type="text"
 				placeholder="Serch your Movie and enjoy your Life">
 		</div>
+		</form>
 	</div>
 </header>
