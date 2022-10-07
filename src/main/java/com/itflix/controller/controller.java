@@ -50,6 +50,7 @@ public class controller {
 			List<Movie> movieList = movieService.selectAll();
 			List<Movie> movieCountList = movieService.selectMovieCount();
 			//List<Category> categoryList = categoryService.selectByNoMovieList();
+			System.out.println(movieList);
 			Notice noticeOne = noticeService.noticeOne();
 			model.addAttribute("movieList",movieList);
 			model.addAttribute("movieCountList", movieCountList);

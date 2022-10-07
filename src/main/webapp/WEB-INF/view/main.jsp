@@ -88,7 +88,11 @@
 										<a href="moviesingle?m_no=${movie.m_no}">${movie.m_name}</a>
 									</h6>
 									<p>
-										<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
+										<i class="ion-android-star"></i>
+										<span>
+										${movie.review.r_grade}
+										<jsp:include page="TotalAvg.jsp"/> 
+										</span>/100
 									</p>
 								</div>
 							</div>

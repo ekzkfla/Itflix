@@ -85,8 +85,11 @@
 						<div class="movie-rate">
 							<div class="rate">
 								<i class="ion-android-star"></i>
-								<p>
-									<span>${movie2.review.r_grade}</span>/10<br> <span class="rv">56 Reviews</span>
+								<p style="font-size: 12pt">
+									<span>
+									<jsp:include page="TotalAvg.jsp"/>
+									</span>/5<br> 
+									<span class="rv">56 Reviews</span>
 								</p>
 							</div>
 							<div class="rate-star">
@@ -142,11 +145,7 @@
 												<div class="mv-user-review-item">
 													<h3>${movie2.review.r_title }</h3>
 													<div class="no-star">
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star last"></i>
+														<jsp:include page="StarImage.jsp"/>
 													</div>
 													<p class="time">
 														<fmt:formatDate  value="${movie2.review.r_date}" pattern="yyyy/MM/dd"/>
