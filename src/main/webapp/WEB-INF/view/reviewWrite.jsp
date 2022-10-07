@@ -113,26 +113,26 @@
 											 	<form class="mb-3" name="myform" id="myform" method="post">
 													<fieldset>
 														<span class="text-bold">별점을 선택해주세요</span>
-														<input type="radio" name="reviewStar" value="5" id="rate1"><label
+														<input type="radio" name="reviewStar" value="5" id="r_grade1"><label
 															for="rate1">★</label>
-														<input type="radio" name="reviewStar" value="4" id="rate2"><label
+														<input type="radio" name="reviewStar" value="4" id="r_grade2"><label
 															for="rate2">★</label>
-														<input type="radio" name="reviewStar" value="3" id="rate3"><label
+														<input type="radio" name="reviewStar" value="3" id="r_grade3"><label
 															for="rate3">★</label>
-														<input type="radio" name="reviewStar" value="2" id="rate4"><label
+														<input type="radio" name="reviewStar" value="2" id="r_grade4"><label
 															for="rate4">★</label>
-														<input type="radio" name="reviewStar" value="1" id="rate5"><label
+														<input type="radio" name="reviewStar" value="1" id="r_grade5"><label
 															for="rate5">★</label>
 													</fieldset>
 												<!--리뷰 타이틀 부분   -->
 													<div>
-														<textarea class="col-auto form-control" type="text" id="reviewTitle"
+														<textarea class="col-auto form-control" type="text" id="r_title"
 																  placeholder="제목을입력해주세요!">
 														</textarea>
 													</div><br>
 													<!--리뷰 내용  -->
 													<div>
-														<textarea class="col-auto form-control" type="text" id="reviewContents"
+														<textarea class="col-auto form-control" type="text" id="r_content"
 																  placeholder="내용을 입력해 주세요!!">
 														</textarea>
 													</div>

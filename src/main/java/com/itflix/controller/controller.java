@@ -1,5 +1,6 @@
 package com.itflix.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -230,6 +231,25 @@ public class controller {
 	//리뷰 작성 페이지 
 	@RequestMapping(value = "reviewWrite")	
 	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request) throws Exception {
+		String r_title =request.getParameter("r_title");
+		//grade 의 값 설정 해주기 
+		if(request.getParameter("r_grade1") != null) {
+			String r_grade=request.getParameter("r_grade1");
+		}else if(request.getParameter("r_grade2") != null) {
+			String r_grade=request.getParameter("r_grade2");
+		}else if(request.getParameter("r_grade3") != null) {
+			String r_grade=request.getParameter("r_grade3");
+		}else if(request.getParameter("r_grade4") != null) {
+			String r_grade=request.getParameter("r_grade4");
+		}else if(request.getParameter("r_grade5") != null) {
+			String r_grade=request.getParameter("r_grade5");
+		}
+		
+		
+		
+		
+		
+		
 		String forwardPath="";
 		
 		System.out.println();
