@@ -68,30 +68,32 @@
 			</select>
 		</div>
 		<div class="flex-wrap-movielist grid-fav">
-
+ 
 			<c:forEach var="jjim" items="${jjimList}" >
-				<!-- start  -->
+
+ 				<!-- start  -->
 				<div class="movie-item-style-2 movie-item-style-1 style-3">
 					<img
-						src="images/${jjimList[0].movieList[0].category.cg_name}/${jjimList[0].movieList[0].m_name}_1.jpg"
+						src="images/${jjim.movieList[0].category.cg_name}/${jjim.movieList[0].m_name}_1.jpg"
 						alt="">
 					<div class="hvr-inner">
-						<a href="moviesingle?m_no=${jjimList[0].movieList[0].m_no}">Read
+						<a href="moviesingle?m_no=${jjim.movieList[0].m_no}">Read
 							more <i class="ion-android-arrow-dropright"></i>
 						</a>
 					</div>
 					<div class="mv-item-infor">
 						<h6>
-							<a href="moviesingle?m_no=${jjimList[0].movieList[0].m_no}">${jjimList[0].movieList[0].m_name}</a>
+							<a href="moviesingle?m_no=${jjim.movieList[0].m_no}">${jjim.movieList[0].m_name}</a>
 						</h6>
 						<p class="rate">
-							<i class="ion-android-star"></i><span>${jjimList[0].movieList[0].reviewList[0].r_grade }</span>/5
+							<i class="ion-android-star"></i><span>${jjim.movieList[0].reviewList[0].r_grade }</span>/5
 						</p>
 					</div>
 				</div>
+ 				<!-- END  -->
 			</c:forEach>
+
 			
-		
 		</div>
 		<div class="topbar-filter">
 			<label>Movies per page:</label><select><option value="range">20
