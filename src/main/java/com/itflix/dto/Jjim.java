@@ -7,6 +7,7 @@ public class Jjim {
 	private int j_groupno;
 	private int j_step;
 	private int j_depth;
+	
 	private List<User_Info> userList;
 	private List<Movie> movieList;
 	
@@ -69,5 +70,8 @@ public class Jjim {
 				+ ", movieList=" + movieList + "]";
 	}
 
+	
+
+	
 
 }
