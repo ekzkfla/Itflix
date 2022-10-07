@@ -72,11 +72,11 @@
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label><input type="text"
-										placeholder="edwardkennedy">
+										placeholder= ${login_user.u_name}>
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
-										placeholder="edward@kennedy.com">
+										placeholder= ${login_user.u_email}>
 								</div>
 							</div>
 							<div class="row">
@@ -100,19 +100,21 @@
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>예전 비밀번호</label><input type="text"
-										placeholder="**********">
+										placeholder= "**********">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>새로운 비밀번호</label><input type="text"
-										placeholder="***************">
+										placeholder="***************"
+										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>새로운 비밀번호 확인</label><input type="text"
-										placeholder="*************** ">
+										placeholder="*************** "
+										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 								</div>
 							</div>
 							<div class="row">

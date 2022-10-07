@@ -22,31 +22,27 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
-<script type="text/javascript">
-	
-	function userModify(){
-		document.user.action = "userModify";
-		document.user.submit();
-	}
-</script>
 </head>
 <body>
 
+	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
 	
 	<div class="hero user-hero">
 		<div class="container">
+			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h2 style="color:white;">${login_user.u_name}님의 상세페이지</h2><br>
+						<h2 style="color:white;">${login_user.u_name}님의 찜한 영화</h2><br>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>Profile</li>
+							<li><span class="ion-ios-arrow-right"></span>Favorite movies</li>
 						</ul>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 	<div class="page-single">
@@ -72,42 +68,50 @@
 					</div>
 				</div>
 				<div class="col-md-9 col-sm-12 col-xs-12">
-					<div class="form-style-1 user-pro" action="">
-						<form action="" name= "user" class="user" method="post">
-							<h4>회원의 상세페이지</h4>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>이름</label>
-									<input type="text" placeholder = ${login_user.u_name}
-										id="u_name">
-									<a></a>
-									
-								</div>
-								<div class="col-md-6 form-it">
-									<label>이메일</label><input type="text"
-										placeholder = ${login_user.u_email}
-										id="u_email">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>비밀번호</label><input type="text"
-										placeholder= ${login_user.u_pass}
-										id="u_pass">
-								</div>
-								<div class="col-md-6 form-it">
-									<label>핸드폰 번호</label><input type="text"
-										placeholder= ${login_user.u_phone} 	
-										id="u_phone">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-2">
-									<input class="submit" type="submit" onclick= "userModify()" value="수정하기">
-								</div>
-							</div>
-						</form>
+					<div class="topbar-filter user">
+						<p>
+							Found <span>1,608 movies </span>in total
+						</p>
+						<label>Sort by:</label><select><option value="popularity">카테고리</option>
+							<option value="cg=1">액션</option>
+							<option value="cg=2" >로맨스</option>
+							<option value="cg=3">SF/미스터리</option>
+							<option value="cg=4">코미디</option>
+							<option value="date">드라마</option></select>
 					</div>
+
+					<div class="flex-wrap-movielist grid-fav">
+					<!-- jjim movie list start  -->
+						<div class="movie-item-style-2 movie-item-style-1 style-3">
+							<img src="images/uploads/mv1.jpg" alt="">
+							<div class="hvr-inner">
+								<a href="moviesingle">Read more <i
+									class="ion-android-arrow-dropright"></i></a>
+							</div>
+							<div class="mv-item-infor">
+								<h6>
+									<a href="moviesingle">${m_name}</a>
+								</h6>
+								<p class="rate">
+									<i class="ion-android-star"></i><span>8.1</span>/10
+								</p>
+							</div>
+						</div>
+					<!-- jjim movie list end  -->
+					</div>
+					
+					<!-- page option start -->
+					<div class="topbar-filter">
+						<label>Movies per page:</label><select><option
+								value="range">20 Movies</option>
+							<option value="saab">10 Movies</option></select>
+						<div class="pagination2">
+							<span>Page 1 of 2:</span><a class="active" href="#">1</a><a
+								href="#">2</a><a href="#">3</a><a href="#">...</a><a href="#">78</a><a
+								href="#">79</a><a href="#"><i class="ion-arrow-right-b"></i></a>
+						</div>
+					</div>
+					<!-- page option end -->
 				</div>
 			</div>
 		</div>

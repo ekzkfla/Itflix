@@ -1,6 +1,8 @@
 package com.itflix.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itflix.dto.Category;
 import com.itflix.dto.Notice;
+import com.itflix.dto.NoticeListPageMaker;
 import com.itflix.mapper.Notice_Mapper;
 
 
@@ -64,6 +67,19 @@ public class NoticeDaoImpl implements NoticeDao{
 		List<Notice> noticeList = notice_Mapper.selectByTitle(n_title);
 		return noticeList;
 	}
+	
+	// 게시물 리스트를 반환(게시물시작번호,게시물끝번호)
+	@Override
+	public List<Notice> selectNoticeList(int start, int last) throws Exception {
+		List<Notice> noticeList = notice_Mapper.selectNoticeList(start, last);
+		System.out.println("" + start + " ~ " + last);
+		Map<String, Integer> map = new HashMap<>();
+		map.put("start", start);
+		map.put("last", last);
+		return noticeList;
+	}
+	
+	
 	
 	
 	/**************구현 미정**************/

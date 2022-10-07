@@ -1,14 +1,17 @@
 package com.itflix.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itflix.dto.Jjim;
 import com.itflix.dto.User_Info;
+import com.itflix.service.JjimService;
 import com.itflix.service.User_InfoService;
 
 @Controller
@@ -16,6 +19,8 @@ public class UserLoginController {
 
 	@Autowired
 	private User_InfoService user_InfoService;
+	@Autowired
+	private JjimService jjimService;
 
 	/* 로그인 */
 	@RequestMapping(value = "user_login_action")
@@ -33,16 +38,15 @@ public class UserLoginController {
 			if (result == 1) {
 				User_Info loginUser = user_InfoService.selectByEmail(u_email);
 				session.setAttribute("login_email", loginUser.getU_email());
-				;
 				session.setAttribute("login_user", loginUser);
 				System.out.println(loginUser);
 				forwardPath = "main";
 			} else if (result == -1) {
-				// request.setAttribute("login_id", u_email);
-				forwardPath = "ssss";
+				//request.setAttribute("login_id", u_email);
+				//forwardPath = "ssss";
 			} else if (result == -2) {
-				// request.setAttribute("login_id", u_email);
-				forwardPath = "xxxx";
+				//request.setAttribute("login_id", u_email);
+				//forwardPath = "xxxx";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,7 +54,14 @@ public class UserLoginController {
 		}
 		return forwardPath;
 	}
-
+	
+	/*로그아웃*/
+	@RequestMapping("user_logout_action")
+	public String user_logout_action(HttpSession session) {
+		session.invalidate();
+		return "forward:main";
+	}
+	
 	/* 회원가입 */
 	@RequestMapping("CreateUser_action")
 	public String CreateUser(HttpServletRequest request) {
@@ -65,17 +76,27 @@ public class UserLoginController {
 			int result = user_InfoService.insertUser_Info(user);
 			if(result == -1) {
 				//중복일 시 -1 반환
-				request.setAttribute("msg", "이메일 중복");
-				forwardPath = "xxx";
-				
 			}else {
 				//회원가입 성공
-				request.setAttribute("msg", "가입 성공, 짝짝짝");
-				forwardPath = "main";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			forwardPath = "404";
+		}
+		return forwardPath;
+	}
+	
+	
+	/*찜리스트*/
+	@RequestMapping("jjimList")
+	public String jjimList(HttpServletRequest request,String u_email) {
+		String forwardPath = "";
+		try {
+			List<Jjim> jjimList = jjimService.jjimList(u_email);
+			request.setAttribute("jjimList", jjimList);
+			forwardPath = "userfavoritegrid";
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return forwardPath;
 	}
