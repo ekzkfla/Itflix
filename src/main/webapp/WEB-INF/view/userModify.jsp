@@ -53,13 +53,16 @@
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label><input type="text"
-										placeholder= ${login_user.u_name}>
+										placeholder= ${login_user.u_name}
+										readonly>
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
-										placeholder= ${login_user.u_email}>
+										placeholder= ${login_user.u_email}
+										readonly>
 								</div>
 							</div>
+							<!-- 
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>First Name</label><input type="text"
@@ -70,18 +73,24 @@
 										placeholder="Kennedy">
 								</div>
 							</div>
+							 
 							<div class="row">
 								<div class="col-md-2">
 									<input class="submit" type="submit" value="save">
 								</div>
 							</div>
+							-->
 						</form>
 						<form action="" class="password">
-							<h4>02. 비밀번호 변경</h4>
+							<h4> 회원정보 변경</h4>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>예전 비밀번호</label><input type="text"
 										placeholder= "**********">
+								</div>
+								<div class="col-md-6 form-it">
+									<label>핸드폰 번호</label><input type="text"
+										placeholder= ${login_user.u_phone}>
 								</div>
 							</div>
 							<div class="row">
@@ -103,7 +112,9 @@
 									<input class="submit" type="submit" value="change">
 								</div>
 							</div>
+
 						</form>
+
 					</div>
 				</div>
 			</div>

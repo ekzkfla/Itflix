@@ -91,8 +91,7 @@
 										<i class="ion-android-star"></i>
 										<span>
 										${movie.review.r_grade}
-										<jsp:include page="TotalAvg.jsp"/> 
-										</span>/100
+										</span>/5
 									</p>
 								</div>
 							</div>
@@ -145,7 +144,7 @@
 														<a href="#">${movie.m_name}</a>
 													</h6>
 													<p>
-														<i class="ion-android-star"></i><span> ${movie.review.r_grade}</span>/100
+														<i class="ion-android-star"></i><span> ${movie.review.r_grade}</span>/5
 													</p>
 												</div>
 											</div>
@@ -193,7 +192,7 @@
 															<a>${movie.m_name}</a>
 														</h6>
 														<p>
-															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
+															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/5
 														</p>
 													</div>
 												</div>
@@ -224,7 +223,7 @@
 															<a>${movie.m_name}</a>
 														</h6>
 														<p>
-															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
+															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/5
 														</p>
 													</div>
 												</div>
@@ -255,7 +254,7 @@
 															<a>${movie.m_name}</a>
 														</h6>
 														<p>
-															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
+															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/5
 														</p>
 													</div>
 												</div>
@@ -286,7 +285,7 @@
 														<a href="#">Die hard</a>
 													</h6>
 													<p>
-														<i class="ion-android-star"></i><span>7.4</span>/10
+														<i class="ion-android-star"></i><span>7.4</span>/5
 													</p>
 												</div>
 											</div>

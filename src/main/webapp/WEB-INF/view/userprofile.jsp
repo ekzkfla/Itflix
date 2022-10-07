@@ -13,6 +13,9 @@
 <meta name="keywords" content="">
 <meta name="author" content="">
 <link rel="profile" href="#">
+<style type="text/css">
+
+</style>
 <!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
@@ -60,26 +63,30 @@
 								<div class="col-md-6 form-it">
 									<label>이름</label>
 									<input type="text" placeholder = ${login_user.u_name}
-										id="u_name">
+										id="u_name"
+										readonly>
 									<a></a>
 									
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
 										placeholder = ${login_user.u_email}
-										id="u_email">
+										id="u_email"
+										readonly>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>비밀번호</label><input type="text"
-										placeholder= ${login_user.u_pass}
-										id="u_pass">
+										placeholder= "********"
+										id="u_pass"
+										readonly>
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label><input type="text"
 										placeholder= ${login_user.u_phone} 	
-										id="u_phone">
+										id="u_phone"
+										readonly>
 								</div>
 							</div>
 							<div class="row">

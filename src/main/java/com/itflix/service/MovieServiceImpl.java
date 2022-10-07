@@ -126,4 +126,16 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.movieAllCount();
 	}
 	
+	//배우 이름으로 영화 검색
+	@Override
+	public List<Movie> searchActor(String name) throws Exception {
+		return movieDao.searchActor(name);
+	}
+	
+	//영화 이름으로 영화 검색
+	@Override
+	public List<Movie> searchMovie(String name) throws Exception {
+		return movieDao.searchMovie(name);
+	}
+	
 }

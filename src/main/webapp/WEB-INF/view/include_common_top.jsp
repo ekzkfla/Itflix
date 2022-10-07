@@ -154,7 +154,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 					if (login_user == null) {
 					%>
 					<li class="btn signupLink"><a href="#">회원가입</a></li>
-					<li class="loginLink"><a href="#">로그인</a></li>
+					<li class="loginLink"><a href="">로그인</a></li>
 					<%
 					} else {
 					%>
@@ -169,16 +169,14 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 			<!-- /.navbar-collapse -->
 		</nav>
 		<!-- top search form -->
+		<form action="" method="get">
 		<div class="top-search">
-			<select><option value="united">카테고리</option>
-				<option value="saab">액션</option>
-				<option value="saab">코미디</option>
-				<option value="saab">로맨스</option>
-				<option value="saab">호러/스릴러</option>
-				<option value="saab">SF/판타지</option>
-				<option value="saab">드라마</option>
+			<select data-trigger="" name="movieSearch">
+				<option value="${searchMovie }">영화</option>
+				<option value="${searchActor }">감독●출연</option>
 			</select> <input type="text"
 				placeholder="Serch your Movie and enjoy your Life">
 		</div>
+		</form>
 	</div>
 </header>

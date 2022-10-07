@@ -16,27 +16,27 @@
 		<a style="font-size: 10pt; color:#0DEEC9">x</a> 
 	</c:if>
 	<!--평점 0점 이상 20점 미만일 경우  -->
-	<c:if test="${grades ge 0 && grades lt 20}">
+	<c:if test="${grades ge 0 && grades lt 1}">
 		 <a style="font-size: 15pt; color:#0DEEC9">0</a> 
 	</c:if>
 	<!--평점 20점 이상 40점 미만일 경우  -->
-	<c:if test="${grades ge 20 && grades lt 40}">
+	<c:if test="${grades ge 1 && grades lt 2}">
 		 <a style="font-size: 15pt; color:#0DEEC9">1</a> 
 	</c:if>
 	<!--평점 40점 이상 60점 미만일 경우  -->
-	<c:if test="${grades ge 40 && grades lt 60}">
+	<c:if test="${grades ge 2 && grades lt 3}">
 		<a style="font-size: 15pt; color:#0DEEC9">2</a> 
 	</c:if>
 	<!--평점 60점 이상 80점 미만일 경우  -->
-	<c:if test="${grades ge 60 && grades lt 80}">
+	<c:if test="${grades ge 3 && grades lt 4}">
 		<a style="font-size: 15pt; color:#0DEEC9">3</a> 
 	</c:if>
 	<!--평점 80점 이상 90점 미만일 경우  -->
-	<c:if test="${grades ge 80 && grades lt 90}">
+	<c:if test="${grades ge 4 && grades lt 5}">
 		<a style="font-size: 15pt; color:#0DEEC9">4</a> 
 	</c:if>
 	<!-- 평점 100점 이상인 경우 -->
-	<c:if test="${grades eq 100}">
+	<c:if test="${grades eq 5}">
 		<a style="font-size: 12pt; color:#0DEEC9">5</a> 
 	</c:if>
 	
