@@ -72,19 +72,17 @@ public class MovieDaoImpl implements MovieDao {
 		return movie;
 	}
 	
-	
-
 	//조회수 높은 순으로 출력
 	@Override
-	public List<Movie> selectMovieCount() throws Exception {
-		List<Movie> movieList = movie_Mapper.selectMovieCount();
+	public List<Movie> selectMovieCountList() throws Exception {
+		List<Movie> movieList = movie_Mapper.selectMovieCountList();
 		return movieList;
 	}
 	
 	//평점 높은 순으로 출력
 	@Override
-	public List<Movie> selectMovieGrade() throws Exception {
-		List<Movie> movieList = movie_Mapper.selectMovieGrade();
+	public List<Movie> selectMovieGradeList() throws Exception {
+		List<Movie> movieList = movie_Mapper.selectMovieGradeList();
 		return movieList;
 	}
 
@@ -102,6 +100,13 @@ public class MovieDaoImpl implements MovieDao {
 		return movieList;
 	}
 
+	//영화 번호로 평점 출력
+	@Override
+	public Movie selectMovieGradeByNo(int m_no) throws Exception {
+		Movie movie = movie_Mapper.selectMovieGradeByNo(m_no); 
+		return movie;
+	}
+	
 	//영화 번호로 조회수 출력
 	@Override
 	public Movie selectMovieCountByNo(int m_no) throws Exception {
