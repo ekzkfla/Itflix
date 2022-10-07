@@ -121,7 +121,7 @@ public interface Movie_Mapper {
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name \n"
 				+ "ORDER BY m_count DESC")
 		@ResultMap("selectMovieResultMap")
-		public List<Movie> selectMovieCount();
+		public List<Movie> selectMovieCountList();
 		
 		//평점 높은 순으로 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
@@ -133,7 +133,7 @@ public interface Movie_Mapper {
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
 				+ "ORDER BY m_count DESC")
 		@ResultMap("selectMovieResultMap")
-		public List<Movie> selectMovieGrade();
+		public List<Movie> selectMovieGradeList();
 		
 		//영화 개봉일 최신순으로 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
@@ -162,6 +162,12 @@ public interface Movie_Mapper {
 				+ "m_date = #{m_date}, m_url = #{m_url}, cg_no = #{cg_no} where m_no = #{m_no}")
 		public int updateMovie(Movie movie);
 		
+		//영화 번호로 평점 출력
+		@Select("select avg(r.r_grade) as r_grade from Movie m left outer join Review r \n"
+				+ "on m.m_no = r.m_no where m.m_no = #{m.m_no}")
+		@ResultMap("selectMovieGradeResultMap")
+		public Movie selectMovieGradeByNo(int m_no);
+		
 		//영화 번호로 조회수 출력
 		@Select("select m_count from Movie where m_no = #{m_no}")
 		public Movie selectMovieCountByNo(int m_no);
@@ -182,6 +188,14 @@ public interface Movie_Mapper {
 		//영화 전체 총 갯수
 		@Select("select count(*) from movie")
 		public int movieAllCount();
+		
+		//배우 이름으로 영화 검색
+		@Select("select m.m_name from Movie m where m.m_actor LIKE '%'||#{m.m_actor}||'%' ORDER BY m.m_no ASC")
+		public List<Movie> searchActor(String m_actor);
+		
+		//영화 이름으로 영화 검색
+		@Select("select m.m_name from Movie m where m.m_name LIKE '%'||#{m.m_name}||'%' ORDER BY m.m_no ASC")
+		public List<Movie> searchMovie(String m_name);
 		
 		
 	//public movie_Mapper selectByNo(int no);

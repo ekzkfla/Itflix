@@ -43,28 +43,9 @@
 				</div>
 		</div>
 	</div>
-	<div class="page-single">
-		<div class="container">
-			<div class="row ipad-width">
-				<div class="col-md-3 col-sm-12 col-xs-12">
-				<div></div>
-					<div class="user-information">
-						<div class="user-img">
-							<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a><a
-								href="#" class="redbtn">Change avatar</a>
-						</div>
-						<div class="user-fav">
-							<p>상세페이지</p>
-							<ul>
-								<li class="active"><a href="userprofile">프로필 수정</a></li>
-								<li><a href="userfavoritegrid">찜한 영화</a></li>
-								<li><a href="userrate">선호하는 카테고리 영화<br><br></a></li>
-								
-								<li><a href="#">로그아웃</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+		<!-- Start | user leff menu bar-->
+	<jsp:include page="include_user_menu.jsp" />
+	<!-- End | user leff menu bar-->
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="form-style-1 user-pro" action="">
 						<form action="" class="user">
@@ -72,13 +53,16 @@
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label><input type="text"
-										placeholder="edwardkennedy">
+										placeholder= ${login_user.u_name}
+										readonly>
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
-										placeholder="edward@kennedy.com">
+										placeholder= ${login_user.u_email}
+										readonly>
 								</div>
 							</div>
+							<!-- 
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>First Name</label><input type="text"
@@ -89,30 +73,38 @@
 										placeholder="Kennedy">
 								</div>
 							</div>
+							 
 							<div class="row">
 								<div class="col-md-2">
 									<input class="submit" type="submit" value="save">
 								</div>
 							</div>
+							-->
 						</form>
 						<form action="" class="password">
-							<h4>02. 비밀번호 변경</h4>
+							<h4> 회원정보 변경</h4>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>예전 비밀번호</label><input type="text"
-										placeholder="**********">
+										placeholder= "**********">
+								</div>
+								<div class="col-md-6 form-it">
+									<label>핸드폰 번호</label><input type="text"
+										placeholder= ${login_user.u_phone}>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>새로운 비밀번호</label><input type="text"
-										placeholder="***************">
+										placeholder="***************"
+										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>새로운 비밀번호 확인</label><input type="text"
-										placeholder="*************** ">
+										placeholder="*************** "
+										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 								</div>
 							</div>
 							<div class="row">
@@ -120,7 +112,9 @@
 									<input class="submit" type="submit" value="change">
 								</div>
 							</div>
+
 						</form>
+
 					</div>
 				</div>
 			</div>

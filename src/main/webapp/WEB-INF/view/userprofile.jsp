@@ -13,6 +13,9 @@
 <meta name="keywords" content="">
 <meta name="author" content="">
 <link rel="profile" href="#">
+<style type="text/css">
+
+</style>
 <!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
@@ -49,28 +52,9 @@
 				</div>
 		</div>
 	</div>
-	<div class="page-single">
-		<div class="container">
-			<div class="row ipad-width">
-				<div class="col-md-3 col-sm-12 col-xs-12">
-				<div></div>
-					<div class="user-information">
-						<div class="user-img">
-							<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a><a
-								href="#" class="redbtn">Change avatar</a>
-						</div>
-						<div class="user-fav">
-							<p>상세페이지</p>
-							<ul>
-								<li class="active"><a href="userprofile">프로필 수정</a></li>
-								<li><a href="userfavoritegrid">찜한 영화</a></li>
-								<li><a href="userrate">선호하는 카테고리 영화<br><br></a></li>
-								
-								<li><a href="#">로그아웃</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+		<!-- Start | user leff menu bar-->
+	<jsp:include page="include_user_menu.jsp" />
+	<!-- End | user leff menu bar-->
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="form-style-1 user-pro" action="">
 						<form action="" name= "user" class="user" method="post">
@@ -78,27 +62,31 @@
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
-									<input type="text" placeholder="edwardkennedy"
-										id="u_name">
+									<input type="text" placeholder = ${login_user.u_name}
+										id="u_name"
+										readonly>
 									<a></a>
 									
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
-										placeholder="edward@kennedy.com" 
-										id="u_email">
+										placeholder = ${login_user.u_email}
+										id="u_email"
+										readonly>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>비밀번호</label><input type="text"
-										placeholder="Edward " 
-										id="u_pass">
+										placeholder= "********"
+										id="u_pass"
+										readonly>
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label><input type="text"
-										placeholder="Kennedy" 	
-										id="u_phone">
+										placeholder= ${login_user.u_phone} 	
+										id="u_phone"
+										readonly>
 								</div>
 							</div>
 							<div class="row">

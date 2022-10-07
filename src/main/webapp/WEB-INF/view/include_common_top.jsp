@@ -3,11 +3,33 @@
 	import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<style type="text/css">
+input#search {
+background:url(images/uploads/topsearch.png);
+background-repeat: no-repeat;
+background-position: 0px center;
+width:45px;
+height:45x;
+align-items: center;
+}
+</style>
+<script type="text/javascript">
+	function keywordCheck() {
+		var str_keyword = window.searchform.keyword.value;
+		if (!str_keyword || str_keyword === "") {
+			window.alert("검색어를 입력하세요.");
+			window.searchform.keyword.focus();
+			return false;
+		}
+		window.searchform.submit();
+	}
+</script>
 <%
 //String sUserId = (String) session.getAttribute("sUserId");
 User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
+
+
 
 <header class="ht-header">
 	<!--start of loading<로딩페이지 로고 사진 >-->
@@ -154,7 +176,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 					if (login_user == null) {
 					%>
 					<li class="btn signupLink"><a href="#">회원가입</a></li>
-					<li class="loginLink"><a href="#">로그인</a></li>
+					<li class="loginLink"><a href="">로그인</a></li>
 					<%
 					} else {
 					%>
@@ -169,16 +191,15 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 			<!-- /.navbar-collapse -->
 		</nav>
 		<!-- top search form -->
+		<form action="movieSearch" method="get">
 		<div class="top-search">
-			<select><option value="united">카테고리</option>
-				<option value="saab">액션</option>
-				<option value="saab">코미디</option>
-				<option value="saab">로맨스</option>
-				<option value="saab">호러/스릴러</option>
-				<option value="saab">SF/판타지</option>
-				<option value="saab">드라마</option>
-			</select> <input type="text"
-				placeholder="Serch your Movie and enjoy your Life">
+			<select data-trigger="" name="searchType" >
+				<option value="name">영화</option>
+				<option value="actor">감독●출연</option>
+			</select> 
+			<input name="" type="text" placeholder="Serch your Movie and enjoy your Life" >
+			<input type="submit" id="search"  >
 		</div>
+		</form>
 	</div>
 </header>

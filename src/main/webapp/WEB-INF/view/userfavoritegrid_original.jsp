@@ -36,7 +36,6 @@
 				<div class="col-md-12">
 					<div class="hero-ct">
 						<h2 style="color: white;">내가 찜한 콘텐츠</h2>
-						<br>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Favorite movies</li>
@@ -46,11 +45,34 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Start | user left menu bar-->
 	<jsp:include page="include_user_menu.jsp" />
 	<!-- End | user left menu bar-->
 
+	<!-- ★
+	<div class="page-single">
+		<div class="container">
+			<div class="row ipad-width">
+				<div class="col-md-3 col-sm-12 col-xs-12">
+				<div></div>
+					<div class="user-information">
+						<div class="user-img">
+							<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a><a
+								href="#" class="redbtn">Change avatar</a>
+						</div>
+						<div class="user-fav">
+							<p>상세페이지</p>
+							<ul>
+								<li class="active"><a href="userprofile">프로필 수정</a></li>
+								<li><a href="userfavoritegrid">찜한 영화</a></li>
+								<li><a href="userrate">선호하는 카테고리 영화<br><br></a></li>
+								
+								<li><a href="#">로그아웃</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				 -->
 	<div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="topbar-filter user">
 			<p>
@@ -66,7 +88,6 @@
 			</select>
 		</div>
 		<div class="flex-wrap-movielist grid-fav">
-		<!-- start  -->
 			<div class="movie-item-style-2 movie-item-style-1 style-3">
 				<img src="images/uploads/mv1.jpg" alt="">
 				<div class="hvr-inner">
@@ -75,14 +96,13 @@
 				</div>
 				<div class="mv-item-infor">
 					<h6>
-						<a href="moviesingle?m_no=${jjimList[0].movieList[0].m_no}">${jjimList[0].movieList[0].m_name}</a>
+						<a href="moviesingle">oblivion</a>
 					</h6>
 					<p class="rate">
 						<i class="ion-android-star"></i><span>8.1</span>/10
 					</p>
 				</div>
 			</div>
-			<!-- end  -->
 			<div class="movie-item-style-2 movie-item-style-1 style-3">
 				<img src="images/uploads/mv2.jpg" alt="">
 				<div class="hvr-inner">
@@ -380,12 +400,10 @@
 			</div>
 		</div>
 	</div>
-	
 
 	</div>
 	</div>
 	</div>
-	
 
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>
