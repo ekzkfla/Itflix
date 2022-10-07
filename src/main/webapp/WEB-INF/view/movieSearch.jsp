@@ -26,6 +26,13 @@
 </head>
 <body>
 	
+<%
+	String searchType = request.getParameter("searchType");
+	String keyword = request.getParameter("keyword");
+	if(searchType==null|| searchType.equals("")){
+		response.sendRedirect("main");
+		return;
+	%>
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->

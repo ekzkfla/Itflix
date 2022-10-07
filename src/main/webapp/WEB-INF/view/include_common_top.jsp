@@ -13,6 +13,17 @@ height:45x;
 align-items: center;
 }
 </style>
+<script type="text/javascript">
+	function keywordCheck() {
+		var str_keyword = window.searchform.keyword.value;
+		if (!str_keyword || str_keyword === "") {
+			window.alert("검색어를 입력하세요.");
+			window.searchform.keyword.focus();
+			return false;
+		}
+		window.searchform.submit();
+	}
+</script>
 <%
 //String sUserId = (String) session.getAttribute("sUserId");
 User_Info login_user = (User_Info) session.getAttribute("login_user");
@@ -180,14 +191,14 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 			<!-- /.navbar-collapse -->
 		</nav>
 		<!-- top search form -->
-		<form action="" method="get">
+		<form action="movieSearch" method="get">
 		<div class="top-search">
-			<select name="movieSearch">
-				<option value="">영화</option>
-				<option value="">감독●출연</option>
+			<select data-trigger="" name="searchType" >
+				<option value="name">영화</option>
+				<option value="actor">감독●출연</option>
 			</select> 
-			<input type="text" placeholder="Serch your Movie and enjoy your Life" >
-			<input type="submit" id="search" alt="search" value="">
+			<input name="" type="text" placeholder="Serch your Movie and enjoy your Life" >
+			<input type="submit" id="search" value="" >
 		</div>
 		</form>
 	</div>
