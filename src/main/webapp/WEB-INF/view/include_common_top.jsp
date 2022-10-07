@@ -198,7 +198,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 				<option value="actor">감독●출연</option>
 			</select> 
 			<input name="" type="text" placeholder="Serch your Movie and enjoy your Life" >
-			<input type="submit" id="search" value="" >
+			<input type="submit" id="search"  >
 		</div>
 		</form>
 	</div>
