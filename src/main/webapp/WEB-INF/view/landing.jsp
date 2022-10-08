@@ -5,6 +5,7 @@
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
+
 <head>
 <!-- Basic need -->
 <title>Open Pediatrics</title>
@@ -13,27 +14,154 @@
 <meta name="keywords" content="">
 <meta name="author" content="">
 <link rel="profile" href="#">
+<!--BootStrap bundle  -->
+<link rel="stylesheet"
+	href='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js' />
 <!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
 <!-- Mobile specific meta -->
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone-no">
+<!--JQuery js  -->
+<link rel="stylesheet"
+	href='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' />
 <!-- CSS files -->
+<link rel="stylesheet"
+	href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' />
+<link rel="stylesheet"
+	href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' />
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
+<style>
+ .center {
+	      text-align:  center;
 	
+}
+.rounded {
+	border-radius: 1rem
+}
+
+.nav-pills .nav-link {
+	color: #555
+}
+
+.nav-pills .nav-link.active {
+	color: white
+}
+
+input[type="radio"] {
+	margin-right: 5px
+}
+
+.bold {
+	font-weight: bold
+}
+</style>
+<script type="text/javascript">
+$(function() {
+	$('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</head>
+	<!--결제 팝업-->
+<body>
+	<div class="login-wrapper" id="login-content">
+		<div class="login-content">
+			<div class="card ">
+				<div class="card-header">
+					<!--카드 메뉴바-->
+					<div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+						<ul role="tablist"
+							class="nav bg-light nav-pills rounded nav-fill mb-3">
+							<li class="nav-item"><a data-toggle="pill"
+								href="#credit-card" class="nav-link active "> <i
+									class="fas fa-credit-card mr-2"></i> 신용카드
+							</a></li>
+						</ul>
+					</div>
+					<!--카드 메뉴바 끝  -->
+					
+						<div class="tab-content">
+							<!-- credit card info-->
+							<div id="credit-card" class="tab-pane fade show active pt-3">
+								<form role="form" onsubmit="event.preventDefault()">
+									<div class="form-group">
+										<label for="username">
+											<h6>이름</h6>
+										</label> <input type="text" name="username"
+											placeholder="Card Owner Name" required class="form-control ">
+									</div>
+									<div class="form-group">
+										<label for="cardNumber">
+											<h6>카드 번호</h6>
+										</label>
+										<div class="input-group">
+											<input type="text" name="cardNumber"
+												placeholder="Valid card number" class="form-control "
+												required>
+											<div class="input-group-append">
+												<span class="input-group-text text-muted"> <i
+													class="fab fa-cc-visa mx-1"></i> <i
+													class="fab fa-cc-mastercard mx-1"></i> <i
+													class="fab fa-cc-amex mx-1"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-8">
+											<div class="form-group">
+												<label><span class="hidden-xs">
+														<h6>유효기간</h6>
+												</span></label>
+												<div class="input-group">
+													<input type="number" placeholder="MM" name=""
+														class="form-control" required> <input
+														type="number" placeholder="YY" name=""
+														class="form-control" required>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group mb-4">
+												<label data-toggle="tooltip"
+													title="Three digit CV code on the back of your card">
+													<h6>
+														CVV<a style="font-size: 5pt">(숫자3개)</a> <i class="fa fa-question-circle d-inline"></i>
+													</h6>
+												</label> <input type="text" required class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="card-footer">
+										<button type="button"
+											class="subscribe btn btn-primary btn-block shadow-sm">
+											Confirm Payment</button>
+									</div>
+									<div class ="card-text">
+											<p class="text-muted">Note: 결제가 될거같이 생겼지만 결제는 안된다... 후....</p>
+									</div>
+								</form>
+							</div>
+						</div>
+						</div>
+					</div>
+		</div>
+	</div>
+	<!--결제 팝업-->
+
 	<div class="landing-hero">
-		<a href="main">
-			<img src="images/logo1.png" alt="Logo">
+		<a href="main"> <img src="images/mylogo.png" alt="Logo" width="200px" height="200px">
 		</a>
 		<div class="row landing-hero-text">
 			<img src="images/payImage.png" alt="Logo">
 		</div>
-		<a href="landing2"  class="redbtn">BUY NOW</a>
+			<div class="center">
+				<li class="loginLink"><a href="#" class="redbtn">결제하기</a></li>
+			</div>
+			<ul class="nav navbar-nav flex-child-menu menu-right">
+			</ul>
 	</div>
 
 	<!-- footer v3 section-->

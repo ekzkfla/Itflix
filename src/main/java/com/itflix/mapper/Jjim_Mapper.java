@@ -15,24 +15,32 @@ import com.itflix.dto.Jjim;
 public interface Jjim_Mapper {
 	
 	/* 1명 회원 영화 찜 목록보기 */
-	@Select("select m.m_no,"
-			+ "     m.cg_no,"
-			+ "     m.m_name,"
-			+ "     m.m_i`mage,"
-			+ "     m.m_date,"
-			+ "     m.m_count,"
-			+ "     avg(r.r_grade)"
-			+ "from movie m"
-			+ "left join review r"
-			+ "on m.m_no=r.m_no"
-			+ "left join jjim j"
-			+ "on m.m_no=j.m_no"
-			+ "where j.u_email='guard1@gmail.com'"
-			+ "group by m.m_no,"
-			+ "         m.cg_no,"
-			+ "         m.m_image,"
-			+ "         m.m_date,"
+	@Select("select j.u_email,\r\n"
+			+ "        m.m_no,\r\n"
+			+ "        m.cg_no, \r\n"
+			+ "        c.cg_name,\r\n"
+			+ "        m.m_name,\r\n"
+			+ "        m.m_image,\r\n"
+			+ "        m.m_date,\r\n"
+			+ "        m.m_count,\r\n"
+			+ "        avg(r.r_grade) as r_grade \r\n"
+			+ "from movie m \r\n"
+			+ "left join review r \r\n"
+			+ "on m.m_no=r.m_no \r\n"
+			+ "left join category c \r\n"
+			+ "on m.cg_no=c.cg_no     \r\n"
+			+ "left join jjim j \r\n"
+			+ "on m.m_no=j.m_no \r\n"
+			+ "where j.u_email=#{u_email}\r\n"
+			+ "group by j.u_email,\r\n"
+			+ "         m.m_no,\r\n"
+			+ "         m.cg_no,\r\n"
+			+ "         c.cg_name,\r\n"
+			+ "         m.m_name,\r\n"
+			+ "         m.m_image,\r\n"
+			+ "         m.m_date,\r\n"
 			+ "         m.m_count")
+	@ResultMap("Test")
 	public List<Jjim> jjimList(String u_email);
 	
 	
@@ -43,12 +51,11 @@ public interface Jjim_Mapper {
 	/* 영화 찜하기 해제*/
 	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
 	public int jjimDelete(String u_email,int m_no);
-
-		
+	
 	
 	 
 	/* 리뷰의 총평점 조인안하고 불러오기*/  
-	@Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email='guard1@gmail.com'")
+	@Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email=#{u_email}")
 	@ResultMap("jjimListTest4")
 	public List<Jjim> jjimListTest5(String u_email);
 	

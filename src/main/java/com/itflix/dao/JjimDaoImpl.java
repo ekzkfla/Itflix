@@ -28,14 +28,12 @@ public class JjimDaoImpl implements JjimDao {
 	}
 
 		
-	/* 1명 회원 영화 찜 목록보기 (u_email 조회) */
-	/*
+	/* 1명 회원 영화 찜 목록보기(리뷰평점포함) */
 	@Override
 	public List<Jjim> jjimList(String u_email) throws Exception {
 		List<Jjim> jjimList =jjim_Mapper.jjimList(u_email);
 		return jjimList;
 	}
-	*/
 	
 	/* 영화 찜하기 (u_email 에 m_no로 저장*)*/
 	@Override
@@ -51,7 +49,6 @@ public class JjimDaoImpl implements JjimDao {
 		return jjimDelete;
 	}
 	
-
 	/* 리뷰의 총평점 조인안하고 불러오기*/
 	@Override
 	public List<Jjim> jjimListTest5(String u_email) throws Exception{

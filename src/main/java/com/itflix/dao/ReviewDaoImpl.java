@@ -44,8 +44,8 @@ public class ReviewDaoImpl implements ReviewDao {
 
 	// 최신 리뷰 출력
 	@Override
-	public List<Review> selectLatest(int no) throws Exception {
-		List<Review> selectLatest = review_Mapper.selectLatest(no);
+	public List<Review> selectLatest(int m_no) throws Exception {
+		List<Review> selectLatest = review_Mapper.selectLatest(m_no);
 		return selectLatest;
 	}
 

@@ -15,13 +15,14 @@ public class Review {
 	private int r_depth;
 	private Movie movie;
 	private List<User_Info> userList;
+	private User_Info user_Info;
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Review(int r_no, String r_title, String r_content, int r_grade, Date r_date, int r_groupno, int r_step,
-			int r_depth, Movie movie, List<User_Info> userList) {
+			int r_depth, Movie movie, List<User_Info> userList, User_Info user_Info) {
 		super();
 		this.r_no = r_no;
 		this.r_title = r_title;
@@ -33,6 +34,7 @@ public class Review {
 		this.r_depth = r_depth;
 		this.movie = movie;
 		this.userList = userList;
+		this.user_Info = user_Info;
 	}
 
 	public int getR_no() {
@@ -115,11 +117,19 @@ public class Review {
 		this.userList = userList;
 	}
 
+	public User_Info getUser_Info() {
+		return user_Info;
+	}
+
+	public void setUser_Info(User_Info user_Info) {
+		this.user_Info = user_Info;
+	}
+
 	@Override
 	public String toString() {
 		return "Review [r_no=" + r_no + ", r_title=" + r_title + ", r_content=" + r_content + ", r_grade=" + r_grade
 				+ ", r_date=" + r_date + ", r_groupno=" + r_groupno + ", r_step=" + r_step + ", r_depth=" + r_depth
-				+ ", movie=" + movie + ", userList=" + userList + "]";
+				+ ", movie=" + movie + ", userList=" + userList + ", user_Info=" + user_Info + "]";
 	}
 	
 }

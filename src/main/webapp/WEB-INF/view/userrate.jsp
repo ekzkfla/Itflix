@@ -22,6 +22,46 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+window.URL = window.URL || window.webkitURL;
+
+const fileSelect = document.getElementById("fileSelect"),
+    fileElem = document.getElementById("fileElem"),
+    fileList = document.getElementById("fileList");
+
+fileSelect.addEventListener("click", function (e) {
+  if (fileElem) {
+    fileElem.click();
+  }
+  e.preventDefault(); // "#" 해시로 이동을 방지
+}, false);
+
+function handleFiles(files) {
+  if (!files.length) {
+    fileList.innerHTML = "<p>No files selected!</p>";
+  } else {
+    fileList.innerHTML = "";
+    const list = document.createElement("ul");
+    fileList.appendChild(list);
+    for (let i = 0; i < files.length; i++) {
+      const li = document.createElement("li");
+      list.appendChild(li);
+
+      const img = document.createElement("img");
+      img.src = window.URL.createObjectURL(files[i]);
+      img.height = 60;
+      img.onload = function() {
+        window.URL.revokeObjectURL(this.src);
+      }
+      li.appendChild(img);
+      const info = document.createElement("span");
+      info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
+      li.appendChild(info);
+    }
+  }
+}
+</script>
+
 </head>
 <body>
 	
@@ -35,7 +75,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1>Edward kennedy’s profile</h1>
+						<h1>${login_user.u_name} profile</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Rated movies</li>
@@ -45,27 +85,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="page-single">
-		<div class="container">
-			<div class="row ipad-width2">
-				<div class="col-md-3 col-sm-12 col-xs-12">
-					<div class="user-information">
-						<div class="user-img">
-							<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a><a
-								href="#" class="redbtn">Change avatar</a>
-						</div>
-						<div class="user-fav">
-							<p>상세페이지</p>
-							<ul>
-								<li class="active"><a href="userprofile">프로필 수정</a></li>
-								<li><a href="userfavoritegrid">찜한 영화</a></li>
-								<li><a href="userrate">선호하는 카테고리 영화<br><br></a></li>
-								
-								<li><a href="#">로그아웃</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+	<!-- Start | user leff menu bar-->
+	<jsp:include page="include_user_menu.jsp" />
+	<!-- End | user leff menu bar-->
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
 						<p>

@@ -44,8 +44,8 @@ public class ReviewServiceImpl implements ReviewService {
 
 	// 최신 리뷰 출력
 	@Override
-	public List<Review> selectLatest(int no) throws Exception {
-		return reviewDao.selectLatest(no);
+	public List<Review> selectLatest(int m_no) throws Exception {
+		return reviewDao.selectLatest(m_no);
 	}
 
 	// 선택한 리뷰 출력

@@ -46,17 +46,29 @@
 		<div class="container">
 			<div class="row ipad-width2">
 				<div class="col-md-2 col-sm-4 col-xs-4">
+				
+					<!-- ↓↓↓이미지↓↓↓ -->
+					<div class="slide-it">
+					<div class="movie-item">
+					<div class="mv-img">
 					<div class="movie-img sticky-sb">
-						<img src="images/uploads/movie-single.jpg" alt="">
+						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="" width="30" height="30">
+						<div class="hvr-inner" >
+							<a href="moviesingle?m_no=${movie.m_no }">Read more<i class="ion-android-arrow-dropright"></i></a>
+						</div>
 					</div>
+					</div>
+					</div>
+					</div>
+					<!-- ↑↑↑이미지↑↑↑ -->
+
 				</div>
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
 					
-						<c:forEach items="${reviewList }" var="review">
 						<!-- ↓↓↓영화 타이틀 제목↓↓↓  -->
 						<h1 class="bd-hd">
-							${movie.m_name }
+							${movie.m_name } Review
 						</h1>
 						<!-- ↑↑↑영화 타이틀 제목↑↑↑  -->
 						
@@ -70,39 +82,36 @@
 											<div class="col-md-8 col-sm-12 col-xs-12">
 											
 												<!-- 상단 -->
-												<div class="title-hd-sm" style="right: 1200px">
+												<div class="title-hd-sm" >
 													<h4>User reviews</h4>
 												</div>
 												
 												
 												<!-- movie user review -->
+												<c:forEach items="${reviewLatest }" var="review" >
 												<div class="mv-user-review-item">
-													<h3>Best Marvel movie in my opinion</h3>
+													<h3>제목 : ${review.r_title }</h3>
+													<!-- ↓↓↓평점↓↓↓ -->
 													<div class="no-star">
+														평점 : ${review.r_grade }
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star last"></i>
 													</div>
-													<p class="time">
-														17 December 2016 by
+													<!-- ↓↓↓날짜↓↓↓ -->
+													<p class="time" style=text-align-last:right;>
+													날짜 : <fmt:formatDate value="${review.r_date}" pattern="yyyy/MM/dd"></fmt:formatDate> 
 													</p>
-													<p>This is by far one of my favorite movies from the
-														MCU. The introduction of new Characters both good and bad
-														also makes the movie more exciting. giving the characters
-														more of a back story can also help audiences relate more
-														to different characters better, and it connects a bond
-														between the audience and actors or characters. Having seen
-														the movie three times does not bother me here as it is as
-														thrilling and exciting every time I am watching it. In
-														other words, the movie is by far better than previous
-														movies (and I do love everything Marvel), the plotting is
-														splendid (they really do out do themselves in each film,
-														there are no problems watching it more than once.</p>
+													<!-- ↓↓↓내용↓↓↓ -->
+														<p>내용 : ${review.r_content }</p><hr>
+													<!-- ↓↓↓유저 이메일↓↓↓ -->
+														<p>글쓴이 : ${review.user_Info.u_email }</p>
+													<div class="title-hd-sm"></div>
 												</div>
 												
-												
+												</c:forEach>
 												
 											</div>
 										</div>
@@ -110,22 +119,19 @@
 								</div>
 							</div>
 						</div>
-						</c:forEach>
 					</div>
-					
+
 					<!-- ↓↓↓하단 페이지↓↓↓ -->
-												<div class="topbar-filter">
-												<label>Reviews per page:</label>
-												<label> 5 Reviews</label>
-													<div class="pagination2">
-														<span>Page 1 of 5:</span><a class="active" href="#">1</a><a
-															href="#">1</a><a href="#">2</a><a href="#">3</a><a
-															href="#">4</a><a href="#">5</a><a href="#"><i
-															class="ion-arrow-right-b"></i></a>
-													</div>
-												</div>
-												<!-- ↑↑↑하단 페이지↑↑↑ -->
-					
+					<div class="topbar-filter">
+						<label>Reviews per page:</label> <label> 5 Reviews</label>
+						<div class="pagination2">
+							<span>Page 1 of 5:</span><a class="active" href="#">1</a><a
+								href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a
+								href="#">5</a><a href="#"><i class="ion-arrow-right-b"></i></a>
+						</div>
+					</div>
+					<!-- ↑↑↑하단 페이지↑↑↑ -->
+
 				</div>
 			</div>
 		</div>

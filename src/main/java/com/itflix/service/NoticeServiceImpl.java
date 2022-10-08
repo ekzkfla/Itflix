@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.itflix.dao.NoticeDao;
 import com.itflix.dto.Notice;
+import com.itflix.dto.PageMaker;
+import com.itflix.dto.PageMakerDto;
 
 @Service
 public class NoticeServiceImpl implements NoticeService{
@@ -28,6 +30,19 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 
+	//공지사항 리스트 페이징
+	@Override
+	public PageMakerDto<Notice> selectNoticeList(int currentPage) throws Exception {
+		// 1.전체글의 갯수
+		int totRecordCount = noticeDao.totalCount(); 
+		// 2.paging계산(PageMaker 유틸클래스) 
+		PageMaker pageMaker = new PageMaker(totRecordCount, currentPage, 10, 10);
+		// 3.게시물데이타 얻기
+		List<Notice> noticeList = noticeDao.selectNoticeList(pageMaker.getPageBegin(), pageMaker.getPageEnd());
+		PageMakerDto<Notice> pageMakerNoticeList = new PageMakerDto<Notice>(noticeList, pageMaker, totRecordCount);
+		return pageMakerNoticeList;
+	}
+	
 	//공지사항 전체 출력
 	@Override
 	public List<Notice> selectAll() throws Exception {
@@ -38,6 +53,12 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public int totalCount() throws Exception {
 		return noticeDao.totalCount();
+	}
+	
+	//가장 최신 공지사항 1개 출력 
+	@Override
+	public Notice noticeOne()throws Exception{
+		return noticeDao.noticeOne();
 	}
 	
 	//공지사항 번호로 검색

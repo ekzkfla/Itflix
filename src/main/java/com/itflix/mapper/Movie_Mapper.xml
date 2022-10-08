@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itflix.mapper.Movie_Mapper">
 
+	
+	<resultMap id="selectAllNoFilterResultMap" type="com.itflix.dto.Movie" >
+		<result column="m_no" property="m_no"/>
+		<result column="m_name" property="m_name"/>
+		<association property="category" javaType="com.itflix.dto.Category">
+			<result column="cg_no" property="cg_no"/>
+			<result column="cg_name" property="cg_name"/>
+		</association>
+		<association property="review" javaType="com.itflix.dto.Review">
+			<result column="r_grade" property="r_grade" />
+		</association>
+	</resultMap>
+	
+	
 	<resultMap id="selectMovieResultMap"
 		type="com.itflix.dto.Movie">
 		<result column="m_no" property="m_no" />
@@ -22,6 +36,15 @@
 			<result column="r_grade" property="r_grade" />
 		</collection>
 	</resultMap>
+	
+	<resultMap id="selectMovieGradeResultMap"
+		type="com.itflix.dto.Movie">
+		<result column="m_no" property="m_no" />
+		<collection property="review"
+			javaType="com.itflix.dto.Review">
+			<result column="r_grade" property="r_grade" />
+		</collection>
+	</resultMap>
 
 	<!-- 수정중 -->
 	<resultMap id="selectMovieRecentReviewResultMap"
@@ -35,8 +58,7 @@
 			<result column="cg_no" property="cg_no" />
 			<result column="cg_name" property="cg_name" />
 		</collection>
-		<collection property="reviewList" javaType="java.util.List"
-			ofType="com.itflix.dto.Review">
+		<collection property="review" javaType="com.itflix.dto.Review" >
 			<result column="r_no" property="r_no" />
 			<result column="r_title" property="r_title" />
 			<result column="r_content" property="r_content" />

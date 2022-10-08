@@ -38,7 +38,10 @@ public class SubscriptionDaoTestApplication {
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 		 
 		 //구독권 추가
-		 //System.out.println("insert"+subscriptionDao.insertSubscription(new Subscription(0, null, null, "test", 0, new Ticket(0, "0"), null)));
+		 //insert into Subscription values(SUBSCRIPTION_S_NO_SEQ.nextval,'2022-07-29','2022-09-28','김성준',1111,1,'guard1@gmail.com');
+		 System.out.println("insert"+subscriptionDao.insertSubscription(new Subscription(0, null, null, "test1", 1234, 
+				 														new Ticket(0, "0"), 
+				 														new User_Info("test@naver.com",null,null,null))));
 
 	}
 

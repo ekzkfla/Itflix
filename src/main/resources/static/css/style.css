@@ -5670,10 +5670,13 @@ ul {
     background: url('../images/uploads/user-hero-bg.jpg') no-repeat;
 }
 .user-hero .hero-ct {
-    padding-top: 225px;
+    padding-top: 270px;
 }
 .user-hero .hero-ct h1 {
-    margin-left: -120px;
+    margin-left: -320px;
+}
+.user-hero .hero-ct h2 {
+    margin-left: -300px;
 }
 .user-hero ul.breadcumb {
     text-align: left;
@@ -5688,6 +5691,9 @@ ul {
         text-align: center;
     }
     .user-hero .hero-ct h1 {
+        margin-left: 0;
+    }
+    .user-hero .hero-ct h2 {
         margin-left: 0;
     }
     .user-hero .hero-ct ul {
@@ -5726,6 +5732,7 @@ ul {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
+    
 }
 .landing-hero .redbtn:hover {
     color: #fff;
@@ -6942,7 +6949,6 @@ p.ceb-single {
     font-size: 14px;
     color: #222222;
     font-weight: bold;
-    text-transform: capitalize;
     margin-top: 10px;
     height: 42px;
     border: 1px solid #e1e1e1;
@@ -7913,9 +7919,11 @@ header .top-search select {
 header .top-search input::-webkit-input-placeholder {
     color: #abb7c4;
 }
-header .top-search input {
-    background: url('../images/uploads/topsearch.png') no-repeat right 20px center;
-}
+
+
+
+
+
 header #nav-icon1 {
     width: 15px;
     height: 15px;

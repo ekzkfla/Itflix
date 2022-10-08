@@ -24,5 +24,5 @@ public interface User_InfoDao {
 	// 회원 탈퇴.
 	int deleteUser_Info(String u_email) throws Exception;
 	// 회원 email 존재여부 확인(count)
-	boolean existedUser(String u_email);
+	boolean existedUser(String u_email) throws Exception;
 }

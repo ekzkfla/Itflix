@@ -38,7 +38,8 @@ public class CategoryDaoTestApplication {
 		 //System.out.println(categoryService.deleteCategory(7));
 		 //System.out.println(categoryService.selectByNoMovieList(1));
 		 /**************************테스트 완료 *****************************************/
-		 System.out.println(categoryService.selectByNoByM_NoAndReview(1,6));
+		 //System.out.println(categoryService.selectByNoByM_NoAndReview(1,6));
+		 System.out.println(categoryService.countCategory(3));
 		
 	}
 }

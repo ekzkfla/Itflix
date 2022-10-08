@@ -9,8 +9,8 @@ import com.itflix.dao.JjimDao;
 import com.itflix.dto.Jjim;
 
 @Service
-public class JjimServiceImpl implements JjimDao{
-	
+public class JjimServiceImpl implements JjimService{
+
 	@Autowired
 	private JjimDao jjimDao;
 	
@@ -24,6 +24,12 @@ public class JjimServiceImpl implements JjimDao{
 
 	public void setJjimDao(JjimDao jjimDao) {
 		this.jjimDao = jjimDao;
+	}
+	
+	/* 1명 회원 영화 찜 목록보기(리뷰평점포함) */
+	@Override
+	public List<Jjim> jjimList(String u_email) throws Exception {
+		return jjimDao.jjimList(u_email);
 	}
 	
 	/* 영화 찜하기 */
@@ -44,8 +50,5 @@ public class JjimServiceImpl implements JjimDao{
 		return jjimDao.jjimListTest5(u_email);
 	}
 
-
-
-	
 
 }

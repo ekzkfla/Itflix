@@ -18,11 +18,19 @@ public interface Notice_Mapper {
 	
 	//공지사항 전체 출력
 	@Select("select * from notice")
+	public List<Notice> selectPageList();
+	
+	//공지사항 전체 출력
+	@Select("select * from notice")
 	public List<Notice> selectAll();
 	
 	//공지사항 전체 갯수 출력
 	@Select("select count(*) from Notice")
 	public int totalCount();
+	
+	//가장 최신 공지사항 1개 출력 
+	@Select("select * from(select * from notice ORDER BY n_date DESC) where rownum<=1")
+	public Notice noticeOne();
 	
 	//공지사항 번호로 검색
 	@Select("select * from notice where n_no = #{n_no}")
@@ -32,6 +40,9 @@ public interface Notice_Mapper {
 	@Select("select * from notice where n_title like  '%'||#{n_title}||'%' ")
 	public List<Notice> selectByTitle(String n_title);
 	
+	//공지사항 페이징
+	@Select("SELECT * FROM (SELECT rownum idx, s.*  FROM (SELECT n_no, n_date, n_title, n_content, n_groupno, n_step, n_depth FROM Notice ORDER BY n_groupno DESC,n_step ASC) s) WHERE idx >= #{start} AND idx <= #{last} ")
+	public List<Notice> selectNoticeList(int start, int last);
 	
 	/**************구현 미정**************/
 	//공지사항 추가 

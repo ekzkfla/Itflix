@@ -26,7 +26,11 @@ public class MovieServiceImpl implements MovieService {
 	public void setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 	}
-
+	
+	//영화 전체 리스트(필터링x)
+	public List<Movie> selectAllNoFilter()throws Exception{
+		return movieDao.selectAllNoFilter();
+	}
 	//영화 리스트 전체 출력
 	@Override
 	public List<Movie> selectAll() throws Exception {
@@ -65,14 +69,14 @@ public class MovieServiceImpl implements MovieService {
 	
 	//조회수 높은 순으로 출력
 	@Override
-	public List<Movie> selectMovieCount() throws Exception {
-		return movieDao.selectMovieCount();
+	public List<Movie> selectMovieCountList() throws Exception {
+		return movieDao.selectMovieCountList();
 	}
 	
 	//평점 높은 순으로 출력
 	@Override
-	public List<Movie> selectMovieGrade() throws Exception {
-		return movieDao.selectMovieGrade();
+	public List<Movie> selectMovieGradeList() throws Exception {
+		return movieDao.selectMovieGradeList();
 	}
 
 	//영화 개봉일 최신순으로 출력
@@ -87,6 +91,12 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.selectMovieOldDate();
 	}
 
+	//영화 번호로 평점 출력
+	@Override
+	public Movie selectMovieGradeByNo(int no) throws Exception {
+		return movieDao.selectMovieGradeByNo(no);
+	}
+	
 	//영화 번호로 조회수 출력
 	@Override
 	public Movie selectMovieCountByNo(int no) throws Exception {
@@ -116,5 +126,22 @@ public class MovieServiceImpl implements MovieService {
 	public int deleteMovie(int no) throws Exception {
 		return movieDao.deleteMovie(no);
 	}
-
+	//영화 전체 총 갯수
+	@Override
+	public int movieAllCount()throws Exception{
+		return movieDao.movieAllCount();
+	}
+	
+	//배우 이름으로 영화 검색
+	@Override
+	public List<Movie> searchActor(String name) throws Exception {
+		return movieDao.searchActor(name);
+	}
+	
+	//영화 이름으로 영화 검색
+	@Override
+	public List<Movie> searchMovie(String name) throws Exception {
+		return movieDao.searchMovie(name);
+	}
+	
 }
