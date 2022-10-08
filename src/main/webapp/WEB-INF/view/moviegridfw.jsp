@@ -1,6 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+	function categoryChane() {
+		var selectList = document.getElementById("cate1")
+		console.log(selectList.options);
+		console.log(selectList.selectedIndex);
+		console.log(selectList.options[selectList.selectedIndex])
+		const categoryData = selectList.options[selectList.selectedIndex].text;
+		const categoryValue = selectList.options[selectList.selectedIndex].value
+		const storageObj = {
+			"name" : categoryData,
+			"value" : categoryValue		
+		}
+		window.localStorage.setItem("category",JSON.stringify(storageObj))
+		if(categoryValue == "1"){
+			location.href = "categoryMoviegrid?cg_no=1";
+		}
+		if(categoryValue == "2"){
+			location.href = "categoryMoviegrid?cg_no=2";
+		}
+		if(categoryValue == "3"){
+			location.href = "categoryMoviegrid?cg_no=3";
+		}
+		if(categoryValue == "4"){
+			location.href = "categoryMoviegrid?cg_no=4";
+		}
+		if(categoryValue == "5"){
+			location.href = "categoryMoviegrid?cg_no=5";
+		}
+		if(categoryValue === "6"){
+			location.href = "categoryMoviegrid?cg_no=6";
+		}
+	}
+</script>
+<script type="text/javascript">
+	function index(){
+		let category = window.localStorage.getItem('category');
+		let categoryObj = JSON.parse(category)
+		console.log(categoryObj);
+		let selectList = document.getElementById("cate1")
+		
+		selectList.options[categoryObj['value']].setAttribute("selected",true)
+	}
+</script>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -55,15 +98,15 @@
 					<!--분류 보드바 -->
 					<div class="topbar-filter fw">
 						<p>Found 총<span>${movieCount}개</span>	</p>
-						<select name="#" onchange="if(this.value) location.href=(this.value);">
-							<option value="popularity">카테고리</option>
-							<option value="categoryMoviegrid?cg_no=1">액션</option>
-							<option value="categoryMoviegrid?cg_no=2">코미디</option>
-							<option value="categoryMoviegrid?cg_no=3">로맨스</option>
-							<option value="categoryMoviegrid?cg_no=4">공포 미스터리</option>
-							<option value="categoryMoviegrid?cg_no=5">SF 판타지</option>
-							<option value="categoryMoviegrid?cg_no=6">드라마</option>
-						</select>
+							<select id="cate1" name="cate1" onchange="categoryChane()">
+								<option value="popularity">카테고리</option>
+								<option value="1">액션</option>
+								<option value="2">코미디</option>
+								<option value="3">로맨스</option>
+								<option value="4">공포 미스터리</option>
+								<option value="5">SF 판타지</option>
+								<option value="6">드라마</option>
+							</select>
 					</div>
 					<!--분류 보드바 -->
 					<form name="f" method="Post">
