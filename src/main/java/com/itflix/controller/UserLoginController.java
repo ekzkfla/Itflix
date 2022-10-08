@@ -102,5 +102,25 @@ public class UserLoginController {
 		}
 		return forwardPath;
 	}
-
+	
+	/*찜하기*/
+	@LoginCheck
+	@RequestMapping("jjim_insert_action")
+	public String jjim_insert_action(HttpServletRequest request,@RequestParam String u_email,@RequestParam int m_no) {
+		String forwardPath="";
+		String msg ="";
+		try {
+			int jjiminsert = jjimService.jjimInsert(u_email, m_no);
+			request.setAttribute("jjiminsert", jjiminsert);
+			msg = "나중에 볼 콘텐츠로 저장되었습니다.";
+			System.out.println(msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "오류우우우ㅜㅜㅜ으ㅡㅠㅜ";
+			System.out.println(msg);
+		}
+		return forwardPath;
+	}
+	
+	
 }//

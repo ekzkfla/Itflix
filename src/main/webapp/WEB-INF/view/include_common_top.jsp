@@ -3,6 +3,9 @@
 	import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+User_Info login_user = (User_Info) session.getAttribute("login_user");
+%>
 <style type="text/css">
 input#search {
 background:url(images/uploads/topsearch.png);
@@ -13,7 +16,41 @@ height:45x;
 align-items: center;
 }
 </style>
+
 <script type="text/javascript">
+	console.log('1.'+$);
+	$(function(){
+	    $(document).on('submit','#login_form',function(e){
+			
+			$.ajax({
+			    method:'POST',
+			    url:'rest_user_login_action',
+			    data:$('#login_form').serialize(),
+			    success:function(jsonResult){
+					console.log(jsonResult);
+					if(jsonResult.code==1){
+						//성공
+						location.href='main';
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						 $('#u_pass').select().focus();
+					}else if(jsonResult.code==3){
+					    alert(jsonResult.msg);
+					    $('#u_email').select().focus();
+					}else if(jsonResult.code==4){
+					    alert(jsonResult.msg);
+					}
+			    },
+			    error:function(){
+					alert('error!!!');
+			    }
+			});
+			e.preventDefault();
+	    });
+	});
+
+	
 	function keywordCheck() {
 		var str_keyword = window.searchform.keyword.value;
 		if (!str_keyword || str_keyword === "") {
@@ -24,11 +61,6 @@ align-items: center;
 		window.searchform.submit();
 	}
 </script>
-<%
-//String sUserId = (String) session.getAttribute("sUserId");
-User_Info login_user = (User_Info) session.getAttribute("login_user");
-%>
-
 
 
 <header class="ht-header">

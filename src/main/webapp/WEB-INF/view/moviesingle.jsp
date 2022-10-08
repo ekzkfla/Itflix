@@ -78,10 +78,12 @@
 						<h1 class="bd-hd">
 							${movie.m_name} <span style="font-size: 15pt; color:#0DEEC9"><fmt:formatDate  value="${movie.m_date}" pattern="yyyy/MM/dd"/></span>
 						</h1>
+						<!-- 찜하기버튼 START -->
 						<div class="social-btn">
-							<a href="#" class="parent-btn"><i class="ion-heart"></i>Add
+							<a href="jjim_insert_action" class="parent-btn"><i class="ion-heart"></i>Add
 								to Favorite</a>
 						</div>
+						<!-- 찜하기버튼 END -->
 						<div class="movie-rate">
 							<div class="rate">
 								<i class="ion-android-star"></i>
