@@ -85,7 +85,7 @@ public class UserLoginController {
 	@RequestMapping("user_logout_action")
 	public String user_logout_action(HttpSession session) {
 		session.invalidate();
-		return "forward:main";
+		return "redirect:main";
 	}
 
 	
@@ -106,13 +106,16 @@ public class UserLoginController {
 	/*찜하기*/
 	@LoginCheck
 	@RequestMapping("jjim_insert_action")
-	public String jjim_insert_action(HttpServletRequest request,@RequestParam String u_email,@RequestParam int m_no) {
+	public String jjim_insert_action(HttpServletRequest request) {
+		String u_email = request.getParameter("u_email").trim();
+		String m_no = request.getParameter("m_no");
 		String forwardPath="";
 		String msg ="";
 		try {
-			int jjiminsert = jjimService.jjimInsert(u_email, m_no);
+			int jjiminsert = jjimService.jjimInsert(u_email, Integer.parseInt(m_no));
 			request.setAttribute("jjiminsert", jjiminsert);
 			msg = "나중에 볼 콘텐츠로 저장되었습니다.";
+			forwardPath="main";
 			System.out.println(msg);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -124,3 +127,4 @@ public class UserLoginController {
 	
 	
 }//
+;

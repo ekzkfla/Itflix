@@ -29,7 +29,7 @@ align-items: center;
 		window.searchform.submit();
 	}
 	
-	
+	<!-- login(로그인) -->
 	console.log('1.'+$);
 	$(function(){
 	    $(document).on('submit','#login_form',function(e){
@@ -205,16 +205,17 @@ align-items: center;
 				<ul class="nav navbar-nav flex-child-menu menu-right">
 
 					<%
+					//비로그인시 top 메뉴
 					if (login_user == null) {
 					%>
 					<li class="btn signupLink"><a href="#">회원가입</a></li>
 					<li class="loginLink"><a href="">로그인</a></li>
 					<%
 					} else {
+					//로그인시 top 메뉴
 					%>
 					<li class="btn"><a href="userprofile">마이페이지</a></li>
 					<li><a href="user_logout_action">로그아웃</a></li>
-
 					<%
 					}
 					%>
@@ -227,7 +228,7 @@ align-items: center;
 		<div class="top-search">
 			<select data-trigger="" name="searchType" >
 				<option value="name">영화</option>
-				<option value="actor">감독●출연</option>
+				<option value="actor">감독·출연</option>
 			</select> 
 			<input name="" type="text" placeholder="Serch your Movie and enjoy your Life" >
 			<input type="submit" id="search"  >
