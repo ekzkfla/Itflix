@@ -41,9 +41,8 @@ public class UserLoginRestController {
 			if (result == 1) {
 				User_Info loginUser = user_InfoService.selectByEmail(u_email);
 				session.setAttribute("login_email", loginUser.getU_email());
-				code=1;
-				msg="성공";
 				session.setAttribute("login_user", loginUser);
+				code=1;
 			} else if (result == -1) {
 				code=2;
 				msg="비빌번호 불일치";

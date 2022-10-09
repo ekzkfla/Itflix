@@ -3,6 +3,7 @@
 	import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <%
 User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
@@ -27,6 +28,38 @@ align-items: center;
 		}
 		window.searchform.submit();
 	}
+	
+	
+	console.log('1.'+$);
+	$(function(){
+	    $(document).on('submit','#login_form',function(e){
+			
+			$.ajax({
+			    method:'POST',
+			    url:'rest_user_login_action',
+			    data:$('#login_form').serialize(),
+			    success:function(jsonResult){
+					console.log(jsonResult);
+					if(jsonResult.code==1){
+						//성공
+						location.href='main';
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						 $('#u_pass').select().focus();
+					}else if(jsonResult.code==3){
+					    alert(jsonResult.msg);
+					    $('#u_email').select().focus();
+					}else if(jsonResult.code==4){
+					    alert(jsonResult.msg);
+					}
+			    },
+			    error:function(){
+					alert('error!!!');
+			    }
+			});
+			e.preventDefault();
+	    });
+	});
 </script>
 
 
@@ -46,7 +79,7 @@ align-items: center;
 		<div class="login-content">
 			<a href="#" class="close">x</a>
 			<h3>Login</h3>
-			<form method="post" action="user_login_action" id="login_form"
+			<form method="post" action="rest_user_login_action" id="login_form"
 				name="login_form">
 				<div class="row">
 					<label for="email">Email:<input type="text" name="u_email"
