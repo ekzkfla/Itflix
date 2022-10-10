@@ -37,6 +37,9 @@
 <link rel="stylesheet" href="css/style.css">
 <link href="css/star.css" rel="stylesheet"/>
 </head>
+<script type="text/javascript">
+
+</script>
 <body>
 
 
@@ -144,18 +147,8 @@
 
 										<div class="landing-hero">
 											<div class="row">
-												<button type="submit"><a href="#" class="redbtn" >리뷰 작성</a></button>
+												<button type="submit" id="reviewWriteBtn"><a class="redbtn" >리뷰 작성</a></button>
 											</div>
-											
-											<div class="login-wrapper" id="login-content">
-											<div class="login-content">
-											<form method="post" action="user_login_action" id="login_form">
-											
-												<button type="submit">Login</button>
-											
-											</form>
-												</div>
-												</div>
 										</div>
 
 									</div>
