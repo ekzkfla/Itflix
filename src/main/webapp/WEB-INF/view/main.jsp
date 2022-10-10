@@ -2,7 +2,41 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script type="text/javascript">
+	//iframe api
+    var tag = document.createElement('script');
 
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+	player = new YT.Player('player', {
+		height: '360',
+		width: '640',
+		videoId: 'M7lc1UVf-VE',
+		events: {
+		'onReady': onPlayerReady,
+		'onStateChange': onPlayerStateChange}
+        });
+      }
+
+	function onPlayerReady(event) {
+		event.target.playVideo();
+	}
+
+	var done = false;
+	function onPlayerStateChange(event) {
+	if (event.data == YT.PlayerState.PLAYING && !done) {
+		setTimeout(stopVideo, 6000);
+		done = true;
+		}
+	}
+	function stopVideo() {
+		player.stopVideo();
+	}
+</script>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -28,7 +62,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-	
 	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
@@ -282,14 +315,14 @@
 						<a href="moviegridfw" class="viewall">View all <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
-					<div class="videos">
+					<div class="videos" >
 						
 						<!--영상 url  -->
 						<div class="slider-for-2 video-ft">
 							<c:forEach items="${movieList}" var="movie"> 
 							<div>
-								<iframe class="item-video" src=""
-									data-src="${movie.m_url}"></iframe>
+								<iframe id="player" class="item-video" src=""
+									data-src="${movie.m_url}?enablejsapi=1&version=3&playerapiid=ytplayer"></iframe>
 							</div>
 							</c:forEach>
 						</div>
