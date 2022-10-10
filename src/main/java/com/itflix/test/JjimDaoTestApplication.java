@@ -31,10 +31,13 @@ public class JjimDaoTestApplication {
 				new SpringApplication(JjimDaoTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		JjimDao jjimDao = context.getBean(JjimDao.class);
+		//JjimDao jjimDao = context.getBean(JjimDao.class);
+		JjimService jjimService = context.getBean(JjimService.class);
 
 				
-		System.out.println(jjimDao.jjimList("guard1@gmail.com"));
+		//System.out.println(jjimDao.jjimList("guard1@gmail.com"));
+		//System.out.println("찜넣기>>>"+jjimDao.jjimInsert("guard1@gmail.com", 9));
+		//System.out.println("찜넣기>>>"+jjimService.jjimInsert("guard1@gmail.com", 13));
 
 	}
 }

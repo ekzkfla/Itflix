@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dto.Jjim;
+import com.itflix.dto.Movie;
 import com.itflix.dto.User_Info;
 import com.itflix.service.JjimService;
 import com.itflix.service.User_InfoService;
@@ -23,7 +24,7 @@ public class UserLoginController {
 	private User_InfoService user_InfoService;
 	@Autowired
 	private JjimService jjimService;
-	
+
 	/* 회원가입 */
 	@RequestMapping("CreateUser_action")
 	public String CreateUser(HttpServletRequest request) {
@@ -33,13 +34,13 @@ public class UserLoginController {
 		String u_phone = request.getParameter("u_phone");
 		User_Info user = new User_Info(u_email, u_pass, u_name, u_phone);
 		String forwardPath = "";
-		
+
 		try {
 			int result = user_InfoService.insertUser_Info(user);
-			if(result == -1) {
-				//중복일 시 -1 반환
-			}else {
-				//회원가입 성공
+			if (result == -1) {
+				// 중복일 시 -1 반환
+			} else {
+				// 회원가입 성공
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,11 +69,11 @@ public class UserLoginController {
 				System.out.println(loginUser);
 				forwardPath = "main";
 			} else if (result == -1) {
-				//request.setAttribute("login_id", u_email);
-				//forwardPath = "ssss";
+				// request.setAttribute("login_id", u_email);
+				// forwardPath = "ssss";
 			} else if (result == -2) {
-				//request.setAttribute("login_id", u_email);
-				//forwardPath = "xxxx";
+				// request.setAttribute("login_id", u_email);
+				// forwardPath = "xxxx";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,18 +81,17 @@ public class UserLoginController {
 		}
 		return forwardPath;
 	}
-	
-	/*로그아웃*/
+
+	/* 로그아웃 */
 	@RequestMapping("user_logout_action")
 	public String user_logout_action(HttpSession session) {
 		session.invalidate();
 		return "redirect:main";
 	}
 
-	
-	/*찜리스트*/
+	/* 찜리스트 */
 	@RequestMapping("userfavoritegrid")
-	public String jjimList(HttpServletRequest request,@RequestParam String u_email) {
+	public String jjimList(HttpServletRequest request, @RequestParam String u_email) {
 		String forwardPath = "";
 		try {
 			List<Jjim> jjimList = jjimService.jjimList(u_email);
@@ -102,29 +102,36 @@ public class UserLoginController {
 		}
 		return forwardPath;
 	}
-	
-	/*찜하기*/
-	@LoginCheck
+
+	/* 찜하기 ... 우선 스킵... 하..  파라메타가 안들어옴..*/
 	@RequestMapping("jjim_insert_action")
-	public String jjim_insert_action(HttpServletRequest request) {
-		String u_email = request.getParameter("u_email").trim();
-		String m_no = request.getParameter("m_no");
-		String forwardPath="";
-		String msg ="";
+	public String jjim_insert_action(HttpServletRequest request, @RequestParam String u_email, @RequestParam int m_no) {
+		String forwardPath = "";
+		String msg = "";
 		try {
-			int jjiminsert = jjimService.jjimInsert(u_email, Integer.parseInt(m_no));
-			request.setAttribute("jjiminsert", jjiminsert);
-			msg = "나중에 볼 콘텐츠로 저장되었습니다.";
-			forwardPath="main";
+			int jjimInsert = jjimService.jjimInsert(u_email, m_no);
+			request.setAttribute("u_email", u_email);
+			request.setAttribute("m_no", m_no);
+			request.setAttribute("jjimInsert", jjimInsert);
+			System.out.println(jjimInsert);
+			System.out.println(m_no);
+			forwardPath = "moviesingle?m_no=" + m_no;
+			msg = "성공";
 			System.out.println(msg);
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			msg = "오류우우우ㅜㅜㅜ으ㅡㅠㅜ";
+			msg = "제바아아라라알";
 			System.out.println(msg);
+
 		}
 		return forwardPath;
 	}
 	
+	/*회원 본인 리뷰 뿌리기*/
+
 	
+	
+
 }//
-;
+

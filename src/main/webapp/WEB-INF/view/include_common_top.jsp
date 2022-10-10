@@ -1,9 +1,8 @@
 <%@page import="com.itflix.dto.User_Info"%>
-<%@page
-	import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <%
 User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
@@ -42,7 +41,7 @@ align-items: center;
 					console.log(jsonResult);
 					if(jsonResult.code==1){
 						//성공
-						location.href='main';
+						location.href='moviesingle?m_no=1';
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						 $('#u_pass').select().focus();
