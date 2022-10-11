@@ -193,8 +193,11 @@ public class MainController {
 	
 	//회원 프로필 수정페이지 
 	@RequestMapping(value = "userModify")
-	public String userModify() {
+	public String userModify(){
 		String forwardPath="";
+		
+		
+		
 		forwardPath = "userModify";
 		
 		return forwardPath;
