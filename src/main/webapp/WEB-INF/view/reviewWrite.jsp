@@ -38,7 +38,15 @@
 <link href="css/star.css" rel="stylesheet"/>
 </head>
 <script type="text/javascript">
-
+	window.onload = function(){
+		document.getElementById('reviewWriteBtn').onclick=function(){
+			
+			document.getElementById('myform').submit();
+			
+			
+			return false;
+		}
+	}
 
 </script>
 <body>
@@ -109,7 +117,7 @@
 												</div>
 												<!-- movie user review -->
 												<div class="mv-user-review-item">
-												<p class="time" style="text-align-last: right;">
+												<p  class="time" style="text-align-last: right;">
 													날짜 :<%= sf.format(nowTime) %>
 												</p>	
 												
@@ -140,17 +148,17 @@
 																  placeholder="내용을 입력해 주세요!!">
 														</textarea>
 													</div>
+										<div class="landing-hero">
+											<div class="row">
+												<button type="submit" id="reviewWriteBtn"><a class="redbtn" >리뷰 작성</a></button>
+											</div>
+										</div>
 												</form>		
 											<!--아래 밑줄  -->	
 											<div class="title-hd-sm"></div>
 										</div>
 
 
-										<div class="landing-hero">
-											<div class="row">
-												<button type="submit" id="reviewWriteBtn"><a class="redbtn" >리뷰 작성</a></button>
-											</div>
-										</div>
 
 									</div>
 								</div>
