@@ -76,5 +76,11 @@ public class ReviewServiceImpl implements ReviewService {
 	public int reviewCount(int m_no) throws Exception {
 		return reviewDao.reviewCount(m_no);
 	}
+	
+	//추가
+	@Override
+	public Review insertReview2(Review review) throws Exception {
+		return reviewDao.insertReview2(review);
+	}
 
 }

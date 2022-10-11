@@ -32,4 +32,7 @@ public interface ReviewService {
 	// 각 영화 리뷰 총 갯수
 	int reviewCount(int m_no) throws Exception;
 
+	// 리뷰 추가
+	Review insertReview2(Review review) throws Exception;
+
 }

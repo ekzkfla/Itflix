@@ -53,7 +53,7 @@ public class ReviewServiceTestApplication {
 		 //System.out.println(reviewDao.insertReview(0, "우리 팀원들 화이팅!", "다 할 수 있어!", 100, null, 0, 0, 0, 23, "guard4@gmail.com"));
 		 //System.out.println(reviewDao.reviewCount(1));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
-		 
+		 System.out.println(reviewDao.insertReview2(new Review(0, "1", "2", 0, null, 0, 0, 0, new Movie(4, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null, null), null, new User_Info("guard4@gmail.com", null, null, null))));
 		 
 	}
 }

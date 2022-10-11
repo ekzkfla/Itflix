@@ -89,5 +89,11 @@ public class ReviewDaoImpl implements ReviewDao {
 		int reviewCount = review_Mapper.reviewCount(m_no);
 		return reviewCount;
 	}
+	//추가
+	@Override
+	public Review insertReview2(Review review) throws Exception {
+		Review inserReview2 = review_Mapper.insertReview2(review); 
+		return inserReview2;
+	}
 
 }
