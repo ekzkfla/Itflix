@@ -26,13 +26,13 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
-	
+
+
 	<!-- BEGIN | Header -->
-	<jsp:include page = "include_common_top.jsp"/>
+	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
-	
-	
+
+
 	<div class="hero mv-single-hero">
 		<div class="container">
 			<div class="row">
@@ -46,73 +46,125 @@
 		<div class="container">
 			<div class="row ipad-width2">
 				<div class="col-md-2 col-sm-4 col-xs-4">
-				
+
 					<!-- ↓↓↓이미지↓↓↓ -->
 					<div class="slide-it">
-					<div class="movie-item">
-					<div class="mv-img">
-					<div class="movie-img sticky-sb">
-						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="" width="30" height="30">
-						<div class="hvr-inner" >
-							<a href="moviesingle?m_no=${movie.m_no }">Read more<i class="ion-android-arrow-dropright"></i></a>
+						<div class="movie-item">
+							<div class="mv-img">
+								<div class="movie-img sticky-sb">
+									<img
+										src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg"
+										alt="" width="30" height="30">
+									<div class="hvr-inner">
+										<a href="moviesingle?m_no=${movie.m_no }">Read more<i
+											class="ion-android-arrow-dropright"></i></a>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-					</div>
-					</div>
 					</div>
 					<!-- ↑↑↑이미지↑↑↑ -->
 
 				</div>
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
-					
+
 						<!-- ↓↓↓영화 타이틀 제목↓↓↓  -->
-						<h1 class="bd-hd">
-							${movie.m_name } Review
-						</h1>
+						<h1 class="bd-hd">${movie.m_name } Review</h1>
 						<!-- ↑↑↑영화 타이틀 제목↑↑↑  -->
-						
+
 						<div class="movie-tabs">
 							<div class="tabs">
 								<div class="tab-content">
 									<div id="overview" class="tab active">
 										<div class="row">
-											
-											
+
+
 											<div class="col-md-8 col-sm-12 col-xs-12">
-											
+
 												<!-- 상단 -->
-												<div class="title-hd-sm" >
+												<div class="title-hd-sm">
 													<h4>User reviews</h4>
 												</div>
-												
-												
+
+
 												<!-- movie user review -->
-												<c:forEach items="${reviewLatest }" var="review" >
-												<div class="mv-user-review-item">
-													<h3>제목 : ${review.r_title }</h3>
-													<!-- ↓↓↓평점↓↓↓ -->
-													<div class="no-star">
-														평점 : ${review.r_grade }
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star last"></i>
-													</div>
-													<!-- ↓↓↓날짜↓↓↓ -->
-													<p class="time" style=text-align-last:right;>
-													날짜 : <fmt:formatDate value="${review.r_date}" pattern="yyyy/MM/dd"></fmt:formatDate> 
-													</p>
-													<!-- ↓↓↓내용↓↓↓ -->
-														<p>내용 : ${review.r_content }</p><hr>
-													<!-- ↓↓↓유저 이메일↓↓↓ -->
+												<c:forEach items="${reviewLatest }" var="review">
+													<div class="mv-user-review-item">
+														<h3>제목 : ${review.r_title }</h3>
+														<!-- ↓↓↓평점↓↓↓ -->
+														<div class="no-star">
+															평점 : ${review.r_grade }
+															<!--MovieSingle 페이지 별점 계산 -->
+															<c:set var="reviewGrade" value="${review.r_grade}" />
+															<!--평점이 없는경우  -->
+															<c:if test="${reviewGrade==null }">
+																<a style="font-size: 15pt; color: #0DEEC9">리뷰가 없어요!</a>
+															</c:if>
+															<!--평점 0점 이상 20점 미만일 경우  -->
+															<c:if test="${reviewGrade ge 0 && reviewGrade lt 1}">
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+															</c:if>
+															<!--평점 20점 이상 40점 미만일 경우  -->
+															<c:if test="${reviewGrade ge 1 && reviewGrade lt 2}">
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+															</c:if>
+															<!--평점 40점 이상 60점 미만일 경우  -->
+															<c:if test="${reviewGrade ge 2 && reviewGrade lt 3}">
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+															</c:if>
+															<!--평점 60점 이상 80점 미만일 경우  -->
+															<c:if test="${reviewGrade ge 3 && reviewGrade lt 4}">
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star-outline"></i>
+																<i class="ion-ios-star-outline"></i>
+															</c:if>
+															<!-- 평점 80점 이상인 경우 -->
+															<c:if test="${reviewGrade ge 4 && reviewGrade lt 5}">
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star-outline"></i>
+															</c:if>
+															<c:if test="${reviewGrade eq 5}">
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+																<i class="ion-ios-star"></i>
+															</c:if>
+														</div>
+														<!-- ↓↓↓날짜↓↓↓ -->
+														<p class="time" style="text-align-last: right;">
+															날짜 :
+															<fmt:formatDate value="${review.r_date}"
+																pattern="yyyy/MM/dd"></fmt:formatDate>
+														</p>
+														<!-- ↓↓↓내용↓↓↓ -->
+														<p>내용 : ${review.r_content }</p>
+														<hr>
+														<!-- ↓↓↓유저 이메일↓↓↓ -->
 														<p>글쓴이 : ${review.user_Info.u_email }</p>
-													<div class="title-hd-sm"></div>
-												</div>
-												
+														<div class="title-hd-sm"></div>
+													</div>
+
 												</c:forEach>
-												
+
 											</div>
 										</div>
 									</div>
