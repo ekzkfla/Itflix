@@ -41,7 +41,7 @@ align-items: center;
 					console.log(jsonResult);
 					if(jsonResult.code==1){
 						//성공
-						location.href='moviesingle?m_no=1';
+						location.href='main';
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						 $('#u_pass').select().focus();
