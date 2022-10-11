@@ -50,8 +50,17 @@ function insert() {
 	document.f.submit();
 }
 
-
-
+deleteJjim
+function deleteJjim() {
+	if (document.f.u_email.value == "") {
+		alert("로그인후 이용해 주세요.");
+		return false;
+	}
+			
+	document.f.action ="jjim_delete_action";
+	document.f.method='POST';
+	document.f.submit();
+}
 </script>
 
 
@@ -104,15 +113,6 @@ function insert() {
 									value="${movie.m_date}" pattern="yyyy/MM/dd" /></span>
 						</h1>
 						<!-- 찜하기버튼 START -->
-					
-								<div class="social-btn" >
-									<button type="button" onclick="insert();" style="background-color:transparent; border:none">
-									<a class="parent-btn"> 
-									<i class="ion-heart" ></i>Add to Favorite</a>
-									</button>
-								</div>
-
-							
 						
 							<c:if test="${jjim==false }">
 							<div class="social-btn" >
@@ -124,7 +124,7 @@ function insert() {
 							</c:if>
 							<c:if test="${jjim==true }">
 								<div class="social-btn" >
-								<button type="button" onclick="delete();" style="background: black;">
+								<button type="button" onclick="deleteJjim();" style="background: black;">
 								<a class="parent-btn"> 
 								<i class="ion-heart" ></i>찜 취소</a>
 								</button>
