@@ -21,7 +21,12 @@ public interface Review_Mapper {
 	public List<Review> selectAll();
 
 	// 본인 리뷰 보기(회원아이디 리뷰 보기)
-	@Select("select r.r_no,r.r_title, r.r_content, r.r_grade, r.r_date ,u.u_email from review r join user_info u on u.u_email=r.u_email where u.u_email = #{u_email}")
+	@Select("select r.r_no,r.r_title, r.r_content, r.r_grade, r.r_date ,u.u_email,m.m_no,m.m_name,m.m_date,c.cg_name\n"
+			+ "from review r \n"
+			+ "join user_info u on u.u_email=r.u_email \n"
+			+ "join movie m on r.m_no = m.m_no\n"
+			+ "join category c on m.cg_no = c.cg_no\n"
+			+ "where u.u_email = '${u_email}'")
 	@ResultMap("ReviewWithUserList")
 	public List<Review> selectWroteReview(String u_email);
 

@@ -21,7 +21,15 @@ namespace="com.itflix.mapper.Review_Mapper">
 						 javaType="java.util.List"
 						 ofType="com.itflix.dto.User_Info">
 						 <result column="u_email" property="u_email"/>
-			</collection> 
+			</collection>
+			<collection property="movie" javaType="com.itflix.dto.Movie">
+				<result column="m_no" property="m_no" />
+				<result column="m_name" property="m_name" />
+				<result column="m_date" property="m_date" />
+				<collection property="category" javaType="com.itflix.dto.Category">
+					<result column="cg_name" property="cg_name"/>
+				</collection>
+			</collection>
 	</resultMap>
 
 <!-- 영화 별 최신 리뷰 *수정필요* -->
