@@ -81,22 +81,26 @@
 							</div>
 							-->
 						</form>
-						<form action="" class="password">
+						<form action="" class="password" method = "POST">
 							<h4> 회원정보 변경</h4>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>예전 비밀번호</label><input type="text"
+										name = "userPass"
 										placeholder= "**********">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label><input type="text"
-										placeholder= ${login_user.u_phone}>
+										placeholder= ${login_user.u_phone}
+										name = "userPhone"
+										pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>새로운 비밀번호</label><input type="text"
 										placeholder="***************"
+										name = "userPass1"
 										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 								</div>
 							</div>
@@ -104,6 +108,7 @@
 								<div class="col-md-6 form-it">
 									<label>새로운 비밀번호 확인</label><input type="text"
 										placeholder="*************** "
+										name = "userPass2"
 										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 								</div>
 							</div>

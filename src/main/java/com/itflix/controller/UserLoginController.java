@@ -9,6 +9,7 @@ import javax.websocket.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itflix.controller.interceptor.LoginCheck;
@@ -105,41 +106,28 @@ public class UserLoginController {
 		return forwardPath;
 	}
 
-	/* 찜하기 ... 우선 스킵... 하.. 파라메타가 안들어옴.. */
 
-//	@RequestMapping("jjim_insert_action")
-//	public String jjim_insert_action(HttpServletRequest request, HttpSession session) {
-//		String forwardPath = "";
-//		String msg = "";
-//
-//		String u_email = String.valueOf(session.getAttribute("login_user"));
-//		System.out.println(u_email);
-//		String m_no = request.getParameter("m_no");
-//		try {
-//			int jjimInsert = jjimService.jjimInsert(u_email, Integer.parseInt(m_no));
-//			request.setAttribute("jjimInsert", jjimInsert);
-//			//forwardPath = "moviesingle?m_no="+m_no;
-//			msg = "성공";
-//			System.out.println(msg);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			msg = "실패";
-//		}
-//		return forwardPath;
-//	}
-//	
-	
-	@LoginCheck
-	@RequestMapping("jjim_insert_action")
-	public String jjim_insert_action(HttpServletRequest request, HttpSession session) {
-		String u_email = request.getParameter("u_email");
-		//u_email = "guard1@gmail.com";
-		u_email = (String) session.getAttribute("u_email");
-		String m_no = request.getParameter("m_no");
-		System.out.println(u_email);
-		System.out.println(m_no);
+	/* 찜하기*/
+	@RequestMapping(value = "/jjim_insert_action", method = RequestMethod.POST)
+	public String jjim_insert_action(HttpServletRequest request) {
 		String forwardPath = "";
-		
+		String msg = "";
+		try {
+			String u_email=request.getParameter("u_email");
+			String m_no=request.getParameter("m_no");
+			System.out.println(m_no);
+			int jjimInsert = jjimService.jjimInsert(u_email,Integer.parseInt(m_no));
+			request.setAttribute("jjimInsert", jjimInsert);
+			System.out.println(jjimInsert);
+			forwardPath = "redirect:moviesingle?m_no="+m_no;
+			msg = "성공";
+			System.out.println(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "실패";
+			System.out.println(msg);
+		}
 		return forwardPath;
 	}
 	

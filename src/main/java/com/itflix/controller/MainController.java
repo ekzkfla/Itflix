@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.itflix.dto.Category;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
@@ -192,8 +193,11 @@ public class MainController {
 	
 	//회원 프로필 수정페이지 
 	@RequestMapping(value = "userModify")
-	public String userModify() {
+	public String userModify(){
 		String forwardPath="";
+		
+		
+		
 		forwardPath = "userModify";
 		
 		return forwardPath;
@@ -201,10 +205,13 @@ public class MainController {
 
 
 	
-	//회원 선호 영화 페이지 
+	//회원의 내가 쓴 영화리뷰 페이지 
 	@RequestMapping(value = "userrate")
-	public String userrate() {
+	public String userrate(@RequestParam String u_email,Model model) throws Exception {
 		String forwardPath="";
+		List<Review>myReview=reviewService.selectWroteReview(u_email);
+		model.addAttribute("myReview", myReview);
+		System.out.println(myReview);
 		forwardPath = "userrate";
 		
 		return forwardPath;

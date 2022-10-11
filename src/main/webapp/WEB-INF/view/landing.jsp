@@ -112,25 +112,27 @@ $(function() {
 									<div class="row">
 										<div class="col-sm-8">
 											<div class="form-group">
-												<label><span class="hidden-xs">
+												<label>
+													<span class="hidden-xs">
 														<h6>유효기간</h6>
-												</span></label>
+													</span>
+												</label>
 												<div class="input-group">
-													<input type="number" placeholder="MM" name=""
-														class="form-control" required> <input
-														type="number" placeholder="YY" name=""
-														class="form-control" required>
+														<input type="number" placeholder="MM" name=""
+															class="form-control" required>
+														<input type="number" placeholder="YY" name=""
+															class="form-control" required>
 												</div>
 											</div>
 										</div>
 										<div class="col-sm-4">
 											<div class="form-group mb-4">
-												<label data-toggle="tooltip"
-													title="Three digit CV code on the back of your card">
+												<label data-toggle="tooltip" title="Three digit CV code on the back of your card">
 													<h6>
 														CVV<a style="font-size: 5pt">(숫자3개)</a> <i class="fa fa-question-circle d-inline"></i>
 													</h6>
-												</label> <input type="text" required class="form-control">
+												</label> 
+												<input type="text" required class="form-control">
 											</div>
 										</div>
 									</div>

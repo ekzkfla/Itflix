@@ -37,9 +37,20 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 </head>
 
 
-
 <body>
+<script type="text/javascript">
+function insert() {
+	if (document.f.u_email.value == "") {
+		alert("로그인후 이용해 주세요.");
+		return false;
+	}
+			
+	document.f.action ="jjim_insert_action";
+	document.f.method='POST';
+	document.f.submit();
+}
 
+</script>
 
 
 	<!-- BEGIN | Header -->
@@ -82,8 +93,11 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 				<!--왼쪽 영화 포스터 및 영상 시청바  -->
 				<!--중앙 상세 페이지  -->
 				<div class="col-md-7 col-sm-4 col-xs-3">
-					<div class="movie-single-ct main-content">
-						<h1 class="bd-hd">
+				<form action="jjim_insert_action" method="post" name="f">
+					<div class="movie-single-ct main-content" >
+						<input name="u_email" value="${login_user.u_email }" type="hidden"/>
+						<input name="m_no" value="${movie.m_no }" type="hidden"/>
+						<h1 class="bd-hd"  >
 							${movie.m_name} <span style="font-size: 15pt; color: #0DEEC9"><fmt:formatDate
 									value="${movie.m_date}" pattern="yyyy/MM/dd" /></span>
 						</h1>
@@ -100,10 +114,14 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 						} else {
 						//로그인시 찜기능 진행 
 						%> --%>
-						<div class="social-btn">
-							<a href="jjim_insert_action" class="parent-btn"><i class="ion-heart"></i>Add
-								to Favorite</a>
+						<div class="social-btn" >
+							<button type="button" onclick="insert();" style="background: black;">
+							<a class="parent-btn"> 
+							<i class="ion-heart" ></i>Add to Favorite</a>
+							</button>
+							
 						</div>
+						
 					<%-- 	<%
 						}
 						%> --%>
@@ -196,6 +214,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							</div>
 						</div>
 					</div>
+						</form>
 				</div>
 				<!--중앙 상세 페이지  -->
 			</div>

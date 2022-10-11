@@ -43,6 +43,7 @@ align-items: center;
 						//성공
 						location.href='moviesingle?m_no=27';
 						<!-- history.back(); -->
+
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						 $('#u_pass').select().focus();
