@@ -19,7 +19,7 @@ public interface JjimDao {
 	List<Jjim> jjimListTest5(String u_email) throws Exception;
 	
 	//유저 이름에 찜한 영화 존재 여부 확인
-	int jjimUser(String u_email, int m_no) throws Exception;
+	boolean jjimUser(String u_email, int m_no) throws Exception;
 
 
 }

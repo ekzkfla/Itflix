@@ -62,7 +62,7 @@ public interface Jjim_Mapper {
 	//유저 이름에 찜한 영화 존재 여부 확인 
 	@Select("select COUNT(*) from jjim j join user_info u on u.u_email = j.u_email where j.u_email=#{u_email} and j.m_no=#{m_no}")
 	//@ResultMap("jjimUserResult")
-	public int jjimUser(String u_email,int m_no);
+	public boolean jjimUser(String u_email,int m_no);
 	
 	
 }
