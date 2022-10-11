@@ -50,7 +50,7 @@ function insert() {
 	document.f.submit();
 }
 
-deleteJjim
+
 function deleteJjim() {
 	if (document.f.u_email.value == "") {
 		alert("로그인후 이용해 주세요.");
@@ -113,22 +113,25 @@ function deleteJjim() {
 									value="${movie.m_date}" pattern="yyyy/MM/dd" /></span>
 						</h1>
 						<!-- 찜하기버튼 START -->
-						
+							<!--찜 하기!  -->
 							<c:if test="${jjim==false }">
-							<div class="social-btn" >
-								<button type="button" onclick="insert();" style="background: black;">
-								<a class="parent-btn"> 
-								<i class="ion-heart" ></i>Add to Favorite</a>
-								</button>
-							</div>
+								<div class="social-btn" >
+									<button type="button" onclick="insert();" style="background: black;">
+									<a class="parent-btn"> 
+										<i class="ion-heart" ></i>Add to Favorite
+									</a>
+									</button>
+								</div>
 							</c:if>
+							<!--찜 취소   -->
 							<c:if test="${jjim==true }">
 								<div class="social-btn" >
-								<button type="button" onclick="deleteJjim();" style="background: black;">
-								<a class="parent-btn"> 
-								<i class="ion-heart" ></i>찜 취소</a>
-								</button>
-							</div>
+									<button type="button" onclick="deleteJjim();" style="background: black;">
+										<a class="parent-btn"> 
+											<i class="ion-heart" ></i>찜 취소
+										</a>
+									</button>
+								</div>
 							</c:if>
 						
 							

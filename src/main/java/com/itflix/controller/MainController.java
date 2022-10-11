@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
@@ -72,25 +73,35 @@ public class MainController {
 	}
 		
 	//검색결과페이지
-	@RequestMapping(value = "movieSearch" /* ,params = "m_name||m_actor" */ )
-	public String search(Model model,String m_name) throws Exception {
+	@RequestMapping(value = "key_word_search",method = RequestMethod.POST)
+	public String search(HttpServletRequest request) throws Exception {
 		String forwardPath="";
-		try {
-		//List<Movie> searchActor = movieService.searchActor(m_actor);
-		List<Movie> searchMovie = movieService.searchMovie(m_name);
-		forwardPath = "movieSearch";
-		//model.addAttribute("searchActor", searchActor);
-		model.addAttribute("searchMovie", searchMovie);
-		}catch (Exception e) {
-			e.printStackTrace();
-			/*
-			 * if(movieService.searchActor(m_actor) ==
-			 * null||movieService.searchActor(m_actor).equals("")) { return forwardPath;
-			 * }else
-			 * if(movieService.searchMovie(m_name)==null||movieService.searchMovie(m_name).
-			 * equals("")) { return forwardPath; }
-			 */
+		String searchKey=request.getParameter("name");
+		System.out.println(searchKey);
+		if(searchKey==null) {
+			forwardPath="searchPage?m_name"+searchKey;
 		}
+		
+		
+		
+		
+		
+//		try {
+//		//List<Movie> searchActor = movieService.searchActor(m_actor);
+//		List<Movie> searchMovie = movieService.searchMovie(m_name);
+//		forwardPath = "movieSearch";
+//		//model.addAttribute("searchActor", searchActor);
+//		model.addAttribute("searchMovie", searchMovie);
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//			/*
+//			 * if(movieService.searchActor(m_actor) ==
+//			 * null||movieService.searchActor(m_actor).equals("")) { return forwardPath;
+//			 * }else
+//			 * if(movieService.searchMovie(m_name)==null||movieService.searchMovie(m_name).
+//			 * equals("")) { return forwardPath; }
+//			 */
+//		}
 		return forwardPath;
 	}
 	

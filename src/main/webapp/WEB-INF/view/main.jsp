@@ -318,7 +318,7 @@ $(function(){
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="videos" >
-						<!--영상 url  -->
+						
 						<div class="slider-for-2 video-ft">
 							<c:forEach items="${movieList}" var="movie"> 
 							<div>
