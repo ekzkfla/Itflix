@@ -104,19 +104,41 @@ function insert() {
 									value="${movie.m_date}" pattern="yyyy/MM/dd" /></span>
 						</h1>
 						<!-- 찜하기버튼 START -->
+						<%-- <%if (login_user == null) {	//비로그인시 로그인 창 %>
+							<div class="social-btn">
+								<a href="" class="parent-btn loginLink"><i class="ion-heart"></i>Add
+									to Favorite</a>
+							</div>
+						<% } else {//로그인시 찜기능 진행	%> --%> 
 						
-								<div class="social-btn" >
-									<button type="button" onclick="insert();" style="background: black;">
-									<a class="parent-btn"> 
-									<i class="ion-heart" ></i>Add to Favorite</a>
-									</button>
-								</div>
 							
-										
 						
-					<%-- 	<%
-						}
-						%> --%>
+							<c:if test="${jjim==false }">
+							<div class="social-btn" >
+								<button type="button" onclick="insert();" style="background: black;">
+								<a class="parent-btn"> 
+								<i class="ion-heart" ></i>Add to Favorite</a>
+								</button>
+							</div>
+							</c:if>
+							<c:if test="${jjim==true }">
+								<div class="social-btn" >
+								<button type="button" onclick="delete();" style="background: black;">
+								<a class="parent-btn"> 
+								<i class="ion-heart" ></i>찜 취소</a>
+								</button>
+							</div>
+							</c:if>
+						
+							
+							
+							
+							
+							
+							
+						
+								
+						
 						<!-- 찜하기버튼 END -->
 						<div class="movie-rate">
 							<div class="rate" >
