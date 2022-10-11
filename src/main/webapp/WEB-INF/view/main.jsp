@@ -2,41 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script type="text/javascript">
-	//iframe api
-    var tag = document.createElement('script');
-
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    var player;
-    function onYouTubeIframeAPIReady() {
-	player = new YT.Player('player', {
-		height: '360',
-		width: '640',
-		videoId: 'M7lc1UVf-VE',
-		events: {
-		'onReady': onPlayerReady,
-		'onStateChange': onPlayerStateChange}
-        });
-      }
-
-	function onPlayerReady(event) {
-		event.target.playVideo();
-	}
-
-	var done = false;
-	function onPlayerStateChange(event) {
-	if (event.data == YT.PlayerState.PLAYING && !done) {
-		setTimeout(stopVideo, 6000);
-		done = true;
-		}
-	}
-	function stopVideo() {
-		player.stopVideo();
-	}
-</script>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -60,9 +25,46 @@
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+
+<script type="text/javascript">
+players = new Array();
+
+function onYouTubeIframeAPIReady() {
+	var temp = $("iframe.yt_players");
+	for (var i = 0; i<temp.length;i++){
+		var t = new YT.Player($(temp[i]).attr('id'),{
+			events: {
+				'onStateChange': onPlayerStateChange				
+			}
+		});
+		players.push(t);
+	}
+}
+onYouTubeIframeAPIReady();
+
+function onPlayerStateChange(event){
+	if(event.data == YT.PlayerState.PLAYING){
+		var temp = event.target.getVideoUrl();
+		var tempPlayers = $("iframe.yt_players");
+		for (var i=0; i<players.length; i++){
+			if (players[i].getVideoUrl() != temp)
+				players[i].stopVideo();
+		}
+	}
+}
+</script>
+
+<script type="text/javascript">
+$(function(){
+    $('iframe[src*="//www.youtube.com/watch?"]').each(function(i) {
+      this.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    });
+  });
+</script>
 </head>
 <body>
-	
+
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
@@ -316,13 +318,12 @@
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="videos" >
-						
 						<!--영상 url  -->
 						<div class="slider-for-2 video-ft">
 							<c:forEach items="${movieList}" var="movie"> 
 							<div>
-								<iframe id="player" class="item-video" src=""
-									data-src="${movie.m_url}?enablejsapi=1&version=3&playerapiid=ytplayer"></iframe>
+								<iframe class="ytplayer" src=""
+									data-src="${movie.m_url}"></iframe>
 							</div>
 							</c:forEach>
 						</div>
