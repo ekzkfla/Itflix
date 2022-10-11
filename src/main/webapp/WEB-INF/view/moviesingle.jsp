@@ -106,7 +106,7 @@ function insert() {
 						<!-- 찜하기버튼 START -->
 						
 								<div class="social-btn" >
-									<button type="button" onclick="insert();" style="background: black;">
+									<button type="button" onclick="insert();" style="background-color:transparent; border:none">
 									<a class="parent-btn"> 
 									<i class="ion-heart" ></i>Add to Favorite</a>
 									</button>
