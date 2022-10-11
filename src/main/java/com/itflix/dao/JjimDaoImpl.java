@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itflix.dto.Jjim;
-import com.itflix.dto.User_Info;
 import com.itflix.mapper.Jjim_Mapper;
 
 @Repository
@@ -55,7 +54,14 @@ public class JjimDaoImpl implements JjimDao {
 		List<Jjim> jjimListTest5 = jjim_Mapper.jjimListTest5(u_email);
 	return jjimListTest5;
 	}
-
+	
+	//유저 이름에 찜한 영화 존재 여부 확인
+	@Override
+	public int jjimUser(String u_email,int m_no)throws Exception{
+		int jjimUser=jjim_Mapper.jjimUser(u_email, m_no);
+		return jjimUser;
+		
+	}
 	 
 	 
 }
