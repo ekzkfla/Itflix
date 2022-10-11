@@ -76,6 +76,7 @@ namespace="com.itflix.mapper.Review_Mapper">
    
    
 <!-- 추가 -->
+<!-- 
 	<resultMap 	id="ReviewWithMovieandUser" 
 				type="com.itflix.dto.Review">
 		<result column="r_no" property="r_no"/>
@@ -96,7 +97,7 @@ namespace="com.itflix.mapper.Review_Mapper">
 					<result column="u_email" property="u_email"/>
 				</collection>
 	</resultMap>
-		
+		 -->
 		
 <!-- 	 		 
 	<resultMap id="ReviewWithUserList"

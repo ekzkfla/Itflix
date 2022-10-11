@@ -65,5 +65,10 @@ public interface Review_Mapper {
 	// 각 영화 리뷰 총 갯수
 	@Select("select count(*) from review where m_no = ${m_no}")
 	public int reviewCount(int m_no);
+	
+	// 리뷰 추가
+	@Insert("insert into review VALUES (#{r_no}, #{r_title}, #{r_content}, #{r_grade}, sysdate, #{r_groupno}, #{r_step}, #{r_depth}, #{m_no}, #{u_email})")
+	@SelectKey(statement = "select REVIEW_R_NO_SEQ.nextval from dual", keyProperty = "r_no",before = true, resultType = Integer.class)
+	public Review insertReview2(Review review);
 
 }

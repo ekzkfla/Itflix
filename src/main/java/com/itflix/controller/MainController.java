@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.itflix.dao.User_InfoDao;
 import com.itflix.dto.Category;
 import com.itflix.dto.Jjim;
 import com.itflix.dto.Movie;
@@ -255,10 +256,11 @@ public class MainController {
 	}
 	
 	//리뷰 작성 페이지 
-	@RequestMapping(value = "reviewWrite")	
+	@RequestMapping(value = "reviewWrite")
 	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request) throws Exception {
-		String r_title =request.getParameter("r_title");
-		//grade 의 값 설정 해주기 
+		String forwardPath="";
+		//grade 의 값 설정 해주기
+		
 		if(request.getParameter("r_grade1") != null) {
 			String r_grade=request.getParameter("r_grade1");
 		}else if(request.getParameter("r_grade2") != null) {
@@ -271,19 +273,26 @@ public class MainController {
 			String r_grade=request.getParameter("r_grade5");
 		}
 		
+		String r_title =request.getParameter("r_title");
+		String r_content = request.getParameter("r_content");
+		//String u_email = request.getParameter("u_email");
+		Review reviewAdd = new Review(0, r_title, r_content, 0, null, 0, 0, 0, new Movie(0, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null, null),null, null);
 		
-		
-		
-		
-		
-		String forwardPath="";
+		reviewService.insertReview2(reviewAdd);
 		
 		System.out.println();
 		Movie movie=movieService.selectByNo(m_no);
 		model.addAttribute("movie", movie);
+		//model.addAttribute("reviewAdd", reviewAdd);
 		forwardPath = "reviewWrite";
 		return forwardPath;
 	}
-
+	
+		
+		
+		
+	
+	
+	
 
 }
