@@ -46,5 +46,15 @@
 		</collection>
 	</resultMap>
 
+	<!--유저 이름에 찜한 영화 존재 여부 확인   -->
+	<resultMap id="jjimUserResult" type="com.itflix.dto.Jjim">
+		<collection property="userList" javaType="java.util.List" ofType="com.itflix.dto.User_Info">
+			<result column="u_email" property="u_email"/>
+			<result column="u_name" property="u_name"/>
+		</collection>
+		<collection property="movieList" javaType="java.util.List" ofType="com.itflix.dto.Movie">
+			<result column="m_no" property="m_no"/>
+		</collection>
+	</resultMap>
 
 </mapper>

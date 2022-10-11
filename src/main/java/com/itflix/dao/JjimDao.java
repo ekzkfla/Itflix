@@ -17,6 +17,9 @@ public interface JjimDao {
 
 	/* 리뷰의 총평점 조인안하고 불러오기*/
 	List<Jjim> jjimListTest5(String u_email) throws Exception;
+	
+	//유저 이름에 찜한 영화 존재 여부 확인
+	int jjimUser(String u_email, int m_no) throws Exception;
 
 
 }
