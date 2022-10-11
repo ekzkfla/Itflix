@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,8 +55,8 @@ public class UserLoginController {
 	public String user_login_action(HttpServletRequest request, HttpSession session) {
 		String u_email = request.getParameter("u_email");
 		String u_pass = request.getParameter("u_pass");
-		// System.out.println(u_email);
-		// System.out.println(u_pass);
+		System.out.println(u_email);
+		System.out.println(u_pass);
 		String forwardPath = "";
 		try {
 			/*
@@ -67,7 +68,7 @@ public class UserLoginController {
 				session.setAttribute("login_email", loginUser.getU_email());
 				session.setAttribute("login_user", loginUser);
 				System.out.println(loginUser);
-				forwardPath = "main";
+				forwardPath = "moviesingle?m_no=27";
 			} else if (result == -1) {
 				// request.setAttribute("login_id", u_email);
 				// forwardPath = "ssss";
@@ -81,10 +82,11 @@ public class UserLoginController {
 		}
 		return forwardPath;
 	}
-
+	
 	/* 로그아웃 */
 	@RequestMapping("user_logout_action")
 	public String user_logout_action(HttpSession session) {
+		
 		session.invalidate();
 		return "redirect:main";
 	}
@@ -103,35 +105,46 @@ public class UserLoginController {
 		return forwardPath;
 	}
 
-	/* 찜하기 ... 우선 스킵... 하..  파라메타가 안들어옴..*/
+	/* 찜하기 ... 우선 스킵... 하.. 파라메타가 안들어옴.. */
+
+//	@RequestMapping("jjim_insert_action")
+//	public String jjim_insert_action(HttpServletRequest request, HttpSession session) {
+//		String forwardPath = "";
+//		String msg = "";
+//
+//		String u_email = String.valueOf(session.getAttribute("login_user"));
+//		System.out.println(u_email);
+//		String m_no = request.getParameter("m_no");
+//		try {
+//			int jjimInsert = jjimService.jjimInsert(u_email, Integer.parseInt(m_no));
+//			request.setAttribute("jjimInsert", jjimInsert);
+//			//forwardPath = "moviesingle?m_no="+m_no;
+//			msg = "성공";
+//			System.out.println(msg);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			msg = "실패";
+//		}
+//		return forwardPath;
+//	}
+//	
+	
+	@LoginCheck
 	@RequestMapping("jjim_insert_action")
-	public String jjim_insert_action(HttpServletRequest request, @RequestParam String u_email, @RequestParam int m_no) {
+	public String jjim_insert_action(HttpServletRequest request, HttpSession session) {
+		String u_email = request.getParameter("u_email");
+		//u_email = "guard1@gmail.com";
+		u_email = (String) session.getAttribute("u_email");
+		String m_no = request.getParameter("m_no");
+		System.out.println(u_email);
+		System.out.println(m_no);
 		String forwardPath = "";
-		String msg = "";
-		try {
-			int jjimInsert = jjimService.jjimInsert(u_email, m_no);
-			request.setAttribute("u_email", u_email);
-			request.setAttribute("m_no", m_no);
-			request.setAttribute("jjimInsert", jjimInsert);
-			System.out.println(jjimInsert);
-			System.out.println(m_no);
-			forwardPath = "moviesingle?m_no=" + m_no;
-			msg = "성공";
-			System.out.println(msg);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			msg = "제바아아라라알";
-			System.out.println(msg);
-
-		}
+		
 		return forwardPath;
 	}
 	
-	/*회원 본인 리뷰 뿌리기*/
+	
 
 	
 	
-
 }//
-

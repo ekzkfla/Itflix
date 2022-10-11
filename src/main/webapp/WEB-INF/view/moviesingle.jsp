@@ -9,7 +9,7 @@
 
 
 <%
-User_Info login_user = (User_Info) session.getAttribute("guard1@gmail.com");
+User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
 
 <!DOCTYPE html>
