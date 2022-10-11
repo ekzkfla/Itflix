@@ -59,7 +59,10 @@ public interface Jjim_Mapper {
 	@ResultMap("jjimListTest4")
 	public List<Jjim> jjimListTest5(String u_email);
 	
-	
+	//유저 이름에 찜한 영화 존재 여부 확인 
+	@Select("select COUNT(*) from jjim j join user_info u on u.u_email = j.u_email where j.u_email=#{u_email} and j.m_no=#{m_no}")
+	//@ResultMap("jjimUserResult")
+	public int jjimUser(String u_email,int m_no);
 	
 	
 }

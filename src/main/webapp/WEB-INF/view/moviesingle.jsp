@@ -9,7 +9,7 @@
 
 
 <%
-User_Info login_user = (User_Info) session.getAttribute("guard1@gmail.com");
+User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
 
 <!DOCTYPE html>
@@ -49,6 +49,8 @@ function insert() {
 	document.f.method='POST';
 	document.f.submit();
 }
+
+
 
 </script>
 
@@ -102,36 +104,26 @@ function insert() {
 									value="${movie.m_date}" pattern="yyyy/MM/dd" /></span>
 						</h1>
 						<!-- 찜하기버튼 START -->
-						<%-- <%
-						if (login_user == null) {
-						//비로그인시 로그인 창
-						%>
-						<div class="social-btn">
-							<a href="" class="parent-btn loginLink"><i class="ion-heart"></i>Add
-								to Favorite</a>
-						</div>
-						<%
-						} else {
-						//로그인시 찜기능 진행 
-						%> --%>
-						<div class="social-btn" >
-							<button type="button" onclick="insert();" style="background: black;">
-							<a class="parent-btn"> 
-							<i class="ion-heart" ></i>Add to Favorite</a>
-							</button>
+						
+								<div class="social-btn" >
+									<button type="button" onclick="insert();" style="background-color:transparent; border:none">
+									<a class="parent-btn"> 
+									<i class="ion-heart" ></i>Add to Favorite</a>
+									</button>
+								</div>
 							
-						</div>
+										
 						
 					<%-- 	<%
 						}
 						%> --%>
 						<!-- 찜하기버튼 END -->
 						<div class="movie-rate">
-							<div class="rate">
+							<div class="rate" >
 								<i class="ion-android-star"></i>
 								<p style="font-size: 12pt">
 									<span> <jsp:include page="TotalAvg.jsp" />
-									</span>/5<br> <span class="rv">${review} Reviews</span>
+									</span>/5<br> <span class="rv" >${review} Reviews</span>
 								</p>
 							</div>
 							<div class="rate-star">

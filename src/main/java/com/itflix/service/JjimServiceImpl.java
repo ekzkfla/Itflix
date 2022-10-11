@@ -50,5 +50,10 @@ public class JjimServiceImpl implements JjimService{
 		return jjimDao.jjimListTest5(u_email);
 	}
 
+	@Override
+	public int jjimUser(String u_email, int m_no) throws Exception {
+		return jjimDao.jjimUser(u_email, m_no);
+	}
+
 
 }

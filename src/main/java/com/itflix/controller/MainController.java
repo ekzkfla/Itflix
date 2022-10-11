@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.itflix.dto.Category;
+import com.itflix.dto.Jjim;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
 import com.itflix.dto.Review;
 import com.itflix.dto.User_Info;
 import com.itflix.service.CategoryService;
+import com.itflix.service.JjimService;
 import com.itflix.service.MovieService;
 import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
@@ -38,7 +40,8 @@ public class MainController {
 	private CategoryService categoryService;
 	@Autowired
 	private User_InfoService user_InfoService;
-
+	@Autowired
+	private JjimService jjimService;
 	
 	
 	public MainController() {
@@ -126,16 +129,27 @@ public class MainController {
 	
 	//영화 detail 페이지
 	@RequestMapping(value = "moviesingle",params = "m_no")
-	public String moviesingle(@RequestParam int m_no, Model model)throws Exception { 
+	public String moviesingle(@RequestParam int m_no, Model model,HttpServletRequest request)throws Exception { 
 			Movie movie = movieService.selectByNo(m_no);
 			Movie movie2= movieService.selectMovieRecentReview(m_no);
 			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
+			String u_email=(String) request.getParameter("login_email");
+			System.out.println(u_email);
+			if(u_email != null) {
+				int jjim = jjimService.jjimUser(u_email, m_no);
+				model.addAttribute("jjim", jjim);
+				System.out.println(jjim);
+			}
 			int review= reviewService.reviewCount(m_no);
+			
 			
 			model.addAttribute("movie",movie );
 			model.addAttribute("movie2",movie2 );
 			model.addAttribute("movieGrade",movieGrade );
 			model.addAttribute("review",review );
+			model.addAttribute("review", review);
+			
+			
 			
 		return "moviesingle";
 	}
