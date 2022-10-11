@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -130,14 +131,15 @@ public class MainController {
 	
 	//영화 detail 페이지
 	@RequestMapping(value = "moviesingle",params = "m_no")
-	public String moviesingle(@RequestParam int m_no, Model model,HttpServletRequest request)throws Exception { 
+	public String moviesingle(@RequestParam int m_no, Model model,HttpSession session)throws Exception { 
 			Movie movie = movieService.selectByNo(m_no);
 			Movie movie2= movieService.selectMovieRecentReview(m_no);
 			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
-			String u_email=(String) request.getParameter("login_email");
-			System.out.println(u_email);
-			if(u_email != null) {
-				int jjim = jjimService.jjimUser(u_email, m_no);
+			User_Info user_Info=(User_Info)session.getAttribute("login_user");
+			//String u_email=user_Info.getU_email();
+			//System.out.println(user_Info.getU_email());
+			if(user_Info != null) {
+				boolean jjim = jjimService.jjimUser(user_Info.getU_email(), m_no);
 				model.addAttribute("jjim", jjim);
 				System.out.println(jjim);
 			}

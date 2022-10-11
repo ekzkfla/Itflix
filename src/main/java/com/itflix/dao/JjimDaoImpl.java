@@ -57,8 +57,8 @@ public class JjimDaoImpl implements JjimDao {
 	
 	//유저 이름에 찜한 영화 존재 여부 확인
 	@Override
-	public int jjimUser(String u_email,int m_no)throws Exception{
-		int jjimUser=jjim_Mapper.jjimUser(u_email, m_no);
+	public boolean jjimUser(String u_email,int m_no)throws Exception{
+		boolean jjimUser=jjim_Mapper.jjimUser(u_email, m_no);
 		return jjimUser;
 		
 	}

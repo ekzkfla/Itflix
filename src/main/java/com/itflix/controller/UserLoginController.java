@@ -131,6 +131,30 @@ public class UserLoginController {
 		return forwardPath;
 	}
 	
+	/* 찜 취소 하기*/
+	@RequestMapping(value = "/jjim_delete_action", method = RequestMethod.POST)
+	public String jjim_delete_action(HttpServletRequest request) {
+		String forwardPath = "";
+		String msg = "";
+		try {
+			String u_email=request.getParameter("u_email");
+			String m_no=request.getParameter("m_no");
+			System.out.println(m_no);
+			int jjimDelete = jjimService.jjimDelete(u_email,Integer.parseInt(m_no));
+			request.setAttribute("jjimDelete", jjimDelete);
+			System.out.println(jjimDelete);
+			forwardPath = "redirect:moviesingle?m_no="+m_no;
+			msg = "성공";
+			System.out.println(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "실패";
+			System.out.println(msg);
+		}
+		return forwardPath;
+	}
+	
 	
 
 	

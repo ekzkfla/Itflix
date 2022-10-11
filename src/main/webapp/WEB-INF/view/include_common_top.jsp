@@ -227,15 +227,9 @@ align-items: center;
 			<!-- /.navbar-collapse -->
 		</nav>
 		<!-- top search form -->
-		<form action="movieSearch" method="get">
-		<div class="top-search">
-			<select data-trigger="" name="searchType" >
-				<option value="name">영화</option>
-				<option value="actor">감독·출연</option>
-			</select> 
-			<input name="" type="text" placeholder="Serch your Movie and enjoy your Life" >
-			<input type="submit" id="search"  >
-		</div>
-		</form>
+		
+		<!--include_common_top_keyWordSearch <검색 보드바   -->
+		<jsp:include page="include_common_top_keyWordSearch.jsp"/>
+		<!--include_common_top_keyWordSearch <검색 보드바   -->
 	</div>
 </header>

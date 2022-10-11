@@ -51,7 +51,7 @@ public class JjimServiceImpl implements JjimService{
 	}
 
 	@Override
-	public int jjimUser(String u_email, int m_no) throws Exception {
+	public boolean jjimUser(String u_email, int m_no) throws Exception {
 		return jjimDao.jjimUser(u_email, m_no);
 	}
 
