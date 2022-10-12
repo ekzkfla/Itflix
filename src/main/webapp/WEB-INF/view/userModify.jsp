@@ -1,5 +1,9 @@
+<%@page import="com.itflix.dto.User_Info"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+User_Info login_user = (User_Info) session.getAttribute("login_user");
+%>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
@@ -22,6 +26,19 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+
+// 마이페이지 password가 회원의 password와 일치하면 진행
+function insert() {	
+	if (document.f.u_pass.value == "") {
+		alert("로그인후 이용해 주세요.");
+		return false;
+	}
+			
+	document.f.action = "userModify";
+	document.f.method = 'POST';
+	document.f.submit();
+}
 </head>
 <body>
 	
@@ -81,7 +98,7 @@
 							</div>
 							-->
 						</form>
-						<form action="" class="password" method = "POST">
+						<form action="userModify" class="password" method = "POST" name = "f">
 							<h4> 회원정보 변경</h4>
 							<div class="row">
 								<div class="col-md-6 form-it">
