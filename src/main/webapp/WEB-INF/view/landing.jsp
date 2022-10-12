@@ -157,7 +157,7 @@ $(function() {
 		<a href="main"> <img src="images/mylogo.png" alt="Logo" width="200px" height="200px">
 		</a>
 		<div class="row landing-hero-text">
-			<img src="images/payImage.png" alt="Logo">
+			<img src="images/landing.jpg" alt="Logo">
 		</div>
 			<div class="center">
 				<li class="loginLink"><a href="#" class="redbtn">결제하기</a></li>

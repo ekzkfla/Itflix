@@ -1,3 +1,4 @@
+<%@page import="com.itflix.dto.User_Info"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!--현재 날짜 구현   -->	
@@ -11,6 +12,7 @@
 <%
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yy년 MM월 dd일");
+	User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
 
 <!DOCTYPE html>
