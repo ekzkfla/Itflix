@@ -70,7 +70,7 @@
 					<div class="movie-single-ct main-content">
 
 						<!-- ↓↓↓영화 타이틀 제목↓↓↓  -->
-						<h1 class="bd-hd">${movie.m_name } Review</h1>
+						<h1 class="bd-hd">${movie.m_name }Review</h1>
 						<!-- ↑↑↑영화 타이틀 제목↑↑↑  -->
 
 						<div class="movie-tabs">
@@ -86,7 +86,14 @@
 												<div class="title-hd-sm">
 													<h4>User reviews</h4>
 													<h4>
-														<a href="reviewWrite?m_no=${movie.m_no}" class="time" style="right: 500px">리뷰 작성</a>
+														<c:if test="${login_user != null }">
+															<a href="reviewWrite?m_no=${movie.m_no}" class="time"
+																style="right: 500px">리뷰 작성</a>
+														</c:if>
+														<c:if test="${login_user == null }">
+															<a onclick="alert('로그인을 해주세요');" style="cursor: pointer">리뷰
+																작성</a>
+														</c:if>
 													</h4>
 												</div>
 
