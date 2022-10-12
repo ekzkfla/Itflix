@@ -248,42 +248,65 @@ public class MainController {
 	
 	//리뷰 작성 페이지 
 	@RequestMapping(value = "reviewWrite")
-	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request) throws Exception {
+	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request,String r_grade) throws Exception {
 		String forwardPath="";
 		//grade 의 값 설정 해주기
 		
 		if(request.getParameter("r_grade1") != null) {
-			String r_grade=request.getParameter("r_grade1");
+			String r_grade1=request.getParameter("r_grade1");
 		}else if(request.getParameter("r_grade2") != null) {
-			String r_grade=request.getParameter("r_grade2");
+			String r_grade2=request.getParameter("r_grade2");
 		}else if(request.getParameter("r_grade3") != null) {
-			String r_grade=request.getParameter("r_grade3");
+			String r_grade3=request.getParameter("r_grade3");
 		}else if(request.getParameter("r_grade4") != null) {
-			String r_grade=request.getParameter("r_grade4");
+			String r_grade4=request.getParameter("r_grade4");
 		}else if(request.getParameter("r_grade5") != null) {
-			String r_grade=request.getParameter("r_grade5");
+			String r_grade5=request.getParameter("r_grade5");
 		}
 		
-		String r_title =request.getParameter("r_title");
-		String r_content = request.getParameter("r_content");
-		//String u_email = request.getParameter("u_email");
 		
-		/*
-		 * Review reviewAdd = new Review(0, r_title, r_content, 0, null, 0, 0, 0, new
-		 * Movie(0, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null,
-		 * null),null, null);
-		 * 
-		 * reviewService.insertReview2(reviewAdd);
-		 */
-		
-		System.out.println();
 		Movie movie=movieService.selectByNo(m_no);
 		model.addAttribute("movie", movie);
-		//model.addAttribute("reviewAdd", reviewAdd);
-		forwardPath = "reviewWrite";
+		forwardPath="reviewWrite";
+		System.out.println("실행?");
 		return forwardPath;
 	}
 	
+	//리뷰 작성 액션 페이지
+	@RequestMapping(value = "/reviewWrite_action",method = RequestMethod.POST)
+	public String reviewWrite_action(HttpServletRequest request) {
+		String forwardPath="";
+		String msg="";
+		try {
+			if(request.getParameter("r_grade1") != null) {
+				String r_grade1=request.getParameter("r_grade1");
+			}else if(request.getParameter("r_grade2") != null) {
+				String r_grade2=request.getParameter("r_grade2");
+			}else if(request.getParameter("r_grade3") != null) {
+				String r_grade3=request.getParameter("r_grade3");
+			}else if(request.getParameter("r_grade4") != null) {
+				String r_grade4=request.getParameter("r_grade4");
+			}else if(request.getParameter("r_grade5") != null) {
+				String r_grade5=request.getParameter("r_grade5");
+			}
+			String r_title =request.getParameter("r_title");
+			String r_content = request.getParameter("r_content");
+			String r_grade = request.getParameter("r_grade");
+			String m_no = request.getParameter("m_no");
+			String u_email = request.getParameter("u_email");
+			int reviewAdd = reviewService.insertReview(0, r_title, r_content, Integer.parseInt(r_grade), null, 0, 0, 0, Integer.parseInt(m_no), u_email);
+			request.setAttribute("reviewAdd", reviewAdd);
+			forwardPath = "redirect:reviewWrite?m_no="+m_no;
+			System.out.println(reviewAdd);
+			msg="리뷰작성";
+			System.out.println(msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+			forwardPath="404";
+		}
+		System.out.println("여기는?");
+		return forwardPath;
+	}
 		
 		
 		

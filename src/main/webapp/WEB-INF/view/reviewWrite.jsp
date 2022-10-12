@@ -38,16 +38,25 @@
 <link href="css/star.css" rel="stylesheet"/>
 </head>
 <script type="text/javascript">
-	window.onload = function(){
-		document.getElementById('reviewWriteBtn').onclick=function(){
-			
-			document.getElementById('myform').submit();
-			
-			
-			return false;
-		}
+ 
+/* window.onload = function(){
+	document.getElementById('reviewWriteBtn').onclick=function(){
+		document.getElementById('myform').submit();
+		return false;
 	}
-
+} */
+ 
+function reviewWrite_action() {
+	/* if (document.f.u_email.value == "") {
+		alert("로그인후 이용해 주세요.");
+		return false;
+	} */
+			
+	document.myform.action ="reviewWrite_action";
+	document.myform.method='POST';
+	document.myform.submit();
+}
+	
 </script>
 
 <body>
@@ -114,7 +123,7 @@
 												<!-- 상단 -->
 												<div class="title-hd-sm">
 													<h4>User reviews</h4>
-													<p>글쓴이 : ${loginUser.u_name }</p>
+													<p>글쓴이 : ${login_user.u_name }</p>
 												</div>
 												<!-- movie user review -->
 												<div class="mv-user-review-item">
@@ -122,9 +131,15 @@
 													날짜 :<%= sf.format(nowTime) %>
 												</p>	
 												
+												
 												<!--별점 구현   -->
-											 	<form class="mb-3" name="myform" id="myform" method="post">
-											 	
+											 	<form class="mb-3" name="myform" id="myform" method="post" action="reviewWrite_action">
+														<input name="u_email" value="${login_user.u_email }" type="hidden">
+														<input name="r_grade" value="${r_grade }" type="hidden">
+														<input name="r_title" value="${r_title }" type="hidden">
+														<input name="r_content" value="${r_content }" type="hidden">
+														<input name="r_date" value="${r_date }" type="hidden">
+														
 													<fieldset>
 														<span class="text-bold">별점을 선택해주세요</span>
 														<input type="radio" name="reviewStar" value="5" id="r_grade1"><label
@@ -138,6 +153,7 @@
 														<input type="radio" name="reviewStar" value="1" id="r_grade5"><label
 															for="r_grade5">★</label>
 													</fieldset>
+													
 												<!--리뷰 타이틀 부분   -->
 													<div>
 														<textarea class="col-auto form-control" type="text" id="${r_title }" 
@@ -152,12 +168,14 @@
 													</div>
 										<div class="landing-hero">
 											<div class="row">
-												<button type="submit" id="reviewWriteBtn" style="padding:0px; position: absolute; top:75%; left:35%;">
-												<a class="redbtn">영화<br> ${movie.m_name }에 <br> 리뷰 작성</a>
+												<button value="등록" type="button" onclick="reviewWrite_action();"><!--  id="reviewWriteBtn" --> 
+												<a class="redbtn"> 영화<br> ${movie.m_name }에 <br> 리뷰 작성</a>
 												</button>
 											</div>
 										</div>
-												</form>		
+												</form>
+												
+												
 											<!--아래 밑줄  -->	
 											<div class="title-hd-sm"></div>
 										</div>
