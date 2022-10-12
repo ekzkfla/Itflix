@@ -1,3 +1,4 @@
+<%@page import="com.itflix.dto.User_Info"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!--현재 날짜 구현   -->	
@@ -11,6 +12,7 @@
 <%
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yy년 MM월 dd일");
+	User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
 
 <!DOCTYPE html>
@@ -38,17 +40,28 @@
 <link href="css/star.css" rel="stylesheet"/>
 </head>
 <script type="text/javascript">
-	window.onload = function(){
-		document.getElementById('reviewWriteBtn').onclick=function(){
-			
-			document.getElementById('myform').submit();
-			
-			
-			return false;
-		}
+ 
+/* window.onload = function(){
+	document.getElementById('reviewWriteBtn').onclick=function(){
+		document.getElementById('myform').submit();
+		return false;
 	}
-
+} */
+ 
+function reviewWrite_action() {
+	/* if (document.f.u_email.value == "") {
+		alert("로그인후 이용해 주세요.");
+		return false;
+	} */
+			
+	document.myform.action ="reviewWrite_action";
+	document.myform.method='POST';
+	document.myform.submit();
+}
 </script>
+<%--
+String r_grade=(String)request.getAttribute("r_grade");
+--%>
 
 <body>
 
@@ -114,7 +127,7 @@
 												<!-- 상단 -->
 												<div class="title-hd-sm">
 													<h4>User reviews</h4>
-													<p>글쓴이 : ${loginUser.u_name }</p>
+													<p>글쓴이 : ${login_user.u_name }</p>
 												</div>
 												<!-- movie user review -->
 												<div class="mv-user-review-item">
@@ -122,9 +135,13 @@
 													날짜 :<%= sf.format(nowTime) %>
 												</p>	
 												
+												
 												<!--별점 구현   -->
-											 	<form class="mb-3" name="myform" id="myform" method="post">
-											 	
+											 	<form class="mb-3" name="myform" id="myform" method="post" action="reviewWrite_action">
+														<input name="u_email" value="${login_user.u_email }" type="hidden">
+														<input name="r_date" value="<%= sf.format(nowTime) %>" type="hidden">
+														<input name="m_no" value="${movie.m_no}" type="hidden">
+														
 													<fieldset>
 														<span class="text-bold">별점을 선택해주세요</span>
 														<input type="radio" name="reviewStar" value="5" id="r_grade1"><label
@@ -138,26 +155,29 @@
 														<input type="radio" name="reviewStar" value="1" id="r_grade5"><label
 															for="r_grade5">★</label>
 													</fieldset>
+													
 												<!--리뷰 타이틀 부분   -->
 													<div>
-														<textarea class="col-auto form-control" type="text" id="${r_title }" 
+														<textarea class="col-auto form-control" type="text" name="r_title" 
 																  placeholder="제목을입력해주세요!"
 																  style="width: 100%; height: 5em; border: none; resize:none;"></textarea>
 													</div><br>
 													<!--리뷰 내용  -->
 													<div>
-														<textarea class="col-auto form-control" type="text" id="${r_content}"
+														<textarea class="col-auto form-control" type="text" name="r_content"
 																  placeholder="내용을 입력해 주세요!!"
 																  style="width: 100%; height: 30em; border: none; resize:none;"></textarea>
 													</div>
 										<div class="landing-hero">
 											<div class="row">
-												<button type="submit" id="reviewWriteBtn" style="padding:0px; position: absolute; top:75%; left:35%;">
-												<a class="redbtn">영화<br> ${movie.m_name }에 <br> 리뷰 작성</a>
-												</button>
+												
+												<a class="redbtn" style="cursor:pointer;" onclick="reviewWrite_action();"> 영화<br> ${movie.m_name }에 <br> 리뷰 작성</a>
+										
 											</div>
 										</div>
-												</form>		
+												</form>
+												
+												
 											<!--아래 밑줄  -->	
 											<div class="title-hd-sm"></div>
 										</div>

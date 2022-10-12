@@ -1,6 +1,7 @@
 package com.itflix.controller;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -239,51 +240,72 @@ public class MainController {
 
 	//구독권 안내 페이지 
 	@RequestMapping(value ="landing" )
-	public String landing() {
+	public String landing(HttpServletRequest request, HttpSession session) {
 		String forwardPath="";
+		User_Info user_Info=(User_Info)session.getAttribute("login_user");
+		
+		//비로그인시 alert 표출 후 메인페이지로 이동
+		if (user_Info == null) {
+			request.setAttribute("msg", "로그인이 필요합니다.");
+			request.setAttribute("url", "main");
+			return "alert";
+		}
+		
 		forwardPath = "landing";
 		
 		return forwardPath;
+		
 	}
 	
 	//리뷰 작성 페이지 
 	@RequestMapping(value = "reviewWrite")
-	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request) throws Exception {
+	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request, HttpSession session) throws Exception {
 		String forwardPath="";
-		//grade 의 값 설정 해주기
 		
-		if(request.getParameter("r_grade1") != null) {
-			String r_grade=request.getParameter("r_grade1");
-		}else if(request.getParameter("r_grade2") != null) {
-			String r_grade=request.getParameter("r_grade2");
-		}else if(request.getParameter("r_grade3") != null) {
-			String r_grade=request.getParameter("r_grade3");
-		}else if(request.getParameter("r_grade4") != null) {
-			String r_grade=request.getParameter("r_grade4");
-		}else if(request.getParameter("r_grade5") != null) {
-			String r_grade=request.getParameter("r_grade5");
+		User_Info user_Info=(User_Info)session.getAttribute("login_user");
+		
+		//비로그인시 alert 표출 후 메인페이지로 이동
+		if (user_Info == null) {
+			request.setAttribute("msg", "로그인이 필요합니다.");
+			request.setAttribute("url", "main");
+			return "alert";
 		}
 		
-		String r_title =request.getParameter("r_title");
-		String r_content = request.getParameter("r_content");
-		//String u_email = request.getParameter("u_email");
+		//grade 의 값 설정 해주기
 		
-		/*
-		 * Review reviewAdd = new Review(0, r_title, r_content, 0, null, 0, 0, 0, new
-		 * Movie(0, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null,
-		 * null),null, null);
-		 * 
-		 * reviewService.insertReview2(reviewAdd);
-		 */
 		
-		System.out.println();
+		
 		Movie movie=movieService.selectByNo(m_no);
 		model.addAttribute("movie", movie);
-		//model.addAttribute("reviewAdd", reviewAdd);
-		forwardPath = "reviewWrite";
+		forwardPath="reviewWrite";
+		System.out.println("실행?");
 		return forwardPath;
 	}
 	
+	//리뷰 작성 액션 페이지
+	@RequestMapping(value = "/reviewWrite_action",method = RequestMethod.POST)
+	public String reviewWrite_action(@RequestParam int m_no,HttpServletRequest request) {
+		String forwardPath="";
+		try {
+			
+			
+			String reviewStar=request.getParameter("reviewStar");
+			int r_grade = Integer.parseInt(reviewStar);
+			String r_title =request.getParameter("r_title");
+			String r_content = request.getParameter("r_content");
+			String u_email = request.getParameter("u_email");
+			int reviewAdd = reviewService.insertReview(0, r_title, r_content, r_grade, null, 0, 0, 0, m_no, u_email);
+			request.setAttribute("reviewAdd", reviewAdd);
+			forwardPath = "redirect:reviewlist?m_no="+m_no;
+			System.out.println(">>>>>>"+reviewAdd);
+			System.out.println("리뷰작성!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+			forwardPath="404";
+		}
+		System.out.println("여기는?");
+		return forwardPath;
+	}
 		
 		
 		
