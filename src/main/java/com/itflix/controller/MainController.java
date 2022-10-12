@@ -239,19 +239,38 @@ public class MainController {
 
 	//구독권 안내 페이지 
 	@RequestMapping(value ="landing" )
-	public String landing() {
+	public String landing(HttpServletRequest request, HttpSession session) {
 		String forwardPath="";
+		User_Info user_Info=(User_Info)session.getAttribute("login_user");
+		
+		//비로그인시 alert 표출 후 메인페이지로 이동
+		if (user_Info == null) {
+			request.setAttribute("msg", "로그인이 필요합니다.");
+			request.setAttribute("url", "main");
+			return "alert";
+		}
+		
 		forwardPath = "landing";
 		
 		return forwardPath;
+		
 	}
 	
 	//리뷰 작성 페이지 
 	@RequestMapping(value = "reviewWrite")
-	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request) throws Exception {
+	public String reviewWrite(@RequestParam int m_no ,Model model,HttpServletRequest request, HttpSession session) throws Exception {
 		String forwardPath="";
-		//grade 의 값 설정 해주기
 		
+		User_Info user_Info=(User_Info)session.getAttribute("login_user");
+		
+		//비로그인시 alert 표출 후 메인페이지로 이동
+		if (user_Info == null) {
+			request.setAttribute("msg", "로그인이 필요합니다.");
+			request.setAttribute("url", "main");
+			return "alert";
+		}
+		
+		//grade 의 값 설정 해주기
 		if(request.getParameter("r_grade1") != null) {
 			String r_grade=request.getParameter("r_grade1");
 		}else if(request.getParameter("r_grade2") != null) {
