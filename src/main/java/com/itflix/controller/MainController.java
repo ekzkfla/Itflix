@@ -1,6 +1,7 @@
 package com.itflix.controller;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -271,17 +272,7 @@ public class MainController {
 		}
 		
 		//grade 의 값 설정 해주기
-		if(request.getParameter("r_grade1") != null) {
-			String r_grade1=request.getParameter("r_grade1");
-		}else if(request.getParameter("r_grade2") != null) {
-			String r_grade2=request.getParameter("r_grade2");
-		}else if(request.getParameter("r_grade3") != null) {
-			String r_grade3=request.getParameter("r_grade3");
-		}else if(request.getParameter("r_grade4") != null) {
-			String r_grade4=request.getParameter("r_grade4");
-		}else if(request.getParameter("r_grade5") != null) {
-			String r_grade5=request.getParameter("r_grade5");
-		}
+		
 		
 		
 		Movie movie=movieService.selectByNo(m_no);
@@ -293,32 +284,21 @@ public class MainController {
 	
 	//리뷰 작성 액션 페이지
 	@RequestMapping(value = "/reviewWrite_action",method = RequestMethod.POST)
-	public String reviewWrite_action(HttpServletRequest request) {
+	public String reviewWrite_action(@RequestParam int m_no,HttpServletRequest request) {
 		String forwardPath="";
-		String msg="";
 		try {
-			if(request.getParameter("r_grade1") != null) {
-				String r_grade1=request.getParameter("r_grade1");
-			}else if(request.getParameter("r_grade2") != null) {
-				String r_grade2=request.getParameter("r_grade2");
-			}else if(request.getParameter("r_grade3") != null) {
-				String r_grade3=request.getParameter("r_grade3");
-			}else if(request.getParameter("r_grade4") != null) {
-				String r_grade4=request.getParameter("r_grade4");
-			}else if(request.getParameter("r_grade5") != null) {
-				String r_grade5=request.getParameter("r_grade5");
-			}
+			
+			
+			String reviewStar=request.getParameter("reviewStar");
+			int r_grade = Integer.parseInt(reviewStar);
 			String r_title =request.getParameter("r_title");
 			String r_content = request.getParameter("r_content");
-			String r_grade = request.getParameter("r_grade");
-			String m_no = request.getParameter("m_no");
 			String u_email = request.getParameter("u_email");
-			int reviewAdd = reviewService.insertReview(0, r_title, r_content, Integer.parseInt(r_grade), null, 0, 0, 0, Integer.parseInt(m_no), u_email);
+			int reviewAdd = reviewService.insertReview(0, r_title, r_content, r_grade, null, 0, 0, 0, m_no, u_email);
 			request.setAttribute("reviewAdd", reviewAdd);
-			forwardPath = "redirect:reviewWrite?m_no="+m_no;
-			System.out.println(reviewAdd);
-			msg="리뷰작성";
-			System.out.println(msg);
+			forwardPath = "redirect:reviewlist?m_no="+m_no;
+			System.out.println(">>>>>>"+reviewAdd);
+			System.out.println("리뷰작성!!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			forwardPath="404";
