@@ -29,16 +29,21 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 <script type="text/javascript">
 
 // 마이페이지 password가 회원의 password와 일치하면 진행
-function insert() {	
-	if (document.f.u_pass.value == "") {
-		alert("로그인후 이용해 주세요.");
-		return false;
-	}
-			
-	document.f.action = "userModify";
+function update() {	
+	
+	document.f.action = "user_Update_action";
 	document.f.method = 'POST';
 	document.f.submit();
 }
+
+</script>
+
+
+
+
+
+
+
 </head>
 <body>
 	
@@ -65,73 +70,47 @@ function insert() {
 	<!-- End | user leff menu bar-->
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="form-style-1 user-pro" action="">
-						<form action="" class="user">
+						<form action="userModify" method = "POST" name = "f">
 							<h4>회원의 상세페이지</h4>
 							<div class="row">
 								<div class="col-md-6 form-it">
-									<label>이름</label><input type="text"
-										placeholder= ${login_user.u_name}
-										readonly>
+									<label>이름</label>
+									<input type="text" name="u_name" value="${login_user.u_name }" >
 								</div>
 								<div class="col-md-6 form-it">
-									<label>이메일</label><input type="text"
-										placeholder= ${login_user.u_email}
-										readonly>
-								</div>
-							</div>
-							<!-- 
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>First Name</label><input type="text"
-										placeholder="Edward ">
-								</div>
-								<div class="col-md-6 form-it">
-									<label>Last Name</label><input type="text"
-										placeholder="Kennedy">
-								</div>
-							</div>
-							 
-							<div class="row">
-								<div class="col-md-2">
-									<input class="submit" type="submit" value="save">
-								</div>
-							</div>
-							-->
-						</form>
-						<form action="userModify" class="password" method = "POST" name = "f">
-							<h4> 회원정보 변경</h4>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>예전 비밀번호</label><input type="text"
-										name = "userPass"
-										placeholder= "**********">
-								</div>
-								<div class="col-md-6 form-it">
-									<label>핸드폰 번호</label><input type="text"
-										placeholder= ${login_user.u_phone}
-										name = "userPhone"
-										pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$">
+									<label>이메일</label>
+									<input type="text" name="u_email" value="${login_user.u_email}" >
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
-									<label>새로운 비밀번호</label><input type="text"
-										placeholder="***************"
-										name = "userPass1"
-										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
+									<label>예전 비밀번호</label>
+									<input type="text" name = "userPass" value="${login_user.u_pass }">
+								</div>
+								<div class="col-md-6 form-it">
+									<label>핸드폰 번호</label>
+									<input type="text" value= "${login_user.u_phone}" name = "u_phone" ><!-- pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$"> -->
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
-									<label>새로운 비밀번호 확인</label><input type="text"
-										placeholder="*************** "
-										name = "userPass2"
-										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
+									<label>새로운 비밀번호</label>
+									<input type="password" name = "userPass1">
+									<!-- 	pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>새로운 비밀번호 확인</label>
+									<input type="password"
+										name = "userPass2">
+										<!-- pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-2">
-									<input class="submit" type="submit" value="change">
+									<input type="submit" onclick="update();" value="change">
+									
 								</div>
 							</div>
 
