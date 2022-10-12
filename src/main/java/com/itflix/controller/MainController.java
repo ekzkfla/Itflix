@@ -267,9 +267,14 @@ public class MainController {
 		String r_title =request.getParameter("r_title");
 		String r_content = request.getParameter("r_content");
 		//String u_email = request.getParameter("u_email");
-		Review reviewAdd = new Review(0, r_title, r_content, 0, null, 0, 0, 0, new Movie(0, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null, null),null, null);
 		
-		reviewService.insertReview2(reviewAdd);
+		/*
+		 * Review reviewAdd = new Review(0, r_title, r_content, 0, null, 0, 0, 0, new
+		 * Movie(0, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null,
+		 * null),null, null);
+		 * 
+		 * reviewService.insertReview2(reviewAdd);
+		 */
 		
 		System.out.println();
 		Movie movie=movieService.selectByNo(m_no);

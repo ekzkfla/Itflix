@@ -85,6 +85,9 @@
 												<!-- 상단 -->
 												<div class="title-hd-sm">
 													<h4>User reviews</h4>
+													<h4>
+														<a href="reviewWrite?m_no=${movie.m_no}" class="time" style="right: 500px">리뷰 작성</a>
+													</h4>
 												</div>
 
 

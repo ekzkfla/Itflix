@@ -152,7 +152,9 @@
 													</div>
 										<div class="landing-hero">
 											<div class="row">
-												<button type="submit" id="reviewWriteBtn" style="padding:0px; position: absolute; top:75%; left:35%;"><a class="redbtn" >리뷰 작성</a></button>
+												<button type="submit" id="reviewWriteBtn" style="padding:0px; position: absolute; top:75%; left:35%;">
+												<a class="redbtn">영화<br> ${movie.m_name }에 <br> 리뷰 작성</a>
+												</button>
 											</div>
 										</div>
 												</form>		
