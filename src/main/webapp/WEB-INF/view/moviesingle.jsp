@@ -159,6 +159,9 @@ function deleteJjim() {
 								<!--평점 별계산 include <StarImage>  -->
 							</div>
 						</div>
+							<div>
+								<h6 style="color:#47B5FF">출연진: ${movie.m_actor} </h6>
+							</div>
 						<div class="movie-tabs">
 							<div class="tabs">
 								<ul class="tab-links tabs-mv">
