@@ -19,19 +19,12 @@ align-items: center;
 </style>
 
 <script type="text/javascript">
-	/* function keywordCheck() {
-		var str_keyword = window.searchform.keyword.value;
-		if (!str_keyword || str_keyword === "") {
-			window.alert("검색어를 입력하세요.");
-			window.searchform.keyword.focus();
-			return false;
-		}
-		window.searchform.submit();
-	} */
+	
 function key_word_search(){
-		var name = document.value;
-		location.href = "searchPage?m_name="+name;
-		}
+		document.div.action="key_word_search_action";
+		document.div.method='POST';
+		document.div.submit();
+	}
 	
 	
 	/* 
@@ -48,14 +41,21 @@ function key_word_search(){
 	 */
 </script>
 		
+		
+		<form action="key_word_search_action" method="POST" name="f">
 		<div class="top-search">
-			<select data-trigger=""  name="searchType" >
+			
+			<!-- 선택 분류 
+			 <select class="form-control"  name="searchField" >
+				<option value="0">선택</option>
 				<option value="m_name">영화</option>
 				<option value="m_actor">감독·출연</option>
-			</select> 
-			<input name="name" type="text" placeholder="Serch your Movie and enjoy your Life" >
-			<input type="button"  id="search" onclick="key_word_search();">
+			</select>
+			  -->
+			<input class="form-control" name="searchText" type="text" placeholder="Serch your Movie and enjoy your Life" >
+			<button type="button" onclick="key_word_search();">검색</button>
 		</div>
+		</form>
 		
 	
 	

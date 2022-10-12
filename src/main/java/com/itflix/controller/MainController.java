@@ -74,35 +74,26 @@ public class MainController {
 	}
 		
 	//검색결과페이지
-	@RequestMapping(value = "key_word_search",method = RequestMethod.POST)
-	public String search(HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "/key_word_search_action",method = RequestMethod.POST)
+	public String search(HttpServletRequest request){
 		String forwardPath="";
-		String searchKey=request.getParameter("name");
-		System.out.println(searchKey);
-		if(searchKey==null) {
-			forwardPath="searchPage?m_name"+searchKey;
+		String msg="";
+		try {
+			String searchKey = request.getParameter("searchText");
+			System.out.println(searchKey);
+			List<Movie>movieList=movieService.selectMovieName(searchKey);
+			request.setAttribute("movieList", movieList);
+			System.out.println(movieList);
+			msg = "성공";
+			System.out.println(msg);
+			forwardPath="searchPage";
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg= "실패";
+			System.out.println(msg);
+		
 		}
-		
-		
-		
-		
-		
-//		try {
-//		//List<Movie> searchActor = movieService.searchActor(m_actor);
-//		List<Movie> searchMovie = movieService.searchMovie(m_name);
-//		forwardPath = "movieSearch";
-//		//model.addAttribute("searchActor", searchActor);
-//		model.addAttribute("searchMovie", searchMovie);
-//		}catch (Exception e) {
-//			e.printStackTrace();
-//			/*
-//			 * if(movieService.searchActor(m_actor) ==
-//			 * null||movieService.searchActor(m_actor).equals("")) { return forwardPath;
-//			 * }else
-//			 * if(movieService.searchMovie(m_name)==null||movieService.searchMovie(m_name).
-//			 * equals("")) { return forwardPath; }
-//			 */
-//		}
+	
 		return forwardPath;
 	}
 	

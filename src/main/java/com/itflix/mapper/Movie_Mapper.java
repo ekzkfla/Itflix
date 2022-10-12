@@ -61,13 +61,15 @@ public interface Movie_Mapper {
 		public List<Movie> selectCategoryNo(int cg_no);
 		
 		//영화 제목으로 검색
-		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
+		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from Movie m \n"
 				+ "left outer join Review r \n"
 				+ "on m.m_no=r.m_no \n"
-				+ "where m_name LIKE '%'||#{m.m_name}||'%' \n"
-				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
+				+ "join category c \n"
+				+ "on m.cg_no=c.cg_no \n"
+				+ "where m_name LIKE '%'||#{m_name}||'%' or m_actor LIKE '%'||#{m_actor}||'%' \n" 
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name\n"
 				+ "ORDER BY m.m_no ASC")
 		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieName(String m_name);
