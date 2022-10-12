@@ -109,6 +109,8 @@
 							</select>
 					</div>
 					<!--분류 보드바 -->
+				
+					
 					<form name="f" method="Post">
 						<div class="flex-wrap-movielist mv-grid-fw">
 							<c:forEach items="${movieList}" var="movie">

@@ -21,9 +21,9 @@ align-items: center;
 <script type="text/javascript">
 	
 function key_word_search(){
-		document.div.action="key_word_search_action";
-		document.div.method='POST';
-		document.div.submit();
+		document.f.action="key_word_search_action";
+		document.f.method='POST';
+		document.f.submit();
 	}
 	
 	
@@ -52,8 +52,8 @@ function key_word_search(){
 				<option value="m_actor">감독·출연</option>
 			</select>
 			  -->
-			<input class="form-control" name="searchText" type="text" placeholder="Serch your Movie and enjoy your Life" >
-			<button type="button" onclick="key_word_search();">검색</button>
+			<input class="form-control" name="searchText" type="text" placeholder="Serch your Movie and enjoy your Life " >
+			<!-- <button type="button" onclick="key_word_search();" style=" display: flex;">검 색</button> -->
 		</div>
 		</form>
 		
