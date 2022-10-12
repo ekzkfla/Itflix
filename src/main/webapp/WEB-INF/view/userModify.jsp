@@ -11,7 +11,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>유저 수정페이지</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
