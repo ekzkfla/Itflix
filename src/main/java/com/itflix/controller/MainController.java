@@ -1,5 +1,6 @@
 package com.itflix.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -246,11 +247,19 @@ public class MainController {
 			if(u_newpass1.equals(u_newpass2)) {
 				//여기까지 통과했으면 바꾸자
 				user_InfoService.updateUser_Info(new User_Info(u_email, u_newpass1, u_name, u_phone));
+			}else {
+				request.setAttribute("msg", "새로운 비밀번호가 일치하지 않습니다.");
+				request.setAttribute("url", "userModify");
+				return "alert";
 			}
+		}else {
+			request.setAttribute("msg", "현재 비밀번호와 일치하지 않습니다.");
+			request.setAttribute("url", "userModify");
+			return "alert";
 		}
 		
-		forwardPath="userprofile";
 		model.addAttribute("user_Info",user_Info);
+		forwardPath="userModify";
 		
 		return forwardPath;
 	}

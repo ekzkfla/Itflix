@@ -29,12 +29,11 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 <script type="text/javascript">
 
 // 마이페이지 password가 회원의 password와 일치하면 진행
-function update_action() {	
+function update_action() {
 	document.userUpdate.action = "update_action";
 	document.userUpdate.method='POST';
 	document.userUpdate.submit();
 }
-
 </script>
 
 </head>
@@ -68,7 +67,7 @@ function update_action() {
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
-									<input type="text" name="u_name" value="${user_Info.u_name }" >
+									<input type="text" name="u_name" value="${user_Info.u_name}" >
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label>
