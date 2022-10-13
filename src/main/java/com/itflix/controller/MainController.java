@@ -61,11 +61,15 @@ public class MainController {
 			
 			List<Movie> movieList = movieService.selectAll();
 			List<Movie> movieCountList = movieService.selectMovieCountList();
+			List<Movie> movieCountNewDate = movieService.selectMovieNewDate();
+			List<Movie> movieGradeList = movieService.selectMovieGradeList();
 			//List<Category> categoryList = categoryService.selectByNoMovieList();
 			System.out.println(movieList);
 			Notice noticeOne = noticeService.noticeOne();
 			model.addAttribute("movieList",movieList);
 			model.addAttribute("movieCountList", movieCountList);
+			model.addAttribute("movieCountNewDate", movieCountNewDate);
+			model.addAttribute("movieGradeList", movieGradeList);
 			model.addAttribute("notice", noticeOne);
 			//model.addAttribute("categoryList", categoryList);
 			forwardPath = "main";

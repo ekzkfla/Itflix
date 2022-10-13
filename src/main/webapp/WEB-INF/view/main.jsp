@@ -112,23 +112,84 @@ $(function(){
 					<!--조회수 별 영화 리스트  -->
 					<!--조회수 별 카테고리   -->
 					<div class="title-hd">
-						<h2>조회수가 높은</h2>
+						<h2>영화 순위</h2>
 						<a href="moviegridfw" class="viewall">View all <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">
 						<ul class="tab-links">
-							<li class="active"><a >#Popular</a></li>
-							<li><a href="#tab2">#가장 인기많은</a></li>
-							<li><a href="#tab4">#리뷰가 많은</a></li>
+							<li class="active"><a href="#tab1">#조회수가 많은</a></li>
+							<li><a href="#tab2">#최신 영화</a></li>
+							<li><a href="#tab3">#평점이 높은</a></li>
 						</ul>
 					<!--조회수 별 카테고리   -->
+					<!--조회수가 많은 영화 탭  -->
 						<div class="tab-content">
 							<div id="tab1" class="tab active">
 								<div class="row">
 									<div class="slick-multiItem">
 											
 										<c:forEach items="${movieCountList}" var ="movie">
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img src="images/${movie.category.cg_name}/${movie.m_name }_1.jpg" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+													<a href="moviesingle?m_no=${movie.m_no}">Read more <i
+														class="ion-android-arrow-dropright"></i></a>
+												</div>
+												<div class="title-in">
+													<h6>
+														<a href="#">${movie.m_name}</a>
+													</h6>
+													<p>
+														<i class="ion-android-star"></i><span> ${movie.review.r_grade}</span>/5
+													</p>
+												</div>
+											</div>
+										</div>
+										</c:forEach>
+									</div>
+								</div>
+							</div>
+							<!--최신 영화 탭  -->
+							<div id="tab2" class="tab">
+								<div class="row">
+									<div class="slick-multiItem">
+											
+										<c:forEach items="${movieCountNewDate}" var ="movie">
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img src="images/${movie.category.cg_name}/${movie.m_name }_1.jpg" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+													<a href="moviesingle?m_no=${movie.m_no}">Read more <i
+														class="ion-android-arrow-dropright"></i></a>
+												</div>
+												<div class="title-in">
+													<h6>
+														<a href="#">${movie.m_name}</a>
+													</h6>
+													<p>
+														<i class="ion-android-star"></i><span> ${movie.review.r_grade}</span>/5
+													</p>
+												</div>
+											</div>
+										</div>
+										</c:forEach>
+									</div>
+								</div>
+							</div>
+							<!--평점높은 영화 탭  -->
+							<div id="tab3" class="tab">
+								<div class="row">
+									<div class="slick-multiItem">
+											
+										<c:forEach items="${movieGradeList}" var ="movie">
 										<div class="slide-it">
 											<div class="movie-item">
 												<div class="mv-img">
