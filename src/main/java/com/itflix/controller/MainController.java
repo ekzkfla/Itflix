@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dao.User_InfoDao;
 import com.itflix.dto.Category;
 import com.itflix.dto.Jjim;
@@ -218,6 +219,7 @@ public class MainController {
 	}
 	
 	//회원 프로필 수정페이지 
+	@LoginCheck
 	@RequestMapping(value = "userModify")
 	public String userModify(HttpServletRequest request) throws Exception{
 		String forwardPath="";

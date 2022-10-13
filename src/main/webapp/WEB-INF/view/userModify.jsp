@@ -93,8 +93,6 @@ function update_action() {
 									<input type="password" name = "userPass1">
 									<!-- 	pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
 								</div>
-							</div>
-							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>새로운 비밀번호 확인</label>
 									<input type="password"
