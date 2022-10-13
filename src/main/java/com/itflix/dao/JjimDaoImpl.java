@@ -62,6 +62,13 @@ public class JjimDaoImpl implements JjimDao {
 		return jjimUser;
 		
 	}
+
+	/*유저 찜 영화 갯수*/
+	@Override
+	public int jjimCount(String u_email) throws Exception {
+		int jjimCount = jjim_Mapper.jjimCount(u_email);
+		return jjimCount;
+	}
 	 
 	 
 }

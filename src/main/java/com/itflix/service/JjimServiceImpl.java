@@ -55,5 +55,11 @@ public class JjimServiceImpl implements JjimService{
 		return jjimDao.jjimUser(u_email, m_no);
 	}
 
+	/*유저 찜 영화 갯수*/
+	@Override
+	public int jjimCount(String u_email) throws Exception {
+		return jjimDao.jjimCount(u_email);
+	}
+
 
 }

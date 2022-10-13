@@ -20,6 +20,8 @@ public interface JjimDao {
 	
 	//유저 이름에 찜한 영화 존재 여부 확인
 	boolean jjimUser(String u_email, int m_no) throws Exception;
-
+	
+	/*유저 찜 영화 갯수*/
+	int jjimCount(String u_email) throws Exception;
 
 }
