@@ -25,6 +25,8 @@
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
+
+/* 
 window.URL = window.URL || window.webkitURL;
 
 const fileSelect = document.getElementById("fileSelect"),
@@ -62,6 +64,8 @@ function handleFiles(files) {
     }
   }
 }
+ */
+
 //나의 리뷰 삭제
 function userrate_review_delete_action(formId){
 	  console.log(document.getElementById(formId));
@@ -69,7 +73,15 @@ function userrate_review_delete_action(formId){
 	  deleteForm.action = "userrate_review_delete_action";
 	  deleteForm.method = "POST";
 	  deleteForm.submit();
-}  
+}
+//나의 리뷰 수정
+function reviewModify(formId){
+	console.log(document.getElementById(formId));
+	const deleteForm=document.getElementById(formId)
+	deleteForm.action = "reviewModify";
+	deleteForm.method = "POST";
+	deleteForm.submit();
+}
 </script>
 
 </head>
@@ -117,8 +129,11 @@ function userrate_review_delete_action(formId){
 							<img src="images/${review.movie.category.cg_name }/${review.movie.m_name }_1.jpg" alt="">
 							<div class="mv-item-infor" style="float: right;" >
 								<h6>
-									<a href="moviesingle?m_no=${review.movie.m_no }">${review.movie.m_name } 
+									<a href="moviesingle?m_no=${review.movie.m_no }">${review.movie.m_name }
 									<span style="font-size: 9pt; color:#0DEEC9"><fmt:formatDate	value="${review.movie.m_date}" pattern="yyyy/MM/dd" /></span></a>
+									<input type="hidden" name="m_no" value="${review.movie.m_no }">
+									<a class="btn" style="float:right; background-color:#dd003f; color:#ffffff; padding:5px 15px; border-radius:10px; cursor:pointer" 
+										onclick="reviewModify('reviewD_${review.r_no}')">수정</a>
 								</h6>
 								<p class="time sm-text">나의 평점:</p>
 									<p class="rate">
@@ -126,16 +141,14 @@ function userrate_review_delete_action(formId){
 								<input name="u_email" value="${user_Info.u_email }" type="hidden">
 								<p class="time sm-text" >나의 리뷰:</p>
 								<h6>${review.r_title }</h6>
+								<input type="hidden" name="r_title" value="${review.r_title }">
 								<p class="time sm">작성일:
 								<fmt:formatDate value="${review.r_date}" pattern="yyyy/MM/dd" />
 								</p>
 								<p> “${review.r_content}”</p>
+								<input type="hidden" name="r_content" value="${review.r_content }">
 							</div><br><br>
-								<a class="btn" style="background-color:#dd003f;
-													  color:#ffffff;
-													  padding:5px 15px;
-													  border-radius:10px;
-													  cursor:pointer;"
+								<a class="btn" style="background-color:#dd003f; color:#ffffff; padding:5px 15px; border-radius:10px; cursor:pointer;"
 								   onclick="userrate_review_delete_action('reviewD_${review.r_no}');">리뷰 삭제</a>
 						</form>
 					</div>

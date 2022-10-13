@@ -40,10 +40,11 @@
 <link href="css/star.css" rel="stylesheet"/>
 </head>
 <script type="text/javascript">
- 
- 
-function reviewWrite_action() {
-	document.myform.action ="reviewWrite_action";
+
+
+
+function reviewModify_action() {
+	document.myform.action ="reviewModify_action";
 	document.myform.method='POST';
 	document.myform.submit();
 }
@@ -99,7 +100,7 @@ function reviewWrite_action() {
 				<div class="col-md-7 col-sm-4 col-xs-3">
 					<div class="movie-single-ct main-content">
 						<!-- ↓↓↓영화 타이틀 제목↓↓↓  -->
-						<h1 class="bd-hd">${movie.m_name } Review 작성</h1>
+						<h1 class="bd-hd">${movie.m_name } Review 수정</h1>
 						<!-- ↑↑↑영화 타이틀 제목↑↑↑  -->
 
 						<div class="movie-tabs">
@@ -123,10 +124,11 @@ function reviewWrite_action() {
 												
 												
 												<!--별점 구현   -->
-											 	<form class="mb-3" name="myform" id="myform" method="post" action="reviewWrite_action">
+											 	<form class="mb-3" name="myform" id="myform" method="post" >
 														<input name="u_email" value="${login_user.u_email }" type="hidden">
 														<input name="r_date" value="<%= sf.format(nowTime) %>" type="hidden">
 														<input name="m_no" value="${movie.m_no}" type="hidden">
+														<input name="r_no" value="${review.r_no}" type="hidden">
 														
 													<fieldset>
 														<span class="text-bold">별점을 선택해주세요</span>
@@ -144,20 +146,21 @@ function reviewWrite_action() {
 													
 												<!--리뷰 타이틀 부분   -->
 													<div>
-														<textarea class="col-auto form-control" type="text" name="r_title" 
-																  placeholder="제목을입력해주세요!"
-																  style="width: 100%; height: 5em; border: none; resize:none;"></textarea>
+														<textarea class="col-auto form-control" type="text" name="r_title"
+																  style="width: 100%; height: 5em; border: none; resize:none;">
+																  
+														</textarea>
 													</div><br>
 													<!--리뷰 내용  -->
 													<div>
 														<textarea class="col-auto form-control" type="text" name="r_content"
-																  placeholder="내용을 입력해 주세요!!"
-																  style="width: 100%; height: 30em; border: none; resize:none;"></textarea>
+																  style="width: 100%; height: 30em; border: none; resize:none;">${review.r_content }
+														</textarea>
 													</div>
 										<div class="landing-hero">
 											<div class="row">
 												
-												<a class="redbtn" style="cursor:pointer;" onclick="reviewWrite_action();"> 영화<br> ${movie.m_name }에 <br> 리뷰 작성</a>
+												<a class="redbtn" style="cursor:pointer;" onclick="reviewModify_action();"> 영화<br> ${movie.m_name }에 <br> 리뷰 수정</a>
 										
 											</div>
 										</div>
