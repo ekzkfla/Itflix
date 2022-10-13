@@ -33,7 +33,7 @@ public interface MovieDao {
 		//영화 번호로 조회수 출력
 		Movie selectMovieCountByNo(int no) throws Exception;
 		//영화 클릭수 증가
-		Movie movieCountPlus(int no) throws Exception;
+		int movieCountPlus(int no) throws Exception;
 		
 		//배우 이름으로 영화 검색
 		List<Movie> searchActor(String name) throws Exception;

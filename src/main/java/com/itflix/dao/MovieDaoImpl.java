@@ -116,8 +116,8 @@ public class MovieDaoImpl implements MovieDao {
 
 	//영화 클릭수 증가
 	@Override
-	public Movie movieCountPlus(int m_no) throws Exception {
-		Movie movie = movie_Mapper.movieCountPlus(m_no); 
+	public int movieCountPlus(int m_no) throws Exception {
+		int movie = movie_Mapper.movieCountPlus(m_no); 
 		return movie;
 	}
 

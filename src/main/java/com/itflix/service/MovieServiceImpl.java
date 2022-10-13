@@ -105,7 +105,7 @@ public class MovieServiceImpl implements MovieService {
 
 	//영화 클릭수 증가
 	@Override
-	public Movie movieCountPlus(int no) throws Exception {
+	public int movieCountPlus(int no) throws Exception {
 		return movieDao.movieCountPlus(no);
 	}
 

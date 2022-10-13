@@ -138,6 +138,7 @@ public class MainController {
 			Movie movie = movieService.selectByNo(m_no);
 			Movie movie2= movieService.selectMovieRecentReview(m_no);
 			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
+			movieService.movieCountPlus(m_no);
 			User_Info user_Info=(User_Info)session.getAttribute("login_user");
 			//String u_email=user_Info.getU_email();
 			//System.out.println(user_Info.getU_email());

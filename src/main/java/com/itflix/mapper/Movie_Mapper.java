@@ -28,7 +28,7 @@ public interface Movie_Mapper {
 		//영화 리스트 전체 출력
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date,m.m_url, c.cg_no,c.cg_name, avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "right outer join Review r on m.m_no=r.m_no  \n"
+				+ "left outer join Review r on m.m_no=r.m_no  \n"
 				+ "join category c on m.cg_no = c.cg_no \n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date,m.m_url, c.cg_no,c.cg_name  \n"
 				+ "ORDER BY m.m_no ASC")
@@ -176,7 +176,7 @@ public interface Movie_Mapper {
 		
 		//영화 클릭수 증가 
 		@Update("update Movie set m_count = m_count+1 where m_no = #{m_no}")	
-		public Movie movieCountPlus(int m_no);
+		public int movieCountPlus(int m_no);
 		
 		//영화 추가 
 		@Insert("insert into Movie values(#{m_no}, #{m_name}, #{m_actor}, #{m_info}, #{m_image},\n"
