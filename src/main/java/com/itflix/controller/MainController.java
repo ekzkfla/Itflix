@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.itflix.dao.User_InfoDao;
@@ -204,10 +205,11 @@ public class MainController {
 
 	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
-	public String userprofile(HttpServletRequest request)  {
+	public String userprofile(HttpServletRequest request )  {
 		String forwardPath="";
 		//session(로그인계정)값을 가져와 user_Info에 저장 
 		User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		
 		System.out.println(user_Info);
 		request.setAttribute("user_Info", user_Info);
 		forwardPath = "userprofile";
@@ -230,7 +232,7 @@ public class MainController {
 	
 	//회원 프로필 수정 Action
 	@RequestMapping(value = "/update_action" ,method = RequestMethod.POST)
-	public String update_action(HttpServletRequest request) throws Exception{
+	public String update_action(HttpServletRequest request, Model model) throws Exception{
 		String forwardPath="";
 	
 		String u_email=request.getParameter("u_email");
@@ -238,9 +240,11 @@ public class MainController {
 		String u_pass = request.getParameter("userPass");
 		String u_phone = request.getParameter("u_phone");
 		
-		int updateUser=user_InfoService.updateUser_Info(new User_Info(u_email, u_pass, u_name, u_phone));
-		System.out.println(updateUser);
-		forwardPath="redirect:userprofile";
+		user_InfoService.updateUser_Info(new User_Info(u_email, u_pass, u_name, u_phone));
+		User_Info user_Info=user_InfoService.selectByEmail(u_email);
+		System.out.println(user_Info);
+		forwardPath="userprofile";
+		model.addAttribute("user_Info",user_Info);
 		
 		return forwardPath;
 	}
