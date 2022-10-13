@@ -35,10 +35,11 @@ public class JjimDaoTestApplication {
 		JjimService jjimService = context.getBean(JjimService.class);
 		
 		
-		System.out.println(jjimService.jjimUser("guard1@gmail.com", 15));
+		System.out.println(jjimService.jjimCount("guard1@gmail.com"));
+		//System.out.println(jjimService.jjimUser("guard1@gmail.com", 15));
 		//System.out.println(jjimDao.jjimList("guard1@gmail.com"));
 		//System.out.println("찜넣기>>>"+jjimDao.jjimInsert("guard1@gmail.com", 9));
 		//System.out.println("찜넣기>>>"+jjimService.jjimInsert("guard1@gmail.com", 13));
-
+		
 	}
 }
