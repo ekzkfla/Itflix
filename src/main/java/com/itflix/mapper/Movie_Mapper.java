@@ -125,24 +125,23 @@ public interface Movie_Mapper {
 		public List<Movie> selectMovieCountList();
 		
 		//평점 높은 순으로 출력
-		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
+		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no, c.cg_name,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
-				+ "from movie m \n"
-				+ "left outer join Review r \n"
-				+ "on m.m_no=r.m_no \n"
+				+ "from Movie m join Review r on m.m_no = r.m_no \n"
+				+ "left join Category c on c.cg_no = m.cg_no \n"
 				+ "where r_grade is not null \n"
-				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
-				+ "ORDER BY m_count DESC")
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no, c.cg_name \n"
+				+ "ORDER BY r_grade DESC")
 		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieGradeList();
 		
 		//영화 개봉일 최신순으로 출력
-		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
+		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no, c.cg_name,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
-				+ "left outer join Review r \n"
-				+ "on m.m_no=r.m_no \n"
-				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no\n"
+				+ "left outer join Review r on m.m_no=r.m_no \n"
+				+ "join category c on m.cg_no = c.cg_no \n"
+				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name \n"
 				+ "ORDER BY m_date DESC")
 		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieNewDate();
