@@ -347,7 +347,13 @@ public class MainController {
 		return forwardPath;
 	}
 		
-		
+	//유저 아이디 찾기 페이지
+	@RequestMapping(value = "userSearch")
+	public String userSearch() {
+		String forwardPath="";
+		forwardPath="userSearch";
+		return forwardPath;
+	}
 		
 	
 	
