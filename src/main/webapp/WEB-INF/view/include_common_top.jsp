@@ -103,7 +103,7 @@ align-items: center;
 							<input type="checkbox" name="remember" value="Remember me"><span>Remember
 								me</span>
 						</div>
-						<a href="#">Forget password ?</a>
+						<a href="userSearch">Forget password ?</a>
 					</div>
 				</div>
 				<div class="row">

@@ -23,7 +23,7 @@ public interface ReviewDao {
 	int insertReview(int r_no, String r_title, String r_content, int r_grade, Date r_date, int r_groupno, int r_step, int r_depth, int m_no, String u_email) throws Exception;
 
 	// 리뷰 수정
-	int updateReview(String r_title, String r_content, int r_grade, int m_no, int r_no) throws Exception;
+	int updateReview(String r_title, String r_content, int r_grade, int r_no) throws Exception;
 
 	// 리뷰 삭제
 	int deleteReview(int no) throws Exception;

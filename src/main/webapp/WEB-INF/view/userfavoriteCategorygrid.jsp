@@ -95,7 +95,7 @@ function categoryChange() {
 			<select name="cate1" id="cate1" onchange="categoryChange()">
 				<option value="popularity">카테고리</option>
 				<option value="1">액션</option>
-				<option value="2">코미디</option>
+				<option value="c2">코미디</option>
 				<option value="3">로맨스</option>
 				<option value="4">공포/미스터리</option>
 				<option value="5">SF/판타지</option>
