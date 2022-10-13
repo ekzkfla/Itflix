@@ -56,7 +56,7 @@
 	<div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="topbar-filter user">
 			<p>
-				Found <span>1,608 movies</span>in total
+				Found <span>${jjimCount} movies</span> in total
 			</p>
 			<label>Sort by:</label><select><option value="popularity">카테고리</option>
 				<option value="cg_no=1">액션</option>
