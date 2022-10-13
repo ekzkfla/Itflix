@@ -59,9 +59,6 @@ function reviewWrite_action() {
 	document.myform.submit();
 }
 </script>
-<%--
-String r_grade=(String)request.getAttribute("r_grade");
---%>
 
 <body>
 
