@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dao.User_InfoDao;
 import com.itflix.dto.Category;
 import com.itflix.dto.Jjim;
@@ -249,11 +250,14 @@ public class MainController {
 
 	
 	//회원의 내가 쓴 영화리뷰 페이지 
+	@LoginCheck
 	@RequestMapping(value = "userrate")
 	public String userrate(@RequestParam String u_email,Model model) throws Exception {
 		String forwardPath="";
 		List<Review> myReview = reviewService.selectWroteReview(u_email);
+		User_Info user_Info	=user_InfoService.selectByEmail(u_email);
 		model.addAttribute("myReview", myReview);
+		model.addAttribute("user_Info", user_Info);
 		System.out.println(myReview);
 		forwardPath = "userrate";
 		
@@ -261,15 +265,17 @@ public class MainController {
 	}
 	
 	//내가 쓴 리뷰 삭제 
+	@LoginCheck
 	@RequestMapping(value = "/userrate_review_delete_action",method = RequestMethod.POST)
-	public String userrateReviewDelete_action(HttpServletRequest request) {
+	public String userrateReviewDelete_action(HttpServletRequest request, Model model) {
 		String forwardPath="";
 		try {
-			//String u_email =request.getParameter("u_email");
+			String u_email =request.getParameter("u_email");
 			String r_no = request.getParameter("r_no");
-			int deleteReview = reviewService.deleteReview(Integer.parseInt(r_no));
-			request.setAttribute("deleteReview", deleteReview);
-			forwardPath="userrate";
+			reviewService.deleteReview(Integer.parseInt(r_no));
+			List<Review> myReview = reviewService.selectWroteReview(u_email);
+			model.addAttribute("myReview", myReview);
+			forwardPath="redirect:userrate?u_email="+u_email;
 			System.out.println("삭제성공");
 		}catch (Exception e) {
 			e.printStackTrace();

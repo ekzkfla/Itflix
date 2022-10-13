@@ -63,11 +63,12 @@ function handleFiles(files) {
   }
 }
 //나의 리뷰 삭제
-function userrate_review_delete_action(){
-	  document.reviewD.action = "userrate_review_delete_action";
-	  document.reviewD.method = "POST";
-	  //document.reviewD.submit();
-	  
+function userrate_review_delete_action(formId){
+	  console.log(document.getElementById(formId));
+	  const deleteForm=document.getElementById(formId)
+	  deleteForm.action = "userrate_review_delete_action";
+	  deleteForm.method = "POST";
+	  deleteForm.submit();
 }  
 </script>
 
@@ -111,28 +112,31 @@ function userrate_review_delete_action(){
 					</div>
 					<c:forEach items="${myReview}" var="review">
 					<div class="movie-item-style-2 userrate">
-						<form name="reviewD" id="reviewD" method="post" action="userrateReviewDelete_action">
-						<img src="images/${review.movie.category.cg_name }/${review.movie.m_name }_1.jpg" alt="">
-						<div class="mv-item-infor" >
-							<h6>
-								<a href="moviesingle?m_no=${review.movie.m_no }">${review.movie.m_name } 
-								<span style="font-size: 9pt; color:#0DEEC9"><fmt:formatDate	value="${review.movie.m_date}" pattern="yyyy/MM/dd" /></span></a>
-							</h6>
-							
-							<div class="row">
-								<a class="redbtn" style="cursor:pointer;" onclick="userrate_review_delete_action();">리뷰 삭제</a>
-							</div>
-							<p class="time sm-text">나의 평점:</p>
-								<p class="rate">
-								<i class="ion-android-star"></i><span>${review.r_grade }</span>/5</p>
-							<input name="${review.r_no }" type="hidden">
-							<p class="time sm-text" >나의 리뷰:</p>
-							<h6>${review.r_title }</h6>
-							<p class="time sm">작성일:
-							<fmt:formatDate	value="${review.r_date}" pattern="yyyy/MM/dd" />
-							</p>
-							<p> “${review.r_content}”</p>
-						</div>
+						<form name="reviewD" id="reviewD_${review.r_no}" >
+							<input type="hidden" name="r_no" value="${review.r_no}">
+							<img src="images/${review.movie.category.cg_name }/${review.movie.m_name }_1.jpg" alt="">
+							<div class="mv-item-infor" style="float: right;" >
+								<h6>
+									<a href="moviesingle?m_no=${review.movie.m_no }">${review.movie.m_name } 
+									<span style="font-size: 9pt; color:#0DEEC9"><fmt:formatDate	value="${review.movie.m_date}" pattern="yyyy/MM/dd" /></span></a>
+								</h6>
+								<p class="time sm-text">나의 평점:</p>
+									<p class="rate">
+									<i class="ion-android-star"></i><span>${review.r_grade }</span>/5</p>
+								<input name="u_email" value="${user_Info.u_email }" type="hidden">
+								<p class="time sm-text" >나의 리뷰:</p>
+								<h6>${review.r_title }</h6>
+								<p class="time sm">작성일:
+								<fmt:formatDate value="${review.r_date}" pattern="yyyy/MM/dd" />
+								</p>
+								<p> “${review.r_content}”</p>
+							</div><br><br>
+								<a class="btn" style="background-color:#dd003f;
+													  color:#ffffff;
+													  padding:5px 15px;
+													  border-radius:10px;
+													  cursor:pointer;"
+								   onclick="userrate_review_delete_action('reviewD_${review.r_no}');">리뷰 삭제</a>
 						</form>
 					</div>
 					</c:forEach>
