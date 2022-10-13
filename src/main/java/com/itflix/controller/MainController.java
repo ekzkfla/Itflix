@@ -256,11 +256,30 @@ public class MainController {
 	@RequestMapping(value = "userrate")
 	public String userrate(@RequestParam String u_email,Model model) throws Exception {
 		String forwardPath="";
-		List<Review>myReview=reviewService.selectWroteReview(u_email);
+		List<Review> myReview = reviewService.selectWroteReview(u_email);
 		model.addAttribute("myReview", myReview);
 		System.out.println(myReview);
 		forwardPath = "userrate";
 		
+		return forwardPath;
+	}
+	
+	//내가 쓴 리뷰 삭제 
+	@RequestMapping(value = "/userrate_review_delete_action",method = RequestMethod.POST)
+	public String userrateReviewDelete_action(HttpServletRequest request) {
+		String forwardPath="";
+		try {
+			//String u_email =request.getParameter("u_email");
+			String r_no = request.getParameter("r_no");
+			int deleteReview = reviewService.deleteReview(Integer.parseInt(r_no));
+			request.setAttribute("deleteReview", deleteReview);
+			forwardPath="userrate";
+			System.out.println("삭제성공");
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("삭제 실패");
+		}
+		System.out.println("실행확인");
 		return forwardPath;
 	}
 
@@ -297,11 +316,6 @@ public class MainController {
 			request.setAttribute("url", "main");
 			return "alert";
 		}
-		
-		//grade 의 값 설정 해주기
-		
-		
-		
 		Movie movie=movieService.selectByNo(m_no);
 		model.addAttribute("movie", movie);
 		forwardPath="reviewWrite";
@@ -314,8 +328,6 @@ public class MainController {
 	public String reviewWrite_action(@RequestParam int m_no,HttpServletRequest request) {
 		String forwardPath="";
 		try {
-			
-			
 			String reviewStar=request.getParameter("reviewStar");
 			int r_grade = Integer.parseInt(reviewStar);
 			String r_title =request.getParameter("r_title");
@@ -330,7 +342,6 @@ public class MainController {
 			e.printStackTrace();
 			forwardPath="404";
 		}
-		System.out.println("여기는?");
 		return forwardPath;
 	}
 		
