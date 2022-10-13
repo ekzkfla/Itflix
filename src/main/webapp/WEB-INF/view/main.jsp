@@ -119,7 +119,7 @@ $(function(){
 					<div class="tabs">
 						<ul class="tab-links">
 							<li class="active"><a href="#tab1">#조회수가 많은</a></li>
-							<li><a href="#tab2">#최신 영화</a></li>
+							<li><a href="#tab2">#최근 개봉한</a></li>
 							<li><a href="#tab3">#평점이 높은</a></li>
 						</ul>
 					<!--조회수 별 카테고리   -->

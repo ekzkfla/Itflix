@@ -17,7 +17,7 @@ import com.itflix.dto.User_Info;
 import com.itflix.service.User_InfoService;
 
 @RestController
-public class UserLoginRestController {
+public class UserRestController {
 
 	@Autowired
 	private User_InfoService user_InfoService;

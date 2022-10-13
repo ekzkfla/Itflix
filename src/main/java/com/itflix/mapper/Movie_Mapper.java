@@ -115,12 +115,12 @@ public interface Movie_Mapper {
 		public Movie selectMovieRecentReview(Integer m_no);
 		
 		//조회수 높은 순으로 출력
-		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no, c.cg_name, avg(r.r_grade) as r_grade \n"
+		@Select("select* FROM(select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name, avg(r.r_grade) as r_grade \n"
 				+ "from movie m \n"
 				+ "left outer join Review r on m.m_no=r.m_no \n"
-				+ "join category c on m.cg_no = c.cg_no \n"
+				+ "join category c on m.cg_no = c.cg_no\n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name \n"
-				+ "ORDER BY m_count DESC")
+				+ "ORDER BY m_count DESC) where ROWNUM <=12")
 		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieCountList();
 		

@@ -20,7 +20,7 @@ import com.itflix.service.JjimService;
 import com.itflix.service.User_InfoService;
 
 @Controller
-public class UserLoginController {
+public class UserController {
 
 	@Autowired
 	private User_InfoService user_InfoService;
@@ -98,7 +98,11 @@ public class UserLoginController {
 		String forwardPath = "";
 		try {
 			List<Jjim> jjimList = jjimService.jjimList(u_email);
+			int jjimCount = jjimService.jjimCount(u_email);
 			request.setAttribute("jjimList", jjimList);
+			request.setAttribute("jjimCount", jjimCount);
+			System.out.println("보여죠>>"+jjimList);
+			System.out.println("나오나?>>"+jjimCount);
 			forwardPath = "userfavoritegrid";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,8 +159,6 @@ public class UserLoginController {
 		return forwardPath;
 	}
 	
-	
 
-	
 	
 }//

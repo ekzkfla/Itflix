@@ -1,12 +1,9 @@
 package com.itflix.controller;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.itflix.controller.interceptor.LoginCheck;
-import com.itflix.dao.User_InfoDao;
-import com.itflix.dto.Category;
-import com.itflix.dto.Jjim;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
 import com.itflix.dto.Review;
@@ -243,12 +235,24 @@ public class MainController {
 	
 		String u_email=request.getParameter("u_email");
 		String u_name=request.getParameter("u_name");
+		// 현재 비밀번호 파라메타. 이 값이 현재 계정의 비밀번호와 일치해야함. 
 		String u_pass = request.getParameter("userPass");
 		String u_phone = request.getParameter("u_phone");
+		// 새로운 비밀번호 파라메타. 두 값이 일치해야함.
+		String u_newpass1 = request.getParameter("userPass1");
+		String u_newpass2 = request.getParameter("userPass2");
 		
-		user_InfoService.updateUser_Info(new User_Info(u_email, u_pass, u_name, u_phone));
-		User_Info user_Info=user_InfoService.selectByEmail(u_email);
+		User_Info user_Info = user_InfoService.selectByEmail(u_email);
 		System.out.println(user_Info);
+		// 계정 비밀번호와 현재 비밀번호칸에 입력한 비밀번호가 같은지 확인.
+		if(user_Info.getU_pass().equals(u_pass)) {
+			// 같으면 새로운 비밀번호칸에 입력한 정보가 일치하는지 확인하자.
+			if(u_newpass1.equals(u_newpass2)) {
+				//여기까지 통과했으면 바꾸자
+				user_InfoService.updateUser_Info(new User_Info(u_email, u_newpass1, u_name, u_phone));
+			}
+		}
+		
 		forwardPath="userprofile";
 		model.addAttribute("user_Info",user_Info);
 		
@@ -259,11 +263,14 @@ public class MainController {
 
 	
 	//회원의 내가 쓴 영화리뷰 페이지 
+	@LoginCheck
 	@RequestMapping(value = "userrate")
 	public String userrate(@RequestParam String u_email,Model model) throws Exception {
 		String forwardPath="";
 		List<Review> myReview = reviewService.selectWroteReview(u_email);
+		User_Info user_Info	=user_InfoService.selectByEmail(u_email);
 		model.addAttribute("myReview", myReview);
+		model.addAttribute("user_Info", user_Info);
 		System.out.println(myReview);
 		forwardPath = "userrate";
 		
@@ -271,15 +278,17 @@ public class MainController {
 	}
 	
 	//내가 쓴 리뷰 삭제 
+	@LoginCheck
 	@RequestMapping(value = "/userrate_review_delete_action",method = RequestMethod.POST)
-	public String userrateReviewDelete_action(HttpServletRequest request) {
+	public String userrateReviewDelete_action(HttpServletRequest request, Model model) {
 		String forwardPath="";
 		try {
-			//String u_email =request.getParameter("u_email");
+			String u_email =request.getParameter("u_email");
 			String r_no = request.getParameter("r_no");
-			int deleteReview = reviewService.deleteReview(Integer.parseInt(r_no));
-			request.setAttribute("deleteReview", deleteReview);
-			forwardPath="userrate";
+			reviewService.deleteReview(Integer.parseInt(r_no));
+			List<Review> myReview = reviewService.selectWroteReview(u_email);
+			model.addAttribute("myReview", myReview);
+			forwardPath="redirect:userrate?u_email="+u_email;
 			System.out.println("삭제성공");
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -351,7 +360,13 @@ public class MainController {
 		return forwardPath;
 	}
 		
-		
+	//유저 아이디 찾기 페이지
+	@RequestMapping(value = "userSearch")
+	public String userSearch() {
+		String forwardPath="";
+		forwardPath="userSearch";
+		return forwardPath;
+	}
 		
 	
 	
