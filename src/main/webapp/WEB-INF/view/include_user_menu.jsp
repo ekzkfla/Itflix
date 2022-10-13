@@ -22,7 +22,7 @@
 							<li><a href="userfavoritegrid?u_email=${login_user.u_email}">내가 찜한 콘텐츠</a></li>
 							<li><a href="userrate?u_email=${login_user.u_email }">나의 리뷰<br> <br></a></li>
 
-							<li><a href="user_delete_action">회원탈퇴</a></li>
+							<li><a href="userDelete">회원탈퇴</a></li>
 						</ul>
 					</div>
 				</div>

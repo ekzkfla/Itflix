@@ -174,22 +174,19 @@ public class UserController {
 	}
 	
 	/*회원탈퇴하기*/
-	@LoginCheck
-	@RequestMapping(value = "/user_delete_action")
-	public String userDelete(HttpServletRequest request) {
-		String forwardPath="";
+	@RequestMapping(value = "userDelete")
+	public String userDelete(HttpServletRequest request, HttpSession session) {
 		String msg = "";
+		String u_email = request.getParameter("u_email");
 		try {
-			String u_email = request.getParameter("test5@gmail.com");
-			int userDelete = user_InfoService.deleteUser_Info(u_email);
-			request.setAttribute("userDelete", userDelete);
-			forwardPath = "redirect:main";
-			msg="탈퇴성공";
+			user_InfoService.deleteUser_Info(u_email);
+			session.invalidate();
+			msg = "탈퇴성공";
 			System.out.println(msg);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return forwardPath;
+		return "redirect:main";
 	}
 
 	
