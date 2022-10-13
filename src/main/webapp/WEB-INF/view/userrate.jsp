@@ -164,6 +164,9 @@ function reviewModify(formId){
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>
 	<!-- end of footer section-->

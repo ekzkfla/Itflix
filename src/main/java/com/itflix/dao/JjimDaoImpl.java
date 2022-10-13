@@ -33,6 +33,12 @@ public class JjimDaoImpl implements JjimDao {
 		List<Jjim> jjimList =jjim_Mapper.jjimList(u_email);
 		return jjimList;
 	}
+	/* 1명 회원 영화 찜 목록보기(리뷰평점포함) */
+	@Override
+	public List<Jjim> jjimCategoryList(String u_email,int cg_no) throws Exception {
+		List<Jjim> jjimCategoryList =jjim_Mapper.jjimCategoryList(u_email, cg_no);
+		return jjimCategoryList;
+	}
 	
 	/* 영화 찜하기 (u_email 에 m_no로 저장*)*/
 	@Override

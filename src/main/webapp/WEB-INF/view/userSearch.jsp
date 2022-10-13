@@ -13,9 +13,6 @@
 <meta name="keywords" content="">
 <meta name="author" content="">
 <link rel="profile" href="#">
-<style type="text/css">
-
-</style>
 <!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
@@ -25,14 +22,6 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
-<script type="text/javascript">
-	
-	function userModify(){
-		document.user.action = "userModify";
-		document.user.method = "POST";
-		document.user.submit();
-	}
-</script>
 </head>
 <body>
 
@@ -40,63 +29,69 @@
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
 	
+	<!--중앙 헤드 시작  -->
 	<div class="hero user-hero">
 		<div class="container">
+			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h2 style="color:white;">${login_user.u_name}님의 상세페이지</h2><br>
+						<h1>아이디 /비밀번호 찾기</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Profile</li>
 						</ul>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
-		<!-- Start | user leff menu bar-->
-	<jsp:include page="include_user_menu.jsp" />
-	<!-- End | user leff menu bar-->
+	<!--중앙 헤드 끝-->
+	
+	
+	<div class="page-single">
+		<div class="container">
 				<div class="col-md-9 col-sm-12 col-xs-12">
-					<div class="form-style-1 user-pro" >
-						<form action="" name= "user" method="post">
-							<h4>회원의 상세페이지</h4>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>이름</label>
-									<input type="text" value="${user_Info.u_name }" name="u_name" readonly>
-									
+					<div class="form-style-1 user-pro" action="">
+						
+						<!--중앙 아이디 찾기  -->
+						<form action="" class="user">
+							<h4>아이디 찾기</h4>
+								<div class="row">
+									<div class="col-md-6 form-it">
+										<label>이름</label>
+										<input type="text" placeholder="edwardkennedy">
+									</div>
 								</div>
-								<div class="col-md-6 form-it">
-									<label>이메일</label><input type="text"
-										value = "${user_Info.u_email}"
-										name="u_email"
-										readonly>
+								<div class="row">
+									<div class="col-md-2">
+										<input class="submit" type="submit" value="save">
+									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>비밀번호</label><input type="password"
-										placeholder= "********"
-										name="u_pass"
-										readonly>
+						</form>
+						<!--중앙 패스워드 찾기  -->
+						<form action="" class="password">
+							<h4>패스워드 찾기</h4>
+								<div class="row">
+									<div class="col-md-6 form-it">
+										<label>아이디</label>
+										<input type="text" placeholder="***************">
+									</div>
+									<div class="col-md-6 form-it">
+										<label>이름</label>
+										<input type="text" placeholder="*************** ">
+									</div>
 								</div>
-								<div class="col-md-6 form-it">
-									<label>핸드폰 번호</label><input type="text"
-										placeholder= "${user_Info.u_phone}" 	
-										name="u_phone"
-										
-										readonly>
-								</div>
-							</div>
 							<div class="row">
 								<div class="col-md-2">
-									<input class="submit" type="submit" onclick= "userModify()" value="수정하기">
+									<input class="submit" type="submit" value="change">
 								</div>
 							</div>
 						</form>
+						<!--중앙 패스워드 찾기 끝  -->
+						
 					</div>
 				</div>
-		
+			
 		</div>
 	</div>
 	<!-- footer section-->

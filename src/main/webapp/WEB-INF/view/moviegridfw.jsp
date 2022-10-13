@@ -1,6 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<!DOCTYPE html>
+<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+<head>
+<!-- Basic need -->
+<title>Open Pediatrics</title>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<link rel="profile" href="#">
+<!--Google Font-->
+<link rel="stylesheet"
+	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+<!-- Mobile specific meta -->
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone-no">
+<!-- CSS files -->
+<link rel="stylesheet" href="css/plugins.css">
+<link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
 	function categoryChane() {
 		var selectList = document.getElementById("cate1")
@@ -34,38 +58,6 @@
 		}
 	}
 </script>
-<script type="text/javascript">
-	function index(){
-		let category = window.localStorage.getItem('category');
-		let categoryObj = JSON.parse(category)
-		console.log(categoryObj);
-		let selectList = document.getElementById("cate1")
-		
-		selectList.options[categoryObj['value']].setAttribute("selected",true)
-	}
-</script>
-<!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
-<html lang="en" class="no-js">
-<head>
-<!-- Basic need -->
-<title>Open Pediatrics</title>
-<meta charset="UTF-8">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<link rel="profile" href="#">
-<!--Google Font-->
-<link rel="stylesheet"
-	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
-<!-- Mobile specific meta -->
-<meta name=viewport content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone-no">
-<!-- CSS files -->
-<link rel="stylesheet" href="css/plugins.css">
-<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	
@@ -127,6 +119,7 @@
 											<i class="ion-android-star"></i><span> ${movie.review.r_grade}</span>/5
 										</p>
 									</div>
+
 								</div>
 							</c:forEach>
 						</div>

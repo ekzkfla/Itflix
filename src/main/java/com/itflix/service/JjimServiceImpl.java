@@ -32,6 +32,11 @@ public class JjimServiceImpl implements JjimService{
 		return jjimDao.jjimList(u_email);
 	}
 	
+	 /* 1명 회원 영화 찜 카테고리별 목록보기 */
+	public List<Jjim> jjimCategoryList(String u_email,int cg_no)throws Exception{
+		return jjimDao.jjimCategoryList(u_email, cg_no);
+	}
+	
 	/* 영화 찜하기 */
 	@Override
 	public int jjimInsert(String u_email, int m_no) throws Exception {

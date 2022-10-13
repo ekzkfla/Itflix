@@ -8,6 +8,7 @@ import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -93,6 +94,7 @@ public class UserController {
 	}
 
 	/* 찜리스트 */
+	@LoginCheck
 	@RequestMapping("userfavoritegrid")
 	public String jjimList(HttpServletRequest request, @RequestParam String u_email) {
 		String forwardPath = "";
@@ -109,7 +111,21 @@ public class UserController {
 		}
 		return forwardPath;
 	}
-
+	
+	//유저의 카테고리별 찜 리스트
+	@LoginCheck
+	@RequestMapping("userfavoriteCategorygrid")
+	public String jjimCategoryList(HttpServletRequest request,String cg_no) throws Exception {
+		String forwardPath="";
+		User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		String u_email=user_Info.getU_email();
+		List<Jjim>jjimList= jjimService.jjimCategoryList(u_email,Integer.parseInt(cg_no));
+		request.setAttribute("jjimList", jjimList);
+		forwardPath = "userfavoriteCategorygrid";
+		return forwardPath;
+	}
+	
+	
 
 	/* 찜하기*/
 	@RequestMapping(value = "/jjim_insert_action", method = RequestMethod.POST)
