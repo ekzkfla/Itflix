@@ -202,11 +202,14 @@ public class MainController {
 		return "blogdetail";
 	}
 
-	//마이페이지 로그인한 세션을 불러와야함.
+	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
-	public String userprofile()  {
+	public String userprofile(HttpServletRequest request)  {
 		String forwardPath="";
-		//User_Info user_Info = user_InfoService.selectByEmail(null);
+		//session(로그인계정)값을 가져와 user_Info에 저장 
+		User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		System.out.println(user_Info);
+		request.setAttribute("user_Info", user_Info);
 		forwardPath = "userprofile";
 		
 		return forwardPath;
@@ -214,15 +217,34 @@ public class MainController {
 	
 	//회원 프로필 수정페이지 
 	@RequestMapping(value = "userModify")
-	public String userModify(){
+	public String userModify(HttpServletRequest request) throws Exception{
 		String forwardPath="";
-		
-		
-		
+		String u_email=request.getParameter("u_email");
+		User_Info user_Info	=user_InfoService.selectByEmail(u_email);
+		System.out.println(user_Info);
+		request.setAttribute("user_Info", user_Info);
 		forwardPath = "userModify";
 		
 		return forwardPath;
 	}
+	
+	//회원 프로필 수정 Action
+	@RequestMapping(value = "/update_action" ,method = RequestMethod.POST)
+	public String update_action(HttpServletRequest request) throws Exception{
+		String forwardPath="";
+	
+		String u_email=request.getParameter("u_email");
+		String u_name=request.getParameter("u_name");
+		String u_pass = request.getParameter("userPass");
+		String u_phone = request.getParameter("u_phone");
+		
+		int updateUser=user_InfoService.updateUser_Info(new User_Info(u_email, u_pass, u_name, u_phone));
+		System.out.println(updateUser);
+		forwardPath="redirect:userprofile";
+		
+		return forwardPath;
+	}
+	
 
 
 	

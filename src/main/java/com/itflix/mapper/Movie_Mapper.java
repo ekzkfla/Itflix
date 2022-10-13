@@ -119,7 +119,6 @@ public interface Movie_Mapper {
 				+ "from movie m \n"
 				+ "left outer join Review r on m.m_no=r.m_no \n"
 				+ "join category c on m.cg_no = c.cg_no \n"
-				+ "where ROWNUM <=14\n"
 				+ "group by m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,c.cg_name \n"
 				+ "ORDER BY m_count DESC")
 		@ResultMap("selectMovieResultMap")
