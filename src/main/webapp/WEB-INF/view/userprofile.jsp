@@ -29,6 +29,7 @@
 	
 	function userModify(){
 		document.user.action = "userModify";
+		document.user.method = "POST";
 		document.user.submit();
 	}
 </script>
@@ -56,22 +57,19 @@
 	<jsp:include page="include_user_menu.jsp" />
 	<!-- End | user leff menu bar-->
 				<div class="col-md-9 col-sm-12 col-xs-12">
-					<div class="form-style-1 user-pro" action="">
-						<form action="" name= "user" class="user" method="post">
+					<div class="form-style-1 user-pro" >
+						<form action="" name= "user" method="post">
 							<h4>회원의 상세페이지</h4>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
-									<input type="text" placeholder = ${login_user.u_name}
-										id="u_name"
-										readonly>
-									<a></a>
+									<input type="text" value="${user_Info.u_name }" name="u_name" readonly>
 									
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
-										placeholder = ${login_user.u_email}
-										id="u_email"
+										value = "${user_Info.u_email}"
+										name="u_email"
 										readonly>
 								</div>
 							</div>
@@ -79,13 +77,14 @@
 								<div class="col-md-6 form-it">
 									<label>비밀번호</label><input type="text"
 										placeholder= "********"
-										id="u_pass"
+										name="u_pass"
 										readonly>
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label><input type="text"
-										placeholder= ${login_user.u_phone} 	
-										id="u_phone"
+										placeholder= "${user_Info.u_phone}" 	
+										name="u_phone"
+										
 										readonly>
 								</div>
 							</div>
@@ -97,6 +96,7 @@
 						</form>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

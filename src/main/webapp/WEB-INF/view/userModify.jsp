@@ -29,20 +29,14 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 <script type="text/javascript">
 
 // 마이페이지 password가 회원의 password와 일치하면 진행
-function update() {	
+function update_action() {	
 	
-	document.f.action = "user_Update_action";
-	document.f.method = 'POST';
-	document.f.submit();
+	document.userUpdate.action = "update_action";
+	document.userUpdate.method='POST';
+	document.userUpdate.submit();
 }
 
 </script>
-
-
-
-
-
-
 
 </head>
 <body>
@@ -69,27 +63,28 @@ function update() {
 	<jsp:include page="include_user_menu.jsp" />
 	<!-- End | user leff menu bar-->
 				<div class="col-md-9 col-sm-12 col-xs-12">
-					<div class="form-style-1 user-pro" action="">
-						<form action="userModify" method = "POST" name = "f">
+					<div class="form-style-1 user-pro">
+						<form name = "userUpdate" method = "POST" action="update_action">
 							<h4>회원의 상세페이지</h4>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
-									<input type="text" name="u_name" value="${login_user.u_name }" >
+									<input type="text" name="u_name" value="${user_Info.u_name }" >
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label>
-									<input type="text" name="u_email" value="${login_user.u_email}" >
+									<input type="text" name="u_email" value="${user_Info.u_email}" >
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>예전 비밀번호</label>
-									<input type="text" name = "userPass" value="${login_user.u_pass }">
+									<input type="text" name = "userPass" value="${user_Info.u_pass }">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label>
-									<input type="text" value= "${login_user.u_phone}" name = "u_phone" ><!-- pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$"> -->
+									<input type="text"  name = "u_phone" value= "${user_Info.u_phone}" >
+									<!-- pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$"> -->
 								</div>
 							</div>
 							<div class="row">
@@ -109,11 +104,9 @@ function update() {
 							</div>
 							<div class="row">
 								<div class="col-md-2">
-									<input type="submit" onclick="update();" value="change">
-									
+									<input class="submit" type="submit" onclick= "update_action()" value="수정하기">
 								</div>
 							</div>
-
 						</form>
 
 					</div>
