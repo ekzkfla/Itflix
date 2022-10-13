@@ -52,8 +52,6 @@ public interface Jjim_Mapper {
 	@Delete("delete from jjim where u_email=#{u_email} and m_no=#{m_no}")
 	public int jjimDelete(String u_email,int m_no);
 	
-	
-	 
 	/* 리뷰의 총평점 조인안하고 불러오기*/  
 	@Select("select j.u_email, j.m_no, m.m_name, m.m_image, m.m_date, m.m_count, m.cg_no from jjim j join user_info u on j.u_email = u.u_email join movie m on j.m_no = m.m_no where j.u_email=#{u_email}")
 	@ResultMap("jjimListTest4")
@@ -63,6 +61,10 @@ public interface Jjim_Mapper {
 	@Select("select COUNT(*) from jjim j join user_info u on u.u_email = j.u_email where j.u_email=#{u_email} and j.m_no=#{m_no}")
 	//@ResultMap("jjimUserResult")
 	public boolean jjimUser(String u_email,int m_no);
+	
+	/*유저 찜 영화 갯수*/
+	@Select("select count(*) from Jjim where u_email=#{u_email}")
+	public int jjimCount(String u_email);
 	
 	
 }

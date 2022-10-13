@@ -40,25 +40,15 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 <body>
 	<script type="text/javascript">
 		function insert() {
-			if (document.f.u_email.value == "") {
-				alert("로그인후 이용해 주세요.");
-				return false;
-			}
-
-			document.f.action = "jjim_insert_action";
-			document.f.method = 'POST';
-			document.f.submit();
+			document.jjim.action = "jjim_insert_action";
+			document.jjim.method = 'POST';
+			document.jjim.submit();
 		}
 
 		function deleteJjim() {
-			if (document.f.u_email.value == "") {
-				alert("로그인후 이용해 주세요.");
-				return false;
-			}
-
-			document.f.action = "jjim_delete_action";
-			document.f.method = 'POST';
-			document.f.submit();
+			document.jjim.action = "jjim_delete_action";
+			document.jjim.method = 'POST';
+			document.jjim.submit(); 
 		}
 	</script>
 
@@ -103,7 +93,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 				<!--왼쪽 영화 포스터 및 영상 시청바  -->
 				<!--중앙 상세 페이지  -->
 				<div class="col-md-7 col-sm-4 col-xs-3">
-					<form action="jjim_insert_action" method="post" name="f">
+					<form name="jjim" >
 						<div class="movie-single-ct main-content">
 							<input name="u_email" value="${login_user.u_email }"
 								type="hidden" /> <input name="m_no" value="${movie.m_no }"
@@ -116,9 +106,9 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							<!--찜 하기!  -->
 							<c:if test="${jjim==false }">
 								<div class="social-btn">
-									<button type="button" onclick="insert();"
+									<button type="button" onclick="insert()"
 										style="background: black;">
-										<a class="parent-btn"> <i class="ion-heart"></i>Add to
+										<a class="parent-btn" > <i class="ion-heart"></i>Add to
 											Favorite
 										</a>
 									</button>

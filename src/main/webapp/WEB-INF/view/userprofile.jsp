@@ -75,7 +75,7 @@
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-it">
-									<label>비밀번호</label><input type="text"
+									<label>비밀번호</label><input type="password"
 										placeholder= "********"
 										name="u_pass"
 										readonly>
