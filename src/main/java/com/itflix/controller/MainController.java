@@ -14,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dao.User_InfoDao;
 import com.itflix.dto.Category;
 import com.itflix.dto.Jjim;
@@ -204,10 +206,11 @@ public class MainController {
 
 	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
-	public String userprofile(HttpServletRequest request)  {
+	public String userprofile(HttpServletRequest request )  {
 		String forwardPath="";
 		//session(로그인계정)값을 가져와 user_Info에 저장 
 		User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		
 		System.out.println(user_Info);
 		request.setAttribute("user_Info", user_Info);
 		forwardPath = "userprofile";
@@ -216,6 +219,7 @@ public class MainController {
 	}
 	
 	//회원 프로필 수정페이지 
+	@LoginCheck
 	@RequestMapping(value = "userModify")
 	public String userModify(HttpServletRequest request) throws Exception{
 		String forwardPath="";
@@ -230,7 +234,7 @@ public class MainController {
 	
 	//회원 프로필 수정 Action
 	@RequestMapping(value = "/update_action" ,method = RequestMethod.POST)
-	public String update_action(HttpServletRequest request) throws Exception{
+	public String update_action(HttpServletRequest request, Model model) throws Exception{
 		String forwardPath="";
 	
 		String u_email=request.getParameter("u_email");
@@ -238,9 +242,11 @@ public class MainController {
 		String u_pass = request.getParameter("userPass");
 		String u_phone = request.getParameter("u_phone");
 		
-		int updateUser=user_InfoService.updateUser_Info(new User_Info(u_email, u_pass, u_name, u_phone));
-		System.out.println(updateUser);
-		forwardPath="redirect:userprofile";
+		user_InfoService.updateUser_Info(new User_Info(u_email, u_pass, u_name, u_phone));
+		User_Info user_Info=user_InfoService.selectByEmail(u_email);
+		System.out.println(user_Info);
+		forwardPath="userprofile";
+		model.addAttribute("user_Info",user_Info);
 		
 		return forwardPath;
 	}
@@ -252,11 +258,30 @@ public class MainController {
 	@RequestMapping(value = "userrate")
 	public String userrate(@RequestParam String u_email,Model model) throws Exception {
 		String forwardPath="";
-		List<Review>myReview=reviewService.selectWroteReview(u_email);
+		List<Review> myReview = reviewService.selectWroteReview(u_email);
 		model.addAttribute("myReview", myReview);
 		System.out.println(myReview);
 		forwardPath = "userrate";
 		
+		return forwardPath;
+	}
+	
+	//내가 쓴 리뷰 삭제 
+	@RequestMapping(value = "/userrate_review_delete_action",method = RequestMethod.POST)
+	public String userrateReviewDelete_action(HttpServletRequest request) {
+		String forwardPath="";
+		try {
+			//String u_email =request.getParameter("u_email");
+			String r_no = request.getParameter("r_no");
+			int deleteReview = reviewService.deleteReview(Integer.parseInt(r_no));
+			request.setAttribute("deleteReview", deleteReview);
+			forwardPath="userrate";
+			System.out.println("삭제성공");
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("삭제 실패");
+		}
+		System.out.println("실행확인");
 		return forwardPath;
 	}
 
@@ -293,11 +318,6 @@ public class MainController {
 			request.setAttribute("url", "main");
 			return "alert";
 		}
-		
-		//grade 의 값 설정 해주기
-		
-		
-		
 		Movie movie=movieService.selectByNo(m_no);
 		model.addAttribute("movie", movie);
 		forwardPath="reviewWrite";
@@ -310,8 +330,6 @@ public class MainController {
 	public String reviewWrite_action(@RequestParam int m_no,HttpServletRequest request) {
 		String forwardPath="";
 		try {
-			
-			
 			String reviewStar=request.getParameter("reviewStar");
 			int r_grade = Integer.parseInt(reviewStar);
 			String r_title =request.getParameter("r_title");
@@ -326,7 +344,6 @@ public class MainController {
 			e.printStackTrace();
 			forwardPath="404";
 		}
-		System.out.println("여기는?");
 		return forwardPath;
 	}
 		
