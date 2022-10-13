@@ -48,6 +48,4 @@ public interface User_Info_Mapper {
 	@Select("select count(*) from user_info where u_email=#{u_email}")
 	public boolean existedUser(String u_email);
 	
-
-
 }

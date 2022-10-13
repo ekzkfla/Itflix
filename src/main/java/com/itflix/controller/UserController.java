@@ -8,6 +8,7 @@ import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,12 +88,12 @@ public class UserController {
 	/* 로그아웃 */
 	@RequestMapping("user_logout_action")
 	public String user_logout_action(HttpSession session) {
-		
 		session.invalidate();
 		return "redirect:main";
 	}
 
 	/* 찜리스트 */
+	@LoginCheck
 	@RequestMapping("userfavoritegrid")
 	public String jjimList(HttpServletRequest request, @RequestParam String u_email) {
 		String forwardPath = "";
@@ -101,15 +102,29 @@ public class UserController {
 			int jjimCount = jjimService.jjimCount(u_email);
 			request.setAttribute("jjimList", jjimList);
 			request.setAttribute("jjimCount", jjimCount);
-			System.out.println("보여죠>>"+jjimList);
-			System.out.println("나오나?>>"+jjimCount);
+			//System.out.println("보여죠>>"+jjimList);
+			//System.out.println("나오나?>>"+jjimCount);
 			forwardPath = "userfavoritegrid";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return forwardPath;
 	}
-
+	
+	//유저의 카테고리별 찜 리스트
+	@LoginCheck
+	@RequestMapping("userfavoriteCategorygrid")
+	public String jjimCategoryList(HttpServletRequest request,String cg_no) throws Exception {
+		String forwardPath="";
+		User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		String u_email=user_Info.getU_email();
+		List<Jjim>jjimList= jjimService.jjimCategoryList(u_email,Integer.parseInt(cg_no));
+		request.setAttribute("jjimList", jjimList);
+		forwardPath = "userfavoriteCategorygrid";
+		return forwardPath;
+	}
+	
+	
 
 	/* 찜하기*/
 	@RequestMapping(value = "/jjim_insert_action", method = RequestMethod.POST)
@@ -150,7 +165,6 @@ public class UserController {
 			forwardPath = "redirect:moviesingle?m_no="+m_no;
 			msg = "성공";
 			System.out.println(msg);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			msg = "실패";
@@ -159,6 +173,21 @@ public class UserController {
 		return forwardPath;
 	}
 	
+	/*회원탈퇴하기*/
+	@RequestMapping(value = "userDelete")
+	public String userDelete(HttpServletRequest request, HttpSession session) {
+		String msg = "";
+		String u_email = request.getParameter("u_email");
+		try {
+			user_InfoService.deleteUser_Info(u_email);
+			session.invalidate();
+			msg = "탈퇴성공";
+			System.out.println(msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:main";
+	}
 
 	
 }//

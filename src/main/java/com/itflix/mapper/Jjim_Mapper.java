@@ -43,6 +43,16 @@ public interface Jjim_Mapper {
 	@ResultMap("Test")
 	public List<Jjim> jjimList(String u_email);
 	
+	/* 1명 회원 영화 찜 카테고리별 목록보기 */
+	@Select("select j.u_email, m.m_no, m.cg_no, c.cg_name, m.m_name, m.m_image, m.m_date, m.m_count, avg(r.r_grade) as r_grade\r\n"
+			+ "from movie m \r\n"
+			+ "left join review r on m.m_no=r.m_no \r\n"
+			+ "left join category c on m.cg_no=c.cg_no \r\n"
+			+ "left join jjim j on m.m_no=j.m_no \r\n"
+			+ "where j.u_email=#{u_email} and m.cg_no=#{cg_no}\r\n"
+			+ "group by j.u_email, m.m_no, m.cg_no, c.cg_name, m.m_name, m.m_image, m.m_date, m.m_count")
+	@ResultMap("Test")
+	public List<Jjim> jjimCategoryList(String u_email,int cg_no);
 	
 	/* 영화 찜하기*/
 	@Insert("insert into jjim VALUES(0,0,0,#{u_email},#{m_no})")

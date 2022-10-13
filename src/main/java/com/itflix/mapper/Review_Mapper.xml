@@ -56,7 +56,7 @@ namespace="com.itflix.mapper.Review_Mapper">
 <!-- 수정 -->
 	
 			   <!-- type="com.itflix.dto.Review" > -->
-	<resultMap id="ReviewWithUpdate" 
+	<!-- <resultMap id="ReviewWithUpdate" 
 			   type="com.itflix.dto.Review" >
 						<result column="r_no" property="r_no"/>
 						<result column="r_title" property="r_title"/>
@@ -73,7 +73,7 @@ namespace="com.itflix.mapper.Review_Mapper">
 		</association>
 		
 	</resultMap>
-   
+    -->
    
 <!-- 추가 -->
 <!-- 

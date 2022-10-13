@@ -54,11 +54,15 @@ public class MainController {
 			
 			List<Movie> movieList = movieService.selectAll();
 			List<Movie> movieCountList = movieService.selectMovieCountList();
+			List<Movie> movieCountNewDate = movieService.selectMovieNewDate();
+			List<Movie> movieGradeList = movieService.selectMovieGradeList();
 			//List<Category> categoryList = categoryService.selectByNoMovieList();
 			System.out.println(movieList);
 			Notice noticeOne = noticeService.noticeOne();
 			model.addAttribute("movieList",movieList);
 			model.addAttribute("movieCountList", movieCountList);
+			model.addAttribute("movieCountNewDate", movieCountNewDate);
+			model.addAttribute("movieGradeList", movieGradeList);
 			model.addAttribute("notice", noticeOne);
 			//model.addAttribute("categoryList", categoryList);
 			forwardPath = "main";
@@ -342,6 +346,68 @@ public class MainController {
 		System.out.println("실행?");
 		return forwardPath;
 	}
+	
+	//리뷰 수정 페이지 
+	@RequestMapping(value = "reviewModify")
+	public String reviewModify(@RequestParam int m_no ,Model model,HttpServletRequest request, HttpSession session) throws Exception {
+		String forwardPath="";
+		
+		User_Info user_Info=(User_Info)session.getAttribute("login_user");
+		
+		//비로그인시 alert 표출 후 메인페이지로 이동
+		if (user_Info == null) {
+			request.setAttribute("msg", "로그인이 필요합니다.");
+			request.setAttribute("url", "main");
+			return "alert";
+		}
+		String r_no =request.getParameter("r_no");
+		String r_title =request.getParameter("r_title");
+		String r_content = request.getParameter("r_content");
+		String u_email = request.getParameter("u_email");
+		Movie movie=movieService.selectByNo(m_no);
+		
+		Review review=new Review(Integer.parseInt(r_no), r_title, r_content, 0, null, 0, 0,0, 
+								new Movie(m_no, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null, null), null,
+								new User_Info(u_email, null, null, null));
+		model.addAttribute("review", review);
+		System.out.println(">>>>>>>>>>>>"+review);
+		/*
+		model.addAttribute("r_title", r_title);
+		model.addAttribute("r_content", r_content);
+		model.addAttribute("u_email", u_email);
+		model.addAttribute("r_grade", r_grade);
+		*/
+		model.addAttribute("movie", movie);
+		forwardPath="reviewModify";
+		System.out.println("수정실행?");
+		return forwardPath;
+	}
+	
+	//리뷰 수정 액션 
+	@RequestMapping(value = "/reviewModify_action",method = RequestMethod.POST)
+	public String reviewModify_action(@RequestParam int m_no,HttpServletRequest request,Model model) {
+		String forwardPath="";
+		try {
+			String r_no = request.getParameter("r_no");
+			String r_title =request.getParameter("r_title");
+			String r_content = request.getParameter("r_content");
+			String u_email = request.getParameter("u_email");
+			String reviewStar=request.getParameter("reviewStar");
+			int reviewUpdate=reviewService.updateReview(r_title, r_content, Integer.parseInt(reviewStar), Integer.parseInt(r_no));
+			System.out.println("<<>>>>>"+reviewUpdate);
+			List<Review> myReview = reviewService.selectWroteReview(u_email);
+			System.out.println(">>>>>>>>>>>>>>>>>"+myReview);
+			model.addAttribute("myReview", myReview);
+			forwardPath = "redirect:userrate?u_email="+u_email;
+			System.out.println("수정성공!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("수정실패...");
+		}
+		return forwardPath;
+	}
+	
+	
 	
 	//리뷰 작성 액션 페이지
 	@RequestMapping(value = "/reviewWrite_action",method = RequestMethod.POST)
