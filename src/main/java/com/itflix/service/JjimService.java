@@ -9,6 +9,9 @@ public interface JjimService {
 	/* 1명 회원 영화 찜 목록보기(리뷰평점포함) */
 	List<Jjim> jjimList(String u_email) throws Exception;
 	
+	/* 1명 회원 영화 찜 카테고리별 목록보기 */
+	List<Jjim> jjimCategoryList(String u_email,int cg_no)throws Exception;
+	
 	/* 영화 찜하기 */
 	int jjimInsert(String u_email,int m_no) throws Exception;
 

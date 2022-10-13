@@ -27,7 +27,7 @@
 </head>
 <body>
 <script type="text/javascript">
-function categoryChange() {
+function categoryChane() {
 	var selectList = document.getElementById("cate1")
 	console.log(selectList.options);
 	console.log(selectList.selectedIndex);
@@ -38,27 +38,29 @@ function categoryChange() {
 		"name" : categoryData,
 		"value" : categoryValue		
 	}
+
 	window.localStorage.setItem("category",JSON.stringify(storageObj))
+
 	if(categoryValue == "1"){
-		location.href = "userfavoriteCategorygrid?cg_no=1";
+		location.href = "categoryMoviegrid?cg_no=1";
 	}
 	if(categoryValue == "2"){
-		location.href = "userfavoriteCategorygrid?cg_no=2";
+		location.href = "categoryMoviegrid?cg_no=2";
 	}
 	if(categoryValue == "3"){
-		location.href = "userfavoriteCategorygrid?cg_no=3";
+		location.href = "categoryMoviegrid?cg_no=3";
 	}
 	if(categoryValue == "4"){
-		location.href = "userfavoriteCategorygrid?cg_no=4";
+		location.href = "categoryMoviegrid?cg_no=4";
 	}
 	if(categoryValue == "5"){
-		location.href = "userfavoriteCategorygrid?cg_no=5";
+		location.href = "categoryMoviegrid?cg_no=5";
 	}
 	if(categoryValue === "6"){
-		location.href = "userfavoriteCategorygrid?cg_no=6";
+		location.href = "categoryMoviegrid?cg_no=6";
 	}
-}
 
+}
 </script>
 
 	<!-- BEGIN | Header -->
@@ -94,12 +96,12 @@ function categoryChange() {
 			<label>Sort by:</label>
 			<select name="cate1" id="cate1" onchange="categoryChange()">
 				<option value="popularity">카테고리</option>
-				<option value="1">액션</option>
-				<option value="2">코미디</option>
-				<option value="3">로맨스</option>
-				<option value="4">공포/미스터리</option>
-				<option value="5">SF/판타지</option>
-				<option value="6">드라마</option>
+				<option value="cg_no=1">액션</option>
+				<option value="cg_no=2">코미디</option>
+				<option value="cg_no=3">로맨스</option>
+				<option value="cg_no=4">공포/미스터리</option>
+				<option value="cg_no=5">SF/판타지</option>
+				<option value="cg_no=6">드라마</option>
 			</select>
 		</div>
 		<div class="flex-wrap-movielist grid-fav">

@@ -109,7 +109,15 @@ public class UserController {
 		}
 		return forwardPath;
 	}
-
+	
+	@RequestMapping("userfavoriteCategorygrid")
+	public String jjimCategoryList() {
+		String forwardPath="";
+		forwardPath = "userfavoriteCategorygrid";
+		return forwardPath;
+	}
+	
+	
 
 	/* 찜하기*/
 	@RequestMapping(value = "/jjim_insert_action", method = RequestMethod.POST)
