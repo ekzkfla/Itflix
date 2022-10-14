@@ -381,11 +381,10 @@ $(function(){
 					<div class="videos" >
 						
 						<div class="slider-for-2 video-ft">
-							<c:forEach items="${movieList}" var="movie"> 
-							<div>
-								<iframe class="ytplayer" src=""
-									data-src="${movie.m_url}"></iframe>
-							</div>
+							<c:forEach items="${movieList}" var="movie">
+								<div>
+									<iframe class="ytplayer" src="" data-src="${movie.m_url}"></iframe>
+								</div>
 							</c:forEach>
 						</div>
 						<!--영상 url  -->
