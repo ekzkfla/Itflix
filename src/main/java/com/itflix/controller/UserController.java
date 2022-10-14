@@ -312,14 +312,14 @@ public class UserController {
 	/* 회원탈퇴하기 */
 	@LoginCheck
 	@RequestMapping(value = "/removeUser")
-	public String removeUser(HttpServletRequest request ) {
+	public String removeUser(HttpServletRequest request, HttpSession session ) {
 		String msg = "";
 		String forwardPath = "";
 		String u_email = request.getParameter("u_email");
 		try {
 			int removeUser =user_InfoService.removeUser(u_email);
 			request.setAttribute("removeUser", removeUser);
-			// session.invalidate();
+			session.invalidate();
 			System.out.println(u_email);
 			msg = "탈퇴성공";
 			System.out.println(msg);
