@@ -398,11 +398,11 @@ public class MainController {
 			int reviewUpdate=reviewService.updateReview(r_title, r_content,Integer.parseInt(r_grade),Integer.parseInt(r_no));
 			System.out.println("reviewStar :"+r_grade);
 			System.out.println("update :"+reviewUpdate);
-			//List<Review> myReview = reviewService.selectWroteReview(u_email);
-			//System.out.println(">>>>>>>>>>>>>>>>>"+myReview);
-			//model.addAttribute("myReview", myReview);
-			//forwardPath = "redirect:userrate?u_email="+u_email;
-			//System.out.println("수정성공!!");
+			List<Review> myReview = reviewService.selectWroteReview(u_email);
+			System.out.println(">>>>>>>>>>>>>>>>>"+myReview);
+			model.addAttribute("myReview", myReview);
+			forwardPath = "redirect:userrate?u_email="+u_email;
+			System.out.println("수정성공!!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("수정실패...");
