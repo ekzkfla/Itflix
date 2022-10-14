@@ -3,6 +3,7 @@ package com.itflix.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
@@ -91,7 +92,47 @@ public class UserController {
 		session.invalidate();
 		return "redirect:main";
 	}
-
+	
+	//유저 계정찾기 페이지
+	@RequestMapping("userSearch")
+	public String userSearch() {
+		String forwardPath="";
+		forwardPath="userSearch";
+		return forwardPath;
+	}
+	
+	//유저 아이디 찾기 새창 
+	@RequestMapping(value = "/searchId")
+	public String searchId(HttpServletRequest request) throws Exception {
+		String forwardPath="";
+		String u_name =request.getParameter("u_name1");
+		String u_phone = request.getParameter("u_phone");
+		User_Info user_Info =user_InfoService.selectByNameAndPhone(u_name, u_phone);
+		System.out.println(user_Info);
+		request.setAttribute("user_Info", user_Info);
+		forwardPath="searchId";
+		return forwardPath;
+	}
+	
+	//유저 비밀번호 찾기 새창 
+	@RequestMapping(value = "/searchPass")
+	public String searchPass(HttpServletRequest request) throws Exception {
+		String forwardPath="";
+		String u_name =request.getParameter("u_name2");
+		String u_email = request.getParameter("u_email");
+		User_Info user_Info=user_InfoService.selectByEmailAndName(u_email, u_name);
+		System.out.println(user_Info);
+		request.setAttribute("user_Info", user_Info);
+		forwardPath="searchPass";
+		return forwardPath;
+	}
+	
+	
+	
+	
+	
+	
+	
 	/* 찜리스트 */
 	@LoginCheck
 	@RequestMapping("userfavoritegrid")

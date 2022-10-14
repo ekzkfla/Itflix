@@ -20,11 +20,11 @@ public interface User_Info_Mapper {
 	public int insertUser_Info(User_Info user_Info);
 	
 	// 이메일이랑 이름으로 비번 찾기.
-	@Select("select u_pass from user_info where u_email = #{u_email} and u_name = #{u_name}")
+	@Select("select u_name,u_email,u_phone,u_pass from user_info where u_email = #{u_email} and u_name = #{u_name}")
 	public User_Info selectByEmailAndName(String u_email, String u_name);
 	
 	// 이름이랑 폰번호로 이메일 찾기.
-	@Select("select u_email from user_info where u_name = #{u_name} and u_phone = #{u_phone}")
+	@Select("select u_email,u_name,u_phone from user_info where u_name = #{u_name} and u_phone = #{u_phone}")
 	public User_Info selectByNameAndPhone(String u_name, String u_phone);
 	
 	// 이메일로 회원 찾기.

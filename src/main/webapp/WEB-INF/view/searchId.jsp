@@ -24,42 +24,22 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <script type="text/javascript">
-	function searchId(){
-		if(document.userId.u_name1.value==""){
-			alert("이름을 입력해주세요.");
-			return false;
+		function searchPass(){
+			document.password.action="userSearch";
+			document.password.submit;
 		}
-		if(document.userId.u_phone.value==""){
-			alert("번호를 입력해 주세요.");
-			return false;
-		} 
-		document.userId.action="searchId";
-		document.userId.method="POST";
-		document.userId.submit;
-	}
-
-
-	function searchPass(){
-		if(document.password.u_email.value==""){
-			alert("아이디을 입력해주십시요!");
-			return false;
-		}
-		if(document.password.u_name2.value==""){
-			alert("이름을 입력해주십시요!");
-			return false;
-		}
-		document.password.action="searchPass";
-		document.password.method="POST";
-		document.password.submit;
 		
-	}
-</script>	
+		function useSearchId(){
+			document.password.action="main";
+			document.password.submit;
+		}
+	</script>
+
 <body>
 
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
-	
 	<!--중앙 헤드 시작  -->
 	<div class="hero user-hero">
 		<div class="container">
@@ -77,54 +57,30 @@
 		</div>
 	</div>
 	<!--중앙 헤드 끝-->
-	
 	<!--찾기 메뉴보드판 시작 -->
 	<div class="page-single">
 		<div class="container">
 				<div class="col-md-9 col-sm-12 col-xs-12">
-					<div class="form-style-1 user-pro" >
-						
+					<div class="form-style-1 user-pro">
 						<!--중앙 아이디 찾기  -->
-						<form action="" name="userId">
+						<form action="" name="password">
 							<h4>아이디 찾기</h4>
 								<div class="row">
 									<div class="col-md-6 form-it">
-										<label>이름</label>
-										<input type="text" placeholder="이름" name="u_name1">
+										<label>${user_Info.u_name }의 아이디</label>
+										<input type="hidden" name="u_name2" value="${user_Info.u_name }">
+										<input type="text"  name="u_email" value="${user_Info.u_email }">
 									</div>
-									<div class="col-md-6 form-it">
-										<label>연락처</label>
-										<input type="text" placeholder="핸드폰" name="u_phone">
-									</div>
-								</div>
-								<!--찾기 버튼 시작  -->
-								<div class="row">
-									<div class="col-md-2">
-										<input class="submit" type="submit" value="아이디 찾기" onclick="searchId()">
-									</div>
-								</div><br><br>
-								<!--찾기 버튼 끝  -->
-						</form>
-						<!--중앙 패스워드 찾기  -->
-						<form action="" name="password">
-							<h4>패스워드 찾기</h4>
-								<div class="row">
-									<div class="col-md-6 form-it">
-										<label>아이디</label>
-										<input type="text" placeholder="아이디" name="u_email">
-									</div>
-									<div class="col-md-6 form-it">
-										<label>이름</label>
-										<input type="text" placeholder="이름" name="u_name2">
-									</div>
+									
 								</div>
 							<div class="row">
 								<div class="col-md-2">
 									<input class="submit" type="submit" value="비밀번호 찾기" onclick="searchPass()">
 								</div>
+									<a class="loginLink" style="float:left; background-color:#dd003f; color:#ffffff; padding:10px 10px; border-radius:10px; cursor:pointer">로그인</a>
 							</div>
 						</form>
-						<!--중앙 패스워드 찾기 끝  -->
+					
 					</div>
 				</div>
 		</div>
