@@ -33,9 +33,9 @@
 							<li><a href="removeUser">회원 탈퇴</a></li>
 							
 							<!-- 이건 input방식의 탈퇴 방법
+							<input type="hidden" name="u_email" value="${login_user.u_email }" >
 							<input  type="submit" style="float:left; background-color:#020d18; color:#ffffff; padding:4px 1px; border-radius:5px; cursor:pointer" 
 									class="btn" value="회원탈퇴"onclick="removeUser()">
-							<input type="hidden" name="u_email" value="${login_user.u_email }" >
 							 -->
 						</ul>
 						</form>

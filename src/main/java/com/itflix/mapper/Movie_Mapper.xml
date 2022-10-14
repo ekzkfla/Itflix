@@ -23,6 +23,7 @@
 		<result column="m_actor" property="m_actor" />
 		<result column="m_info" property="m_info" />
 		<result column="m_image" property="m_image" />
+		<result column="m_url" property="m_url" />
 		<result column="m_count" property="m_count" />
 		<result column="m_date" property="m_date" />
 		<result column="m_url" property="m_url" />

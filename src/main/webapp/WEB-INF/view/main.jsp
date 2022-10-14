@@ -377,7 +377,7 @@ $(function(){
 					<div class="videos" >
 						
 						<div class="slider-for-2 video-ft">
-							<c:forEach items="${movieList}" var="movie">
+							<c:forEach items="${movieCountList}" var="movie">
 								<div>
 									<iframe class="ytplayer" src="" data-src="${movie.m_url}"></iframe>
 								</div>
