@@ -11,8 +11,6 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import com.itflix.dto.Subscription;
-import com.itflix.dto.Ticket;
-import com.itflix.dto.User_Info;
 
 @Mapper
 public interface Subscription_Mapper {

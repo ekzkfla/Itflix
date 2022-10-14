@@ -5,38 +5,15 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.FilterType;
 
 
-import com.itflix.controller.MainController;
-import com.itflix.dao.CategoryDao;
-import com.itflix.dao.MovieDao;
-import com.itflix.dao.ReviewDao;
-import com.itflix.dto.Movie;
-import com.itflix.dto.Review;
-import com.itflix.dto.User_Info;
-import com.itflix.mapper.Review_Mapper;
-import com.itflix.service.CategoryService;
-import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})
 public class ReviewServiceTestApplication {
 	public static void main(String[] args) throws Exception {
-		/****************case1********************/
-		/*
-		 * application.properties에 설정추가
-		 *    spring.main.web-application-type=none
-		 */
-		/*
-		ConfigurableApplicationContext context = 
-				SpringApplication.run(GuestDaoSpringBootTestApplication.class, args);
-		GuestDao guestDao = (GuestDao) context.getBean(GuestDao.class);
-		System.out.println(guestDao.selectAll());
-		System.out.println(guestDao.selectByNo(881));
-		*/
+		
 		
 		SpringApplication application = 
 				new SpringApplication(ReviewServiceTestApplication.class);

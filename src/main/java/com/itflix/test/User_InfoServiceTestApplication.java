@@ -7,7 +7,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.User_InfoDao;
-import com.itflix.dto.User_Info;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})

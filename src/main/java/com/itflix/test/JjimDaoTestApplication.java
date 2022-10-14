@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.itflix.dao.JjimDao;
-import com.itflix.dto.Jjim;
 import com.itflix.service.JjimService;
 
 @SpringBootApplication
