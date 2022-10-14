@@ -40,7 +40,7 @@ public interface User_Info_Mapper {
 	public int updateUser_Info(User_Info user_Info);
 	
 	/*회원탈퇴*/
-	@Delete("delete from user_info where u_email=#{u_email}")
+	@Delete("delete from user_info where u_email=#{u_email, jdbcType=VARCHAR}")
 	public int removeUser(String u_email);
 	
 	// 회원 email 존재여부 확인(count)
