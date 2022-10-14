@@ -34,7 +34,7 @@ public class User_InfoServiceTestApplication {
 		 System.out.println(user_InfoDao);
 		 //System.out.println(user_InfoDao.user_InfoSelectAll());
 		 //System.out.println(user_InfoDao.selectByEmail("admin@gmail.com"));
-		 System.out.println(user_InfoDao.deleteUser_Info("test6@gmail.com"));
+		 System.out.println(user_InfoDao.removeUser("test6@gmail.com"));
 		 //System.out.println("Check" + user_InfoDao.insertUser_Info(new User_Info("guard4@gmail.com","1111", "김희철", "01055555555")));
 		 //System.out.println("Check : "+user_InfoDao.updateUser_Info(new User_Info("guard3@gmail.com", "a123123!", "다카림", "01099999999")) );
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/

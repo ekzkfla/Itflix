@@ -33,8 +33,8 @@
 	<div class="hero user-hero">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<div class="hero-ct">
+				<div class="col-md-12" >
+					<div class="hero-ct" >
 						<h1>아이디 /비밀번호 찾기</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
@@ -47,7 +47,7 @@
 	</div>
 	<!--중앙 헤드 끝-->
 	
-	
+	<!--찾기 메뉴보드판 시작 -->
 	<div class="page-single">
 		<div class="container">
 				<div class="col-md-9 col-sm-12 col-xs-12">
@@ -59,14 +59,16 @@
 								<div class="row">
 									<div class="col-md-6 form-it">
 										<label>이름</label>
-										<input type="text" placeholder="edwardkennedy">
+										<input type="text" placeholder="고객명" name="u_name">
 									</div>
 								</div>
+								<!--찾기 버튼 시작  -->
 								<div class="row">
 									<div class="col-md-2">
-										<input class="submit" type="submit" value="save">
+										<input type="submit" value="save" onclick="searchId()">
 									</div>
 								</div>
+								<!--찾기 버튼 끝  -->
 						</form>
 						<!--중앙 패스워드 찾기  -->
 						<form action="" class="password">
@@ -88,12 +90,11 @@
 							</div>
 						</form>
 						<!--중앙 패스워드 찾기 끝  -->
-						
 					</div>
 				</div>
-			
 		</div>
 	</div>
+	<!--찾기 메뉴보드판 시작 -->
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>
 	<!-- end of footer section-->
