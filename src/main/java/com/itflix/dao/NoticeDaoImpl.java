@@ -4,13 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.itflix.dto.Category;
 import com.itflix.dto.Notice;
-import com.itflix.dto.NoticeListPageMaker;
 import com.itflix.mapper.Notice_Mapper;
 
 
