@@ -348,6 +348,7 @@ public class MainController {
 	}
 	
 	//리뷰 수정 페이지 
+	@LoginCheck
 	@RequestMapping(value = "reviewModify")
 	public String reviewModify(@RequestParam int m_no ,Model model,HttpServletRequest request, HttpSession session) throws Exception {
 		String forwardPath="";
@@ -383,7 +384,8 @@ public class MainController {
 		return forwardPath;
 	}
 	
-	//리뷰 수정 액션 
+	//리뷰 수정 액션
+	@LoginCheck
 	@RequestMapping(value = "/reviewModify_action",method = RequestMethod.POST)
 	public String reviewModify_action(@RequestParam int m_no,HttpServletRequest request,Model model) {
 		String forwardPath="";
@@ -392,14 +394,15 @@ public class MainController {
 			String r_title =request.getParameter("r_title");
 			String r_content = request.getParameter("r_content");
 			String u_email = request.getParameter("u_email");
-			String reviewStar=request.getParameter("reviewStar");
-			int reviewUpdate=reviewService.updateReview(r_title, r_content, Integer.parseInt(reviewStar), Integer.parseInt(r_no));
-			System.out.println("<<>>>>>"+reviewUpdate);
-			List<Review> myReview = reviewService.selectWroteReview(u_email);
-			System.out.println(">>>>>>>>>>>>>>>>>"+myReview);
-			model.addAttribute("myReview", myReview);
-			forwardPath = "redirect:userrate?u_email="+u_email;
-			System.out.println("수정성공!!");
+			String r_grade=request.getParameter("reviewStar");
+			int reviewUpdate=reviewService.updateReview(r_title, r_content,Integer.parseInt(r_grade),Integer.parseInt(r_no));
+			System.out.println("reviewStar :"+r_grade);
+			System.out.println("update :"+reviewUpdate);
+			//List<Review> myReview = reviewService.selectWroteReview(u_email);
+			//System.out.println(">>>>>>>>>>>>>>>>>"+myReview);
+			//model.addAttribute("myReview", myReview);
+			//forwardPath = "redirect:userrate?u_email="+u_email;
+			//System.out.println("수정성공!!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("수정실패...");
