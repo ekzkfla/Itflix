@@ -387,7 +387,7 @@ $(function(){
 						
 						<!--영상 트레일러 사진  -->
 						<div class="slider-nav-2 thumb-ft">
-							<c:forEach items="${movieList}" var="movie"> 
+							<c:forEach items="${movieCountList}" var="movie"> 
 								<div class="item">
 									<div class="trailer-img">
 										<img src="images/${movie.category.cg_name }/${movie.m_name}_2.jpg"
