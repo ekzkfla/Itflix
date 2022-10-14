@@ -26,7 +26,6 @@
 						
 						
 						<br>
-							<input type="hidden" name="u_email" value="${login_user.u_email }" >
 						<ul>
 							<li><a href="userprofile">프로필 수정</a></li>
 							<li><a href="userfavoritegrid?u_email=${login_user.u_email}">내가 찜한 콘텐츠</a></li>
@@ -36,6 +35,7 @@
 							<!-- 이건 input방식의 탈퇴 방법
 							<input  type="submit" style="float:left; background-color:#020d18; color:#ffffff; padding:4px 1px; border-radius:5px; cursor:pointer" 
 									class="btn" value="회원탈퇴"onclick="removeUser()">
+							<input type="hidden" name="u_email" value="${login_user.u_email }" >
 							 -->
 						</ul>
 						</form>
