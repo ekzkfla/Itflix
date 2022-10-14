@@ -3,13 +3,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>메인ITFLIX</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -108,7 +105,6 @@ $(function(){
 		<div class="container">
 			<div class="row ipad-width">
 				<div class="col-md-8">
-					
 					<!--조회수 별 영화 리스트  -->
 					<!--조회수 별 카테고리   -->
 					<div class="title-hd">

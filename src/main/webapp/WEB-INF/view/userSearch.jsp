@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>아이디/비밀번호 찾기</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -24,42 +21,38 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <script type="text/javascript">
-	function searchId(){
-		if(document.userId.u_name1.value==""){
+	function searchId() {
+		if (document.userId.u_name1.value == "") {
 			alert("이름을 입력해주세요.");
 			return false;
 		}
-		if(document.userId.u_phone.value==""){
+		if (document.userId.u_phone.value == "") {
 			alert("번호를 입력해 주세요.");
 			return false;
-		} 
-		document.userId.action="searchId";
-		document.userId.method="POST";
+		}
+		document.userId.action = "searchId";
+		document.userId.method = "POST";
 		document.userId.submit;
 	}
-
-
-	function searchPass(){
-		if(document.password.u_email.value==""){
+	
+	function searchPass() {
+		if (document.password.u_email.value == "") {
 			alert("아이디을 입력해주십시요!");
 			return false;
 		}
-		if(document.password.u_name2.value==""){
+		if (document.password.u_name2.value == "") {
 			alert("이름을 입력해주십시요!");
 			return false;
 		}
-		document.password.action="searchPass";
-		document.password.method="POST";
+		document.password.action = "searchPass";
+		document.password.method = "POST";
 		document.password.submit;
-		
 	}
-</script>	
+</script>
 <body>
-
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
-	
 	<!--중앙 헤드 시작  -->
 	<div class="hero user-hero">
 		<div class="container">
@@ -77,13 +70,11 @@
 		</div>
 	</div>
 	<!--중앙 헤드 끝-->
-	
 	<!--찾기 메뉴보드판 시작 -->
 	<div class="page-single">
 		<div class="container">
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="form-style-1 user-pro" >
-						
 						<!--중앙 아이디 찾기  -->
 						<form action="" name="userId">
 							<h4>아이디 찾기</h4>

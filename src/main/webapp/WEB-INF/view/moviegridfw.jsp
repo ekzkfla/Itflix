@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>영화 리스트</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -60,11 +55,9 @@
 </script>
 </head>
 <body>
-	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
-	
 	<!--중앙 타이틀 화면 -->
 	<div class="hero common-hero">
 		<div class="container">

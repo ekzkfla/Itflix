@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>아이디 찾기</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -24,17 +21,15 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <script type="text/javascript">
-		function searchPass(){
-			document.password.action="userSearch";
-			document.password.submit;
-		}
-		
-		function useSearchId(){
-			document.password.action="main";
-			document.password.submit;
-		}
-	</script>
-
+	function searchPass() {
+		document.password.action = "userSearch";
+		document.password.submit;
+	}
+	function useSearchId() {
+		document.password.action = "main";
+		document.password.submit;
+	}
+</script>
 <body>
 
 	<!-- BEGIN | Header -->
@@ -71,7 +66,6 @@
 										<input type="hidden" name="u_name2" value="${user_Info.u_name }">
 										<input type="text"  name="u_email" value="${user_Info.u_email }">
 									</div>
-									
 								</div>
 							<div class="row">
 								<div class="col-md-2">

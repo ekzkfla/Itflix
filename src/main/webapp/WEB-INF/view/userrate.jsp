@@ -3,13 +3,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>내가 쓴 리뷰 리스트</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -25,73 +22,28 @@
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
-
-/* 
-window.URL = window.URL || window.webkitURL;
-
-const fileSelect = document.getElementById("fileSelect"),
-    fileElem = document.getElementById("fileElem"),
-    fileList = document.getElementById("fileList");
-
-fileSelect.addEventListener("click", function (e) {
-  if (fileElem) {
-    fileElem.click();
-  }
-  e.preventDefault(); // "#" 해시로 이동을 방지
-}, false);
-
-function handleFiles(files) {
-  if (!files.length) {
-    fileList.innerHTML = "<p>No files selected!</p>";
-  } else {
-    fileList.innerHTML = "";
-    const list = document.createElement("ul");
-    fileList.appendChild(list);
-    for (let i = 0; i < files.length; i++) {
-      const li = document.createElement("li");
-      list.appendChild(li);
-
-      const img = document.createElement("img");
-      img.src = window.URL.createObjectURL(files[i]);
-      img.height = 60;
-      img.onload = function() {
-        window.URL.revokeObjectURL(this.src);
-      }
-      li.appendChild(img);
-      const info = document.createElement("span");
-      info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
-      li.appendChild(info);
-    }
-  }
-}
- */
-
-//나의 리뷰 삭제
-function userrate_review_delete_action(formId){
-	  console.log(document.getElementById(formId));
-	  const deleteForm=document.getElementById(formId)
-	  deleteForm.action = "userrate_review_delete_action";
-	  deleteForm.method = "POST";
-	  deleteForm.submit();
-}
-//나의 리뷰 수정
-function reviewModify(formId){
-	console.log(document.getElementById(formId));
-	const deleteForm=document.getElementById(formId)
-	deleteForm.action = "reviewModify";
-	deleteForm.method = "POST";
-	deleteForm.submit();
-}
+	//나의 리뷰 삭제
+	function userrate_review_delete_action(formId) {
+		console.log(document.getElementById(formId));
+		const deleteForm = document.getElementById(formId)
+		deleteForm.action = "userrate_review_delete_action";
+		deleteForm.method = "POST";
+		deleteForm.submit();
+	}
+	//나의 리뷰 수정
+	function reviewModify(formId) {
+		console.log(document.getElementById(formId));
+		const deleteForm = document.getElementById(formId)
+		deleteForm.action = "reviewModify";
+		deleteForm.method = "POST";
+		deleteForm.submit();
+	}
 </script>
-
 </head>
 <body>
-	
-	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
-	
 	<div class="hero user-hero">
 		<div class="container">
 			<div class="row">
@@ -150,7 +102,6 @@ function reviewModify(formId){
 										onclick="reviewModify('reviewD_${review.r_no}')">수정</a>
 									<a class="btn" style="float:right; background-color:#dd003f; color:#ffffff; padding:5px 15px; border-radius:10px; cursor:pointer;"
 									   onclick="userrate_review_delete_action('reviewD_${review.r_no}');">삭제</a>
-									
 							</form>
 						</div>
 					</c:forEach>
