@@ -260,26 +260,33 @@ public class MainController {
 		User_Info user_Info = user_InfoService.selectByEmail(u_email);
 		System.out.println(user_Info);
 		// 계정 비밀번호와 현재 비밀번호칸에 입력한 비밀번호가 같은지 확인.
-		if(user_Info.getU_pass().equals(u_pass)) {
-			// 같으면 새로운 비밀번호칸에 입력한 정보가 일치하는지 확인하자.
-			if(u_newpass1.equals(u_newpass2)) {
-				//여기까지 통과했으면 바꾸자.
-				user_InfoService.updateUser_Info(new User_Info(u_email, u_newpass1, u_name, u_phone));
+		try {
+			if(user_Info.getU_pass().equals(u_pass)) {
+				// 같으면 새로운 비밀번호칸에 입력한 정보가 일치하는지 확인하자.
+				if(u_newpass1.equals(u_newpass2)) {
+					//여기까지 통과했으면 바꾸자.
+					user_InfoService.updateUser_Info(new User_Info(u_email, u_newpass1, u_name, u_phone));
+				}else {
+					request.setAttribute("msg", "새로운 비밀번호가 일치하지 않습니다.");
+					request.setAttribute("url", "userModify");
+					return "alert";
+				}
 			}else {
-				request.setAttribute("msg", "새로운 비밀번호가 일치하지 않습니다.");
+				request.setAttribute("msg", "현재 비밀번호와 일치하지 않습니다.");
 				request.setAttribute("url", "userModify");
 				return "alert";
-			}
-		}else {
-			request.setAttribute("msg", "현재 비밀번호와 일치하지 않습니다.");
+			}	
+			
+			model.addAttribute("user_Info",user_Info);
+			forwardPath="userprofile";
+			
+			return forwardPath;			
+		} catch (Exception e) {
+			request.setAttribute("msg", "정보를 입력하세요.");
 			request.setAttribute("url", "userModify");
-			return "alert";
-		}	
-		
-		model.addAttribute("user_Info",user_Info);
-		forwardPath="userprofile";
-		
-		return forwardPath;
+			return "alert";			
+		}
+
 	}
 	
 
