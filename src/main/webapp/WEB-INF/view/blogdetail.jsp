@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%--  <jsp:setProperty property="category" name="category"/> --%>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>공지사항 상세페이지</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -26,8 +22,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
-	
 	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
@@ -58,11 +52,13 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="blog-detail-ct">
 						<h1>${notice.n_title}</h1>
-						<h5><span class="time" style="font-size: 13pt"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd" /></span></h5><hr>
+						<h5>
+							<span class="time" style="font-size: 13pt">
+							<fmt:formatDate	value="${notice.n_date}" pattern="yyyy/MM/dd" /></span>
+						</h5>
+						<hr>
 						<img src="images/mylogo.png" alt="" width="500">
-						
 						<p>${notice.n_content}</p>
-						
 						<!-- share link -->
 						<div class="flex-it share-tag">
 							<div class="right-it">
@@ -71,7 +67,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
