@@ -19,14 +19,14 @@ public interface User_InfoService {
 	List<User_Info> selectAll() throws Exception;
 	// 회원 수정.
 	int updateUser_Info(User_Info user_Info) throws Exception;
-	// 회원 탈퇴.
-	int deleteUser_Info(String u_email) throws Exception;
-	
+
 	// 회원 email 존재여부 확인(count)
 	boolean existedUser(String u_email) throws Exception;
 	//회원로그인
 	int login(String u_email, String u_pass) throws Exception;
 	
+	/*회원탈퇴*/
+	int removeUser(String u_email) throws Exception;
 	
 	
 }
