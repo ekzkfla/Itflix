@@ -77,7 +77,7 @@ function update_action() {
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>예전 비밀번호</label>
-									<input type="text" name = "userPass" value="${user_Info.u_pass }">
+									<input type="text" name = "userPass" placeholder= "********">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label>
