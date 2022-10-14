@@ -99,7 +99,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							<c:if test="${jjim==false }">
 								<div class="social-btn">
 									<button type="button" onclick="insert()"
-										style="background: black;">
+										style="background-color:transparent; border: none;">
 										<a class="parent-btn" > <i class="ion-heart"></i>Add to
 											Favorite
 										</a>
@@ -110,7 +110,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							<c:if test="${jjim==true }">
 								<div class="social-btn">
 									<button type="button" onclick="deleteJjim();"
-										style="background: black;">
+										style="background-color:transparent; border: none;">
 										<a class="parent-btn"> <i class="ion-heart"></i>찜 취소
 										</a>
 									</button>
