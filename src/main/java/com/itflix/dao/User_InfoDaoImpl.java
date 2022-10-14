@@ -68,17 +68,17 @@ public class User_InfoDaoImpl implements User_InfoDao {
 		return updateUser_Info;
 	}
 
-	// 회원탈퇴
-	@Override
-	public int deleteUser_Info(String u_email) throws Exception {
-		int deleteUser_Info = user_Info_Mapper.deleteUser_Info(u_email);
-		return deleteUser_Info;
-	}
-
 	// 회원 email 존재여부 확인(count)
 	@Override
 	public boolean existedUser(String u_email) throws Exception {
 		boolean existedUser = user_Info_Mapper.existedUser(u_email);
 		return existedUser;
+	}
+	
+	/*회원탈퇴*/
+	@Override
+	public int removeUser(String u_email) throws Exception {
+		int removeUser = user_Info_Mapper.removeUser(u_email);
+		return removeUser;
 	}
 }

@@ -174,12 +174,12 @@ public class UserController {
 	}
 	
 	/*회원탈퇴하기*/
-	@RequestMapping(value = "userDelete")
-	public String userDelete(HttpServletRequest request, HttpSession session) {
+	@RequestMapping(value = "/removeUser")
+	public String removeUser(HttpServletRequest request, HttpSession session) {
 		String msg = "";
-		String u_email = request.getParameter("u_email");
 		try {
-			user_InfoService.deleteUser_Info(u_email);
+			String u_email = request.getParameter("u_email");
+			user_InfoService.removeUser(u_email);
 			session.invalidate();
 			msg = "탈퇴성공";
 			System.out.println(msg);

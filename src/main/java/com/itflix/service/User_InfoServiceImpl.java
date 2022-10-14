@@ -77,12 +77,6 @@ public class User_InfoServiceImpl implements User_InfoService{
 		return user_InfoDao.updateUser_Info(user_Info);
 	}
 	
-	// 회원 탈퇴.
-	@Override
-	public int deleteUser_Info(String u_email) throws Exception{
-		return user_InfoDao.deleteUser_Info(u_email);
-	}
-
 	@Override
 	public boolean existedUser(String u_email) throws Exception {
 		return user_InfoDao.existedUser(u_email);
@@ -111,6 +105,12 @@ public class User_InfoServiceImpl implements User_InfoService{
 			result = -2;
 		}
 		return result;
+	}
+
+	/*회원탈퇴*/
+	@Override
+	public int removeUser(String u_email) throws Exception {
+		return user_InfoDao.removeUser(u_email);
 	}
 
 }
