@@ -89,6 +89,14 @@ public class ReviewDaoImpl implements ReviewDao {
 		int reviewCount = review_Mapper.reviewCount(m_no);
 		return reviewCount;
 	}
+	
+	// 계정별 리뷰 총 갯수
+	@Override
+	public int reviewCountByEmail(String u_email) throws Exception {
+		int reviewCountByEmail = review_Mapper.reviewCountByEmail(u_email);
+		return reviewCountByEmail;
+	}
+	
 	//추가
 	@Override
 	public Review insertReview2(Review review) throws Exception {

@@ -113,7 +113,7 @@ function reviewModify(formId){
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
 						<p>
-							Found <span>3 rates</span>in total
+							Found <span>${reviewCount} rates</span>in total
 						</p>
 						<label>Sort by:</label><select><option value="popularity">카테고리</option>
 							<option value="cg=1">액션</option>

@@ -272,12 +272,15 @@ public class MainController {
 	//회원의 내가 쓴 영화리뷰 페이지 
 	@LoginCheck
 	@RequestMapping(value = "userrate")
-	public String userrate(@RequestParam String u_email,Model model) throws Exception {
+	public String userrate(@RequestParam String u_email, Model model) throws Exception {
 		String forwardPath="";
 		List<Review> myReview = reviewService.selectWroteReview(u_email);
 		User_Info user_Info	=user_InfoService.selectByEmail(u_email);
+		int reviewCount = reviewService.reviewCountByEmail(u_email);
+		
 		model.addAttribute("myReview", myReview);
 		model.addAttribute("user_Info", user_Info);
+		model.addAttribute("reviewCount",reviewCount);
 		System.out.println(myReview);
 		forwardPath = "userrate";
 		
