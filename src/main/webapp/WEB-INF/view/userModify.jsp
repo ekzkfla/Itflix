@@ -5,9 +5,6 @@
 User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
@@ -27,88 +24,81 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
-
-// 마이페이지 password가 회원의 password와 일치하면 진행
-function update_action() {
-	document.userUpdate.action = "update_action";
-	document.userUpdate.method='POST';
-	document.userUpdate.submit();
-}
+	// 마이페이지 password가 회원의 password와 일치하면 진행
+	function update_action() {
+		document.userUpdate.action = "update_action";
+		document.userUpdate.method = 'POST';
+		document.userUpdate.submit();
+	}
 </script>
-
 </head>
 <body>
-	
-	
 	<!-- BEGIN | Header -->
-	<jsp:include page="include_common_top.jsp"/>
+	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
-	
 	<div class="hero user-hero">
 		<div class="container">
-				<div class="col-md-12">
-					<div class="hero-ct">
-						<h1 align="center">회원의 상세페이지</h1>
-						<ul class="breadcumb">
-							<li class="active"><a href="main">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>Profile</li>
-						</ul>
-					</div>
-				</div>
-		</div>
-	</div>
-		<!-- Start | user leff menu bar-->
-	<jsp:include page="include_user_menu.jsp" />
-	<!-- End | user leff menu bar-->
-				<div class="col-md-9 col-sm-12 col-xs-12">
-					<div class="form-style-1 user-pro">
-						<form name = "userUpdate" method = "POST" action="update_action">
-							<h4>회원의 상세페이지</h4>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>이름</label>
-									<input type="text" name="u_name" value="${user_Info.u_name}" >
-								</div>
-								<div class="col-md-6 form-it">
-									<label>이메일</label>
-									<input type="text" name="u_email" value="${user_Info.u_email}" >
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>예전 비밀번호</label>
-									<input type="text" name = "userPass" placeholder= "********">
-								</div>
-								<div class="col-md-6 form-it">
-									<label>핸드폰 번호</label>
-									<input type="text"  name = "u_phone" value= "${user_Info.u_phone}" >
-									<!-- pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$"> -->
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 form-it">
-									<label>새로운 비밀번호</label>
-									<input type="password" name = "userPass1">
-									<!-- 	pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
-								</div>
-								<div class="col-md-6 form-it">
-									<label>새로운 비밀번호 확인</label>
-									<input type="password"
-										name = "userPass2">
-										<!-- pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-2">
-									<input class="submit" type="submit" onclick= "update_action()" value="수정하기">
-								</div>
-							</div>
-						</form>
-
-					</div>
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1 align="center">회원의 상세페이지</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="main">Home</a></li>
+						<li><span class="ion-ios-arrow-right"></span>Profile</li>
+					</ul>
 				</div>
 			</div>
 		</div>
+	</div>
+	<!-- Start | user leff menu bar-->
+	<jsp:include page="include_user_menu.jsp" />
+	<!-- End | user leff menu bar-->
+	<div class="col-md-9 col-sm-12 col-xs-12">
+		<div class="form-style-1 user-pro">
+			<form name="userUpdate" method="POST" action="update_action">
+				<h4>회원의 상세페이지</h4>
+				<div class="row">
+					<div class="col-md-6 form-it">
+						<label>이름</label> <input type="text" name="u_name"
+							value="${user_Info.u_name}">
+					</div>
+					<div class="col-md-6 form-it">
+						<label>이메일</label> <input type="text" name="u_email"
+							value="${user_Info.u_email}">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 form-it">
+						<label>예전 비밀번호</label> <input type="text" name="userPass"
+							placeholder="********">
+					</div>
+					<div class="col-md-6 form-it">
+						<label>핸드폰 번호</label> <input type="text" name="u_phone"
+							value="${user_Info.u_phone}">
+						<!-- pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$"> -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 form-it">
+						<label>새로운 비밀번호</label> <input type="password" name="userPass1">
+						<!-- 	pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
+					</div>
+					<div class="col-md-6 form-it">
+						<label>새로운 비밀번호 확인</label> <input type="password" name="userPass2">
+						<!-- pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<input class="submit" type="submit" onclick="update_action()"
+							value="수정하기">
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</div>
+	</div>
+	</div>
 	</div>
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>

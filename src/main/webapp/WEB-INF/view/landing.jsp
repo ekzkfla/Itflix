@@ -8,7 +8,7 @@
 
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>구독권 결제</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">

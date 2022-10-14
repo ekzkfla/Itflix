@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>프로필</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
 <link rel="profile" href="#">
-<style type="text/css">
-
-</style>
+<style type="text/css"></style>
 <!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
@@ -26,8 +21,7 @@
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
-	
-	function userModify(){
+	function userModify() {
 		document.user.action = "userModify";
 		document.user.method = "POST";
 		document.user.submit();
@@ -35,11 +29,9 @@
 </script>
 </head>
 <body>
-
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
-	
 	<div class="hero user-hero">
 		<div class="container">
 				<div class="col-md-12">
@@ -64,7 +56,6 @@
 								<div class="col-md-6 form-it">
 									<label>이름</label>
 									<input type="text" value="${user_Info.u_name }" name="u_name" readonly>
-									
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
@@ -84,7 +75,6 @@
 									<label>핸드폰 번호</label><input type="text"
 										placeholder= "${user_Info.u_phone}" 	
 										name="u_phone"
-										
 										readonly>
 								</div>
 							</div>
@@ -96,7 +86,6 @@
 						</form>
 					</div>
 				</div>
-		
 		</div>
 	</div>
 	<!-- footer section-->

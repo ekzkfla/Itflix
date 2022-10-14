@@ -6,16 +6,11 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-
 <%
 User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
 
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
@@ -56,13 +51,10 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
-
-
 	<div class="hero mv-single-hero">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<!-- <h1>movie listing - list</h1><ul class="breadcumb"><li class="active"><a href="#">Home</a></li><li><span class="ion-ios-arrow-right"></span>movie listing</li></ul>-->
 				</div>
 			</div>
 		</div>

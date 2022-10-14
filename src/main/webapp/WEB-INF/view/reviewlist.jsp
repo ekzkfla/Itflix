@@ -9,7 +9,7 @@
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>리뷰 리스트</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">

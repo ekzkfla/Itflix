@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>비밀번호 찾기</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -24,15 +21,12 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <script type="text/javascript">
-		
-		function useSearchId(){
-			document.userSearchId.action="main";
-			document.userSearchId.submit;
-		}
-	</script>
-
+	function useSearchId() {
+		document.userSearchId.action = "main";
+		document.userSearchId.submit;
+	}
+</script>
 <body>
-
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
@@ -67,7 +61,6 @@
 										<input type="hidden"  name="u_name2" value="${user_Info.u_name}">
 										<input type="text"  name="u_pass" value="${user_Info.u_pass}">
 									</div>
-									
 								</div>
 								<!--찾기 버튼 시작  -->
 								<div class="row">
@@ -77,7 +70,6 @@
 								</div><br><br>
 								<!--찾기 버튼 끝  -->
 						</form>
-					
 					</div>
 				</div>
 		</div>

@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>Open Pediatrics</title>
+<title>선호 영화 카테고리별 리스트</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -58,13 +54,10 @@ function categoryChange() {
 		location.href = "userfavoriteCategorygrid?cg_no=6";
 	}
 }
-
 </script>
-
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
-
 	<div class="hero user-hero">
 		<div class="container">
 			<div class="row">
@@ -81,11 +74,9 @@ function categoryChange() {
 			</div>
 		</div>
 	</div>
-
 	<!-- Start | user left menu bar-->
 	<jsp:include page="include_user_menu.jsp" />
 	<!-- End | user left menu bar-->
-
 	<div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="topbar-filter user">
 			<p>
@@ -103,9 +94,7 @@ function categoryChange() {
 			</select>
 		</div>
 		<div class="flex-wrap-movielist grid-fav">
- 
 			<c:forEach var="jjim" items="${jjimList}" >
-
  				<!-- start  -->
 				<div class="movie-item-style-2 movie-item-style-1 style-3">
 					<img
@@ -127,8 +116,6 @@ function categoryChange() {
 				</div>
  				<!-- END  -->
 			</c:forEach>
-
-			
 		</div>
 		<div class="topbar-filter">
 			<label>Movies per page:</label><select><option value="range">20
@@ -141,7 +128,6 @@ function categoryChange() {
 			</div>
 		</div>
 	</div>
-
 	</div>
 	</div>
 	</div>

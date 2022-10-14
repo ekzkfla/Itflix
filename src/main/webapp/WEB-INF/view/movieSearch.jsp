@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
@@ -25,7 +22,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
 <%
 	String searchType = request.getParameter("searchType");
 	String keyword = request.getParameter("keyword");
@@ -34,7 +30,6 @@
 		return;
 		}
 %>
-
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
@@ -61,39 +56,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-				<%-- 
-				
-					<!--분류 보드바 -->
-						<p>Found 총<span>${movieCount}개</span>	</p>
-						
-						
-						
-					<!--분류 보드바 -->
-					<form name="f" method="Post">
-						<div class="flex-wrap-movielist mv-grid-fw">
-							<c:forEach items="${movieList}" var="movie">
-								<div class="movie-item-style-2 movie-item-style-1">
-									<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="">
-									<div class="hvr-inner">
-										<a href="moviesingle?m_no=${movie.m_no}">Read more 
-										<i class="ion-android-arrow-dropright"></i>
-										</a>
-									</div>
-									<div class="mv-item-infor">
-										<h6>
-											<a href="#">${movie.m_name}</a>
-										</h6>
-										<p class="rate">
-											<i class="ion-android-star"></i><span> ${movie.review.r_grade}</span>/5
-										</p>
-									</div>
-								</div>
-							</c:forEach>
-						</div>
-					</form>
-					
-					 --%>
-					
 					
 					<!--페이징 수정필요!!!!!!!!!!!!  -->
 					<div class="topbar-filter">
