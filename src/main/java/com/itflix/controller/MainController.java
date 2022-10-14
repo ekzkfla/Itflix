@@ -203,10 +203,11 @@ public class MainController {
 
 	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
-	public String userprofile(HttpServletRequest request )  {
+	public String userprofile(HttpServletRequest request, HttpSession session )  {
 		String forwardPath="";
 		//session(로그인계정)값을 가져와 user_Info에 저장 
-		User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		//User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		User_Info user_Info=(User_Info)session.getAttribute("login_user");
 		
 		System.out.println(user_Info);
 		request.setAttribute("user_Info", user_Info);
@@ -216,8 +217,9 @@ public class MainController {
 	}
 	
 	//회원 프로필 수정페이지 
+	/*
 	@LoginCheck
-	@RequestMapping(value = "userModify")
+	@RequestMapping(value = "userModify",method = RequestMethod.POST)
 	public String userModify(HttpServletRequest request) throws Exception{
 		String forwardPath="";
 		String u_email=request.getParameter("u_email");
@@ -228,12 +230,26 @@ public class MainController {
 		
 		return forwardPath;
 	}
+	*/
+	//로그인 세션으로 정보를 채워보자
+	@LoginCheck
+	@RequestMapping(value = "userModify")
+	public String userModify(HttpServletRequest request) throws Exception{
+		String forwardPath="";
+		User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
+		
+		System.out.println(user_Info);
+		request.setAttribute("user_Info", user_Info);
+		forwardPath = "userModify";
+		
+		return forwardPath;
+	}
 	
 	//회원 프로필 수정 Action
-	@RequestMapping(value = "/update_action" ,method = RequestMethod.POST)
+	@RequestMapping(value = "/update_action" , 	method = RequestMethod.POST)
 	public String update_action(HttpServletRequest request, Model model) throws Exception{
 		String forwardPath="";
-	
+
 		String u_email=request.getParameter("u_email");
 		String u_name=request.getParameter("u_name");
 		// 현재 비밀번호 파라메타. 이 값이 현재 계정의 비밀번호와 일치해야함. 
@@ -249,7 +265,7 @@ public class MainController {
 		if(user_Info.getU_pass().equals(u_pass)) {
 			// 같으면 새로운 비밀번호칸에 입력한 정보가 일치하는지 확인하자.
 			if(u_newpass1.equals(u_newpass2)) {
-				//여기까지 통과했으면 바꾸자
+				//여기까지 통과했으면 바꾸자.
 				user_InfoService.updateUser_Info(new User_Info(u_email, u_newpass1, u_name, u_phone));
 			}else {
 				request.setAttribute("msg", "새로운 비밀번호가 일치하지 않습니다.");
@@ -260,10 +276,10 @@ public class MainController {
 			request.setAttribute("msg", "현재 비밀번호와 일치하지 않습니다.");
 			request.setAttribute("url", "userModify");
 			return "alert";
-		}
+		}	
 		
 		model.addAttribute("user_Info",user_Info);
-		forwardPath="userModify";
+		forwardPath="userprofile";
 		
 		return forwardPath;
 	}
