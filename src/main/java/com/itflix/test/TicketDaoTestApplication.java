@@ -7,9 +7,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.itflix.dao.TicketDao;
-import com.itflix.dto.Ticket;
-import com.itflix.service.CategoryService;
-import com.itflix.service.NoticeService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itflix"})

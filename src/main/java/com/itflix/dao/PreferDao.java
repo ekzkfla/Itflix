@@ -2,8 +2,6 @@ package com.itflix.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
 
 import com.itflix.dto.Prefer;
 

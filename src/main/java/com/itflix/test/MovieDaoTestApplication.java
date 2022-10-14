@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.itflix.dao.MovieDao;
 import com.itflix.service.MovieService;
 
 @SpringBootApplication
@@ -31,7 +30,7 @@ public class MovieDaoTestApplication {
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
 		MovieService movieService = context.getBean(MovieService.class);
-		 //System.out.println(movieService);
+		 System.out.println(movieService);
 		 //System.out.println(movieService.selectAllNoFilter());
 		 //System.out.println(movieService.selectAll());
 		 //System.out.println(movieService.movieAllCount());

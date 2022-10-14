@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Date;
 
 import com.itflix.dto.Subscription;
-import com.itflix.dto.User_Info;
-import com.itflix.dto.Ticket;
 
 public interface SubscriptonService {
 

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.itflix.dto.Review;
-import com.itflix.dto.User_Info;
 
 public interface ReviewService {
 

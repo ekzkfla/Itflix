@@ -2,11 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%
 User_Info login_user = (User_Info) session.getAttribute("login_user");
 %>
-
 <footer class="ht-footer">
 	<div class="container">
 		<div class="flex-parent-ft">
@@ -45,8 +43,8 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 						class="ion-ios-arrow-forward"></i></a>
 				</c:if>
 				<c:if test="${login_user == null }">
-					<a onclick="alert('로그인이 필요합니다');" style="cursor:pointer" class="btn">Subscribe now <i
-						class="ion-ios-arrow-forward"></i></a>
+					<a onclick="alert('로그인이 필요합니다');" style="cursor: pointer"
+						class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
 				</c:if>
 
 			</div>

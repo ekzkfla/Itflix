@@ -1,6 +1,5 @@
 package com.itflix.test;
 
-import java.sql.Date;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
