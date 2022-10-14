@@ -312,20 +312,25 @@ public class UserController {
 	/* 회원탈퇴하기 */
 	@LoginCheck
 	@RequestMapping(value = "/removeUser")
-	public String removeUser(HttpServletRequest request,HttpSession session ) {
+	public String removeUser(HttpSession session ) {
 		String msg = "";
 		String forwardPath = "";
-		String u_email = request.getParameter("u_email");
+		//String u_email = request.getParameter("u_email");
 		try {
-			int removeUser =user_InfoService.removeUser(u_email);
-			request.setAttribute("removeUser", removeUser);
+			User_Info user_Info=(User_Info) session.getAttribute("login_user");
+			System.out.println(user_Info);
+			user_InfoService.removeUser(user_Info.getU_email());
 			session.invalidate();
-			System.out.println(removeUser);
-			System.out.println(u_email);
+			System.out.println(user_Info.getU_email());
 			msg = "탈퇴성공";
 			System.out.println(msg);
 			forwardPath = "redirect:main";
-
+			
+			/* 이건 input방식의 탈퇴 방법
+			 * int removeUser =user_InfoService.removeUser(u_email);
+			 * request.setAttribute("removeUser", removeUser);
+			 */
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			forwardPath = "userprofile";
