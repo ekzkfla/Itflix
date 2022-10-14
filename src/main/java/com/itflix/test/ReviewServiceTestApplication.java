@@ -42,18 +42,18 @@ public class ReviewServiceTestApplication {
 				new SpringApplication(ReviewServiceTestApplication.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		ReviewDao reviewDao = context.getBean(ReviewDao.class);
-		 System.out.println(reviewDao);
-		 //System.out.println(reviewDao.selectAll());
-		 //System.out.println(reviewDao.selectByNo(3));
-		 //System.out.println(reviewDao.deleteReview(11));
-		 //System.out.println("check"+reviewDao.selectWroteReview("guard2@gmail.com"));
-		 //System.out.println("check2"+reviewDao.selectLatest(6));
-		 System.out.println("check3"+reviewDao.updateReview("수정은 이렇게", "드디어 된거 같소?", 3, 17));
-		 //System.out.println(reviewDao.insertReview(0, "우리 팀원들 화이팅!", "다 할 수 있어!", 100, null, 0, 0, 0, 23, "guard4@gmail.com"));
-		 //System.out.println(reviewDao.reviewCount(1));
+		ReviewService reviewService = context.getBean(ReviewService.class);
+		 System.out.println(reviewService);
+		 //System.out.println(reviewService.selectAll());
+		 //System.out.println(reviewService.selectByNo(3));
+		 //System.out.println(reviewService.deleteReview(11));
+		 //System.out.println("check"+reviewService.selectWroteReview("guard2@gmail.com"));
+		 //System.out.println("check2"+reviewService.selectLatest(6));
+		 System.out.println("check3"+reviewService.updateReview("수정은 이렇게", "드디어 된거 같소?", 2, 94));
+		 //System.out.println(reviewService.insertReview(0, "우리 팀원들 화이팅!", "다 할 수 있어!", 100, null, 0, 0, 0, 23, "guard4@gmail.com"));
+		 //System.out.println(reviewService.reviewCount(1));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
-		 //System.out.println(reviewDao.insertReview2(new Review(0, "1", "2", 0, null, 0, 0, 0, new Movie(4, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null, null), null, new User_Info("guard4@gmail.com", null, null, null))));
+		 //System.out.println(reviewService.insertReview2(new Review(0, "1", "2", 0, null, 0, 0, 0, new Movie(4, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null, null), null, new User_Info("guard4@gmail.com", null, null, null))));
 		 
 	}
 }

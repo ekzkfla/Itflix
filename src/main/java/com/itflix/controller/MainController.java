@@ -1,5 +1,6 @@
 package com.itflix.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -250,11 +251,19 @@ public class MainController {
 			if(u_newpass1.equals(u_newpass2)) {
 				//여기까지 통과했으면 바꾸자
 				user_InfoService.updateUser_Info(new User_Info(u_email, u_newpass1, u_name, u_phone));
+			}else {
+				request.setAttribute("msg", "새로운 비밀번호가 일치하지 않습니다.");
+				request.setAttribute("url", "userModify");
+				return "alert";
 			}
+		}else {
+			request.setAttribute("msg", "현재 비밀번호와 일치하지 않습니다.");
+			request.setAttribute("url", "userModify");
+			return "alert";
 		}
 		
-		forwardPath="userprofile";
 		model.addAttribute("user_Info",user_Info);
+		forwardPath="userModify";
 		
 		return forwardPath;
 	}
@@ -339,6 +348,7 @@ public class MainController {
 	}
 	
 	//리뷰 수정 페이지 
+	@LoginCheck
 	@RequestMapping(value = "reviewModify")
 	public String reviewModify(@RequestParam int m_no ,Model model,HttpServletRequest request, HttpSession session) throws Exception {
 		String forwardPath="";
@@ -374,7 +384,8 @@ public class MainController {
 		return forwardPath;
 	}
 	
-	//리뷰 수정 액션 
+	//리뷰 수정 액션
+	@LoginCheck
 	@RequestMapping(value = "/reviewModify_action",method = RequestMethod.POST)
 	public String reviewModify_action(@RequestParam int m_no,HttpServletRequest request,Model model) {
 		String forwardPath="";
@@ -383,9 +394,10 @@ public class MainController {
 			String r_title =request.getParameter("r_title");
 			String r_content = request.getParameter("r_content");
 			String u_email = request.getParameter("u_email");
-			String reviewStar=request.getParameter("reviewStar");
-			int reviewUpdate=reviewService.updateReview(r_title, r_content, Integer.parseInt(reviewStar), Integer.parseInt(r_no));
-			System.out.println("<<>>>>>"+reviewUpdate);
+			String r_grade=request.getParameter("reviewStar");
+			int reviewUpdate=reviewService.updateReview(r_title, r_content,Integer.parseInt(r_grade),Integer.parseInt(r_no));
+			System.out.println("reviewStar :"+r_grade);
+			System.out.println("update :"+reviewUpdate);
 			List<Review> myReview = reviewService.selectWroteReview(u_email);
 			System.out.println(">>>>>>>>>>>>>>>>>"+myReview);
 			model.addAttribute("myReview", myReview);
