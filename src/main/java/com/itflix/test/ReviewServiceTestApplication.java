@@ -49,7 +49,7 @@ public class ReviewServiceTestApplication {
 		 //System.out.println(reviewService.deleteReview(11));
 		 //System.out.println("check"+reviewService.selectWroteReview("guard2@gmail.com"));
 		 //System.out.println("check2"+reviewService.selectLatest(6));
-		 System.out.println("check3"+reviewService.updateReview("수정은 이렇게", "드디어 된거 같소?", 2, 94));
+		 System.out.println("check3"+reviewService.updateReview("수정은 이렇게", "드디어 ?", 2, 95));
 		 //System.out.println(reviewService.insertReview(0, "우리 팀원들 화이팅!", "다 할 수 있어!", 100, null, 0, 0, 0, 23, "guard4@gmail.com"));
 		 //System.out.println(reviewService.reviewCount(1));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/

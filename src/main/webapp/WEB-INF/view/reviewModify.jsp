@@ -148,7 +148,7 @@ function reviewModify_action() {
 													<div>
 														<textarea class="col-auto form-control" type="text" name="r_title"
 																  style="width: 100%; height: 5em; border: none; resize:none;">
-																  
+																  ${review.r_title }
 														</textarea>
 													</div><br>
 													<!--리뷰 내용  -->

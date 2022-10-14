@@ -52,7 +52,7 @@ public interface Review_Mapper {
 	public int insertReview(int r_no, String r_title, String r_content, int r_grade, Date r_date, int r_groupno, int r_step, int r_depth, int m_no, String u_email);
 	
 	// 리뷰 수정
-	@Update("update review set r_title=#{r_title},r_content=#{r_content},r_grade=#{r_grade} where r_no=#{r_grade}")
+	@Update("update review set r_title=#{r_title},r_content=#{r_content},r_grade=#{r_grade} where r_no=#{r_no}")
 	//@ResultMap("ReviewWithUpdate")
 	public int updateReview(String r_title, String r_content, int r_grade, int r_no);
 	

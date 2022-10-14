@@ -139,8 +139,6 @@ public class MainController {
 			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
 			movieService.movieCountPlus(m_no);
 			User_Info user_Info=(User_Info)session.getAttribute("login_user");
-			//String u_email=user_Info.getU_email();
-			//System.out.println(user_Info.getU_email());
 			if(user_Info != null) {
 				boolean jjim = jjimService.jjimUser(user_Info.getU_email(), m_no);
 				model.addAttribute("jjim", jjim);
@@ -366,18 +364,10 @@ public class MainController {
 		String r_content = request.getParameter("r_content");
 		String u_email = request.getParameter("u_email");
 		Movie movie=movieService.selectByNo(m_no);
-		
 		Review review=new Review(Integer.parseInt(r_no), r_title, r_content, 0, null, 0, 0,0, 
 								new Movie(m_no, null, null, null, null, 0, null, null, 0, 0, 0, null, null, null, null), null,
 								new User_Info(u_email, null, null, null));
 		model.addAttribute("review", review);
-		System.out.println(">>>>>>>>>>>>"+review);
-		/*
-		model.addAttribute("r_title", r_title);
-		model.addAttribute("r_content", r_content);
-		model.addAttribute("u_email", u_email);
-		model.addAttribute("r_grade", r_grade);
-		*/
 		model.addAttribute("movie", movie);
 		forwardPath="reviewModify";
 		System.out.println("수정실행?");
@@ -385,7 +375,6 @@ public class MainController {
 	}
 	
 	//리뷰 수정 액션
-	@LoginCheck
 	@RequestMapping(value = "/reviewModify_action",method = RequestMethod.POST)
 	public String reviewModify_action(@RequestParam int m_no,HttpServletRequest request,Model model) {
 		String forwardPath="";
@@ -395,11 +384,8 @@ public class MainController {
 			String r_content = request.getParameter("r_content");
 			String u_email = request.getParameter("u_email");
 			String r_grade=request.getParameter("reviewStar");
-			int reviewUpdate=reviewService.updateReview(r_title, r_content,Integer.parseInt(r_grade),Integer.parseInt(r_no));
-			System.out.println("reviewStar :"+r_grade);
-			System.out.println("update :"+reviewUpdate);
+			reviewService.updateReview(r_title, r_content,Integer.parseInt(r_grade),Integer.parseInt(r_no));
 			List<Review> myReview = reviewService.selectWroteReview(u_email);
-			System.out.println(">>>>>>>>>>>>>>>>>"+myReview);
 			model.addAttribute("myReview", myReview);
 			forwardPath = "redirect:userrate?u_email="+u_email;
 			System.out.println("수정성공!!");
