@@ -42,17 +42,23 @@ public class UserController {
 		String u_phone = request.getParameter("u_phone");
 		User_Info user = new User_Info(u_email, u_pass, u_name, u_phone);
 		String forwardPath = "";
-
+		String msg= "";
 		try {
 			int result = user_InfoService.insertUser_Info(user);
 			if (result == -1) {
 				// 중복일 시 -1 반환
+				forwardPath="main";
+				msg="이미 사용 중인 계정입니다.";
+				
 			} else {
 				// 회원가입 성공
+				forwardPath="main";
+				msg="회원가입이 완료 되었습니다";	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			forwardPath = "404";
+			msg="오류발생";
 		}
 		return forwardPath;
 	}
