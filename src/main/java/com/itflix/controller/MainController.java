@@ -17,12 +17,15 @@ import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
 import com.itflix.dto.Review;
+import com.itflix.dto.Subscription;
 import com.itflix.dto.User_Info;
 import com.itflix.service.CategoryService;
 import com.itflix.service.JjimService;
 import com.itflix.service.MovieService;
 import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
+import com.itflix.service.SubscriptionServiceImpl;
+import com.itflix.service.SubscriptonService;
 import com.itflix.service.User_InfoService;
 
 
@@ -41,6 +44,8 @@ public class MainController {
 	private User_InfoService user_InfoService;
 	@Autowired
 	private JjimService jjimService;
+	@Autowired
+	private SubscriptonService subscriptionService;
 	
 	
 	public MainController() {
@@ -137,6 +142,8 @@ public class MainController {
 			Movie movie = movieService.selectByNo(m_no);
 			Movie movie2= movieService.selectMovieRecentReview(m_no);
 			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
+			List<Subscription> subscription = subscriptionService.selectListAll();
+			
 			movieService.movieCountPlus(m_no);
 			User_Info user_Info=(User_Info)session.getAttribute("login_user");
 			if(user_Info != null) {
@@ -152,6 +159,7 @@ public class MainController {
 			model.addAttribute("movieGrade",movieGrade );
 			model.addAttribute("review",review );
 			model.addAttribute("review", review);
+			model.addAttribute("subscription", subscription);
 			
 			
 			
