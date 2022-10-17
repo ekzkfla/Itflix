@@ -247,7 +247,7 @@ public class MainController {
 	}
 	
 	//구독권 결제 action
-	@RequestMapping(value = "")
+	@RequestMapping(value = "subscriptPay_action")
 	public String subscriptPay(HttpServletRequest request,HttpSession session) throws Exception {
 		String forwardPath="";
 		String msg="";
@@ -257,22 +257,26 @@ public class MainController {
 		String s_cardYear=request.getParameter("s_cardYear");
 		String s_CVV=request.getParameter("s_CVV");
 		String s_cardNumber = s_cardNumberfirst+s_cardMonth+s_cardYear+s_CVV;
+		
 		User_Info user_Info =(User_Info) request.getSession().getAttribute("login_user");
 		
 		Subscription subscriptUser=subscriptonService.selectByNo(user_Info.getU_email());
 		if(subscriptUser==null) {
 			//구독권이 없는 경우 
-			subscriptonService.insertSubscription(new Subscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumber),new Ticket(1, "19870"), new User_Info(user_Info.getU_email(), user_Info.getU_pass(), user_Info.getU_name(),null )));
+			int t_no=1;
+
+			subscriptonService.insertSubscription(new Subscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),new Ticket(t_no, "19870"), new User_Info(user_Info.getU_email(), user_Info.getU_pass(), user_Info.getU_name(),null )));
+			msg ="결제 완료";
+			forwardPath="404";
 		}else if(subscriptUser !=null) {
-			//구독권이 있거나 예전에 구매한 기록이 있을 경우 
-			subscriptonService.updateSubscription(null, null, s_cardName,Integer.parseInt(s_cardNumber), 1, user_Info.getU_email());
-			
+			//구독권이 있거나 예전에 구매한 기록이 있을 경우
+			int t_no=1;
+			subscriptonService.updateSubscription(null, null, s_cardName,Integer.parseInt(s_cardNumberfirst),new Ticket(t_no, "19870"), user_Info.getU_email());
+			msg ="연장 완료";
+			forwardPath="main";
 			
 		}
 		
-		
-		
-		forwardPath="main";
 		return forwardPath;
 	}
 	

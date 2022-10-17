@@ -81,7 +81,7 @@ input[type="radio"] {
 		 alert("보안번호 3개를 작성해주세요.");
 		 return false;
 	 }
-	 document.subscript.action="subscriptPay";
+	 document.subscript.action="subscriptPay_action";
 	 document.subscript.method="POST";
 	 document.subscript.submit;
 	 
@@ -121,7 +121,7 @@ input[type="radio"] {
 							<!-- credit card info-->
 							<div id="credit-card" class="tab-pane fade show active pt-3">
 							
-								<form role="form" name="subscript" onsubmit="event.preventDefault()">
+								<form role="form" name="subscript" >
 									
 									<div class="form-group">
 										<label for="username">
@@ -222,9 +222,11 @@ input[type="radio"] {
 										</div>
 									</div>
 									<div class="card-footer">
-										<button type="button" onclick="subscriptPay()"
+										<input type="submit" onclick="subscriptPay()" value="결제하기">
+										
+										<!-- <button type="button" onclick="subscriptPay()"
 											class="subscribe btn btn-primary btn-block shadow-sm">결제하기
-										</button>
+										</button> -->
 									</div>
 									<div class ="card-text">
 											<p class="text-muted">Note: 결제가 될거같이 생겼지만 결제는 안된다... 후....</p>
