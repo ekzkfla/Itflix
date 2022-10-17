@@ -78,8 +78,8 @@ public class SubscriptionDaoImpl implements SubscriptionDao{
 
 	//구독권 구매자 찾기
 	@Override
-	public List<Subscription> selectBuyTicket(int t_no) throws Exception {
-		List<Subscription> selectBuyTicket = subscription_Mapper.selectBuyTicket(t_no);
+	public Subscription selectBuyTicket(String u_email) throws Exception {
+		Subscription selectBuyTicket = subscription_Mapper.selectBuyTicket(u_email);
 		return selectBuyTicket;
 	}
 	

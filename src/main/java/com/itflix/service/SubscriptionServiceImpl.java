@@ -70,8 +70,8 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	
 	//구독권 구매자 찾기
 	@Override
-	public List<Subscription> selectBuyTicket(int t_no) throws Exception {
-		return subscriptionDao.selectBuyTicket(t_no);
+	public Subscription selectBuyTicket(String u_email) throws Exception {
+		return subscriptionDao.selectBuyTicket(u_email);
 	}
 
 }

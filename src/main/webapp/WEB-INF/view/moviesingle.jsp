@@ -75,7 +75,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 						
 						<div class="movie-btn">
 							<c:if test="${login_user != null }">
-								<c:if test="${subscription.t_no == 1 }">>
+								<c:if test="${subscription.ticket.t_no == 1}">
 								<div class="btn-transform transform-vertical red">
 									<div>
 										<a href="#" class="item item-1 redbtn"><i class="ion-play"></i>영화 시청</a>
@@ -89,7 +89,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 								</c:if>
 							
 								<c:if test="${login_user != null }">
-									<c:if test="${subscription.t_no == 0 }">>
+									<c:if test="${subscription.ticket.t_no == 0 }">
 											<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
 									</c:if>
 								</c:if>

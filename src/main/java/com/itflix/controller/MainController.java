@@ -150,11 +150,12 @@ public class MainController {
 			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
 			movieService.movieCountPlus(m_no);
 			User_Info user_Info=(User_Info)session.getAttribute("login_user");
-			Subscription subscription = subscriptonService.selectByNo(null);
 			
 			if(user_Info != null) {
+				Subscription subscription = subscriptonService.selectBuyTicket(user_Info.getU_email());
 				boolean jjim = jjimService.jjimUser(user_Info.getU_email(), m_no);
 				model.addAttribute("jjim", jjim);
+				model.addAttribute("subscription", subscription);
 				System.out.println(jjim);
 			}
 			int review= reviewService.reviewCount(m_no);
@@ -164,7 +165,6 @@ public class MainController {
 			model.addAttribute("movie2",movie2 );
 			model.addAttribute("movieGrade",movieGrade );
 			model.addAttribute("review",review );
-			model.addAttribute("subscription", subscription);
 			
 			
 			
