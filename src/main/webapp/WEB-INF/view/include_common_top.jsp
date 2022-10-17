@@ -217,6 +217,7 @@ align-items: center;
 					} else {
 					//로그인시 top 메뉴
 					%>
+					<a><img src="images/subscript.png" style="height: 40px;"></a>
 					<li class="btn"><a href="userprofile">마이페이지</a></li>
 					<li><a href="user_logout_action">로그아웃</a></li>
 					<%

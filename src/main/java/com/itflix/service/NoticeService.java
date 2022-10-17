@@ -13,6 +13,8 @@ public interface NoticeService {
 	List<Notice> selectAll()throws Exception;
 	//공지사항 전체 갯수 출력
 	int totalCount()throws Exception;
+	//공지사항 타이틀 키워드별 갯수 출력
+	int totalKeywordCount(String n_title)throws Exception;
 	//공지사항 번호로 검색
 	Notice selectByNo(int n_no)throws Exception;
 	//가장 최신 공지사항 1개 출력

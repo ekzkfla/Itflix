@@ -55,6 +55,11 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.totalCount();
 	}
 	
+	//공지사항 타이틀 키워드별 갯수 출력
+	@Override
+	public int totalKeywordCount(String n_title)throws Exception{
+		return noticeDao.totalKeywordCount(n_title);
+	}
 	//가장 최신 공지사항 1개 출력 
 	@Override
 	public Notice noticeOne()throws Exception{

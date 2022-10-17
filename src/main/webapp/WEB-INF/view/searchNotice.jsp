@@ -104,8 +104,8 @@
 						<form name="Notice">
 						<div class="sb-search sb-it">
 							<h4 class="sb-title">Search</h4>
-							<input type="text" name="keyword" placeholder="Enter keywords" >
-							<input type="submit" placeholder="Enter keywords" onclick="searchNotice()">
+							<input type="text" name="keyword" placeholder="Enter keywords" style="background-color: #233a50; background:url" >
+							<input type="submit" placeholder="Enter keywords" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()">
 							
 						<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
 						</div>

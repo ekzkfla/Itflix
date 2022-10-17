@@ -205,12 +205,24 @@ public class MainController {
 		}
 	
 	//공지사항 상세페이지
-	@RequestMapping(value = "blogdetail", params = "n_no")
+	@RequestMapping(value = "/blogdetail", params = "n_no")
 	public String blogdetail(@RequestParam int n_no, Model model)throws Exception {
 		Notice notice=noticeService.selectByNo(n_no);
 		model.addAttribute("notice",notice);
 		return "blogdetail";
 	}
+
+	//공지사항 키워드 페이지 
+	@RequestMapping(value = "searchNotice")
+	public String  searchNotice(Model model,HttpServletRequest request) throws Exception {
+		String keyword=request.getParameter("keyword");
+		List<Notice> noticeList=noticeService.selectByTitle(keyword);
+		int noticeTotal = noticeService.totalKeywordCount(keyword);
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("noticeTotal", noticeTotal);
+		return "searchNotice";
+	}
+	
 
 	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
