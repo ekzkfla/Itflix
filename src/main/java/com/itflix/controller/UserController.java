@@ -37,10 +37,18 @@ public class UserController {
 	@RequestMapping("CreateUser_action")
 	public String CreateUser(HttpServletRequest request) {
 		String u_email = request.getParameter("u_email");
-		String u_pass = request.getParameter("u_pass");
+		String u_pass1 = request.getParameter("u_pass1");
+		String u_pass2 = request.getParameter("u_pass2");
 		String u_name = request.getParameter("u_name");
 		String u_phone = request.getParameter("u_phone");
-		User_Info user = new User_Info(u_email, u_pass, u_name, u_phone);
+		if(u_pass1 !=u_pass2) {
+			String msg="비밀번호가 일치하지 않습니다.";
+			request.setAttribute("msg", msg);
+			request.setAttribute("url", "main");
+			return "alert";
+			
+		}
+		User_Info user = new User_Info(u_email, u_pass1, u_name, u_phone);
 		String forwardPath = "";
 		String msg= "";
 		try {

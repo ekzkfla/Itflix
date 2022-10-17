@@ -148,13 +148,13 @@ align-items: center;
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
-						name="u_pass" id="u_pass" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
+						name="u_pass" id="u_pass1" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" /></label>
 				</div>
 				<div class="row">
 					<label for="repassword"> re-type Password:<input
-						type="password" name="u_pass" id="password" placeholder="비밀번호 재확인"
+						type="password" name="u_pass2" id="password" placeholder="비밀번호 재확인"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" /></label>
 				</div>
