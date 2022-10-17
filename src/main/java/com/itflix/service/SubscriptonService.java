@@ -26,4 +26,7 @@ public interface SubscriptonService {
 	//구독권 업데이트
 	Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, Ticket ticket, String u_email) throws Exception;
 	//Subscription updateSubscription(int t_no, String u_email) throws Exception;
+	
+	//구독권 구매자 찾기
+	List<Subscription> selectBuyTicket(int t_no) throws Exception;
 }

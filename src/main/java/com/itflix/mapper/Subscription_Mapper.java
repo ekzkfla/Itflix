@@ -47,5 +47,6 @@ public interface Subscription_Mapper {
 	
 	//구독권 구매자 찾기
 	@Select("select u_email from Subscription where t_no = #{t_no}")
-	public Subscription selectBuyTicket(int t_no);
+	@ResultMap("SubscriptionWithTicket")
+	public List<Subscription> selectBuyTicket(int t_no);
 }

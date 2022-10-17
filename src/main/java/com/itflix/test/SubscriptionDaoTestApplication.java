@@ -34,14 +34,19 @@ public class SubscriptionDaoTestApplication {
 		 //구독권 업데이트
 		 //업데이트 DB에는 되는데 스레드 오류가 나온다 ;;해결을 어찌 해야할지;...
 		 //System.out.println("update"+subscriptionDao.updateSubscription(null, null, "스레드?", 1234, 0, "guard4@gmail.com"));
+		 //구독권 구매자 찾기
+		 //System.out.println(">>>>>>>>"+subscriptionDao.selectBuyTicket(0));
 		 /*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑테스트 완↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 		 
 		 //구독권 추가
 		 //insert into Subscription values(SUBSCRIPTION_S_NO_SEQ.nextval,'2022-07-29','2022-09-28','김성준',1111,1,'guard1@gmail.com');
+		 /*
 		 System.out.println("insert"+subscriptionDao.insertSubscription(new Subscription(0, null, null, "test1", 1234, 
 				 														new Ticket(0, "0"), 
 				 														new User_Info("test@naver.com",null,null,null))));
-
+		  */
+		 
+		 
 	}
 
 }
