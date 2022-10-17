@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.itflix.dto.Subscription;
 import com.itflix.dto.Ticket;
+import com.itflix.dto.User_Info;
 
 public interface SubscriptionDao {
 
@@ -21,7 +22,7 @@ public interface SubscriptionDao {
 	Subscription selectByNo(String email) throws Exception;
 	
 	//구독 추가
-	Subscription insertSubscription(Subscription subscription) throws Exception;
+	Subscription insertSubscription(int s_no, Date s_start,Date e_end,String s_cardName,int cardNumber,Ticket ticket, User_Info user_Info) throws Exception;
 	
 	//구독 업데이트
 	Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber,Ticket ticket, String u_email) throws Exception;

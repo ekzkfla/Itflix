@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.itflix.dto.Subscription;
 import com.itflix.dto.Ticket;
+import com.itflix.dto.User_Info;
 import com.itflix.dao.SubscriptionDao;
 
 @Service
@@ -54,8 +55,8 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	
 	//구독권 추가
 	@Override
-	public Subscription insertSubscription(Subscription subscription) throws Exception {
-		return subscriptionDao.insertSubscription(subscription);
+	public Subscription insertSubscription(int s_no, Date s_start,Date e_end,String s_cardName,int cardNumber,Ticket ticket, User_Info user_Info) throws Exception {
+		return subscriptionDao.insertSubscription(s_no, s_start, e_end, s_cardName, cardNumber, ticket, user_Info);
 	}
 	
 	//구독권 업데이트

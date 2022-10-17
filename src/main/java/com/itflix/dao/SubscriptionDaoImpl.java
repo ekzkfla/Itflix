@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itflix.dto.Subscription;
 import com.itflix.dto.Ticket;
+import com.itflix.dto.User_Info;
 import com.itflix.mapper.Subscription_Mapper;
 
 @Repository
@@ -59,8 +60,8 @@ public class SubscriptionDaoImpl implements SubscriptionDao{
 	
 	//구독권 추가
 	@Override
-	public Subscription insertSubscription(Subscription subscription) throws Exception {
-		Subscription subscription1 = subscription_Mapper.insertSubscription(subscription);
+	public Subscription insertSubscription(int s_no, Date s_start,Date e_end,String s_cardName,int cardNumber,Ticket ticket, User_Info user_Info) throws Exception {
+		Subscription subscription1 = subscription_Mapper.insertSubscription(s_no, s_start, e_end, s_cardName, cardNumber, ticket, user_Info);
 		return subscription1;
 	}
 	
