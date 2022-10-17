@@ -51,9 +51,10 @@ public class UserController {
 				msg="이미 사용 중인 계정입니다.";
 				
 			} else {
-				// 회원가입 성공
-				forwardPath="main";
-				msg="회원가입이 완료 되었습니다";	
+				// 회원가입 성공 메세지
+				request.setAttribute("msg", "회원가입이 완료되었습니다.");
+				request.setAttribute("url", "main");
+				return "alert";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
