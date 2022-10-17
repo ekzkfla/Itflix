@@ -45,6 +45,12 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 			document.jjim.method = 'POST';
 			document.jjim.submit(); 
 		}
+		
+		function subscriptionTicketNo(){
+			document.subscription.action = "moviesingle";
+			document.subscription.method = "POST";
+			document.subscription.submit();
+		}
 	</script>
 
 
@@ -65,21 +71,35 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 				<!--왼쪽 영화 포스터 및 영상 시청바  -->
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="movie-img sticky-sb">
-						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg"
-							alt="">
+						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="">
+						
 						<div class="movie-btn">
-							<div class="btn-transform transform-vertical red">
-								<div>
-									<a href="#" class="item item-1 redbtn"><i class="ion-play"></i>Watch
-										Trailer</a>
+							<c:if test="${login_user != null }">
+								<c:if test="${subscription.ticket.t_no == 1}">
+								<div class="btn-transform transform-vertical red">
+									<div>
+										<a href="#" class="item item-1 redbtn"><i class="ion-play"></i>영화 시청</a>
+									</div>
+									<div>
+										<a href="${movie.m_url}"
+											class="item item-2 redbtn fancybox-media hvr-grow"><i
+											class="ion-play"></i></a>
+									</div>
 								</div>
-								<div>
-									<a href="${movie.m_url}"
-										class="item item-2 redbtn fancybox-media hvr-grow"><i
-										class="ion-play"></i></a>
-								</div>
-							</div>
+								</c:if>
+							
+								<c:if test="${login_user != null }">
+									<c:if test="${subscription.ticket.t_no == 0 }">
+											<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+									</c:if>
+								</c:if>
+							</c:if>
+							
+							<c:if test="${login_user == null }">
+									<a onclick="alert('로그인을 해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+							</c:if>
 						</div>
+						
 					</div>
 				</div>
 				<!--왼쪽 영화 포스터 및 영상 시청바  -->
@@ -190,7 +210,6 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 															</a>
 														</div>
 													</div>
-
 													<div class="title-hd-sm">
 														<h3>가장 최신 리뷰</h3>
 														<c:if test="${login_user != null }">

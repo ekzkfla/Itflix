@@ -44,4 +44,10 @@ public interface Subscription_Mapper {
 	@ResultMap("SubscriptionWithUpdate")
 	public Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, Ticket ticket, String u_email);
 	//public Subscription updateSubscription(int t_no, String u_email);
+	
+	//구독권 구매자 찾기
+	@Select("select s_end, t_no from subscription where u_email=#{u_email}")
+	@ResultMap("SubscriptionWithTicket")
+	public Subscription selectBuyTicket(String u_email);
+	
 }
