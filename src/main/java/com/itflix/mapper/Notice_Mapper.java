@@ -27,6 +27,10 @@ public interface Notice_Mapper {
 	@Select("select count(*) from Notice")
 	public int totalCount();
 	
+	//공지사항 타이틀 키워드별 갯수 출력
+	@Select("select count(*) from Notice where n_title like '%'||#{n_title}||'%'")
+	public int totalKeywordCount(String n_title);
+	
 	//가장 최신 공지사항 1개 출력 
 	@Select("select * from(select * from notice ORDER BY n_date DESC) where rownum<=1")
 	public Notice noticeOne();

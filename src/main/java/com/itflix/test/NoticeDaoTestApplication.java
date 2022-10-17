@@ -28,8 +28,8 @@ public class NoticeDaoTestApplication {
 		   //System.out.println(noticeService.insertNotice(new Notice(0,null, "newTitle2", "newContent2", 0, 0, 0)));
 		   //System.out.println(noticeService.updateNotice(new Notice(10, null, "change", "change", 0, 0, 0)));
 		   //System.out.println(noticeService.deleteNotice(11));
-			System.out.println(noticeService.selectNoticeList(1));
-			
+			//System.out.println(noticeService.selectNoticeList(1));
+			System.out.println(noticeService.totalKeywordCount("신규"));
 		 /**************************테스트 완료 *****************************************/
 		
 	}
