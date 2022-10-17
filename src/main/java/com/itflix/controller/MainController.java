@@ -265,9 +265,9 @@ public class MainController {
 		Subscription subscriptUser=subscriptonService.selectByNo(user_Info.getU_email());
 		if(subscriptUser==null) {
 			//구독권이 없는 경우 
-			int t_no=1;
+			//int t_no=1;
 
-			subscriptonService.insertSubscription(new Subscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),new Ticket(t_no, "19870"), new User_Info(user_Info.getU_email(), user_Info.getU_pass(), user_Info.getU_name(),null )));
+			//subscriptonService.insertSubscription(new Subscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),new Ticket(t_no, "19870"), new User_Info(user_Info.getU_email(), user_Info.getU_pass(), user_Info.getU_name(),null )));
 			msg ="결제 완료";
 			forwardPath="404";
 		}else if(subscriptUser !=null) {
