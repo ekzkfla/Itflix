@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itflix.dto.Subscription;
+import com.itflix.dto.Ticket;
 import com.itflix.dao.SubscriptionDao;
 
 @Service
@@ -63,8 +64,8 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	 * public Subscription updateSubscription(int t_no, String u_email) throws
 	 * Exception { return subscriptionDao.updateSubscription(t_no, u_email); }
 	 */
-	public Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email) throws Exception {
-		return subscriptionDao.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
+	public Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber,Ticket ticket, String u_email) throws Exception {
+		return subscriptionDao.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,ticket, u_email);
 	}
 
 }

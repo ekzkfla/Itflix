@@ -1,11 +1,17 @@
 package com.itflix.controller;
 
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.javassist.expr.NewArray;
+import org.apache.jasper.tagplugins.jstl.core.If;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,18 +19,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
 import com.itflix.dto.Review;
 import com.itflix.dto.Subscription;
+import com.itflix.dto.Ticket;
 import com.itflix.dto.User_Info;
 import com.itflix.service.CategoryService;
 import com.itflix.service.JjimService;
 import com.itflix.service.MovieService;
 import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
-import com.itflix.service.SubscriptionServiceImpl;
 import com.itflix.service.SubscriptonService;
 import com.itflix.service.User_InfoService;
 
@@ -45,8 +52,7 @@ public class MainController {
 	@Autowired
 	private JjimService jjimService;
 	@Autowired
-	private SubscriptonService subscriptionService;
-	
+	private SubscriptonService subscriptonService;
 	
 	public MainController() {
 		System.out.println("기본!!!");
@@ -142,8 +148,6 @@ public class MainController {
 			Movie movie = movieService.selectByNo(m_no);
 			Movie movie2= movieService.selectMovieRecentReview(m_no);
 			Movie movieGrade = movieService.selectMovieGradeByNo(m_no);
-			List<Subscription> subscription = subscriptionService.selectListAll();
-			
 			movieService.movieCountPlus(m_no);
 			User_Info user_Info=(User_Info)session.getAttribute("login_user");
 			if(user_Info != null) {
@@ -159,7 +163,6 @@ public class MainController {
 			model.addAttribute("movieGrade",movieGrade );
 			model.addAttribute("review",review );
 			model.addAttribute("review", review);
-			model.addAttribute("subscription", subscription);
 			
 			
 			
@@ -225,22 +228,62 @@ public class MainController {
 	
 	//구독권 안내 페이지 
 	@RequestMapping(value ="landing" )
-	public String landing(HttpServletRequest request, HttpSession session) {
+	public String landing(HttpServletRequest request, HttpSession session) throws Exception {
 		String forwardPath="";
 		User_Info user_Info=(User_Info)session.getAttribute("login_user");
-		
 		//비로그인시 alert 표출 후 메인페이지로 이동
 		if (user_Info == null) {
 			request.setAttribute("msg", "로그인이 필요합니다.");
 			request.setAttribute("url", "main");
 			return "alert";
+		}else if(user_Info != null) {
+			//로그인시 계정이 있을 경우 계정 정보 출력 
+			
+			request.setAttribute("user_Info", user_Info);
+			forwardPath = "landing";
+			
+		}
+		return forwardPath;
+	}
+	
+	//구독권 결제 action
+	@RequestMapping(value = "subscriptPay_action")
+	public String subscriptPay(HttpServletRequest request,HttpSession session) throws Exception {
+		String forwardPath="";
+		String msg="";
+		String s_cardName=request.getParameter("s_cardName");
+		String s_cardNumberfirst=request.getParameter("s_cardNumber");
+		String s_cardMonth=request.getParameter("s_cardMonth");
+		String s_cardYear=request.getParameter("s_cardYear");
+		String s_CVV=request.getParameter("s_CVV");
+		String s_cardNumber = s_cardNumberfirst+s_cardMonth+s_cardYear+s_CVV;
+		
+		User_Info user_Info =(User_Info) request.getSession().getAttribute("login_user");
+		
+		Subscription subscriptUser=subscriptonService.selectByNo(user_Info.getU_email());
+		if(subscriptUser==null) {
+			//구독권이 없는 경우 
+			int t_no=1;
+
+			subscriptonService.insertSubscription(new Subscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),new Ticket(t_no, "19870"), new User_Info(user_Info.getU_email(), user_Info.getU_pass(), user_Info.getU_name(),null )));
+			msg ="결제 완료";
+			forwardPath="404";
+		}else if(subscriptUser !=null) {
+			//구독권이 있거나 예전에 구매한 기록이 있을 경우
+			int t_no=1;
+			subscriptonService.updateSubscription(null, null, s_cardName,Integer.parseInt(s_cardNumberfirst),new Ticket(t_no, "19870"), user_Info.getU_email());
+			msg ="연장 완료";
+			forwardPath="main";
+			
 		}
 		
-		forwardPath = "landing";
-		
 		return forwardPath;
-		
 	}
+	
+	
+	
+	
+	
 	
 	//리뷰 작성 페이지 
 	@RequestMapping(value = "reviewWrite")

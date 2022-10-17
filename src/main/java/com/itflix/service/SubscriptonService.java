@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Date;
 
 import com.itflix.dto.Subscription;
+import com.itflix.dto.Ticket;
 
 public interface SubscriptonService {
 
@@ -23,6 +24,6 @@ public interface SubscriptonService {
 	Subscription insertSubscription(Subscription subscription) throws Exception;
 	
 	//구독권 업데이트
-	Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email) throws Exception;
+	Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, Ticket ticket, String u_email) throws Exception;
 	//Subscription updateSubscription(int t_no, String u_email) throws Exception;
 }

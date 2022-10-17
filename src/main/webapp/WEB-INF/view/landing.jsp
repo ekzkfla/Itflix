@@ -58,11 +58,46 @@ input[type="radio"] {
 	font-weight: bold
 }
 </style>
+
 <script type="text/javascript">
-$(function() {
-	$('[data-toggle="tooltip"]').tooltip()
-})
+ function subscriptPay(){
+	 if(document.subscript.s_cardName.value==""){
+		 alert("이름을 작성해주세요.");
+		 return false;
+	 }
+	 if(document.subscript.s_cardNumber.value==""){
+		 alert("카드번호를 작성해주세요.");
+		 return false;
+	 }
+	 if(document.subscript.s_cardMonth.value=="0"){
+		 alert("카드날짜을 설정해주세요.");
+		 return false;
+	 }
+	 if(document.subscript.s_cardYear.value=="0"){
+		 alert("카드날짜를 설정해주세요.");
+		 return false;
+	 }
+	 if(document.subscript.s_CVV.value==""){
+		 alert("보안번호 3개를 작성해주세요.");
+		 return false;
+	 }
+	 document.subscript.action="subscriptPay_action";
+	 document.subscript.method="POST";
+	 document.subscript.submit;
+	 
+	 
+	 
+ }
+
+
+
+
 </script>
+
+
+
+
+
 </head>
 	<!--결제 팝업-->
 <body>
@@ -85,20 +120,22 @@ $(function() {
 						<div class="tab-content">
 							<!-- credit card info-->
 							<div id="credit-card" class="tab-pane fade show active pt-3">
-								<form role="form" onsubmit="event.preventDefault()">
+							
+								<form role="form" name="subscript" >
+									
 									<div class="form-group">
 										<label for="username">
 											<h6>이름</h6>
-										</label> <input type="text" name="username"
-											placeholder="Card Owner Name" required class="form-control ">
+										</label> <input type="text" name="s_cardName"
+										value="${user_Info.u_name}" required class="form-control ">
 									</div>
 									<div class="form-group">
 										<label for="cardNumber">
 											<h6>카드 번호</h6>
 										</label>
 										<div class="input-group">
-											<input type="text" name="cardNumber"
-												placeholder="Valid card number" class="form-control "
+											<input type="text" name="s_cardNumber"
+												placeholder="카드번호'-'없이 16자리 " class="form-control "
 												required>
 											<div class="input-group-append">
 												<span class="input-group-text text-muted"> <i
@@ -118,10 +155,58 @@ $(function() {
 													</span>
 												</label>
 												<div class="input-group">
-														<input type="number" placeholder="MM" name=""
-															class="form-control" required>
-														<input type="number" placeholder="YY" name=""
-															class="form-control" required>
+													
+														<select name="s_cardMonth"  >
+															<option value="0" selected="selected" >선택 </option>
+															<option value="1">1월 </option>
+															<option value="2">2월 </option>
+															<option value="3">3월 </option>
+															<option value="4">4월 </option>
+															<option value="5">5월 </option>
+															<option value="6">6월 </option>
+															<option value="7">7월 </option>
+															<option value="8">8월 </option>
+															<option value="9">9월 </option>
+															<option value="10">10월 </option>
+															<option value="11">11월 </option>
+															<option value="12">12월 </option>
+														</select>	
+													<!-- 	<input type="number" placeholder="YY" name="s_cardYear"
+															class="form-control" required> -->
+														<select name="s_cardYear"  >
+															<option value="0" selected="selected" >선택 </option>
+															<option value="1">1일 </option>
+															<option value="2">2일 </option>
+															<option value="3">3일 </option>
+															<option value="4">4일 </option>
+															<option value="5">5일 </option>
+															<option value="6">6일 </option>
+															<option value="7">7일 </option>
+															<option value="8">8일 </option>
+															<option value="9">9일 </option>
+															<option value="10">10일 </option>
+															<option value="11">11일 </option>
+															<option value="12">12일 </option>
+															<option value="13">13일 </option>
+															<option value="14">14일 </option>
+															<option value="15">15일 </option>
+															<option value="16">16일 </option>
+															<option value="17">17일 </option>
+															<option value="18">18일 </option>
+															<option value="19">19일 </option>
+															<option value="20">20일 </option>
+															<option value="21">21일 </option>
+															<option value="22">22일 </option>
+															<option value="23">23일 </option>
+															<option value="24">24일 </option>
+															<option value="25">25일 </option>
+															<option value="26">26일 </option>
+															<option value="27">27일 </option>
+															<option value="28">28일 </option>
+															<option value="29">29일 </option>
+															<option value="30">30일 </option>
+															<option value="31">31일 </option>
+														</select>	
 												</div>
 											</div>
 										</div>
@@ -132,14 +217,16 @@ $(function() {
 														CVV<a style="font-size: 5pt">(숫자3개)</a> <i class="fa fa-question-circle d-inline"></i>
 													</h6>
 												</label> 
-												<input type="text" required class="form-control">
+												<input type="text" name="s_CVV" required class="form-control">
 											</div>
 										</div>
 									</div>
 									<div class="card-footer">
-										<button type="button"
-											class="subscribe btn btn-primary btn-block shadow-sm">
-											Confirm Payment</button>
+										<input type="submit" onclick="subscriptPay()" value="결제하기">
+										
+										<!-- <button type="button" onclick="subscriptPay()"
+											class="subscribe btn btn-primary btn-block shadow-sm">결제하기
+										</button> -->
 									</div>
 									<div class ="card-text">
 											<p class="text-muted">Note: 결제가 될거같이 생겼지만 결제는 안된다... 후....</p>
