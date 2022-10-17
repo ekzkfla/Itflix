@@ -216,24 +216,27 @@ $(function(){
 					
 				<!--카테고리별 영화 리스트  -->
 					<div class="title-hd">
-						<h2>카테고리별</h2>
+						<h2>카테고리별 영화리스트</h2>
 						<a href="moviegridfw" class="viewall">View all <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">
 						<!--카테고리별 카테고리  -->
 						<ul class="tab-links-2">
-							<li value="cg_no=4"><a href="#tab22">#카테고리</a></li>
-							<li class="active"><a href="#tab21">#시청후 평점높은</a></li>
-							<li><a href="#tab23"> #카테고리 </a></li>
+							<li class="active"><a href="#tab21">#액션</a></li>
+							<li><a href="#tab22">#코미디</a></li>
+							<li><a href="#tab23">#로맨스</a></li>
+							<li><a href="#tab24">#공포/미스터리</a></li>
+							<li><a href="#tab25">#SF/판타지</a></li>
+							<li><a href="#tab26">#드라마</a></li>
 						</ul>
 						<!--카테고리별 카테고리  -->
 						<div class="tab-content">
 							<!--tab21탭  -->
-							<div id="tab21" class="tab">
+							<div id="tab21" class="tab active">
 								<div class="row">
 									<div class="slick-multiItem">
-										<c:forEach items="${movieList}" var="movie">
+										<c:forEach items="${movieActionList}" var="movie">
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
@@ -260,11 +263,11 @@ $(function(){
 							</div>
 							<!--tab21탭  -->
 							<!--tab22탭  -->
-							<div id="tab22" class="tab active">
+							<div id="tab22" class="tab">
 								<div class="row">
 									<div class="slick-multiItem">
 										
-										<c:forEach items="${movieList}" var="movie">
+										<c:forEach items="${movieComedyList}" var="movie">
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
@@ -295,7 +298,7 @@ $(function(){
 							<div id="tab23" class="tab" >
 								<div class="row">
 									<div class="slick-multiItem">
-										<c:forEach items="${movieCountList}" var="movie">
+										<c:forEach items="${movieRomanceList}" var="movie">
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
@@ -322,36 +325,95 @@ $(function(){
 							</div>
 							<!--tab23탭  -->
 							<!--tab24탭  -->
-							<div id="tab24" class="tab">
+							<div id="tab24" class="tab" >
 								<div class="row">
 									<div class="slick-multiItem">
-										
-									
-										<div class="slide-it">
-											<div class="movie-item">
-												<div class="mv-img">
-													<img src="images/uploads/mv-item3.jpg" alt="" width="185"
-														height="284">
-												</div>
-												<div class="hvr-inner">
-													<a href="moviesingle.jsp">Read more <i
-														class="ion-android-arrow-dropright"></i></a>
-												</div>
-												<div class="title-in">
-													<h6>
-														<a href="#">Die hard</a>
-													</h6>
-													<p>
-														<i class="ion-android-star"></i><span>7.4</span>/5
-													</p>
+										<c:forEach items="${movieHorrorList}" var="movie">
+											<div class="slide-it">
+												<div class="movie-item">
+													<div class="mv-img">
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+															height="284">
+													</div>
+													<div class="hvr-inner">
+														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+															class="ion-android-arrow-dropright"></i></a>
+													</div>
+													<div class="title-in">
+														<h6>
+															<a>${movie.m_name}</a>
+														</h6>
+														<p>
+															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/5
+														</p>
+													</div>
 												</div>
 											</div>
-										</div>
-										
+										</c:forEach>
 									</div>
 								</div>
 							</div>
 							<!--tab24탭  -->
+							<!--tab25탭  -->
+							<div id="tab25" class="tab" >
+								<div class="row">
+									<div class="slick-multiItem">
+										<c:forEach items="${movieSFList}" var="movie">
+											<div class="slide-it">
+												<div class="movie-item">
+													<div class="mv-img">
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+															height="284">
+													</div>
+													<div class="hvr-inner">
+														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+															class="ion-android-arrow-dropright"></i></a>
+													</div>
+													<div class="title-in">
+														<h6>
+															<a>${movie.m_name}</a>
+														</h6>
+														<p>
+															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/5
+														</p>
+													</div>
+												</div>
+											</div>
+										</c:forEach>
+									</div>
+								</div>
+							</div>
+							<!--tab25탭  -->
+							<!--tab26탭  -->
+							<div id="tab26" class="tab" >
+								<div class="row">
+									<div class="slick-multiItem">
+										<c:forEach items="${movieDramaList}" var="movie">
+											<div class="slide-it">
+												<div class="movie-item">
+													<div class="mv-img">
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+															height="284">
+													</div>
+													<div class="hvr-inner">
+														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+															class="ion-android-arrow-dropright"></i></a>
+													</div>
+													<div class="title-in">
+														<h6>
+															<a>${movie.m_name}</a>
+														</h6>
+														<p>
+															<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/5
+														</p>
+													</div>
+												</div>
+											</div>
+										</c:forEach>
+									</div>
+								</div>
+							</div>
+							<!--tab26탭  -->
 							
 						</div>
 					</div>

@@ -67,6 +67,12 @@ public class MainController {
 			List<Movie> movieCountList = movieService.selectMovieCountList();
 			List<Movie> movieCountNewDate = movieService.selectMovieNewDate();
 			List<Movie> movieGradeList = movieService.selectMovieGradeList();
+			List<Movie> movieActionList = movieService.selectCategoryNo(1);
+			List<Movie> movieComedyList = movieService.selectCategoryNo(2);
+			List<Movie> movieRomanceList = movieService.selectCategoryNo(3);
+			List<Movie> movieHorrorList = movieService.selectCategoryNo(4);
+			List<Movie> movieSFList = movieService.selectCategoryNo(5);
+			List<Movie> movieDramaList = movieService.selectCategoryNo(6);
 			//List<Category> categoryList = categoryService.selectByNoMovieList();
 			System.out.println(movieList);
 			Notice noticeOne = noticeService.noticeOne();
@@ -75,6 +81,12 @@ public class MainController {
 			model.addAttribute("movieCountNewDate", movieCountNewDate);
 			model.addAttribute("movieGradeList", movieGradeList);
 			model.addAttribute("notice", noticeOne);
+			model.addAttribute("movieActionList", movieActionList);
+			model.addAttribute("movieComedyList", movieComedyList);
+			model.addAttribute("movieRomanceList", movieRomanceList);
+			model.addAttribute("movieHorrorList", movieHorrorList);
+			model.addAttribute("movieSFList", movieSFList);
+			model.addAttribute("movieDramaList", movieDramaList);
 			//model.addAttribute("categoryList", categoryList);
 			forwardPath = "main";
 		}catch (Exception e) {
