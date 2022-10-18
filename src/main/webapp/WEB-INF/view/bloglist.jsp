@@ -82,7 +82,7 @@ String login_email = (String) session.getAttribute("login_email");
 								<img src="images//mylogo.png">
 								<div class="blog-it-infor">
 									<h3>
-										<a href="blogdetail?n_no=${notice.n_no}" class="notice">${notice.n_title }</a>
+										<a href="noticeDetail?n_no=${notice.n_no}" class="notice">${notice.n_title }</a>
 									</h3>
 									<span class="time"><fmt:formatDate
 											value="${notice.n_date}" pattern="yyyy/MM/dd" /></span>
