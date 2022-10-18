@@ -1,21 +1,23 @@
 <%@page import="com.itflix.dto.Subscription"%>
 <%@page import="com.itflix.dto.User_Info"%>
-<%@page import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
+<%@page
+	import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <%
 User_Info login_user = (User_Info) session.getAttribute("login_user");
-Subscription subscription =(Subscription)session.getAttribute("subscription");
+Subscription subscription = (Subscription) session.getAttribute("subscription");
 %>
 <style type="text/css">
 input#search {
-background:url(images/uploads/topsearch.png);
-background-repeat: no-repeat;
-background-position: 0px center;
-width:45px;
-height:45x;
-align-items: center;
+	background: url(images/uploads/topsearch.png);
+	background-repeat: no-repeat;
+	background-position: 0px center;
+	width: 45px;
+	height: 45x;
+	align-items: center;
 }
 </style>
 
@@ -63,6 +65,20 @@ align-items: center;
 			e.preventDefault();
 	    });
 	});
+	
+	<!-- SignUpCheck(회원가입 체크) -->
+    function pwCheck() {
+        var p1 = document.getElementById('u_pass1').value;
+        var p2 = document.getElementById('u_pass2').value;
+        
+            if( p1 != p2 ) {
+              alert("비밀번호가 일치하지 않습니다");
+              return false;
+            } else{
+              return true;
+            }
+      }
+	
 </script>
 
 
@@ -88,8 +104,7 @@ align-items: center;
 					<label for="email">Email:<input type="text" name="u_email"
 						id="u_email" placeholder="example@itflix.com"
 						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-						required="required" value="guard1@gmail.com" /> 
-						<!--  required="required" value="${User_info.u_email}" /> -->
+						required="required" value="guard1@gmail.com" /> <!--  required="required" value="${User_info.u_email}" /> -->
 					</label>
 				</div>
 				<div class="row">
@@ -97,7 +112,7 @@ align-items: center;
 						name="u_pass" id="u_pass" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" value="a123123!" /></label>
-						<!--  required="required" value="${User_info.u_pass}" /></label>  -->
+					<!--  required="required" value="${User_info.u_pass}" /></label>  -->
 				</div>
 				<div class="row">
 					<div class="remember">
@@ -150,18 +165,19 @@ align-items: center;
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
-						name="u_pass" id="u_pass1" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
+						name="u_pass1" id="u_pass1" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" /></label>
 				</div>
 				<div class="row">
 					<label for="repassword"> re-type Password:<input
-						type="password" name="u_pass2" id="password" placeholder="비밀번호 재확인"
+						type="password" name="u_pass2" id="u_pass2"
+						placeholder="비밀번호 재확인"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 						required="required" /></label>
 				</div>
 				<div class="row">
-					<button type="submit">sign up</button>
+					<button type="submit" onclick="pwCheck()">sign up</button>
 				</div>
 			</form>
 		</div>
@@ -216,26 +232,28 @@ align-items: center;
 					<li class="btn signupLink"><a href="#">회원가입</a></li>
 					<li class="loginLink"><a href="">로그인</a></li>
 					<%
-					} else if(login_user != null && subscription ==null){
+					} else if (login_user != null && subscription == null) {
 					//로그인시 top 메뉴
 					%>
 					<li class="btn"><a href="userprofile">마이페이지</a></li>
 					<li><a href="user_logout_action">로그아웃</a></li>
 					<%
-					}else if(login_user != null && subscription !=null){
+					} else if (login_user != null && subscription != null) {
 					%>
 					<a><img src="images/subscript.png" style="height: 40px;"></a>
 					<li class="btn"><a href="userprofile">마이페이지</a></li>
 					<li><a href="user_logout_action">로그아웃</a></li>
-					<%} %>
+					<%
+					}
+					%>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
 		</nav>
 		<!-- top search form -->
-		
+
 		<!--include_common_top_keyWordSearch <검색 보드바   -->
-		<jsp:include page="include_common_top_keyWordSearch.jsp"/>
+		<jsp:include page="include_common_top_keyWordSearch.jsp" />
 		<!--include_common_top_keyWordSearch <검색 보드바   -->
 	</div>
 </header>

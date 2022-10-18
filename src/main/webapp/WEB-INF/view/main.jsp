@@ -216,7 +216,7 @@ $(function(){
 					
 				<!--카테고리별 영화 리스트  -->
 					<div class="title-hd">
-						<h2>카테고리별 영화리스트</h2>
+						<h2>장르별 영화리스트</h2>
 						<a href="moviegridfw" class="viewall">View all <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
