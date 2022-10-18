@@ -1,3 +1,4 @@
+<%@page import="com.itflix.dto.Subscription"%>
 <%@page import="com.itflix.dto.User_Info"%>
 <%@page import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -5,6 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <%
 User_Info login_user = (User_Info) session.getAttribute("login_user");
+Subscription subscription =(Subscription)session.getAttribute("subscription");
 %>
 <style type="text/css">
 input#search {
@@ -214,15 +216,18 @@ align-items: center;
 					<li class="btn signupLink"><a href="#">회원가입</a></li>
 					<li class="loginLink"><a href="">로그인</a></li>
 					<%
-					} else {
+					} else if(login_user != null && subscription ==null){
 					//로그인시 top 메뉴
+					%>
+					<li class="btn"><a href="userprofile">마이페이지</a></li>
+					<li><a href="user_logout_action">로그아웃</a></li>
+					<%
+					}else if(login_user != null && subscription !=null){
 					%>
 					<a><img src="images/subscript.png" style="height: 40px;"></a>
 					<li class="btn"><a href="userprofile">마이페이지</a></li>
 					<li><a href="user_logout_action">로그아웃</a></li>
-					<%
-					}
-					%>
+					<%} %>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

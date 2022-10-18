@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itflix.dto.Subscription;
 import com.itflix.dto.User_Info;
+import com.itflix.service.SubscriptonService;
 import com.itflix.service.User_InfoService;
 
 @RestController
@@ -21,7 +24,8 @@ public class UserRestController {
 
 	@Autowired
 	private User_InfoService user_InfoService;
-
+	@Autowired
+	private SubscriptonService subscriptonService;
 	/*로그인*/
 	@RequestMapping(value = "rest_user_login_action")
 	public Map rest_user_login_action(HttpSession session, @RequestParam String u_email, @RequestParam String u_pass) {
@@ -40,8 +44,10 @@ public class UserRestController {
 			int result = user_InfoService.login(u_email, u_pass);
 			if (result == 1) {
 				User_Info loginUser = user_InfoService.selectByEmail(u_email);
+				Subscription subscription= subscriptonService.selectByEndDate(u_email);
 				session.setAttribute("login_email", loginUser.getU_email());
 				session.setAttribute("login_user", loginUser);
+				session.setAttribute("subscription", subscription);
 				code=1;
 			} else if (result == -1) {
 				code=2;

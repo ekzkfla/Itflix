@@ -19,9 +19,11 @@ import com.itflix.controller.interceptor.LoginCheck;
 import com.itflix.dto.Jjim;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Review;
+import com.itflix.dto.Subscription;
 import com.itflix.dto.User_Info;
 import com.itflix.service.JjimService;
 import com.itflix.service.ReviewService;
+import com.itflix.service.SubscriptonService;
 import com.itflix.service.User_InfoService;
 
 @Controller
@@ -33,7 +35,9 @@ public class UserController {
 	private JjimService jjimService;
 	@Autowired
 	private ReviewService reviewService;
-
+	@Autowired
+	private SubscriptonService subscriptonService;
+	
 	/* 회원가입 */
 	@RequestMapping("CreateUser_action")
 	public String CreateUser(HttpServletRequest request) {
@@ -48,7 +52,12 @@ public class UserController {
 			msg="비밀번호가 일치하지 않습니다.";
 			request.setAttribute("msg", msg);
 			request.setAttribute("url", "main");
-			forwardPath="main";
+			request.setAttribute("u_email", u_email);
+			request.setAttribute("u_pass1", u_pass1);
+			request.setAttribute("u_name", u_name);
+			request.setAttribute("u_phone", u_phone);
+			
+			forwardPath="redirect:main";
 		}
 		User_Info user = new User_Info(u_email, u_pass1, u_name, u_phone);
 		try {
@@ -87,9 +96,11 @@ public class UserController {
 			int result = user_InfoService.login(u_email, u_pass);
 			if (result == 1) {
 				User_Info loginUser = user_InfoService.selectByEmail(u_email);
+				Subscription userSubscription=subscriptonService.selectBuyTicket(u_email);
 				session.setAttribute("login_email", loginUser.getU_email());
 				session.setAttribute("login_user", loginUser);
-				System.out.println(loginUser);
+				session.setAttribute("subscript", userSubscription);
+				System.out.println(userSubscription);
 				forwardPath = "moviesingle?m_no=27";
 			} else if (result == -1) {
 				// request.setAttribute("login_id", u_email);
