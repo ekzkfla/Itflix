@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import org.aspectj.apache.bcel.generic.ReturnaddressType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,16 +42,15 @@ public class UserController {
 		String u_pass2 = request.getParameter("u_pass2");
 		String u_name = request.getParameter("u_name");
 		String u_phone = request.getParameter("u_phone");
-		if(u_pass1 !=u_pass2) {
-			String msg="비밀번호가 일치하지 않습니다.";
-			request.setAttribute("msg", msg);
-			request.setAttribute("url", "main");
-			return "alert";
-			
-		}
-		User_Info user = new User_Info(u_email, u_pass1, u_name, u_phone);
 		String forwardPath = "";
 		String msg= "";
+		if(u_pass1 !=u_pass2) {
+			msg="비밀번호가 일치하지 않습니다.";
+			request.setAttribute("msg", msg);
+			request.setAttribute("url", "main");
+			forwardPath="main";
+		}
+		User_Info user = new User_Info(u_email, u_pass1, u_name, u_phone);
 		try {
 			int result = user_InfoService.insertUser_Info(user);
 			if (result == -1) {
