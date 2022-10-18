@@ -33,7 +33,6 @@ public interface Subscription_Mapper {
 	
 	//구독자 단일 찾기
 	@Select("select * from Subscription where u_email = #{u_email}")
-	
 	public Subscription selectByNo(String u_email);
 	
 	//구독권 추가
