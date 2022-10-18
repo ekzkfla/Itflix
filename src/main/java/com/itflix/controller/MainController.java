@@ -302,7 +302,7 @@ public class MainController {
 			request.setAttribute("url", "main");
 			return "alert";
 		}else if(subscriptUser !=null) {
-			//구독권이 있거나 예전에 구매한 기록이 있을 경우
+			//구독권이 있거나 예전에 구매한 기록이 있을 경우(기간이 남은 경우)
 			int t_no=1;
 			subscriptonService.updateSubscription(null, null, s_cardName,Integer.parseInt(s_cardNumberfirst), t_no, subscriptUser.getUser_Info().getU_email());
 			msg ="연장 완료";

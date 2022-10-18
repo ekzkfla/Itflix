@@ -70,12 +70,15 @@ public class SubscriptionDaoImpl implements SubscriptionDao{
 	public int updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email) throws Exception {
 		int subscription = subscription_Mapper.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
 		return subscription;
-	/*
-	public Subscription updateSubscription(int t_no, String u_email) throws Exception {
-		Subscription subscription = subscription_Mapper.updateSubscription(t_no, u_email);
-		return subscription;
-	*/
 	}
+	
+	//구독권 연장
+	@Override
+	public int updateEndDate(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email)throws Exception {
+		int subscription = subscription_Mapper.updateEndDate(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
+		return subscription;
+	}
+	
 	//구독 삭제
 	@Override
 	public int deleteSubscription(String u_email) throws Exception {
@@ -89,6 +92,7 @@ public class SubscriptionDaoImpl implements SubscriptionDao{
 		Subscription selectBuyTicket = subscription_Mapper.selectBuyTicket(u_email);
 		return selectBuyTicket;
 	}
+
 
 	
 }

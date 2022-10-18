@@ -68,6 +68,11 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	public int updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber,int t_no, String u_email) throws Exception {
 		return subscriptionDao.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
 	}
+	//구독권 연장
+	@Override
+	public int updateEndDate(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email)throws Exception {
+		return subscriptionDao.updateEndDate(s_start, s_end, s_cardName, s_cardNumber, t_no, u_email);
+	}
 	
 	//구독권 삭제
 	@Override
@@ -80,6 +85,7 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	public Subscription selectBuyTicket(String u_email) throws Exception {
 		return subscriptionDao.selectBuyTicket(u_email);
 	}
+
 
 
 }
