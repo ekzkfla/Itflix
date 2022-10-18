@@ -38,7 +38,7 @@ String login_email = (String) session.getAttribute("login_email");
 	}
 
 	function noticeCreate() {
-		location.href = "noticeWrite.jsp";
+		location.href = "noticeWrite";
 	}
 </script>
 <body>
@@ -108,10 +108,10 @@ String login_email = (String) session.getAttribute("login_email");
 					</ul>
 					<!--페이징 구현  -->
 					<!-- button -->
-					<c:if test="${login_email == 'admin@gmail.com'}">
+					<c:if test="${login_email == 'admin@gmail.com' && login_email != null}">
 						<table>
 							<tr>
-								<td align="left"><input type="button" value="공지 쓰기"
+								<td align="left"><input type="button" value="공지 쓰기" 
 									onclick="noticeCreate();" /></td>
 							</tr>
 						</table>
