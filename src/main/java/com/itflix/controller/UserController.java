@@ -40,7 +40,7 @@ public class UserController {
 	
 	/* 회원가입 */
 	@RequestMapping("CreateUser_action")
-	public String CreateUser(HttpServletRequest request) {
+	public String CreateUser(HttpServletRequest request) throws Exception {
 		String u_email = request.getParameter("u_email");
 		String u_pass1 = request.getParameter("u_pass1");
 		String u_pass2 = request.getParameter("u_pass2");
@@ -48,31 +48,27 @@ public class UserController {
 		String u_phone = request.getParameter("u_phone");
 		String forwardPath = "";
 		String msg= "";
-		if(u_pass1 !=u_pass2) {
-			msg="비밀번호가 일치하지 않습니다.";
-			request.setAttribute("msg", msg);
-			request.setAttribute("url", "main");
-			request.setAttribute("u_email", u_email);
-			request.setAttribute("u_pass1", u_pass1);
-			request.setAttribute("u_name", u_name);
-			request.setAttribute("u_phone", u_phone);
-			
-			forwardPath="redirect:main";
-		}
-		User_Info user = new User_Info(u_email, u_pass1, u_name, u_phone);
+		
 		try {
+			User_Info checkUser=user_InfoService.selectByNameAndPhone(u_name, u_phone);
+				if(checkUser !=null) {
+					request.setAttribute("msg", "이미 가입이된 전화번호입니다.");
+					request.setAttribute("url", "userSearch");
+					return "alert";
+				}
+			User_Info user = new User_Info(u_email, u_pass1, u_name, u_phone);
 			int result = user_InfoService.insertUser_Info(user);
-			if (result == -1) {
-				// 중복일 시 -1 반환
-				forwardPath="main";
-				msg="이미 사용 중인 계정입니다.";
-				
-			} else {
-				// 회원가입 성공 메세지
-				request.setAttribute("msg", "회원가입이 완료되었습니다.");
-				request.setAttribute("url", "main");
-				return "alert";
-			}
+				if (result == -1) {
+					// 중복일 시 -1 반환
+					request.setAttribute("msg", "이미 사용 중인 계정입니다.");
+					request.setAttribute("url", "userSearch");
+					return "alert";
+				} else {
+					// 회원가입 성공 메세지
+					request.setAttribute("msg", "회원가입이 완료되었습니다.");
+					request.setAttribute("url", "main");
+					return "alert";
+				}
 		} catch (Exception e) {
 			e.printStackTrace();
 			forwardPath = "404";

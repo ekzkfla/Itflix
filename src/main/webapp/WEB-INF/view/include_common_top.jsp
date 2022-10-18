@@ -73,9 +73,14 @@ input#search {
         
             if( p1 != p2 ) {
               alert("비밀번호가 일치하지 않습니다");
+              document.createUser.action="main";
+              document.createUser.method="POST";
               return false;
-            } else{
-              return true;
+            } else if(p1 ==p2){
+              document.createUser.action="CreateUser_action";
+              document.createUser.method="POST";
+              document.createUser.submit();
+             	
             }
       }
 	
@@ -145,7 +150,7 @@ input#search {
 			<a href="#" class="close">x</a>
 			<h3>sign up</h3>
 
-			<form method="post" action="CreateUser_action">
+			<form name="createUser" method="post" action="CreateUser_action">
 				<div class="row">
 					<label for="email">Email:<input type="text" name="u_email"
 						id="u_email" placeholder="example@itflix.com"
