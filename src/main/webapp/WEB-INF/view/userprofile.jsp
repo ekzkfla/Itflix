@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -51,7 +52,7 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="form-style-1 user-pro" >
 						<form action="" name= "user" method="post">
-							<h4>회원의 상세페이지</h4>
+							<h4>회원의 상세페이지</h4> 
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
@@ -77,6 +78,7 @@
 										name="u_phone"
 										readonly>
 								</div>
+							<label style="align-self: auto; position: relative; left: 17px">구독권 종료일: <fmt:formatDate value="${subscription.s_end }" pattern="yyyy/MM/dd"/> </label>
 							</div>
 							<div class="row">
 								<div class="col-md-2">
