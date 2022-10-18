@@ -43,10 +43,10 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 		function deleteJjim() {
 			document.jjim.action = "jjim_delete_action";
 			document.jjim.method = 'POST';
-			document.jjim.submit(); 
+			document.jjim.submit();
 		}
-		
-		function subscriptionTicketNo(){
+
+		function subscriptionTicketNo() {
 			document.subscription.action = "moviesingle";
 			document.subscription.method = "POST";
 			document.subscription.submit();
@@ -60,8 +60,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 	<div class="hero mv-single-hero">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-				</div>
+				<div class="col-md-12"></div>
 			</div>
 		</div>
 	</div>
@@ -71,41 +70,47 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 				<!--왼쪽 영화 포스터 및 영상 시청바  -->
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="movie-img sticky-sb">
-						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg" alt="">
-						
+						<img src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg"
+							alt="">
+
 						<div class="movie-btn">
 							<c:if test="${login_user != null }">
 								<c:if test="${subscription.ticket.t_no == 1}">
-								<div class="btn-transform transform-vertical red">
-									<div>
-										<a href="#" class="item item-1 redbtn"><i class="ion-play"></i>영화 시청</a>
+									<div class="btn-transform transform-vertical red">
+										<div>
+											<a href="#" class="item item-1 redbtn"><i
+												class="ion-play"></i>영화 시청</a>
+										</div>
+										<div>
+											<a href="${movie.m_url}"
+												class="item item-2 redbtn fancybox-media hvr-grow"><i
+												class="ion-play"></i></a>
+										</div>
 									</div>
-									<div>
-										<a href="${movie.m_url}"
-											class="item item-2 redbtn fancybox-media hvr-grow"><i
-											class="ion-play"></i></a>
-									</div>
-								</div>
 								</c:if>
-							
+
 								<c:if test="${login_user != null }">
 									<c:if test="${subscription.ticket.t_no == 0 }">
-											<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+										<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn"
+											style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i
+											class="ion-play"></i>영화 시청</a>
 									</c:if>
 								</c:if>
 							</c:if>
-							
+
 							<c:if test="${login_user == null }">
-									<a onclick="alert('로그인을 해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+								<a onclick="alert('로그인을 해주세요');" class="item item-1 redbtn"
+									style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i
+									class="ion-play"></i>영화 시청</a>
 							</c:if>
 						</div>
-						
+
 					</div>
 				</div>
 				<!--왼쪽 영화 포스터 및 영상 시청바  -->
 				<!--중앙 상세 페이지  -->
 				<div class="col-md-7 col-sm-4 col-xs-3">
-					<form name="jjim" >
+					<form name="jjim">
 						<div class="movie-single-ct main-content">
 							<input name="u_email" value="${login_user.u_email }"
 								type="hidden" /> <input name="m_no" value="${movie.m_no }"
@@ -119,8 +124,9 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							<c:if test="${jjim==false }">
 								<div class="social-btn">
 									<button type="button" onclick="insert()"
-										style="background-color:transparent; border: none;">
-										<a class="parent-btn" > <i class="ion-heart"></i>나중에 볼 영화 저장
+										style="background-color: transparent; border: none;">
+										<a class="parent-btn"> <i class="ion-heart"></i>나중에 볼 영화
+											저장
 										</a>
 									</button>
 								</div>
@@ -129,8 +135,9 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							<c:if test="${jjim==true }">
 								<div class="social-btn">
 									<button type="button" onclick="deleteJjim();"
-										style="background-color:transparent; border: none;">
-										<a class="parent-btn"> <i class="ion-heart"></i>나중에 볼 영화 해제
+										style="background-color: transparent; border: none;">
+										<a class="parent-btn"> <i class="ion-heart"></i>나중에 볼 영화
+											해제
 										</a>
 									</button>
 								</div>
@@ -155,9 +162,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							<div>
 								<h6 style="color: #47B5FF">출연진: ${movie.m_actor} 외</h6>
 							</div>
-							<br>
-							<br>
-							<br>
+							<br> <br>
 							<div class="movie-tabs">
 								<div class="tabs">
 									<ul class="tab-links tabs-mv">
@@ -205,18 +210,21 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 													</div>
 													<div class="title-hd-sm">
 														<h3>가장 최신 리뷰</h3>
+														
 														<c:if test="${login_user != null }">
 															<a href="reviewWrite?m_no=${movie.m_no}" class="time"
-																style="right: 500px">리뷰작성하기</a>
+																style="right: 500px">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>
 														</c:if>
 														<c:if test="${login_user == null }">
-															<a onclick="alert('로그인을 해주세요');" style="cursor:pointer">리뷰작성하기</a>
+															<a onclick="alert('로그인을 해주세요');" class="time"
+															 style="cursor: pointer">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>
 														</c:if>
-																
-														<a href="reviewlist?m_no=${movie.m_no }" class="time">리뷰 전체보기
-														 <i class="ion-ios-arrow-right"></i>
+													
+														<a href="reviewlist?m_no=${movie.m_no }" class="time">리뷰
+															전체보기 <i class="ion-ios-arrow-right"></i>
 														</a>
 													</div>
+														
 													<!-- movie user review -->
 													<div class="mv-user-review-item">
 														<h3>${movie2.review.r_title }</h3>
@@ -293,7 +301,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 					</form>
 				</div>
 				<!--중앙 상세 페이지  -->
-				
+
 			</div>
 		</div>
 	</div>
