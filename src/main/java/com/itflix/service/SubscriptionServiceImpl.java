@@ -55,8 +55,8 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	
 	//구독권 추가
 	@Override
-	public Subscription insertSubscription(int s_no, Date s_start,Date e_end,String s_cardName,int cardNumber,Ticket ticket, User_Info user_Info) throws Exception {
-		return subscriptionDao.insertSubscription(s_no, s_start, e_end, s_cardName, cardNumber, ticket, user_Info);
+	public int insertSubscription(int s_no, Date s_start,Date e_end,String s_cardName,int cardNumber,int t_no, String u_email) throws Exception {
+		return subscriptionDao.insertSubscription(s_no, s_start, e_end, s_cardName, cardNumber, t_no, u_email);
 	}
 	
 	//구독권 업데이트
@@ -65,8 +65,8 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 	 * public Subscription updateSubscription(int t_no, String u_email) throws
 	 * Exception { return subscriptionDao.updateSubscription(t_no, u_email); }
 	 */
-	public Subscription updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber,Ticket ticket, String u_email) throws Exception {
-		return subscriptionDao.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,ticket, u_email);
+	public int updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber,int t_no, String u_email) throws Exception {
+		return subscriptionDao.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
 	}
 	
 	//구독권 구매자 찾기
