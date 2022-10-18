@@ -27,8 +27,8 @@
 						
 						<br>
 						<ul>
-							<li><a href="userprofile">프로필 수정</a></li>
-							<li><a href="userfavoritegrid?u_email=${login_user.u_email}">내가 찜한 콘텐츠</a></li>
+							<li><a href="userprofile">프로필</a></li>
+							<li><a href="userfavoritegrid?u_email=${login_user.u_email}">나중에 볼 영화</a></li>
 							<li><a href="userrate?u_email=${login_user.u_email }">나의 리뷰<br> <br></a>
 							<li><a href="removeUser">회원 탈퇴</a></li>
 							
