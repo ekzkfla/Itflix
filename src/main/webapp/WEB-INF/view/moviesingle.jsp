@@ -120,8 +120,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 								<div class="social-btn">
 									<button type="button" onclick="insert()"
 										style="background-color:transparent; border: none;">
-										<a class="parent-btn" > <i class="ion-heart"></i>Add to
-											Favorite
+										<a class="parent-btn" > <i class="ion-heart"></i>나중에 볼 영화 저장
 										</a>
 									</button>
 								</div>
@@ -131,20 +130,11 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 								<div class="social-btn">
 									<button type="button" onclick="deleteJjim();"
 										style="background-color:transparent; border: none;">
-										<a class="parent-btn"> <i class="ion-heart"></i>찜 취소
+										<a class="parent-btn"> <i class="ion-heart"></i>나중에 볼 영화 해제
 										</a>
 									</button>
 								</div>
 							</c:if>
-
-
-
-
-
-
-
-
-
 
 							<!-- 찜하기버튼 END -->
 							<div class="movie-rate">
@@ -152,23 +142,26 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 									<i class="ion-android-star"></i>
 									<p style="font-size: 12pt">
 										<span> <jsp:include page="TotalAvg.jsp" />
-										</span>/5<br> <span class="rv">${review} Reviews</span>
+										</span>/5<br> <span class="rv">리뷰 총 ${review}개</span>
 									</p>
 								</div>
 								<div class="rate-star">
-									<p>Rate This Movie:</p>
+									<p>리뷰 총 평점:</p>
 									<!--평점 별계산 include <StarImage>  -->
 									<jsp:include page="StarImage.jsp" />
 									<!--평점 별계산 include <StarImage>  -->
 								</div>
 							</div>
 							<div>
-								<h6 style="color: #47B5FF">출연진: ${movie.m_actor}</h6>
+								<h6 style="color: #47B5FF">출연진: ${movie.m_actor} 외</h6>
 							</div>
+							<br>
+							<br>
+							<br>
 							<div class="movie-tabs">
 								<div class="tabs">
 									<ul class="tab-links tabs-mv">
-										<li class="active"><a href="#overview">Overview</a></li>
+										<li class="active"><a href="#overview">줄거리</a></li>
 									</ul>
 									<hr>
 									<div class="tab-content">
@@ -214,14 +207,14 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 														<h3>가장 최신 리뷰</h3>
 														<c:if test="${login_user != null }">
 															<a href="reviewWrite?m_no=${movie.m_no}" class="time"
-																style="right: 500px">리뷰 작성</a>
+																style="right: 500px">리뷰작성하기</a>
 														</c:if>
 														<c:if test="${login_user == null }">
-															<a onclick="alert('로그인을 해주세요');" style="cursor:pointer">리뷰 작성</a>
+															<a onclick="alert('로그인을 해주세요');" style="cursor:pointer">리뷰작성하기</a>
 														</c:if>
 																
-														<a href="reviewlist?m_no=${movie.m_no }" class="time">See
-															All Reviews <i class="ion-ios-arrow-right"></i>
+														<a href="reviewlist?m_no=${movie.m_no }" class="time">리뷰 전체보기
+														 <i class="ion-ios-arrow-right"></i>
 														</a>
 													</div>
 													<!-- movie user review -->
@@ -300,6 +293,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 					</form>
 				</div>
 				<!--중앙 상세 페이지  -->
+				
 			</div>
 		</div>
 	</div>
