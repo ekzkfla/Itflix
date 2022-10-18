@@ -30,7 +30,7 @@ input#search {
 <form action="key_word_search_action" method="POST" name="f">
 	<div class="top-search">
 		<input class="form-control" name="searchText" type="text"
-			placeholder="Serch your Movie and enjoy your Life ">
+			placeholder="찾으시는 영화가 있나요? 검색해보세요!">
 	</div>
 </form>
 
