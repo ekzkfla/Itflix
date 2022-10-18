@@ -74,7 +74,9 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 							alt="">
 
 						<div class="movie-btn">
+						
 							<c:if test="${login_user != null }">
+								
 								<c:if test="${subscription.ticket.t_no == 1}">
 									<div class="btn-transform transform-vertical red">
 										<div>
@@ -88,21 +90,25 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 										</div>
 									</div>
 								</c:if>
-
-								<c:if test="${login_user != null }">
-									<c:if test="${subscription.ticket.t_no == 0 }">
-										<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn"
-											style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i
-											class="ion-play"></i>영화 시청</a>
-									</c:if>
+									<!--구독권 연장을 안한 경우  -->
+								<c:if test="${subscription.ticket.t_no == 0 }">
+									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
 								</c:if>
+								<!--구독권 구매를 안한 경우  -->
+								<c:if test="${subscription== null }">
+									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+								</c:if>
+								
 							</c:if>
 
-							<c:if test="${login_user == null }">
-								<a onclick="alert('로그인을 해주세요');" class="item item-1 redbtn"
-									style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i
-									class="ion-play"></i>영화 시청</a>
-							</c:if>
+								<c:if test="${login_user == null }">
+									<a onclick="alert('로그인을 해주세요');" class="item item-1 redbtn"
+										style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i
+										class="ion-play"></i>영화 시청</a>
+								</c:if>
+
+
+
 						</div>
 
 					</div>

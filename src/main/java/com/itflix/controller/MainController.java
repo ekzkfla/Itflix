@@ -206,26 +206,26 @@ public class MainController {
 	}
 	
 	//공지사항 페이지
-		@RequestMapping(value = "bloglist")
-		public String bloglist(Model model)throws Exception {
+		@RequestMapping(value = "noticeList")
+		public String noticeList(Model model)throws Exception {
 			String forwardPath="";
 	
 					List<Notice> noticeList = noticeService.selectAll();
 					int noticeTotal = noticeService.totalCount();
 					model.addAttribute("noticeTotal", noticeTotal);
 					model.addAttribute("noticeList", noticeList);
-					forwardPath = "bloglist";
+					forwardPath = "noticeList";
 			
 					
 				return forwardPath;
 		}
 	
 	//공지사항 상세페이지
-	@RequestMapping(value = "/blogdetail", params = "n_no")
-	public String blogdetail(@RequestParam int n_no, Model model)throws Exception {
+	@RequestMapping(value = "/noticeDetail", params = "n_no")
+	public String noticeDetail(@RequestParam int n_no, Model model)throws Exception {
 		Notice notice=noticeService.selectByNo(n_no);
 		model.addAttribute("notice",notice);
-		return "blogdetail";
+		return "noticeDetail";
 	}
 
 	//공지사항 키워드 페이지 
@@ -294,12 +294,13 @@ public class MainController {
 		if(subscriptUser==null) {
 			//구독권이 없는 경우 
 			int t_no=1;
-
+			session.invalidate();
 			subscriptonService.insertSubscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),t_no, user_Info.getU_email());
-			msg ="결제 완료";
-			request.setAttribute("msg", msg);
-			forwardPath="redirect:main";
+			msg ="결제 완료! 다시 로그인 해주세요.";
 			
+			request.setAttribute("msg", msg);
+			request.setAttribute("url", "main");
+			return "alert";
 		}else if(subscriptUser !=null) {
 			//구독권이 있거나 예전에 구매한 기록이 있을 경우
 			int t_no=1;

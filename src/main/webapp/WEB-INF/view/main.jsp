@@ -477,7 +477,7 @@ $(function(){
 				<div class="col-md-8">
 					<div class="title-hd">
 						<h2>최신 공지사항</h2>
-					<a href="bloglist" class="viewall">전체 공지사항 <i
+					<a href="noticeList" class="viewall">전체 공지사항 <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">
@@ -489,7 +489,7 @@ $(function(){
 											height="250">
 										<div class="blog-it-infor">
 											<h3>
-												<a href="blogdetail?n_no=${notice.n_no }"> ${notice.n_title}</a>
+												<a href="noticeDetail?n_no=${notice.n_no }"> ${notice.n_title}</a>
 											</h3>
 											<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>
 											<p>
