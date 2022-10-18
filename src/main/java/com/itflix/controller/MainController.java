@@ -423,17 +423,39 @@ public class MainController {
 	@RequestMapping(value = "noticeWrite")
 	public String noticeWrite(HttpServletRequest request, HttpSession session) throws Exception {
 		String forwardPath="";
-		/*
 		String user_Info = (String)session.getAttribute("login_email");
-		//관리자 계정이 아닐 경우, alert 표출 후 메인페이지로 이동
-		if (user_Info != "admin@gmail.com" || user_Info == null) {
+		try {
+			System.out.println(user_Info);
+		String admin ="admin@gmail.com";
+		int result=user_Info.compareTo(admin);
+		if(result==0) {
+			//0이면 관리자 계정
+			request.setAttribute("msg", "환영합니다 관리자님");
+			request.setAttribute("url", "noticeWrite");
+			return "noticeWrite";
+		}else if(result==1) {
+			
 			request.setAttribute("msg", "관리자 계정이 아닙니다.");
 			request.setAttribute("url", "main");
 			return "alert";
-		}else {
-			forwardPath="noticeWrite";
 		}
-		*/
+		
+	//관리자 계정이 아닐 경우, alert 표출 후 메인페이지로 이동
+//		if (user_Info != "admin@gmail.com" || user_Info == null) {
+//			request.setAttribute("msg", "관리자 계정이 아닙니다.");
+//			request.setAttribute("url", "main");
+//			return "alert";
+//		}else if(user_Info == "admin@gmail.com") {
+//			request.setAttribute("msg", "환영합니다 관리자님");
+//			request.setAttribute("url", "noticeWrite");
+//			return "alert";
+//			
+//		}
+		}catch (Exception e) {
+			e.printStackTrace();
+			forwardPath="404";
+		}
+		
 		return forwardPath;
 	}
 
