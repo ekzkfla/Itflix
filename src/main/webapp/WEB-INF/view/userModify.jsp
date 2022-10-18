@@ -59,11 +59,13 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 				<div class="row">
 					<div class="col-md-6 form-it">
 						<label>이름</label> <input type="text" name="u_name"
-							value="${user_Info.u_name}">
+							value="${user_Info.u_name}"
+							readonly style="background:#233a50;">
 					</div>
 					<div class="col-md-6 form-it">
 						<label>이메일</label> <input type="text" name="u_email"
-							value="${user_Info.u_email}">
+							value="${user_Info.u_email}"
+							readonly style="background:#233a50;">
 					</div>
 				</div>
 				<div class="row">

@@ -88,8 +88,8 @@ function reviewWrite_action() {
 											<div class="col-md-8 col-sm-12 col-xs-12">
 												<!-- 상단 -->
 												<div class="title-hd-sm">
-													<h4>User reviews</h4>
-													<p>글쓴이 : ${login_user.u_name }</p>
+													<h4><!-- User reviews --></h4>
+													<p>글쓴이 : ${login_user.u_email }</p>
 												</div>
 												<!-- movie user review -->
 												<div class="mv-user-review-item">
@@ -118,18 +118,18 @@ function reviewWrite_action() {
 													<div>
 														<textarea class="col-auto form-control" type="text" name="r_title" 
 																  placeholder="제목을입력해주세요!"
-																  style="width: 100%; height: 5em; border: none; resize:none;"></textarea>
+																  style="width: 100%; height: 5em; border: none; resize:none; background:#233a50 "></textarea>
 													</div><br>
 													<!--리뷰 내용  -->
 													<div>
 														<textarea class="col-auto form-control" type="text" name="r_content"
 																  placeholder="내용을 입력해 주세요!!"
-																  style="width: 100%; height: 30em; border: none; resize:none;"></textarea>
+																  style="width: 100%; height: 30em; border: none; resize:none;background:#233a50"></textarea>
 													</div>
 										<div class="landing-hero">
 											<div class="row">
 												
-												<a class="redbtn" style="cursor:pointer;" onclick="reviewWrite_action();"> 영화<br> ${movie.m_name }에 <br> 리뷰 작성</a>
+												<a class="redbtn" style="cursor:pointer;" onclick="reviewWrite_action();">${movie.m_name }에 <br> 리뷰 작성</a>
 										
 											</div>
 										</div>

@@ -56,13 +56,14 @@
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
-									<input type="text" value="${user_Info.u_name }" name="u_name" readonly>
+									<input type="text" value="${user_Info.u_name }" name="u_name" 
+									readonly style="background:#233a50;">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
 										value = "${user_Info.u_email}"
 										name="u_email"
-										readonly>
+										readonly style="background:#233a50;">
 								</div>
 							</div>
 							<div class="row">
@@ -70,13 +71,13 @@
 									<label>비밀번호</label><input type="password"
 										placeholder= "********"
 										name="u_pass"
-										readonly>
+										readonly style="background:#233a50;">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label><input type="text"
 										placeholder= "${user_Info.u_phone}" 	
 										name="u_phone"
-										readonly>
+										readonly style="background:#233a50;">
 								</div>
 							<label style="align-self: auto; position: relative; left: 17px">구독권 종료일: <fmt:formatDate value="${subscription.s_end }" pattern="yyyy/MM/dd"/> </label>
 							</div>
