@@ -206,26 +206,26 @@ public class MainController {
 	}
 	
 	//공지사항 페이지
-		@RequestMapping(value = "bloglist")
-		public String bloglist(Model model)throws Exception {
+		@RequestMapping(value = "noticeList")
+		public String noticeList(Model model)throws Exception {
 			String forwardPath="";
 	
 					List<Notice> noticeList = noticeService.selectAll();
 					int noticeTotal = noticeService.totalCount();
 					model.addAttribute("noticeTotal", noticeTotal);
 					model.addAttribute("noticeList", noticeList);
-					forwardPath = "bloglist";
+					forwardPath = "noticeList";
 			
 					
 				return forwardPath;
 		}
 	
 	//공지사항 상세페이지
-	@RequestMapping(value = "/blogdetail", params = "n_no")
-	public String blogdetail(@RequestParam int n_no, Model model)throws Exception {
+	@RequestMapping(value = "/noticeDetail", params = "n_no")
+	public String noticeDetail(@RequestParam int n_no, Model model)throws Exception {
 		Notice notice=noticeService.selectByNo(n_no);
 		model.addAttribute("notice",notice);
-		return "blogdetail";
+		return "noticeDetail";
 	}
 
 	//공지사항 키워드 페이지 

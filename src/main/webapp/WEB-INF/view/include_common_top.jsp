@@ -225,7 +225,7 @@ input#search {
 							<li class="it-last"><a href="categoryMoviegrid?cg_no=5">SF/판타지</a></li>
 							<li class="it-last"><a href="categoryMoviegrid?cg_no=6">드라마</a></li>
 						</ul></li>
-					<li class="dropdown first"><a href="bloglist">Notice</a></li>
+					<li class="dropdown first"><a href="noticeList">Notice</a></li>
 
 				</ul>
 				<ul class="nav navbar-nav flex-child-menu menu-right">

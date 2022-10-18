@@ -62,7 +62,7 @@
 						<!-- share link -->
 						<div class="flex-it share-tag">
 							<div class="right-it">
-								<h4><a href="bloglist">Back</a></h4>
+								<h4><a href="noticeList">Back</a></h4>
 							</div>
 						</div>
 					</div>
