@@ -81,12 +81,10 @@ input[type="radio"] {
 		 alert("보안번호 3개를 작성해주세요.");
 		 return false;
 	 }
+	 
 	 document.subscript.action="subscriptPay_action";
 	 document.subscript.method="POST";
 	 document.subscript.submit;
-	 
-	 
-	 
  }
 
 

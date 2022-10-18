@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -79,7 +80,15 @@
 										name="u_phone"
 										readonly style="background:#233a50;">
 								</div>
-							<label style="align-self: auto; position: relative; left: 17px">구독권 종료일: <fmt:formatDate value="${subscription.s_end }" pattern="yyyy/MM/dd"/> </label>
+							<label style="align-self: auto; position: relative; left: 17px">구독권 종료일: 
+									
+									<c:if test="${subscription ==null }">
+										<a style="color: orange">구독권을 결제 해주세요.</a>
+									</c:if>
+									<c:if test="${subscription !=null }">
+									<fmt:formatDate value="${subscription.s_end }" pattern="yyyy/MM/dd"/>
+									</c:if>
+							 </label>
 							</div>
 							<div class="row">
 								<div class="col-md-2">
