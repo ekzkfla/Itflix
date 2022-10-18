@@ -297,7 +297,9 @@ public class MainController {
 
 			subscriptonService.insertSubscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),t_no, user_Info.getU_email());
 			msg ="결제 완료";
+			request.setAttribute("msg", msg);
 			forwardPath="redirect:main";
+			
 		}else if(subscriptUser !=null) {
 			//구독권이 있거나 예전에 구매한 기록이 있을 경우
 			int t_no=1;
