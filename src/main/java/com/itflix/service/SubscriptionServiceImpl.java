@@ -69,10 +69,17 @@ public class SubscriptionServiceImpl implements SubscriptonService {
 		return subscriptionDao.updateSubscription(s_start,s_end,s_cardName,s_cardNumber,t_no, u_email);
 	}
 	
+	//구독권 삭제
+	@Override
+	public int deleteSubscription(String u_email) throws Exception {
+		return subscriptionDao.deleteSubscription(u_email);
+	}
+	
 	//구독권 구매자 찾기
 	@Override
 	public Subscription selectBuyTicket(String u_email) throws Exception {
 		return subscriptionDao.selectBuyTicket(u_email);
 	}
+
 
 }
