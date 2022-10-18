@@ -91,13 +91,14 @@ public class UserController {
 			 */
 			int result = user_InfoService.login(u_email, u_pass);
 			if (result == 1) {
-				User_Info loginUser = user_InfoService.selectByEmail(u_email);
-				Subscription userSubscription=subscriptonService.selectBuyTicket(u_email);
-				session.setAttribute("login_email", loginUser.getU_email());
-				session.setAttribute("login_user", loginUser);
-				session.setAttribute("subscript", userSubscription);
-				System.out.println(userSubscription);
-				forwardPath = "moviesingle?m_no=27";
+				/*
+				 * User_Info loginUser = user_InfoService.selectByEmail(u_email); Subscription
+				 * userSubscription=subscriptonService.selectBuyTicket(u_email);
+				 * session.setAttribute("login_email", loginUser.getU_email());
+				 * session.setAttribute("login_user", loginUser);
+				 * session.setAttribute("subscript", userSubscription);
+				 * System.out.println(userSubscription); forwardPath = "moviesingle?m_no=27";
+				 */
 			} else if (result == -1) {
 				// request.setAttribute("login_id", u_email);
 				// forwardPath = "ssss";

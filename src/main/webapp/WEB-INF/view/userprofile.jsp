@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -51,17 +52,18 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="form-style-1 user-pro" >
 						<form action="" name= "user" method="post">
-							<h4>회원의 상세페이지</h4>
+							<h4>회원의 상세페이지</h4> 
 							<div class="row">
 								<div class="col-md-6 form-it">
 									<label>이름</label>
-									<input type="text" value="${user_Info.u_name }" name="u_name" readonly>
+									<input type="text" value="${user_Info.u_name }" name="u_name" 
+									readonly style="background:#233a50;">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>이메일</label><input type="text"
 										value = "${user_Info.u_email}"
 										name="u_email"
-										readonly>
+										readonly style="background:#233a50;">
 								</div>
 							</div>
 							<div class="row">
@@ -69,14 +71,15 @@
 									<label>비밀번호</label><input type="password"
 										placeholder= "********"
 										name="u_pass"
-										readonly>
+										readonly style="background:#233a50;">
 								</div>
 								<div class="col-md-6 form-it">
 									<label>핸드폰 번호</label><input type="text"
 										placeholder= "${user_Info.u_phone}" 	
 										name="u_phone"
-										readonly>
+										readonly style="background:#233a50;">
 								</div>
+							<label style="align-self: auto; position: relative; left: 17px">구독권 종료일: <fmt:formatDate value="${subscription.s_end }" pattern="yyyy/MM/dd"/> </label>
 							</div>
 							<div class="row">
 								<div class="col-md-2">

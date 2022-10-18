@@ -245,7 +245,7 @@ input#search {
 					<%
 					} else if (login_user != null && subscription != null) {
 					%>
-					<a><img src="images/subscript.png" style="height: 40px;"></a>
+					<a><img src="images/subscript.png" style="height: 40px;"></a>&nbsp;&nbsp;&nbsp;
 					<li class="btn"><a href="userprofile">마이페이지</a></li>
 					<li><a href="user_logout_action">로그아웃</a></li>
 					<%
