@@ -412,9 +412,22 @@ public class MainController {
 		return forwardPath;
 	}
 		
-
-	
-	
-	
+	//리뷰 작성 페이지 
+	@RequestMapping(value = "noticeWrite")
+	public String noticeWrite(HttpServletRequest request, HttpSession session) throws Exception {
+		String forwardPath="";
+		/*
+		String user_Info = (String)session.getAttribute("login_email");
+		//관리자 계정이 아닐 경우, alert 표출 후 메인페이지로 이동
+		if (user_Info != "admin@gmail.com" || user_Info == null) {
+			request.setAttribute("msg", "관리자 계정이 아닙니다.");
+			request.setAttribute("url", "main");
+			return "alert";
+		}else {
+			forwardPath="noticeWrite";
+		}
+		*/
+		return forwardPath;
+	}
 
 }
