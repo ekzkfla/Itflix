@@ -89,9 +89,10 @@ public class UserRestController {
 					}else if(result2==-1) {
 					// 결제일 지남	
 						subscriptonService.deleteSubscription(loginUser.getU_email());
+						Subscription subscription2=subscriptonService.selectByEndDate(loginUser.getU_email());
 						session.setAttribute("login_email", loginUser.getU_email());
 						session.setAttribute("login_user", loginUser);
-						session.setAttribute("subscription", subscription);
+						session.setAttribute("subscription", subscription2);
 					}
 				}
 				code=1;

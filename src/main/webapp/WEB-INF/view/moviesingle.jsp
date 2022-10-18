@@ -75,24 +75,27 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 						
 						<div class="movie-btn">
 							<c:if test="${login_user != null }">
+								<!--구독권 결제가 완료 되고 기간이 남은 경우  -->
 								<c:if test="${subscription.ticket.t_no == 1}">
 								<div class="btn-transform transform-vertical red">
 									<div>
 										<a href="#" class="item item-1 redbtn"><i class="ion-play"></i>영화 시청</a>
 									</div>
 									<div>
-										<a href="${movie.m_url}"
-											class="item item-2 redbtn fancybox-media hvr-grow"><i
-											class="ion-play"></i></a>
+										<a href="${movie.m_url}" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a>
 									</div>
 								</div>
 								</c:if>
-							
-								<c:if test="${login_user != null }">
-									<c:if test="${subscription.ticket.t_no == 0 }">
-											<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
-									</c:if>
+								
+									<!--구독권 연장을 안한 경우  -->
+								<c:if test="${subscription.ticket.t_no == 0 }">
+									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
 								</c:if>
+								<!--구독권 구매를 안한 경우  -->
+								<c:if test="${subscription== null }">
+									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+								</c:if>
+						
 							</c:if>
 							
 							<c:if test="${login_user == null }">
