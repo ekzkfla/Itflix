@@ -1,8 +1,11 @@
+<%@page import="com.itflix.dto.User_Info"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+String login_email = (String) session.getAttribute("login_email");
+%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -24,16 +27,19 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <script type="text/javascript">
-	function searchNotice(){
-				if(document.Notice.keyword.value==""){
-					alert("키워드를 입력해주세요.");
-					return false;
-				}
-				document.Notice.action="searchNotice";
-				document.Notice.method="POST";
-				document.Notice.submitl
-			}
-		
+	function searchNotice() {
+		if (document.Notice.keyword.value == "") {
+			alert("키워드를 입력해주세요.");
+			return false;
+		}
+		document.Notice.action = "searchNotice";
+		document.Notice.method = "POST";
+		document.Notice.submitl
+	}
+
+	function noticeCreate() {
+		location.href = "noticeWrite.jsp";
+	}
 </script>
 <body>
 	<!-- BEGIN | Header -->
@@ -63,29 +69,33 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<!--분류 보드바 -->
 					<div class="topbar-filter">
-						<p>Found <span>${noticeTotal}개 </span>in total	</p>
-					
+						<p>
+							Found <span>${noticeTotal}개 </span>in total
+						</p>
+
 					</div>
 					<!--분류 보드바 -->
-					<!--공지사항 리스트   -->	
+					<!--공지사항 리스트   -->
 					<form name="f" method="Post">
-					<c:forEach items="${noticeList}" var ="notice"> 
-						<div class="blog-item-style-1 blog-item-style-3">
-							<img src="images//mylogo.png">
+						<c:forEach items="${noticeList}" var="notice">
+							<div class="blog-item-style-1 blog-item-style-3">
+								<img src="images//mylogo.png">
 								<div class="blog-it-infor">
-									<h3><a href="blogdetail?n_no=${notice.n_no}"  class="notice">${notice.n_title }</a></h3>
-									<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>
+									<h3>
+										<a href="blogdetail?n_no=${notice.n_no}" class="notice">${notice.n_title }</a>
+									</h3>
+									<span class="time"><fmt:formatDate
+											value="${notice.n_date}" pattern="yyyy/MM/dd" /></span>
 									<p>${notice.n_content}</p>
 								</div>
-						</div>
-					</c:forEach>
+							</div>
+						</c:forEach>
 					</form>
-					<!--공지사항 리스트   -->	
+					<!--공지사항 리스트   -->
 					<!--페이징 구현  -->
 					<ul class="pagination">
-						<li class="icon-prev">
-							<a href="#"><i class="ion-ios-arrow-left"></i></a>
-						</li>
+						<li class="icon-prev"><a href="#"><i
+								class="ion-ios-arrow-left"></i></a></li>
 						<li class="active"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
@@ -97,28 +107,38 @@
 								class="ion-ios-arrow-right"></i></a></li>
 					</ul>
 					<!--페이징 구현  -->
+					<!-- button -->
+					<c:if test="${login_email == 'admin@gmail.com'}">
+						<table>
+							<tr>
+								<td align="left"><input type="button" value="공지 쓰기"
+									onclick="noticeCreate();" /></td>
+							</tr>
+						</table>
+					</c:if>
 				</div>
-			 <!--분류 우측 보드바  -->	
-			  	<div class="col-md-3 col-sm-12 col-xs-12">
+				<!--분류 우측 보드바  -->
+				<div class="col-md-3 col-sm-12 col-xs-12">
 					<div class="sidebar">
 						<form name="Notice">
-						<div class="sb-search sb-it">
-							<h4 class="sb-title">Search</h4>
-							<input type="text" name="keyword" placeholder="Enter keywords" >
-							<input type="submit" placeholder="Enter keywords" onclick="searchNotice()">
-							
-						<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
-						</div>
+							<div class="sb-search sb-it">
+								<h4 class="sb-title">Search</h4>
+								<input type="text" name="keyword" placeholder="Enter keywords">
+								<input type="submit" placeholder="Enter keywords"
+									onclick="searchNotice()">
+
+								<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
+							</div>
 						</form>
 					</div>
 				</div>
-			 <!--분류 우측 보드바  -->	
+				<!--분류 우측 보드바  -->
 			</div>
 		</div>
 	</div>
 	<!-- 메인 공지사항 리스트  -->
-	
-	
+
+
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>
 	<!-- end of footer section-->
