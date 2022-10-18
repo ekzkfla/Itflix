@@ -76,6 +76,12 @@ public class SubscriptionDaoImpl implements SubscriptionDao{
 		return subscription;
 	*/
 	}
+	//구독 삭제
+	@Override
+	public int deleteSubscription(String u_email) throws Exception {
+		int deleteSubscrtion =subscription_Mapper.deleteSubscription(u_email);
+		return deleteSubscrtion;
+	}
 
 	//구독권 구매자 찾기
 	@Override
@@ -83,5 +89,6 @@ public class SubscriptionDaoImpl implements SubscriptionDao{
 		Subscription selectBuyTicket = subscription_Mapper.selectBuyTicket(u_email);
 		return selectBuyTicket;
 	}
+
 	
 }

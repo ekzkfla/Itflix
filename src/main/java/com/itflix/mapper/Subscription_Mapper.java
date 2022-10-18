@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -45,6 +46,10 @@ public interface Subscription_Mapper {
 	@ResultMap("SubscriptionWithUpdate")
 	public int updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email);
 	//public Subscription updateSubscription(int t_no, String u_email);
+	
+	//구독권 삭제
+	@Delete("delete from subscription where u_email=#{u_email}")
+	public int deleteSubscription(String u_email);
 	
 	//구독권 구매자 찾기
 	@Select("select s_end, t_no from subscription where u_email=#{u_email}")
