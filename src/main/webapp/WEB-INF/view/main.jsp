@@ -271,7 +271,7 @@ $(function(){
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
-														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="" width="185"
 															height="284">
 													</div>
 													<div class="hvr-inner">
@@ -302,7 +302,7 @@ $(function(){
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
-														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="" width="185"
 															height="284">
 													</div>
 													<div class="hvr-inner">
@@ -332,7 +332,7 @@ $(function(){
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
-														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="" width="185"
 															height="284">
 													</div>
 													<div class="hvr-inner">
@@ -362,7 +362,7 @@ $(function(){
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
-														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="" width="185"
 															height="284">
 													</div>
 													<div class="hvr-inner">
@@ -392,7 +392,7 @@ $(function(){
 											<div class="slide-it">
 												<div class="movie-item">
 													<div class="mv-img">
-														<img src="images/${movie.category.cg_name }/${movie.m_name }_2.jpg" alt="" width="185"
+														<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="" width="185"
 															height="284">
 													</div>
 													<div class="hvr-inner">
