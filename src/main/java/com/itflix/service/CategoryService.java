@@ -24,5 +24,7 @@ public interface CategoryService {
 	int deleteCategory(int no) throws Exception;
 	//카테고리별 영화 총 갯수
 	int countCategory(Integer cg_no) throws Exception;
+	//찜한 유저의 카테고리별 영화 갯수
+	public int countJjim(String u_email, int cg_no) throws Exception;
 	
 }

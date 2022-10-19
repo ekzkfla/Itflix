@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itflix.controller.interceptor.LoginCheck;
+import com.itflix.dto.Category;
 import com.itflix.dto.Jjim;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Review;
 import com.itflix.dto.Subscription;
 import com.itflix.dto.User_Info;
+import com.itflix.service.CategoryService;
 import com.itflix.service.JjimService;
 import com.itflix.service.ReviewService;
 import com.itflix.service.SubscriptonService;
@@ -37,6 +39,8 @@ public class UserController {
 	private ReviewService reviewService;
 	@Autowired
 	private SubscriptonService subscriptonService;
+	@Autowired
+	private CategoryService categoryService;
 	
 	/* 회원가입 */
 	@RequestMapping("CreateUser_action")
@@ -222,7 +226,6 @@ public class UserController {
 		List<Review> myReview = reviewService.selectWroteReview(u_email);
 		User_Info user_Info = user_InfoService.selectByEmail(u_email);
 		int reviewCount = reviewService.reviewCountByEmail(u_email);
-
 		model.addAttribute("myReview", myReview);
 		model.addAttribute("user_Info", user_Info);
 		model.addAttribute("reviewCount", reviewCount);
@@ -277,11 +280,20 @@ public class UserController {
 	@RequestMapping("userfavoriteCategorygrid")
 	public String jjimCategoryList(HttpServletRequest request, String cg_no) throws Exception {
 		String forwardPath = "";
-		User_Info user_Info = (User_Info) request.getSession().getAttribute("login_user");
-		String u_email = user_Info.getU_email();
-		List<Jjim> jjimList = jjimService.jjimCategoryList(u_email, Integer.parseInt(cg_no));
-		request.setAttribute("jjimList", jjimList);
-		forwardPath = "userfavoriteCategorygrid";
+		try {
+			User_Info user_Info = (User_Info) request.getSession().getAttribute("login_user");
+			String u_email = user_Info.getU_email();
+			List<Jjim> jjimList = jjimService.jjimCategoryList(u_email, Integer.parseInt(cg_no));
+			int jjimCount = jjimService.jjimCount(u_email);
+			int categoryCount = categoryService.countJjim(u_email, Integer.parseInt(cg_no));
+			request.setAttribute("jjimList", jjimList);
+			request.setAttribute("jjimCount", jjimCount);
+			request.setAttribute("categoryCount", categoryCount);
+			forwardPath = "userfavoriteCategorygrid";
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		return forwardPath;
 	}
 

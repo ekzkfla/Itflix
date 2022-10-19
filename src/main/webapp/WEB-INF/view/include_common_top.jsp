@@ -100,7 +100,7 @@ input#search {
 	<div class="login-wrapper" id="login-content">
 		<div class="login-content">
 			<a href="#" class="close">x</a>
-			<h3>Login</h3>
+			<h3>로그인</h3>
 			<form method="post" action="rest_user_login_action" id="login_form"
 				name="login_form">
 				<div class="row">
@@ -123,11 +123,11 @@ input#search {
 							<input type="checkbox" name="remember" value="Remember me"><span>Remember
 								me</span>
 						</div>
-						<a href="userSearch">Forget password ?</a>
+						<a href="userSearch">Forget ID/Password ?</a>
 					</div>
 				</div>
 				<div class="row">
-					<button type="submit">Login</button>
+					<button type="submit">확인</button>
 				</div>
 			</form>
 			<!-- 
@@ -146,7 +146,7 @@ input#search {
 	<div class="login-wrapper" id="signup-content">
 		<div class="login-content">
 			<a href="#" class="close">x</a>
-			<h3>sign up</h3>
+			<h3>회원가입</h3>
 
 			<form name="createUser" method="post" action="CreateUser_action">
 				<div class="row">
@@ -180,7 +180,7 @@ input#search {
 						required="required" /></label>
 				</div>
 				<div class="row">
-					<button type="submit" onclick="pwCheck()">sign up</button>
+					<button type="submit" onclick="pwCheck()">가입하기</button>
 				</div>
 			</form>
 		</div>

@@ -61,4 +61,14 @@ public interface Category_Mapper {
 	@Select("select count(*) from category c join movie m on c.cg_no=m.cg_no where c.cg_no=#{cg_no}")
 	public int countCategory(Integer cg_no);
 	
+	//찜한 유저의 카테고리별 영화 갯수
+	@Select("select count(*) \n"
+			+ "from category c \n"
+			+ "join movie m \n"
+			+ "on c.cg_no=m.cg_no\n"
+			+ "join jjim j \n"
+			+ "on j.m_no=m.m_no \n"
+			+ "where j.u_email = #{u_email} and c.cg_no=#{cg_no}")
+	public int countJjim(String u_email,int cg_no);
+	
 }

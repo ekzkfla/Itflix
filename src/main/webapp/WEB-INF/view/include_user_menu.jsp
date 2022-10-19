@@ -44,7 +44,7 @@
 							<li><a href="userfavoritegrid?u_email=${login_user.u_email}">나중에 볼 영화</a></li>
 							<li><a href="userrate?u_email=${login_user.u_email }">나의 리뷰<br> <br></a>
 							<li><a href="landing">구독권 결제<br> <br></a></li>
-							<li><a href="removeUser">회원 탈퇴</a></li>
+							<li><a href="removeUser" onclick="return confirm('정말 탈퇴하시겠습니까?');">회원 탈퇴</a></li>
 						</ul>
 						</c:if>
 						</form>

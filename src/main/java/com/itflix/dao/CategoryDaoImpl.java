@@ -87,6 +87,13 @@ public class CategoryDaoImpl implements CategoryDao{
 	int countCategory = category_Mapper.countCategory(cg_no);
 	return countCategory;
 	}
+	
+	//찜한 유저의 카테고리별 영화 갯수
+	@Override
+	public int countJjim(String u_email, int cg_no) throws Exception {
+		int countJjim = category_Mapper.countJjim(u_email, cg_no);
+		return countJjim;
+	}
 
 		
 }
