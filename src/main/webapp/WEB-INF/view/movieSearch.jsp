@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -22,18 +22,18 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<%
+	<%
 	String searchType = request.getParameter("searchType");
 	String keyword = request.getParameter("keyword");
-	if(searchType == null || searchType.equals("")){
+	if (searchType == null || searchType.equals("")) {
 		response.sendRedirect("main");
 		return;
-		}
-%>
+	}
+	%>
 	<!-- BEGIN | Header -->
-	<jsp:include page="include_common_top.jsp"/>
+	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
-	
+
 	<!--중앙 타이틀 화면 -->
 	<div class="hero common-hero">
 		<div class="container">
@@ -43,7 +43,8 @@
 						<h1>Search Movie List</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="index.jsp">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>검색어 xx에 연관된 Movie List</li>
+							<li><span class="ion-ios-arrow-right"></span>검색어 xx에 연관된
+								Movie List</li>
 						</ul>
 					</div>
 				</div>
@@ -55,20 +56,7 @@
 	<div class="page-single">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					
-					<!--페이징 수정필요!!!!!!!!!!!!  -->
-					<div class="topbar-filter">
-						<label>Movies per page:</label><select><option
-								value="range">20 Movies</option>
-							<option value="saab">10 Movies</option></select>
-						<div class="pagination2">
-							<span>Page 1 of 2:</span><a class="active" href="#">1</a><a
-								href="#">2</a><a href="#">3</a><a href="#">...</a><a href="#">78</a><a
-								href="#">79</a><a href="#"><i class="ion-arrow-right-b"></i></a>
-						</div>
-					</div>
-				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12"></div>
 			</div>
 		</div>
 	</div>
