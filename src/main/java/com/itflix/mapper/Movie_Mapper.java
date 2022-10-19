@@ -74,6 +74,13 @@ public interface Movie_Mapper {
 		@ResultMap("selectMovieResultMap")
 		public List<Movie> selectMovieName(String m_name);
 		
+		//영화 검색 결과 카운트 
+		@Select("select count(*)\n"
+				+ "from Movie m \n"
+				+ "where m_name LIKE '%'||#{m_name}||'%' or m_actor LIKE '%'||#{m_actor}||'%' \n"
+				+ "ORDER BY m.m_no ASC")
+		public int searchCount (String m_name);
+		
 		//영화 출연진 이름으로 검색
 		@Select("select m.m_no, m.m_name, m.m_actor, m.m_info, m.m_image, m.m_count, m.m_date, m.cg_no,\n"
 				+ "       avg(r.r_grade) as r_grade \n"
