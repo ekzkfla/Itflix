@@ -223,7 +223,7 @@ input[type="radio"] {
 			<img src="images/landing.jpg" alt="Logo">
 		</div>
 			<div class="center">
-				<li class="loginLink"><a class="redbtn">결제하기</a></li>
+				<li class="loginLink"><a class="redbtn" style="color:#ffffff; cursor: pointer;">결제하기</a></li>
 			</div>
 			<ul class="nav navbar-nav flex-child-menu menu-right">
 			</ul>
