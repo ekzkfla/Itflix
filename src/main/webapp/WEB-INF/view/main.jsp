@@ -432,7 +432,7 @@ $(function(){
 			<div class="row ipad-width">
 				<div class="col-md-12">
 					<div class="title-hd">
-						<h2>Trailer</h2>
+						<h2>예고편</h2>
 						<a href="moviegridfw" class="viewall">전체보기 <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
@@ -477,7 +477,7 @@ $(function(){
 				<div class="col-md-8">
 					<div class="title-hd">
 						<h2>최신 공지사항</h2>
-					<a href="noticeList" class="viewall">전체 공지사항 <i
+					<a href="noticeList" class="viewall">전체보기 <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">
