@@ -51,7 +51,7 @@ function deleteNotice(){
 						<h1>공지 사항</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>공지 리스트</li>
+							<li><span class="ion-ios-arrow-right"></span>NOTICE</li>
 						</ul>
 					</div>
 				</div>
@@ -83,13 +83,13 @@ function deleteNotice(){
 						</form>
 						<div class="flex-it share-tag">
 							<div class="right-it">
-								<h4><a href="noticeList" style="background:#dd003f; color: #ffffff; font-size: 20px; border-radius: 4px;">Back</a></h4>
+								<h4><a href="noticeList" style="background:#dd003f; color: #ffffff; font-size: 20px; border-radius: 4px;">뒤로가기</a></h4>
 							</div>
 						<c:if test="${login_email == 'admin@gmail.com' && login_email != null}">
 							<tr>
-								<td align="left" ><input type="button" value="수정하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px;"
+								<td align="left" ><input type="button" value="수정하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px; border:none;"
 									onclick="noticeModify()" /></td>
-								<td align="left"><input type="button" value="삭제하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px;"
+								<td align="left"><input type="button" value="삭제하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px; border:none;"
 									onclick="deleteNotice()" /></td>
 							</tr>
 							<tr>
