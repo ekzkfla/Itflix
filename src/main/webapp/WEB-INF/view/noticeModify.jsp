@@ -91,7 +91,7 @@ String login_email = (String) session.getAttribute("login_email");
 														<div class="row">
 
 															<a class="redbtn" style="cursor: pointer;"
-																onclick="noticeModify_action();"> 공지 작성 </a>
+																onclick="noticeModify_action();"> 공지 수정 </a>
 
 														</div>
 													</div>

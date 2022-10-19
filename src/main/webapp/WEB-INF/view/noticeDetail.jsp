@@ -30,6 +30,13 @@ function noticeModify() {
 	document.detail.method = "POST";
 	document.detail.submit();
 }
+function deleteNotice(){
+	document.detail.action = "deleteNotice_action";
+	document.detail.method = "POST";
+	document.detail.submit();
+}
+
+
 </script>	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
@@ -80,8 +87,12 @@ function noticeModify() {
 							</div>
 						<c:if test="${login_email == 'admin@gmail.com' && login_email != null}">
 							<tr>
-								<td align="left"><input type="button" value="수정하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px;"
+								<td align="left" ><input type="button" value="수정하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px;"
 									onclick="noticeModify()" /></td>
+								<td align="left"><input type="button" value="삭제하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px;"
+									onclick="deleteNotice()" /></td>
+							</tr>
+							<tr>
 							</tr>
 						</c:if>
 						</div>

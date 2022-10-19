@@ -208,19 +208,19 @@ public class MainController {
 	}
 	
 	//공지사항 페이지
-		@RequestMapping(value = "noticeList")
-		public String noticeList(Model model)throws Exception {
-			String forwardPath="";
-	
-					List<Notice> noticeList = noticeService.selectAll();
-					int noticeTotal = noticeService.totalCount();
-					model.addAttribute("noticeTotal", noticeTotal);
-					model.addAttribute("noticeList", noticeList);
-					forwardPath = "noticeList";
-			
-					
-				return forwardPath;
-		}
+	@RequestMapping(value = "noticeList")
+	public String noticeList(Model model)throws Exception {
+		String forwardPath="";
+
+				List<Notice> noticeList = noticeService.selectAll();
+				int noticeTotal = noticeService.totalCount();
+				model.addAttribute("noticeTotal", noticeTotal);
+				model.addAttribute("noticeList", noticeList);
+				forwardPath = "noticeList";
+		
+				
+			return forwardPath;
+	}
 	
 	//공지사항 상세페이지
 	@RequestMapping(value = "/noticeDetail", params = "n_no")
@@ -306,6 +306,15 @@ public class MainController {
 		return "searchNotice";
 	}
 	
+	//공지사항 삭제 action
+	@RequestMapping(value = "deleteNotice_action")
+	public String deleteNotice_action(@RequestParam int n_no, Model model) throws Exception {
+		int result=noticeService.deleteNotice(n_no);
+		System.out.println(result);
+		List<Notice>noticeList=noticeService.selectAll();
+		model.addAttribute("noticeList", noticeList);
+		return "noticeList";
+	}
 
 	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
