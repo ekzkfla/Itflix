@@ -101,15 +101,15 @@ public class UserRestController {
 				
 			} else if (result == -1) {
 				code=2;
-				msg="비빌번호 불일치";
+				msg="비밀번호가 일치하지 않습니다.";
 			} else if (result == -2) {
 				code=3;
-				msg="아이디존재안함";
+				msg="아이디가 존재하지 않습니다.";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			code=4;
-			msg="듣보잡";
+			msg="잘못 된 로그인 입니다.";
 		}
 		
 		resultMap.put("code", code);

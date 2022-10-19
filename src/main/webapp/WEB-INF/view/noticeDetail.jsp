@@ -48,10 +48,10 @@ function deleteNotice(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1>blog detail</h1>
+						<h1>공지 사항</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>blog listing</li>
+							<li><span class="ion-ios-arrow-right"></span>공지 리스트</li>
 						</ul>
 					</div>
 				</div>

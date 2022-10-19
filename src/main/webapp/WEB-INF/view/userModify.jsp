@@ -70,23 +70,22 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 				</div>
 				<div class="row">
 					<div class="col-md-6 form-it">
-						<label>예전 비밀번호</label> <input type="text" name="userPass"
-							placeholder="********">
+						<label>예전 비밀번호</label> <input type="password" name="userPass"
+							placeholder="비밀번호를 입력하세요">
 					</div>
 					<div class="col-md-6 form-it">
 						<label>핸드폰 번호</label> <input type="text" name="u_phone"
-							value="${user_Info.u_phone}">
-						<!-- pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$"> -->
+							value="${user_Info.u_phone}" placeholder="010-0000-0000" pattern="^(?:\d{3}|\(\d{3}\))([-\/\.])\d{4}\1\d{4}$">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 form-it">
-						<label>새로운 비밀번호</label> <input type="password" name="userPass1">
-						<!-- 	pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
+						<label>새로운 비밀번호</label> <input type="password" name="userPass1" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 					</div>
 					<div class="col-md-6 form-it">
-						<label>새로운 비밀번호 확인</label> <input type="password" name="userPass2">
-						<!-- pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
+						<label>새로운 비밀번호 확인</label> <input type="password" name="userPass2" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
 					</div>
 				</div>
 				<div class="row">
