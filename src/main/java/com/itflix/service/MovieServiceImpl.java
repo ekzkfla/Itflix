@@ -54,7 +54,13 @@ public class MovieServiceImpl implements MovieService {
 	public List<Movie> selectMovieName(String name) throws Exception {
 		return movieDao.selectMovieName(name);
 	}
-
+	
+	//영화 검색 결과 카운트
+	public int searchCount (String m_name)throws Exception{
+		return movieDao.searchCount(m_name);
+	}
+	
+	
 	//영화 출연진 이름으로 검색
 	@Override
 	public List<Movie> selectMovieActor(String name) throws Exception {

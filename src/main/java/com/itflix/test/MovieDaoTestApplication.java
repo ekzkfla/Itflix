@@ -48,7 +48,7 @@ public class MovieDaoTestApplication {
 		 //System.out.println(movieService.searchActor("라"));
 		 //System.out.println(movieService.searchMovie("정"));
 		 //System.out.println(movieService.movieCountPlus(1));
-
+		 System.out.println(movieService.searchCount("정직"));
 	}
 
 }

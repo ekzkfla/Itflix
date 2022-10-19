@@ -111,7 +111,9 @@ public class MainController {
 			String searchKey = request.getParameter("searchText");
 			System.out.println(searchKey);
 			List<Movie>movieList=movieService.selectMovieName(searchKey);
+			int movieCount=movieService.searchCount(searchKey);
 			request.setAttribute("movieList", movieList);
+			request.setAttribute("movieCount", movieCount);
 			System.out.println(movieList);
 			msg = "성공";
 			System.out.println(msg);
