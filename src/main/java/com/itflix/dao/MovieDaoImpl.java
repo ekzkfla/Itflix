@@ -1,5 +1,6 @@
 package com.itflix.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,12 +128,12 @@ public class MovieDaoImpl implements MovieDao {
 		return movie;
 	}
 
-	//영화 추가
-	@Override
-	public int insertMovie(Movie movie) throws Exception {
-		int insertMovie = movie_Mapper.insertMovie(movie);
-		return insertMovie;
-	}
+	/*
+	 * //영화 추가
+	 * 
+	 * @Override public int insertMovie(Movie movie) throws Exception { int
+	 * insertMovie = movie_Mapper.insertMovie(movie); return insertMovie; }
+	 */
 
 	//영화 변경
 	@Override
@@ -166,5 +167,13 @@ public class MovieDaoImpl implements MovieDao {
 	public List<Movie> searchMovie(String name) throws Exception {
 		List<Movie> searchMovie =movie_Mapper.searchMovie(name);
 		return searchMovie;
+	}
+	
+	//영화 추가
+	@Override
+	public int insertMovie(int m_no, String m_name, String m_actor, String m_info, String m_image, int m_count,
+			Date m_date, String m_url, int m_groupno, int m_step, int m_depth, int cg_no) throws Exception {
+		int insertMovie =movie_Mapper.insertMovie(m_no, m_name, m_actor, m_info, m_image, m_count, m_date, m_url, m_groupno, m_step, m_depth, cg_no);
+		return insertMovie;
 	}
 }

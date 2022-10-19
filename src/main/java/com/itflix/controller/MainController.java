@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.itflix.controller.interceptor.LoginCheck;
+import com.itflix.dto.Category;
 import com.itflix.dto.Movie;
 import com.itflix.dto.Notice;
 import com.itflix.dto.Review;
@@ -197,7 +198,24 @@ public class MainController {
 		return "movieInsert";
 	}
 	
-	
+	//영화 생성 action
+	@RequestMapping(value = "movieInsert_action")
+	public String movieInsert_action(HttpServletRequest request) throws Exception {
+		String m_name=request.getParameter("m_name");
+		String cg_no=request.getParameter("cg_no");
+		String m_actor=request.getParameter("m_actor");
+		String m_date=request.getParameter("m_date");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		Date m_Date2=format.parse(m_date);
+		String m_info=request.getParameter("m_info");
+		String m_image=request.getParameter("m_image");
+		String m_url=request.getParameter("m_url");
+		
+		int result=movieService.insertMovie(0, m_name, m_actor, m_info, m_image, 0, m_Date2, m_url, 0, 0, 0, Integer.parseInt(cg_no));
+		System.out.println(result);
+		
+		return "moviegridfw";
+	}
 	
 	//리뷰 리스트 페이지
 	@RequestMapping(value = "reviewlist",params = "m_no")

@@ -46,6 +46,23 @@
 			<result column="r_grade" property="r_grade" />
 		</collection>
 	</resultMap>
+<!-- 
+	<resultMap id="insert_resultMap" type="com.itflix.dto.Movie" >
+		<result column="m_no" property="m_no"/>
+		<result column="m_name" property="m_name"/>
+		<result column="m_actor" property="m_actor"/>
+		<result column="m_info" property="m_info"/>
+		<result column="m_image" property="m_image"/>
+		<result column="m_date" property="m_date"/>
+		<result column="m_url" property="m_url"/>
+		<association  property="category" javaType="com.itflix.dto.Category">
+			<result column="cg_no" property="cg_no"/>		
+		</association>
+	</resultMap>
+ -->
+
+
+
 
 	<!-- 수정중 -->
 	<resultMap id="selectMovieRecentReviewResultMap"

@@ -1,11 +1,17 @@
 package com.itflix.test;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.itflix.dao.MovieDao;
+import com.itflix.dto.Category;
+import com.itflix.dto.Movie;
 import com.itflix.service.MovieService;
 
 @SpringBootApplication
@@ -48,7 +54,11 @@ public class MovieDaoTestApplication {
 		 //System.out.println(movieService.searchActor("라"));
 		 //System.out.println(movieService.searchMovie("정"));
 		 //System.out.println(movieService.movieCountPlus(1));
-		 System.out.println(movieService.searchCount("정직"));
+		 //System.out.println(movieService.searchCount("정직"));
+		 SimpleDateFormat format= new SimpleDateFormat("yyyy/mm/dd");
+		 Date date=format.parse("2022/12/30");
+		 //Movie movie = new Movie(0, "안녕",	"안녕", "안녕","안녕.jpg", 0, date, "안녕", 0, 0,0, new Category(1, null, null, null), null, null, null);
+		 System.out.println(movieService.insertMovie(0, "안녕", "안녕", "안녕", "안녕", 0, date, "안녕", 0, 0, 0, 1));
 	}
 
 }

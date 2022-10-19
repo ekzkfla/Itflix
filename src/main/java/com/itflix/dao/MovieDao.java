@@ -1,5 +1,6 @@
 package com.itflix.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.itflix.dto.Movie;
@@ -43,12 +44,21 @@ public interface MovieDao {
 		List<Movie> searchMovie(String name) throws Exception;
 
 		//영화 추가
-		int insertMovie(Movie movie)throws Exception;
+		//int insertMovie(Movie movie)throws Exception;
 		//영화 변경
 		int updateMovie(Movie movie)throws Exception;
 		//영화 삭제
 		int deleteMovie(int no)throws Exception;
 		//영화 전체 총 갯수
 		int movieAllCount() throws Exception;
+		
+		//영화추가
+		int insertMovie(int m_no,String m_name,
+						String m_actor,String m_info,
+						String m_image,int m_count,
+						Date m_date,String m_url,
+						int m_groupno,int m_step,
+						int m_depth,int cg_no)throws Exception;
+		
 		
 }
