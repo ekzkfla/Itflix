@@ -67,14 +67,16 @@ String login_email = (String) session.getAttribute("login_email");
 													<div>
 														<textarea class="col-auto form-control" type="text"
 															name="n_title" placeholder="제목을 입력해주세요!"
-															style="width: 100%; height: 5em; border: none; resize: none;"></textarea>
+															style="width: 100%; height: 5em; border: none; resize: none;
+															background: #233a50;"></textarea>
 													</div>
 													<br>
 													<!--공지 내용  -->
 													<div>
 														<textarea class="col-auto form-control" type="text"
 															name="n_content" placeholder="내용을 입력해 주세요!!"
-															style="width: 100%; height: 30em; border: none; resize: none;"></textarea>
+															style="width: 100%; height: 30em; border: none; resize: none; 
+															background: #233a50;"></textarea>
 													</div>
 													<div class="landing-hero">
 														<div class="row">
