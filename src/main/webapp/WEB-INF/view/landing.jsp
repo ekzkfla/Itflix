@@ -135,7 +135,7 @@ input[type="radio"] {
 												<div class="input-group">
 													
 														<select name="s_cardMonth"  >
-															<option value="0" selected="selected" >선택 </option>
+															<option value="0" >선택 </option>
 															<option value="1">1월 </option>
 															<option value="2">2월 </option>
 															<option value="3">3월 </option>

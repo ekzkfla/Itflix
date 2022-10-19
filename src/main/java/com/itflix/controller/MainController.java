@@ -191,6 +191,14 @@ public class MainController {
 		return "moviesingle";
 	}
 	
+	//영화 추가 페이지 
+	@RequestMapping(value = "movieInsert")
+	public String movieInsert() {
+		return "movieInsert";
+	}
+	
+	
+	
 	//리뷰 리스트 페이지
 	@RequestMapping(value = "reviewlist",params = "m_no")
 	public String reviewlist(@RequestParam int m_no, Model model)throws Exception{
