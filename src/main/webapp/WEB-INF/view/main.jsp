@@ -109,7 +109,7 @@ $(function(){
 					<!--조회수 별 카테고리   -->
 					<div class="title-hd">
 						<h2>영화 순위</h2>
-						<a href="moviegridfw" class="viewall">View all <i
+						<a href="moviegridfw" class="viewall">전체보기 <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">
@@ -133,7 +133,7 @@ $(function(){
 														height="284">
 												</div>
 												<div class="hvr-inner">
-													<a href="moviesingle?m_no=${movie.m_no}">Read more <i
+													<a href="moviesingle?m_no=${movie.m_no}">더보기 <i
 														class="ion-android-arrow-dropright"></i></a>
 												</div>
 												<div class="title-in">
@@ -163,7 +163,7 @@ $(function(){
 														height="284">
 												</div>
 												<div class="hvr-inner">
-													<a href="moviesingle?m_no=${movie.m_no}">Read more <i
+													<a href="moviesingle?m_no=${movie.m_no}">더보기 <i
 														class="ion-android-arrow-dropright"></i></a>
 												</div>
 												<div class="title-in">
@@ -193,7 +193,7 @@ $(function(){
 														height="284">
 												</div>
 												<div class="hvr-inner">
-													<a href="moviesingle?m_no=${movie.m_no}">Read more <i
+													<a href="moviesingle?m_no=${movie.m_no}">더보기 <i
 														class="ion-android-arrow-dropright"></i></a>
 												</div>
 												<div class="title-in">
@@ -217,7 +217,7 @@ $(function(){
 				<!--카테고리별 영화 리스트  -->
 					<div class="title-hd">
 						<h2>장르별 영화리스트</h2>
-						<a href="moviegridfw" class="viewall">View all <i
+						<a href="moviegridfw" class="viewall">전체보기 <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">
@@ -244,7 +244,7 @@ $(function(){
 															height="284">
 													</div>
 													<div class="hvr-inner">
-														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+														<a href="moviesingle?m_no=${movie.m_no }">더보기 <i
 															class="ion-android-arrow-dropright"></i></a>
 													</div>
 													<div class="title-in">
@@ -275,7 +275,7 @@ $(function(){
 															height="284">
 													</div>
 													<div class="hvr-inner">
-														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+														<a href="moviesingle?m_no=${movie.m_no }">더보기 <i
 															class="ion-android-arrow-dropright"></i></a>
 													</div>
 													<div class="title-in">
@@ -306,7 +306,7 @@ $(function(){
 															height="284">
 													</div>
 													<div class="hvr-inner">
-														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+														<a href="moviesingle?m_no=${movie.m_no }">더보기 <i
 															class="ion-android-arrow-dropright"></i></a>
 													</div>
 													<div class="title-in">
@@ -336,7 +336,7 @@ $(function(){
 															height="284">
 													</div>
 													<div class="hvr-inner">
-														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+														<a href="moviesingle?m_no=${movie.m_no }">더보기 <i
 															class="ion-android-arrow-dropright"></i></a>
 													</div>
 													<div class="title-in">
@@ -366,7 +366,7 @@ $(function(){
 															height="284">
 													</div>
 													<div class="hvr-inner">
-														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+														<a href="moviesingle?m_no=${movie.m_no }">더보기 <i
 															class="ion-android-arrow-dropright"></i></a>
 													</div>
 													<div class="title-in">
@@ -396,7 +396,7 @@ $(function(){
 															height="284">
 													</div>
 													<div class="hvr-inner">
-														<a href="moviesingle?m_no=${movie.m_no }">Read more <i
+														<a href="moviesingle?m_no=${movie.m_no }">더보기 <i
 															class="ion-android-arrow-dropright"></i></a>
 													</div>
 													<div class="title-in">
@@ -432,8 +432,8 @@ $(function(){
 			<div class="row ipad-width">
 				<div class="col-md-12">
 					<div class="title-hd">
-						<h2>Trailer</h2>
-						<a href="moviegridfw" class="viewall">View all <i
+						<h2>예고편</h2>
+						<a href="moviegridfw" class="viewall">전체보기 <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="videos" >
@@ -477,7 +477,7 @@ $(function(){
 				<div class="col-md-8">
 					<div class="title-hd">
 						<h2>최신 공지사항</h2>
-					<a href="noticeList" class="viewall">전체 공지사항 <i
+					<a href="noticeList" class="viewall">전체보기 <i
 							class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">

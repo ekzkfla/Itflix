@@ -73,8 +73,6 @@ input#search {
         
             if( p1 != p2 ) {
               alert("비밀번호가 일치하지 않습니다");
-              document.createUser.action="main";
-              document.createUser.method="POST";
               return false;
             } else if(p1 ==p2){
               document.createUser.action="CreateUser_action";

@@ -73,7 +73,7 @@
 						<div class="blog-item-style-1 blog-item-style-3">
 							<img src="images//mylogo.png">
 								<div class="blog-it-infor">
-									<h3><a href="blogdetail?n_no=${notice.n_no}"  class="notice">${notice.n_title }</a></h3>
+									<h3><a href="noticeDetail?n_no=${notice.n_no}"  class="notice">${notice.n_title }</a></h3>
 									<span class="time"><fmt:formatDate value="${notice.n_date}" pattern="yyyy/MM/dd"/></span>
 									<p>${notice.n_content}</p>
 								</div>
@@ -81,22 +81,6 @@
 					</c:forEach>
 					</form>
 					<!--공지사항 리스트   -->	
-					<!--페이징 구현  -->
-					<ul class="pagination">
-						<li class="icon-prev">
-							<a href="#"><i class="ion-ios-arrow-left"></i></a>
-						</li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">...</a></li>
-						<li><a href="#">21</a></li>
-						<li><a href="#">22</a></li>
-						<li class="icon-next"><a href="#"><i
-								class="ion-ios-arrow-right"></i></a></li>
-					</ul>
-					<!--페이징 구현  -->
 				</div>
 			 <!--분류 우측 보드바  -->	
 			  	<div class="col-md-3 col-sm-12 col-xs-12">
@@ -104,8 +88,8 @@
 						<form name="Notice">
 						<div class="sb-search sb-it">
 							<h4 class="sb-title">Search</h4>
-							<input type="text" name="keyword" placeholder="Enter keywords" style="background-color: #233a50; background:url" >
-							<input type="submit" placeholder="Enter keywords" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()">
+							<input type="text" name="keyword" placeholder="공지 검색" style="background-color: #233a50; background:url" >
+							<input type="submit" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()">
 							
 						<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
 						</div>

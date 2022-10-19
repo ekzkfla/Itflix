@@ -64,10 +64,10 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1>Movie List</h1>
+						<h1>영화 전체 리스트</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="index.jsp">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>movie listing</li>
+							<li><span class="ion-ios-arrow-right"></span>movies</li>
 						</ul>
 					</div>
 				</div>
@@ -82,7 +82,7 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<!--분류 보드바 -->
 					<div class="topbar-filter fw">
-						<p>Found 총<span>${movieCount}개</span>	</p>
+						<p>총 <span>${movieCount}</span> 개</p>
 							<select id="cate1" name="cate1" onchange="categoryChane()">
 								<option value="popularity">카테고리</option>
 								<option value="1">액션</option>
@@ -100,7 +100,7 @@
 								<div class="movie-item-style-2 movie-item-style-1">
 									<img src="images/${movie.category.cg_name }/${movie.m_name }_1.jpg" alt="">
 									<div class="hvr-inner">
-										<a href="moviesingle?m_no=${movie.m_no}">Read more 
+										<a href="moviesingle?m_no=${movie.m_no}">더보기 
 										<i class="ion-android-arrow-dropright"></i>
 										</a>
 									</div>

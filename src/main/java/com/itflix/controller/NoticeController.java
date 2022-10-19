@@ -73,15 +73,31 @@ public class NoticeController {
 		//공지사항 작성 action
 		@RequestMapping(value = "noticeWrite_action")
 		public String noticeWrite_action(HttpServletRequest request, Model model) throws Exception {
+			String msg = "";
 			String n_title=request.getParameter("n_title");
 			String n_content=request.getParameter("n_content");
+			try {
+				if(n_title.equals("")) {
+					msg = "제목을 입력하세요.";
+					request.setAttribute("msg", msg);
+					request.setAttribute("url", "noticeWrite");
+					return "alert";
+				}else if(n_content.equals("")) {
+					msg = "내용을 입력하세요.";
+					request.setAttribute("msg", msg);
+					request.setAttribute("url", "noticeWrite");
+					return "alert";					
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("오류체크");
+			}
 			Notice notice=new Notice(0, null, n_title, n_content, 0, 0, 0);
 			int result=noticeService.insertNotice(notice);
 			List<Notice>noticeList = noticeService.selectAll();
 			model.addAttribute("noticeList", noticeList);
 			System.out.println(result);
 			return "noticeList";
-			
 		}
 		
 		//공지사항 수정 페이지
