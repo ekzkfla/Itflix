@@ -183,8 +183,8 @@
 														<!-- ↓↓↓영화 이미지(m_image)↓↓↓ -->
 														<h3>사진</h3>
 														<label class="input_file_button" for="m_image"> <input
-															type="file" multiple="multiple" name=m_image
-															class="m_image" value="사진 추가하기">
+															type="file" multiple="multiple"  name=m_image
+															class="m_image" value="">
 														</label><br> <br>
 														<!-- ↓↓↓영화 url(m_url)↓↓↓ -->
 														<h3>URL</h3>

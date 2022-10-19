@@ -200,7 +200,7 @@ public class MainController {
 	
 	//영화 생성 action
 	@RequestMapping(value = "movieInsert_action")
-	public String movieInsert_action(HttpServletRequest request) throws Exception {
+	public String movieInsert_action(HttpServletRequest request, Model model) throws Exception {
 		String m_name=request.getParameter("m_name");
 		String cg_no=request.getParameter("cg_no");
 		String m_actor=request.getParameter("m_actor");
@@ -213,7 +213,10 @@ public class MainController {
 		
 		int result=movieService.insertMovie(0, m_name, m_actor, m_info, m_image, 0, m_Date2, m_url, 0, 0, 0, Integer.parseInt(cg_no));
 		System.out.println(result);
-		
+		int movieCount = movieService.movieAllCount();
+		List<Movie> movieList = movieService.selectAllNoFilter();
+		model.addAttribute("movieCount", movieCount);
+		model.addAttribute("movieList", movieList);
 		return "moviegridfw";
 	}
 	
