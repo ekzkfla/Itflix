@@ -58,7 +58,7 @@ String login_email = (String) session.getAttribute("login_email");
 											<div class="col-md-8 col-sm-12 col-xs-12">
 												<!-- 상단 -->
 												<div class="title-hd-sm">
-													<h4>공지 작성</h4>
+													<h4></h4>
 												</div>
 
 												<!--공지 타이틀 부분   -->
@@ -80,7 +80,6 @@ String login_email = (String) session.getAttribute("login_email");
 													</div>
 													<div class="landing-hero">
 														<div class="row">
-
 															<a class="redbtn" style="cursor: pointer;"
 																onclick="noticeWrite_action();"> 공지 작성 </a>
 
