@@ -211,7 +211,7 @@ public class MainController {
 		String m_image=request.getParameter("m_image");
 		String m_url=request.getParameter("m_url");
 		
-		int result=movieService.insertMovie(new Movie(0, m_name, m_actor, m_info, m_image, 0, m_Date2, m_url, 0, 0, 0, new Category(Integer.parseInt(cg_no), null, null, null), null,null, null));
+		int result=movieService.insertMovie(0, m_name, m_actor, m_info, m_image, 0, m_Date2, m_url, 0, 0, 0, Integer.parseInt(cg_no));
 		System.out.println(result);
 		
 		return "moviegridfw";
