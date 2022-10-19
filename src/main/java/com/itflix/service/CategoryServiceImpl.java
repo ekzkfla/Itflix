@@ -79,6 +79,12 @@ public class CategoryServiceImpl implements CategoryService{
 	public int countCategory(Integer cg_no) throws Exception {
 	return categoryDao.countCategory(cg_no);
 	}
+	
+	//찜한 유저의 카테고리별 영화 갯수
+	@Override
+	public int countJjim(String u_email, int cg_no) throws Exception {
+		return categoryDao.countJjim(u_email, cg_no);
+	}
 
 	
 	

@@ -49,7 +49,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h2>${login_user.u_name} 님의 리뷰 리스트</h2>
+						<h1>${login_user.u_name} profile</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Rated movies</li>
