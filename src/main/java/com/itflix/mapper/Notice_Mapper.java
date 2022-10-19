@@ -20,7 +20,7 @@ public interface Notice_Mapper {
 	public List<Notice> selectPageList();
 	
 	//공지사항 전체 출력
-	@Select("select * from notice")
+	@Select("select * from notice order by n_date Desc")
 	public List<Notice> selectAll();
 	
 	//공지사항 전체 갯수 출력

@@ -31,8 +31,10 @@
 						<c:if test="${login_email=='admin@gmail.com'}">
 							<ul>
 							<li><a href="userprofile">프로필</a></li>
+							<li><a href="movieInsert">영화 추가 <br></a>
 							<li><a href="moviegridfw">영화 리스트 <br></a>
-							<li><a href="noticeList">공지사항리스트 </a></li>
+							<li><a href="noticeWrite">공지사항 추가 </a></li>
+							<li><a href="noticeList">공지사항 리스트 </a></li>
 						</ul>	
 						</c:if>
 						<!--유저 UI  -->						

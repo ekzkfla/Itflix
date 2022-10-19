@@ -92,21 +92,6 @@ String login_email = (String) session.getAttribute("login_email");
 						</c:forEach>
 					</form>
 					<!--공지사항 리스트   -->
-					<!--페이징 구현  -->
-					<ul class="pagination">
-						<li class="icon-prev"><a href="#"><i
-								class="ion-ios-arrow-left"></i></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">...</a></li>
-						<li><a href="#">21</a></li>
-						<li><a href="#">22</a></li>
-						<li class="icon-next"><a href="#"><i
-								class="ion-ios-arrow-right"></i></a></li>
-					</ul>
-					<!--페이징 구현  -->
 					<!-- button -->
 					<c:if test="${login_email == 'admin@gmail.com' && login_email != null}">
 						<table>
@@ -123,7 +108,7 @@ String login_email = (String) session.getAttribute("login_email");
 						<form name="Notice">
 							<div class="sb-search sb-it">
 								<h4 class="sb-title">Search</h4>
-								<input type="text" name="keyword" placeholder="Enter keywords">
+								<input type="text" name="keyword" placeholder="Enter keywords" style="background:#233a50">
 									<input type="submit" placeholder="Enter keywords" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()">
 								<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
 							</div>
