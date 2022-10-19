@@ -118,13 +118,13 @@ function reviewWrite_action() {
 													<div>
 														<textarea class="col-auto form-control" type="text" name="r_title" 
 																  placeholder="제목을입력해주세요!"
-																  style="width: 100%; height: 5em; border: none; resize:none; background:#233a50 "></textarea>
+																  style="width: 100%; height: 5em; border: none; resize:none; background:#233a50;color: #ffffff; "></textarea>
 													</div><br>
 													<!--리뷰 내용  -->
 													<div>
 														<textarea class="col-auto form-control" type="text" name="r_content"
 																  placeholder="내용을 입력해 주세요!!"
-																  style="width: 100%; height: 30em; border: none; resize:none;background:#233a50"></textarea>
+																  style="width: 100%; height: 30em; border: none; resize:none;background:#233a50; color: #ffffff;"></textarea>
 													</div>
 										<div class="landing-hero">
 											<div class="row">
