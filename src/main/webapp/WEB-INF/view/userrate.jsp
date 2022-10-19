@@ -67,12 +67,6 @@
 						<p>
 							Found <span>${reviewCount} rates</span>in total
 						</p>
-						<label>Sort by:</label><select><option value="popularity">카테고리</option>
-							<option value="cg=1">액션</option>
-							<option value="cg=2" >로맨스</option>
-							<option value="cg=3">SF/미스터리</option>
-							<option value="cg=4">코미디</option>
-							<option value="date">드라마</option></select>
 					</div>
 					<c:forEach items="${myReview}" var="review">
 						<div class="movie-item-style-2 userrate">
