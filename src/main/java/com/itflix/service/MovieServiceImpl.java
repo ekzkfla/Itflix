@@ -1,5 +1,6 @@
 package com.itflix.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,12 +116,6 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.movieCountPlus(no);
 	}
 
-	//영화 추가
-	@Override
-	public int insertMovie(Movie movie) throws Exception {
-		return movieDao.insertMovie(movie);
-	}
-
 	//영화 변경
 	@Override
 	public int updateMovie(Movie movie) throws Exception {
@@ -148,6 +143,12 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public List<Movie> searchMovie(String name) throws Exception {
 		return movieDao.searchMovie(name);
+	}
+	//영화 추가
+	@Override
+	public int insertMovie(int m_no, String m_name, String m_actor, String m_info, String m_image, int m_count,
+			Date m_date, String m_url, int m_groupno, int m_step, int m_depth, int cg_no) throws Exception {
+		return movieDao.insertMovie(m_no, m_name, m_actor, m_info, m_image, m_count, m_date, m_url, m_groupno, m_step, m_depth, cg_no);
 	}
 	
 }

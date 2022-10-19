@@ -1,6 +1,7 @@
 package com.itflix.mapper;
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -8,6 +9,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import com.itflix.dto.Movie;
@@ -186,7 +188,8 @@ public interface Movie_Mapper {
 		//영화 추가 
 		@Insert("insert into Movie values(#{m_no}, #{m_name}, #{m_actor}, #{m_info}, #{m_image},\n"
 				+ "#{m_count}, #{m_date}, #{m_url}, #{m_groupno}, #{m_step}, #{m_depth}, #{cg_no})")
-		public int insertMovie(Movie movie);
+		@SelectKey(statement ="select movie_m_no_seq.nextval from dual", keyProperty = "m_no", before = true,resultType = Integer.class )
+		public int insertMovie(int m_no,String m_name,String m_actor,String m_info,String m_image,int m_count,Date m_date,String m_url,int m_groupno,int m_step,int m_depth,int cg_no);
 		
 		//영화 삭제
 		@Delete("delete from Movie where m_no = #{m_no} ")
