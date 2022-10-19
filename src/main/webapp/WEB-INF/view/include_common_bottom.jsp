@@ -36,16 +36,16 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 			<div class="flex-child-ft item5">
 
 				<p>
-					Subscribe to our ITFLIX now <br>to get latest movie from us.
+					지금 ITFLIX를 구독해보세요! <br>매주 볼거리가 가득! 함께해요!
 				</p>
 
 				<c:if test="${login_user != null }">
-					<a href="landing" class="btn">Subscribe now <i
+					<a href="landing" class="btn"> 구독하러가기 <i
 						class="ion-ios-arrow-forward"></i></a>
 				</c:if>
 				<c:if test="${login_user == null }">
 					<a onclick="alert('로그인이 필요합니다');" style="cursor: pointer"
-						class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+						class="btn">구독하러가기 <i class="ion-ios-arrow-forward"></i></a>
 				</c:if>
 
 			</div>
@@ -54,8 +54,7 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 	<div class="ft-copyright">
 		<div class="ft-left">
 			<p>
-				© 2022 Blockbuster. All Rights <a href="http://www.bootstrapmb.com/"
-					title="bootstrapmb">Reserved</a>. Designed by leehari.
+				© 2022 Blockbuster. All Rights Reserved Designed by leehari.
 			</p>
 		</div>
 		<div class="backtotop">
