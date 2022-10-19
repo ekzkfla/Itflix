@@ -101,7 +101,7 @@ public class UserRestController {
 				
 			} else if (result == -1) {
 				code=2;
-				msg="비밀번호가 맞지 않습니다.";
+				msg="비밀번호가 일치하지 않습니다.";
 			} else if (result == -2) {
 				code=3;
 				msg="아이디가 존재하지 않습니다.";
