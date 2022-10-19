@@ -26,8 +26,16 @@ String login_email = (String) session.getAttribute("login_email");
 <link href="css/star.css" rel="stylesheet" />
 </head>
 <script type="text/javascript">
-	function noticeWrite_action() {
-		document.notice.action = "noticeWrite_action";
+	function noticeModify_action() {
+		if(document.notice.n_title.value==""){
+			alert("제목을 입력해주세요.");
+			return false;
+		}
+		if(document.notice.n_content.value==""){
+			alert("내용을 입력해주세요.");
+			return false;
+		}
+		document.notice.action = "noticeModify_action";
 		document.notice.method = 'POST';
 		document.notice.submit();
 	}
@@ -64,25 +72,26 @@ String login_email = (String) session.getAttribute("login_email");
 												<!--공지 타이틀 부분   -->
 												<form class="mb-3" name="notice" id="notice" method="post"
 													action="noticeWrite_action">
+													<input type="hidden" name="n_no" value="${notice.n_no}">
 													<div>
 														<textarea class="col-auto form-control" type="text"
-															name="n_title" placeholder="제목을 입력해주세요!"
-															style="width: 100%; height: 5em; border: none; resize: none;
-															background: #233a50;"></textarea>
+															name="n_title" placeholder="제목을 입력해주세요!" 
+															style="width: 100%; height: 5em; border: none; resize: none;"> ${notice.n_title}
+														</textarea>
 													</div>
 													<br>
 													<!--공지 내용  -->
 													<div>
 														<textarea class="col-auto form-control" type="text"
 															name="n_content" placeholder="내용을 입력해 주세요!!"
-															style="width: 100%; height: 30em; border: none; resize: none; 
-															background: #233a50;"></textarea>
+															style="width: 100%; height: 30em; border: none; resize: none;"> ${notice.n_content}
+															</textarea>
 													</div>
 													<div class="landing-hero">
 														<div class="row">
 
 															<a class="redbtn" style="cursor: pointer;"
-																onclick="noticeWrite_action();"> 공지 작성 </a>
+																onclick="noticeModify_action();"> 공지 수정 </a>
 
 														</div>
 													</div>

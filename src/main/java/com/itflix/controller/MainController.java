@@ -1,9 +1,11 @@
 package com.itflix.controller;
 
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.Formatter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.javassist.expr.NewArray;
 import org.apache.jasper.tagplugins.jstl.core.If;
-import org.apache.tomcat.jni.Local;
+import org.apache.logging.log4j.util.StringBuilderFormattable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -109,7 +111,9 @@ public class MainController {
 			String searchKey = request.getParameter("searchText");
 			System.out.println(searchKey);
 			List<Movie>movieList=movieService.selectMovieName(searchKey);
+			int movieCount=movieService.searchCount(searchKey);
 			request.setAttribute("movieList", movieList);
+			request.setAttribute("movieCount", movieCount);
 			System.out.println(movieList);
 			msg = "성공";
 			System.out.println(msg);
@@ -205,39 +209,6 @@ public class MainController {
 		return forwardPath;
 	}
 	
-	//공지사항 페이지
-		@RequestMapping(value = "noticeList")
-		public String noticeList(Model model)throws Exception {
-			String forwardPath="";
-	
-					List<Notice> noticeList = noticeService.selectAll();
-					int noticeTotal = noticeService.totalCount();
-					model.addAttribute("noticeTotal", noticeTotal);
-					model.addAttribute("noticeList", noticeList);
-					forwardPath = "noticeList";
-			
-					
-				return forwardPath;
-		}
-	
-	//공지사항 상세페이지
-	@RequestMapping(value = "/noticeDetail", params = "n_no")
-	public String noticeDetail(@RequestParam int n_no, Model model)throws Exception {
-		Notice notice=noticeService.selectByNo(n_no);
-		model.addAttribute("notice",notice);
-		return "noticeDetail";
-	}
-
-	//공지사항 키워드 페이지 
-	@RequestMapping(value = "searchNotice")
-	public String  searchNotice(Model model,HttpServletRequest request) throws Exception {
-		String keyword=request.getParameter("keyword");
-		List<Notice> noticeList=noticeService.selectByTitle(keyword);
-		int noticeTotal = noticeService.totalKeywordCount(keyword);
-		model.addAttribute("noticeList", noticeList);
-		model.addAttribute("noticeTotal", noticeTotal);
-		return "searchNotice";
-	}
 	
 
 	//마이페이지 (로그인한 세션을 불러와야함)
@@ -247,7 +218,6 @@ public class MainController {
 		//session(로그인계정)값을 가져와 user_Info에 저장 
 		//User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
 		User_Info user_Info=(User_Info)session.getAttribute("login_user");
-		
 		System.out.println(user_Info);
 		request.setAttribute("user_Info", user_Info);
 		forwardPath = "userprofile";
@@ -287,27 +257,33 @@ public class MainController {
 		String s_cardYear=request.getParameter("s_cardYear");
 		String s_CVV=request.getParameter("s_CVV");
 		String s_cardNumber = s_cardNumberfirst+s_cardMonth+s_cardYear+s_CVV;
-		
 		User_Info user_Info =(User_Info) request.getSession().getAttribute("login_user");
-		
 		Subscription subscriptUser=subscriptonService.selectByNo(user_Info.getU_email());
-		if(subscriptUser==null) {
-			//구독권이 없는 경우 
-			int t_no=1;
-			session.invalidate();
-			subscriptonService.insertSubscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),t_no, user_Info.getU_email());
-			msg ="결제 완료! 다시 로그인 해주세요.";
-			
-			request.setAttribute("msg", msg);
-			request.setAttribute("url", "main");
-			return "alert";
-		}else if(subscriptUser !=null) {
-			//구독권이 있거나 예전에 구매한 기록이 있을 경우
-			int t_no=1;
-			subscriptonService.updateSubscription(null, null, s_cardName,Integer.parseInt(s_cardNumberfirst), t_no, subscriptUser.getUser_Info().getU_email());
-			msg ="연장 완료";
-			forwardPath="redirect:main";
-			
+		try {
+			if(subscriptUser==null) {
+				//구독권이 없는 경우 
+				int t_no=1;
+				session.invalidate();
+				subscriptonService.insertSubscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),t_no, user_Info.getU_email());
+				msg ="결제 완료! 다시 로그인 해주세요.";
+				
+				request.setAttribute("msg", msg);
+				request.setAttribute("url", "main");
+				return "alert";
+			}else if(subscriptUser !=null) {
+				//구독권이 있거나 예전에 구매한 기록이 있을 경우(기간이 남은 경우)
+				int t_no=1;
+				subscriptonService.updateEndDate(null, null, s_cardName,Integer.parseInt(s_cardNumberfirst), t_no,user_Info.getU_email());
+				msg ="연장 완료! 다시 로그인 해주세요.";
+				session.invalidate();
+				request.setAttribute("msg", msg);
+				request.setAttribute("url", "main");
+				return "alert";
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			forwardPath="404";
 		}
 		
 		return forwardPath;
@@ -413,22 +389,10 @@ public class MainController {
 		return forwardPath;
 	}
 		
-	//리뷰 작성 페이지 
-	@RequestMapping(value = "noticeWrite")
-	public String noticeWrite(HttpServletRequest request, HttpSession session) throws Exception {
-		String forwardPath="";
-		/*
-		String user_Info = (String)session.getAttribute("login_email");
-		//관리자 계정이 아닐 경우, alert 표출 후 메인페이지로 이동
-		if (user_Info != "admin@gmail.com" || user_Info == null) {
-			request.setAttribute("msg", "관리자 계정이 아닙니다.");
-			request.setAttribute("url", "main");
-			return "alert";
-		}else {
-			forwardPath="noticeWrite";
-		}
-		*/
-		return forwardPath;
-	}
-
+	
+	
+	
+	
+	
+	
 }

@@ -1,3 +1,4 @@
+<%@page import="com.itflix.dto.Subscription"%>
 <%@page import="com.itflix.dto.User_Info"%>
 <%@page import="org.apache.coyote.RequestGroupInfo"%>
 <%@page import="java.io.Console"%>
@@ -8,6 +9,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 User_Info login_user = (User_Info) session.getAttribute("login_user");
+Subscription subscription = (Subscription) session.getAttribute("subscription");
 %>
 
 <!DOCTYPE html>
@@ -75,8 +77,9 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 
 						<div class="movie-btn">
 						
+						
+							<!--로그인 한 유저가 구독권이 있는 경우  -->
 							<c:if test="${login_user != null }">
-								
 								<c:if test="${subscription.ticket.t_no == 1}">
 									<div class="btn-transform transform-vertical red">
 										<div>
@@ -90,13 +93,16 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 										</div>
 									</div>
 								</c:if>
-									<!--구독권 연장을 안한 경우  -->
+								<!--관리자  -->
+
+								<!--구독권 연장을 안한 경우  -->
 								<c:if test="${subscription.ticket.t_no == 0 }">
 									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
 								</c:if>
 								<!--구독권 구매를 안한 경우  -->
 								<c:if test="${subscription== null }">
 									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+									
 								</c:if>
 								
 							</c:if>
@@ -216,11 +222,28 @@ User_Info login_user = (User_Info) session.getAttribute("login_user");
 													</div>
 													<div class="title-hd-sm">
 														<h3>가장 최신 리뷰</h3>
-														
-														<c:if test="${login_user != null }">
+														<!-- 로그인 -->
+														<!-- 구독권이 있을 경우 -->
+														<%
+														if(login_user !=null && subscription !=null){
+														%>
 															<a href="reviewWrite?m_no=${movie.m_no}" class="time"
-																style="right: 500px">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>
-														</c:if>
+																style="right: 500px; cursor: pointer;">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>
+														<%	
+														}
+														%>
+														
+														<!-- 구독권이 없을 경우 -->
+														<%
+														if(login_user !=null && subscription ==null){
+														%>
+															<a onclick="alert('구독권을 구매해주세요!');" class="time"
+																style="right: 500px; cursor: pointer;">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>
+														<%	
+														}
+														%>
+														
+														<!-- 비로그인 -->
 														<c:if test="${login_user == null }">
 															<a onclick="alert('로그인을 해주세요');" class="time"
 															 style="cursor: pointer">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>

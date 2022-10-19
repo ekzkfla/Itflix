@@ -58,6 +58,12 @@ public class MovieDaoImpl implements MovieDao {
 		return movieList;
 	}
 	
+	//영화 검색 결과 카운트 
+	public int searchCount (String m_name)throws Exception{
+		int  searchCount=movie_Mapper.searchCount(m_name);
+		return searchCount;
+	}
+	
 	//영화 출연진 이름으로 검색
 	@Override
 	public List<Movie> selectMovieActor(String m_actor) throws Exception {

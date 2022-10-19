@@ -75,7 +75,7 @@ public class UserRestController {
 					 * 0 : 구독결제일 (당일)
 					 * -1: 구독 결제일 지남 
 					 */ 
-					if(result2==1) {
+					if(result2 >= 1) {
 					// 남음 	
 						session.setAttribute("login_email", loginUser.getU_email());
 						session.setAttribute("login_user", loginUser);
@@ -86,7 +86,7 @@ public class UserRestController {
 						session.setAttribute("login_user", loginUser);
 						session.setAttribute("subscription", subscription);
 						
-					}else if(result2==-1) {
+					}else if(result2 <= -1) {
 					// 결제일 지남	
 						subscriptonService.deleteSubscription(loginUser.getU_email());
 						session.invalidate();

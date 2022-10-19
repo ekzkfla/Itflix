@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7 no-js" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 no-js" lang="en-US"><![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
-
 <head>
 <!-- Basic need -->
 <title>구독권 결제</title>
@@ -36,29 +32,23 @@
 <style>
  .center {
 	      text-align:  center;
-	
 }
 .rounded {
 	border-radius: 1rem
 }
-
 .nav-pills .nav-link {
 	color: #555
 }
-
 .nav-pills .nav-link.active {
 	color: white
 }
-
 input[type="radio"] {
 	margin-right: 5px
 }
-
 .bold {
 	font-weight: bold
 }
 </style>
-
 <script type="text/javascript">
  function subscriptPay(){
 	 if(document.subscript.s_cardName.value==""){
@@ -81,21 +71,11 @@ input[type="radio"] {
 		 alert("보안번호 3개를 작성해주세요.");
 		 return false;
 	 }
-	 
 	 document.subscript.action="subscriptPay_action";
 	 document.subscript.method="POST";
 	 document.subscript.submit;
  }
-
-
-
-
 </script>
-
-
-
-
-
 </head>
 	<!--결제 팝업-->
 <body>
@@ -169,8 +149,6 @@ input[type="radio"] {
 															<option value="11">11월 </option>
 															<option value="12">12월 </option>
 														</select>	
-													<!-- 	<input type="number" placeholder="YY" name="s_cardYear"
-															class="form-control" required> -->
 														<select name="s_cardYear"  >
 															<option value="0" selected="selected" >선택 </option>
 															<option value="1">1일 </option>
@@ -220,7 +198,7 @@ input[type="radio"] {
 										</div>
 									</div>
 									<div class="card-footer">
-										<input type="submit" onclick="subscriptPay()" value="결제하기">
+										<input type="submit" style="" onclick="subscriptPay()" value="결제하기">
 										
 										<!-- <button type="button" onclick="subscriptPay()"
 											class="subscribe btn btn-primary btn-block shadow-sm">결제하기
@@ -245,7 +223,7 @@ input[type="radio"] {
 			<img src="images/landing.jpg" alt="Logo">
 		</div>
 			<div class="center">
-				<li class="loginLink"><a href="#" class="redbtn">결제하기</a></li>
+				<li class="loginLink"><a class="redbtn" style="color:#ffffff; cursor: pointer;">결제하기</a></li>
 			</div>
 			<ul class="nav navbar-nav flex-child-menu menu-right">
 			</ul>

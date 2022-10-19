@@ -26,7 +26,9 @@ public interface SubscriptonService {
 	
 	//구독권 업데이트
 	int updateSubscription(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email) throws Exception;
-	//Subscription updateSubscription(int t_no, String u_email) throws Exception;
+	
+	//구독권 연장
+	int updateEndDate(Date s_start, Date s_end, String s_cardName, int s_cardNumber, int t_no, String u_email)throws Exception;
 	
 	//구독권 삭제
 	int deleteSubscription(String u_email) throws Exception;

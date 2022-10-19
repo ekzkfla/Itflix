@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="css/plugins.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload='index()'>
 <script type="text/javascript">
 function categoryChange() {
 	var selectList = document.getElementById("cate1")
@@ -53,6 +53,14 @@ function categoryChange() {
 	if(categoryValue === "6"){
 		location.href = "userfavoriteCategorygrid?cg_no=6";
 	}
+}
+function index(){
+	let category = window.localStorage.getItem('category');
+	let categoryObj = JSON.parse(category)
+	console.log(categoryObj);
+	let selectList = document.getElementById("cate1")
+	
+	selectList.options[categoryObj['value']].setAttribute("selected",true)
 }
 </script>
 	<!-- BEGIN | Header -->
@@ -86,7 +94,7 @@ function categoryChange() {
 			<select name="cate1" id="cate1" onchange="categoryChange()">
 				<option value="popularity">카테고리</option>
 				<option value="1">액션</option>
-				<option value="c2">코미디</option>
+				<option value="2">코미디</option>
 				<option value="3">로맨스</option>
 				<option value="4">공포/미스터리</option>
 				<option value="5">SF/판타지</option>
@@ -116,16 +124,6 @@ function categoryChange() {
 				</div>
  				<!-- END  -->
 			</c:forEach>
-		</div>
-		<div class="topbar-filter">
-			<label>Movies per page:</label><select><option value="range">20
-					Movies</option>
-				<option value="saab">10 Movies</option></select>
-			<div class="pagination2">
-				<span>Page 1 of 2:</span><a class="active" href="#">1</a><a href="#">2</a><a
-					href="#">3</a><a href="#">...</a><a href="#">78</a><a href="#">79</a><a
-					href="#"><i class="ion-arrow-right-b"></i></a>
-			</div>
 		</div>
 	</div>
 	</div>

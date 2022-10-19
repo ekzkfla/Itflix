@@ -16,6 +16,8 @@ public interface MovieService {
 	List<Movie> selectCategoryNo(int no) throws Exception;
 	//영화 제목으로 검색
 	List<Movie> selectMovieName(String name) throws Exception;
+	//영화 검색 결과 카운트
+	int searchCount (String m_name) throws Exception;
 	//영화 출연진 이름으로 검색
 	List<Movie> selectMovieActor(String name) throws Exception;
 	//가장 최근 작성된 리뷰 평점 출력
