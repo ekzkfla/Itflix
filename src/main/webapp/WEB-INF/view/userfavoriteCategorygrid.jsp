@@ -71,7 +71,7 @@ function index(){
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h2 style="color: white;">내가 찜한 콘텐츠</h2>
+						<h1>나중에 볼 영화</h1>
 						<br>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
@@ -88,9 +88,9 @@ function index(){
 	<div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="topbar-filter user">
 			<p>
-				Found <span>${categoryCount} 개</span>
+				총 <span>${categoryCount}</span> 개
 			</p>
-			<label>Sort by:</label>
+			<label></label>
 			<select name="cate1" id="cate1" onchange="categoryChange()">
 				<option value="popularity">카테고리</option>
 				<option value="1">액션</option>
