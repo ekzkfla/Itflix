@@ -88,7 +88,7 @@ function index(){
 	<div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="topbar-filter user">
 			<p>
-				Found <span>${jjimCount} movies</span> in total
+				Found <span>${jjimCount} 개</span>
 			</p>
 			<label>Sort by:</label>
 			<select name="cate1" id="cate1" onchange="categoryChange()">
