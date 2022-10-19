@@ -22,39 +22,39 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<script type="text/javascript">
-	function categoryChange() {
-		var selectList = document.getElementById("cate1")
-		console.log(selectList.options);
-		console.log(selectList.selectedIndex);
-		console.log(selectList.options[selectList.selectedIndex])
-		const categoryData = selectList.options[selectList.selectedIndex].text;
-		const categoryValue = selectList.options[selectList.selectedIndex].value
-		const storageObj = {
-			"name" : categoryData,
-			"value" : categoryValue
+	<script type="text/javascript">
+		function categoryChange() {
+			var selectList = document.getElementById("cate1")
+			console.log(selectList.options);
+			console.log(selectList.selectedIndex);
+			console.log(selectList.options[selectList.selectedIndex])
+			const categoryData = selectList.options[selectList.selectedIndex].text;
+			const categoryValue = selectList.options[selectList.selectedIndex].value
+			const storageObj = {
+				"name" : categoryData,
+				"value" : categoryValue
+			}
+			window.localStorage.setItem("category", JSON.stringify(storageObj))
+			if (categoryValue == "1") {
+				location.href = "userfavoriteCategorygrid?cg_no=1";
+			}
+			if (categoryValue == "2") {
+				location.href = "userfavoriteCategorygrid?cg_no=2";
+			}
+			if (categoryValue == "3") {
+				location.href = "userfavoriteCategorygrid?cg_no=3";
+			}
+			if (categoryValue == "4") {
+				location.href = "userfavoriteCategorygrid?cg_no=4";
+			}
+			if (categoryValue == "5") {
+				location.href = "userfavoriteCategorygrid?cg_no=5";
+			}
+			if (categoryValue === "6") {
+				location.href = "userfavoriteCategorygrid?cg_no=6";
+			}
 		}
-		window.localStorage.setItem("category", JSON.stringify(storageObj))
-		if (categoryValue == "1") {
-			location.href = "userfavoriteCategorygrid?cg_no=1";
-		}
-		if (categoryValue == "2") {
-			location.href = "userfavoriteCategorygrid?cg_no=2";
-		}
-		if (categoryValue == "3") {
-			location.href = "userfavoriteCategorygrid?cg_no=3";
-		}
-		if (categoryValue == "4") {
-			location.href = "userfavoriteCategorygrid?cg_no=4";
-		}
-		if (categoryValue == "5") {
-			location.href = "userfavoriteCategorygrid?cg_no=5";
-		}
-		if (categoryValue === "6") {
-			location.href = "userfavoriteCategorygrid?cg_no=6";
-		}
-	}
-</script>
+	</script>
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp" />
 	<!-- END | Header -->
@@ -63,7 +63,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h2 style="color: white;">내가 찜한 콘텐츠</h2>
+						<h1>나중에 볼 영화</h1>
 						<br>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
@@ -80,10 +80,10 @@
 	<div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="topbar-filter user">
 			<p>
-				Found <span>${jjimCount} movies</span> in total
+				총 <span>${jjimCount}</span> 개
 			</p>
-			<label>Sort by:</label>
-			<select name="cate1" id="cate1" onchange="categoryChange()">
+			<label></label> <select name="cate1" id="cate1"
+				onchange="categoryChange()">
 				<option value="popularity">카테고리</option>
 				<option value="1">액션</option>
 				<option value="2">코미디</option>
@@ -94,15 +94,15 @@
 			</select>
 		</div>
 		<div class="flex-wrap-movielist grid-fav">
-			<c:forEach var="jjim" items="${jjimList}" >
- 				<!-- start  -->
+			<c:forEach var="jjim" items="${jjimList}">
+				<!-- start  -->
 				<div class="movie-item-style-2 movie-item-style-1 style-3">
 					<img
 						src="images/${jjim.movieList[0].category.cg_name}/${jjim.movieList[0].m_name}_1.jpg"
 						alt="">
 					<div class="hvr-inner">
-						<a href="moviesingle?m_no=${jjim.movieList[0].m_no}">Read
-							more <i class="ion-android-arrow-dropright"></i>
+						<a href="moviesingle?m_no=${jjim.movieList[0].m_no}">Read more
+							<i class="ion-android-arrow-dropright"></i>
 						</a>
 					</div>
 					<div class="mv-item-infor">
@@ -114,12 +114,12 @@
 						</p>
 					</div>
 				</div>
- 				<!-- END  -->
+				<!-- END  -->
 			</c:forEach>
 		</div>
-		</div>
-		</div>
-		</div>
+	</div>
+	</div>
+	</div>
 	</div>
 	<!-- footer section-->
 	<jsp:include page="include_common_bottom.jsp"></jsp:include>
