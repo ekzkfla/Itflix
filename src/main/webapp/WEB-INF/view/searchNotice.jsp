@@ -48,7 +48,7 @@
 						<h1>공지사항</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>공지사항</li>
+							<li><span class="ion-ios-arrow-right"></span>notice</li>
 						</ul>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<!--분류 보드바 -->
 					<div class="topbar-filter">
-						<p>Found <span>${noticeTotal}개 </span>in total	</p>
+						<p>총 <span>${noticeTotal} </span> 개</p>
 					
 					</div>
 					<!--분류 보드바 -->
@@ -87,8 +87,8 @@
 					<div class="sidebar">
 						<form name="Notice">
 						<div class="sb-search sb-it">
-							<h4 class="sb-title">Search</h4>
-							<input type="text" name="keyword" placeholder="공지 검색" style="background-color: #233a50; background:url" >
+							<h4 class="sb-title">공지 검색</h4>
+							<input type="text" name="keyword" placeholder="검색어를 입력하세요" style="background-color: #233a50; background:url" >
 							<input type="submit" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()">
 							
 						<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->

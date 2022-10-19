@@ -54,7 +54,7 @@ String login_email = (String) session.getAttribute("login_email");
 						<h1>공지사항</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>공지사항</li>
+							<li><span class="ion-ios-arrow-right"></span>notice</li>
 						</ul>
 					</div>
 				</div>
@@ -70,7 +70,7 @@ String login_email = (String) session.getAttribute("login_email");
 					<!--분류 보드바 -->
 					<div class="topbar-filter">
 						<p>
-							Found <span>${noticeTotal}개 </span>in total
+							총 <span>${noticeTotal}</span> 개
 						</p>
 
 					</div>
@@ -107,10 +107,12 @@ String login_email = (String) session.getAttribute("login_email");
 					<div class="sidebar">
 						<form name="Notice">
 							<div class="sb-search sb-it">
-								<h4 class="sb-title">Search</h4>
-								<input type="text" name="keyword" placeholder="공지 검색" style="background:#233a50">
-									<input type="submit" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()">
+								<h4 class="sb-title">공지 검색</h4>
+										<input type="text" name="keyword" placeholder="검색어를 입력하세요" style="background-color: #233a50; background:url" 
+										>
+							<input type="submit" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()" >
 								<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
+								
 							</div>
 						</form>
 					</div>
