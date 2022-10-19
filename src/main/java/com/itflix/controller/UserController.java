@@ -277,11 +277,18 @@ public class UserController {
 	@RequestMapping("userfavoriteCategorygrid")
 	public String jjimCategoryList(HttpServletRequest request, String cg_no) throws Exception {
 		String forwardPath = "";
-		User_Info user_Info = (User_Info) request.getSession().getAttribute("login_user");
-		String u_email = user_Info.getU_email();
-		List<Jjim> jjimList = jjimService.jjimCategoryList(u_email, Integer.parseInt(cg_no));
-		request.setAttribute("jjimList", jjimList);
-		forwardPath = "userfavoriteCategorygrid";
+		try {
+			User_Info user_Info = (User_Info) request.getSession().getAttribute("login_user");
+			String u_email = user_Info.getU_email();
+			int jjimCount = jjimService.jjimCount(u_email);
+			List<Jjim> jjimList = jjimService.jjimCategoryList(u_email, Integer.parseInt(cg_no));
+			request.setAttribute("jjimList", jjimList);
+			request.setAttribute("jjimCount", jjimCount);
+			forwardPath = "userfavoriteCategorygrid";
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		return forwardPath;
 	}
 
