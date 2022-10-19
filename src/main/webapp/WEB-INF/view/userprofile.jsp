@@ -38,7 +38,7 @@
 		<div class="container">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h2 style="color:white;">${login_user.u_name}님의 상세페이지</h2><br>
+						<h1>${login_user.u_name}님의 정보</h1><br>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
 							<li><span class="ion-ios-arrow-right"></span>Profile</li>

@@ -49,10 +49,10 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1>${login_user.u_name} profile</h1>
+						<h1>${login_user.u_name}님의 리뷰</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="main">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>Rated movies</li>
+							<li><span class="ion-ios-arrow-right"></span>Movie review</li>
 						</ul>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
 						<p>
-							Found <span>${reviewCount} rates</span>in total
+							총 <span>${reviewCount}</span> 개
 						</p>
 					</div>
 					<c:forEach items="${myReview}" var="review">
