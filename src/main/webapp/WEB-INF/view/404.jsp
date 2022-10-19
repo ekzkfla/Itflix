@@ -4,7 +4,7 @@
 <html lang="en" class="no-js">
 <head>
 <!-- Basic need -->
-<title>404ㅈ</title>
+<title>404</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -21,16 +21,19 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<jsp:include page="include_common_top.jsp"></jsp:include>
+	<jsp:include page="include_common_top.jsp" />
 	<div class="page-single-2">
 		<div class="container">
 			<div class="row">
 				<div class="middle-content">
-					<a href="index.html"><img class="md-logo"
-						src="images/logo1.png" alt=""></a><img
+					<a href=""><img class="md-logo"
+						src="" alt=""><br><br><br><br><br><br>
+						</a>
+						
+						<img
 						src="images/uploads/err-img.png" alt="">
 					<h1>Page not found</h1>
-					<a href="index.html" class="redbtn">go home</a>
+					<a href="index.jsp" class="redbtn">go home</a>
 				</div>
 			</div>
 		</div>
