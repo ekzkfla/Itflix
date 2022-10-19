@@ -1,9 +1,11 @@
 package com.itflix.controller;
 
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.Formatter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.javassist.expr.NewArray;
 import org.apache.jasper.tagplugins.jstl.core.If;
-import org.apache.tomcat.jni.Local;
+import org.apache.logging.log4j.util.StringBuilderFormattable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -227,6 +229,71 @@ public class MainController {
 		model.addAttribute("notice",notice);
 		return "noticeDetail";
 	}
+	
+	//공지사항 작성 페이지 
+	@RequestMapping(value = "noticeWrite")
+	public String noticeWrite(HttpServletRequest request, HttpSession session) throws Exception {
+		String forwardPath="";
+		String user_Info = (String)session.getAttribute("login_email");
+		try {
+			System.out.println(user_Info);
+		String admin ="admin@gmail.com";
+		int result=user_Info.compareTo(admin);
+		if(result==0) {
+			//0이면 관리자 계정
+			request.setAttribute("msg", "환영합니다 관리자님");
+			return "noticeWrite";
+		}else if(result==1) {
+			
+			request.setAttribute("msg", "관리자 계정이 아닙니다.");
+			request.setAttribute("url", "main");
+			return "alert";
+		}
+		}catch (Exception e) {
+			e.printStackTrace();
+			forwardPath="404";
+		}
+		
+		return forwardPath;
+		}
+	
+	//공지사항 작성 action
+	@RequestMapping(value = "noticeWrite_action")
+	public String noticeWrite_action(HttpServletRequest request, Model model) throws Exception {
+		String n_title=request.getParameter("n_title");
+		String n_content=request.getParameter("n_content");
+		Notice notice=new Notice(0, null, n_title, n_content, 0, 0, 0);
+		int result=noticeService.insertNotice(notice);
+		List<Notice>noticeList = noticeService.selectAll();
+		model.addAttribute("noticeList", noticeList);
+		System.out.println(result);
+		return "noticeList";
+		
+	}
+	
+	//공지사항 수정 페이지
+	@RequestMapping(value = "noticeModify")
+	public String noticeModify(HttpServletRequest request,Model model) throws Exception {
+		String n_no=request.getParameter("n_no");
+		Notice notice=noticeService.selectByNo(Integer.parseInt(n_no));
+		model.addAttribute("notice", notice);
+		return "noticeModify";
+	}
+	
+	//공지사항 수정 action
+	@RequestMapping(value = "noticeModify_action")
+	public String noticeModify_action(HttpServletRequest request) throws Exception {
+		String n_no= request.getParameter("n_no");
+		String n_title= request.getParameter("n_title");
+		String n_content= request.getParameter("n_content");
+		Notice notice =new Notice(Integer.parseInt(n_no), null,n_title, n_content, 0,0,0);
+		noticeService.updateNotice(notice);
+		request.setAttribute("notice", notice);
+		return "noticeDetail";
+		
+	}
+	
+	
 
 	//공지사항 키워드 페이지 
 	@RequestMapping(value = "searchNotice")
@@ -247,7 +314,6 @@ public class MainController {
 		//session(로그인계정)값을 가져와 user_Info에 저장 
 		//User_Info user_Info=(User_Info) request.getSession().getAttribute("login_user");
 		User_Info user_Info=(User_Info)session.getAttribute("login_user");
-		
 		System.out.println(user_Info);
 		request.setAttribute("user_Info", user_Info);
 		forwardPath = "userprofile";
@@ -419,44 +485,10 @@ public class MainController {
 		return forwardPath;
 	}
 		
-	//리뷰 작성 페이지 
-	@RequestMapping(value = "noticeWrite")
-	public String noticeWrite(HttpServletRequest request, HttpSession session) throws Exception {
-		String forwardPath="";
-		String user_Info = (String)session.getAttribute("login_email");
-		try {
-			System.out.println(user_Info);
-		String admin ="admin@gmail.com";
-		int result=user_Info.compareTo(admin);
-		if(result==0) {
-			//0이면 관리자 계정
-			request.setAttribute("msg", "환영합니다 관리자님");
-			request.setAttribute("url", "noticeWrite");
-			return "noticeWrite";
-		}else if(result==1) {
-			
-			request.setAttribute("msg", "관리자 계정이 아닙니다.");
-			request.setAttribute("url", "main");
-			return "alert";
-		}
-		
-	//관리자 계정이 아닐 경우, alert 표출 후 메인페이지로 이동
-//		if (user_Info != "admin@gmail.com" || user_Info == null) {
-//			request.setAttribute("msg", "관리자 계정이 아닙니다.");
-//			request.setAttribute("url", "main");
-//			return "alert";
-//		}else if(user_Info == "admin@gmail.com") {
-//			request.setAttribute("msg", "환영합니다 관리자님");
-//			request.setAttribute("url", "noticeWrite");
-//			return "alert";
-//			
-//		}
-		}catch (Exception e) {
-			e.printStackTrace();
-			forwardPath="404";
-		}
-		
-		return forwardPath;
-	}
-
+	
+	
+	
+	
+	
+	
 }

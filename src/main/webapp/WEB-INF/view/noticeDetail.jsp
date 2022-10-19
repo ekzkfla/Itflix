@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -22,7 +23,14 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
+<script type="text/javascript">
+
+function noticeModify() {
+	document.detail.action = "noticeModify";
+	document.detail.method = "POST";
+	document.detail.submit();
+}
+</script>	
 	<!-- BEGIN | Header -->
 	<jsp:include page="include_common_top.jsp"/>
 	<!-- END | Header -->
@@ -60,10 +68,22 @@
 						<img src="images/mylogo.png" alt="" width="500">
 						<p>${notice.n_content}</p>
 						<!-- share link -->
+						<form name="detail">
+							<input type="hidden" name="n_no" value="${notice.n_no}">
+							<input type="hidden" name="n_title" value="${notice.n_title}">
+							<input type="hidden" name="n_date" value="${notice.n_date}">
+							<input type="hidden" name="n_content" value="${notice.n_content}">
+						</form>
 						<div class="flex-it share-tag">
 							<div class="right-it">
-								<h4><a href="noticeList">Back</a></h4>
+								<h4><a href="noticeList" style="background:#dd003f; color: #ffffff; font-size: 20px; border-radius: 4px;">Back</a></h4>
 							</div>
+						<c:if test="${login_email == 'admin@gmail.com' && login_email != null}">
+							<tr>
+								<td align="left"><input type="button" value="수정하기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px;"
+									onclick="noticeModify()" /></td>
+							</tr>
+						</c:if>
 						</div>
 					</div>
 				</div>

@@ -34,7 +34,7 @@ String login_email = (String) session.getAttribute("login_email");
 		}
 		document.Notice.action = "searchNotice";
 		document.Notice.method = "POST";
-		document.Notice.submitl
+		document.Notice.submit;
 	}
 
 	function noticeCreate() {
@@ -111,7 +111,7 @@ String login_email = (String) session.getAttribute("login_email");
 					<c:if test="${login_email == 'admin@gmail.com' && login_email != null}">
 						<table>
 							<tr>
-								<td align="left"><input type="button" value="공지 쓰기" 
+								<td align="left"><input type="button" value="공지 쓰기" style="background:#dd003f; color: #ffffff; font-size: 17px; border-radius: 8px;"
 									onclick="noticeCreate();" /></td>
 							</tr>
 						</table>
@@ -124,9 +124,7 @@ String login_email = (String) session.getAttribute("login_email");
 							<div class="sb-search sb-it">
 								<h4 class="sb-title">Search</h4>
 								<input type="text" name="keyword" placeholder="Enter keywords">
-								<input type="submit" placeholder="Enter keywords"
-									onclick="searchNotice()">
-
+									<input type="submit" placeholder="Enter keywords" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()">
 								<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
 							</div>
 						</form>
