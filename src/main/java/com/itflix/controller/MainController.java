@@ -1,6 +1,7 @@
 package com.itflix.controller;
 
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -238,7 +239,6 @@ public class MainController {
 		return forwardPath;
 	}
 	
-	
 
 	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
@@ -282,8 +282,15 @@ public class MainController {
 		String msg="";
 		String s_cardName=request.getParameter("s_cardName");
 		String s_cardNumberfirst=request.getParameter("s_cardNumber");
+		//카드번호 -추가 하기 
+		if(s_cardNumberfirst.length() !=16) {
+			request.setAttribute("msg", "카드번호가 잘못됐습니다.");
+			request.setAttribute("url", "landing");
+			return "alert";
+		}
+		String scard=s_cardNumberfirst.substring(0,4)+"-"+s_cardNumberfirst.substring(4,7)+"-"+s_cardNumberfirst.substring(0,4)+"-"+s_cardNumberfirst.substring(0,4);
 		//카드번호 앞번호 4자리 따오기 
-		String[] cartnumber=s_cardNumberfirst.split("-");
+		String[] cartnumber=scard.split("-");
 		for(int i=0; i<cartnumber.length; i++) {
 			System.out.println(cartnumber[i]);
 		}
