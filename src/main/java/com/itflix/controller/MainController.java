@@ -1,13 +1,19 @@
 package com.itflix.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Formatter;
 import java.util.List;
+import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,11 +21,14 @@ import org.apache.ibatis.javassist.expr.NewArray;
 import org.apache.jasper.tagplugins.jstl.core.If;
 import org.apache.logging.log4j.util.StringBuilderFormattable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.itflix.controller.interceptor.LoginCheck;
@@ -37,6 +46,8 @@ import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
 import com.itflix.service.SubscriptonService;
 import com.itflix.service.User_InfoService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 @Controller
@@ -199,8 +210,23 @@ public class MainController {
 	}
 	
 	//영화 생성 action
-	@RequestMapping(value = "movieInsert_action")
+	@RequestMapping(value = "movieInsert_action", method = {RequestMethod.GET,RequestMethod.POST})
 	public String movieInsert_action(HttpServletRequest request, Model model) throws Exception {
+		
+		ServletContext servletContext = request.getSession().getServletContext();
+		String saveDirectory = ""; //파일 업로드 절대 경로
+		
+		String saveFolder = "/WEB-INF/view/Documentation/assets/images";//파일 업로드 경로
+		saveDirectory = servletContext.getRealPath(saveFolder);
+
+		//String saveDirectory = "C:/00.JAVA/gitrepository/final-project-team1-itflix/src/main/resources/static/images";
+
+		int maxPostSize = 1024 * 1024 * 100;
+		String encoding = "UTF-8";
+
+		MultipartRequest multipartRequest = new MultipartRequest(request, saveDirectory, maxPostSize, encoding,
+				new DefaultFileRenamePolicy());
+		
 		String m_name=request.getParameter("m_name");
 		String cg_no=request.getParameter("cg_no");
 		String m_actor=request.getParameter("m_actor");
@@ -208,8 +234,12 @@ public class MainController {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		Date m_Date2=format.parse(m_date);
 		String m_info=request.getParameter("m_info");
-		String m_image=request.getParameter("m_image");
+		//String m_image=request.getParameter("m_image");
 		String m_url=request.getParameter("m_url");
+		
+		Enumeration files = multipartRequest.getFileNames();
+		String fname = (String) files.nextElement();
+		String m_image= multipartRequest.getFilesystemName(fname);
 		
 		int result=movieService.insertMovie(0, m_name, m_actor, m_info, m_image, 0, m_Date2, m_url, 0, 0, 0, Integer.parseInt(cg_no));
 		System.out.println(result);
@@ -219,6 +249,47 @@ public class MainController {
 		model.addAttribute("movieList", movieList);
 		return "moviegridfw";
 	}
+	
+	
+    @PostMapping("/insertImage")
+    public String upload(@RequestParam("movieImage") MultipartFile file) {
+ 
+        System.out.println("파일 이름 : " + file.getOriginalFilename());
+        System.out.println("파일 크기 : " + file.getSize());
+        // 데이터 베이스에 정보를 저장하는 건
+        // 이렇게 file의 get 메소드를 활용해 필요한 정보들을 가져오고 
+        // 그걸 DTO에 담아 insert하면 된다. 
+        // 간단한거니 후의 과정은 생략하고 파일로 서버에 저장하는 걸 보자면
+ 
+        try (
+                // 맥일 경우
+                // FileOutputStream fos = new FileOutputStream("/tmp/" +file.getOriginalFilename());
+                // 윈도우일 경우
+                FileOutputStream fos = new FileOutputStream("c:/tmp/" + file.getOriginalFilename());
+                // 파일 저장할 경로 + 파일명을 파라미터로 넣고 fileOutputStream 객체 생성하고
+                InputStream is = file.getInputStream();) {
+                // file로 부터 inputStream을 가져온다.
+            
+            int readCount = 0;
+            byte[] buffer = new byte[1024];
+            // 파일을 읽을 크기 만큼의 buffer를 생성하고
+            // ( 보통 1024, 2048, 4096, 8192 와 같이 배수 형식으로 버퍼의 크기를 잡는 것이 일반적이다.)
+            
+            while ((readCount = is.read(buffer)) != -1) {
+                //  파일에서 가져온 fileInputStream을 설정한 크기 (1024byte) 만큼 읽고
+                
+                fos.write(buffer, 0, readCount);
+                // 위에서 생성한 fileOutputStream 객체에 출력하기를 반복한다
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException("file Save Error");
+        }
+ 
+        return "uploadok";
+    }
+
+	
+	
 	
 	//리뷰 리스트 페이지
 	@RequestMapping(value = "reviewlist",params = "m_no")

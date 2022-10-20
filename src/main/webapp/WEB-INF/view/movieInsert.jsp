@@ -108,8 +108,8 @@
 			alert("URL을 작성해주세요.");
 			return false;
 		}
-		document.movieinfo.action="movieInsert_action";
-		document.movieinfo.method="POST";
+		document.movieinfo.action = "movieInsert_action";
+		document.movieinfo.method = "POST";
 		document.movieinfo.submit();
 	}
 </script>
@@ -144,7 +144,7 @@
 										<div class="row">
 											<div class="col-md-8 col-sm-12 col-xs-12">
 
-												<form name="movieinfo">
+												<form name="movieinfo" method="post" enctype="multipart/form-data" onsubmit="return false">
 													<div class="title-hd-sm"></div>
 													<div class="mv-user-review-item">
 														<!-- ↓↓↓영화 이름(m_name)↓↓↓ -->
@@ -177,9 +177,11 @@
 															placeholder="yyyy/MM/dd"><br>
 														<!-- ↓↓↓영화 정보(m_info)↓↓↓ -->
 														<h3>줄거리</h3>
-														<textarea rows="5" cols="40" name="m_info" class="m_info" placeholder="줄거리를 넣어주세요"></textarea>
+														<textarea rows="5" cols="40" name="m_info" class="m_info"
+															placeholder="줄거리를 넣어주세요"></textarea>
 														<!-- <input type="text" name=m_info class="m_info"
-															placeholder="줄거리를 넣어주세요"> --><br>
+															placeholder="줄거리를 넣어주세요"> -->
+														<br>
 														<!-- ↓↓↓영화 이미지(m_image)↓↓↓ -->
 														<h3>사진</h3>
 														<label class="input_file_button" for="m_image"> <input
