@@ -55,10 +55,14 @@ input[type="radio"] {
 		 alert("이름을 작성해주세요.");
 		 return false;
 	 }
-	 if(document.subscript.s_cardNumber.value==""){
+	 if(document.subscript.s_cardNumber.value=="" ){
 		 alert("카드번호를 작성해주세요.");
 		 return false;
 	 }
+	 if(document.subscript.s_cardNumber.value < 19 ){
+		 alert("카드번호가 잘못됐습니다.");
+		 return false;
+	 }	
 	 if(document.subscript.s_cardMonth.value=="0"){
 		 alert("카드날짜을 설정해주세요.");
 		 return false;
@@ -112,8 +116,12 @@ input[type="radio"] {
 											<h6>카드 번호</h6>
 										</label>
 										<div class="input-group">
+												<!-- pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" -->
+												<!-- pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" -->
 											<input type="text" name="s_cardNumber"
-												placeholder="카드번호'-'포함 16자리 " class="form-control "
+												placeholder="카드번호'-'미포함 16자리 " 
+												pattern="^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}"
+												class="form-control "
 												required>
 											<div class="input-group-append">
 												<span class="input-group-text text-muted"> <i
