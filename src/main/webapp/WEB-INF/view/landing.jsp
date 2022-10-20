@@ -55,10 +55,14 @@ input[type="radio"] {
 		 alert("이름을 작성해주세요.");
 		 return false;
 	 }
-	 if(document.subscript.s_cardNumber.value==""){
+	 if(document.subscript.s_cardNumber.value=="" ){
 		 alert("카드번호를 작성해주세요.");
 		 return false;
 	 }
+	 if(document.subscript.s_cardNumber.value < 19 ){
+		 alert("카드번호가 잘못됐습니다.");
+		 return false;
+	 }	
 	 if(document.subscript.s_cardMonth.value=="0"){
 		 alert("카드날짜을 설정해주세요.");
 		 return false;
@@ -87,7 +91,7 @@ input[type="radio"] {
 					<div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
 						<ul role="tablist"
 							class="nav bg-light nav-pills rounded nav-fill mb-3">
-							<li class="nav-item"><a data-toggle="pill"
+							<li class="nav-item" ><a data-toggle="pill"
 								href="#credit-card" class="nav-link active "> <i
 									class="fas fa-credit-card mr-2"></i> 신용카드
 							</a></li>
@@ -112,8 +116,12 @@ input[type="radio"] {
 											<h6>카드 번호</h6>
 										</label>
 										<div class="input-group">
+												<!-- pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" -->
+												<!-- pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" -->
 											<input type="text" name="s_cardNumber"
-												placeholder="카드번호'-'없이 16자리 " class="form-control "
+												placeholder="카드번호'-'미포함 16자리 " 
+												pattern="^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}"
+												class="form-control "
 												required>
 											<div class="input-group-append">
 												<span class="input-group-text text-muted"> <i
@@ -197,7 +205,7 @@ input[type="radio"] {
 											</div>
 										</div>
 									</div>
-									<div class="card-footer">
+									<div class="card-footer"  style="text-align:center; background:transparent; border:none;" >
 										<input type="submit" style="" onclick="subscriptPay()" value="결제하기">
 										
 										<!-- <button type="button" onclick="subscriptPay()"
@@ -205,7 +213,7 @@ input[type="radio"] {
 										</button> -->
 									</div>
 									<div class ="card-text">
-											<p class="text-muted">Note: 결제가 될거같이 생겼지만 결제는 안된다... 후....</p>
+											<p class="text-muted"><!-- Note: 결제가 될거같이 생겼지만 결제는 안된다... 후.... --></p>
 									</div>
 								</form>
 							</div>

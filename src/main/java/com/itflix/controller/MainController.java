@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -309,7 +310,6 @@ public class MainController {
 		return forwardPath;
 	}
 	
-	
 
 	//마이페이지 (로그인한 세션을 불러와야함)
 	@RequestMapping(value = "userprofile")
@@ -353,10 +353,19 @@ public class MainController {
 		String msg="";
 		String s_cardName=request.getParameter("s_cardName");
 		String s_cardNumberfirst=request.getParameter("s_cardNumber");
-		String s_cardMonth=request.getParameter("s_cardMonth");
-		String s_cardYear=request.getParameter("s_cardYear");
-		String s_CVV=request.getParameter("s_CVV");
-		String s_cardNumber = s_cardNumberfirst+s_cardMonth+s_cardYear+s_CVV;
+		//카드번호 -추가 하기 
+		if(s_cardNumberfirst.length() !=16) {
+			request.setAttribute("msg", "카드번호가 잘못됐습니다.");
+			request.setAttribute("url", "landing");
+			return "alert";
+		}
+		String scard=s_cardNumberfirst.substring(0,4)+"-"+s_cardNumberfirst.substring(4,7)+"-"+s_cardNumberfirst.substring(0,4)+"-"+s_cardNumberfirst.substring(0,4);
+		//카드번호 앞번호 4자리 따오기 
+		String[] cartnumber=scard.split("-");
+		for(int i=0; i<cartnumber.length; i++) {
+			System.out.println(cartnumber[i]);
+		}
+		
 		User_Info user_Info =(User_Info) request.getSession().getAttribute("login_user");
 		Subscription subscriptUser=subscriptonService.selectByNo(user_Info.getU_email());
 		try {
@@ -364,7 +373,7 @@ public class MainController {
 				//구독권이 없는 경우 
 				int t_no=1;
 				session.invalidate();
-				subscriptonService.insertSubscription(0, null, null, s_cardName,Integer.parseInt( s_cardNumberfirst),t_no, user_Info.getU_email());
+				subscriptonService.insertSubscription(0, null, null, s_cardName,Integer.parseInt(cartnumber[0]),t_no, user_Info.getU_email());
 				msg ="결제 완료! 다시 로그인 해주세요.";
 				
 				request.setAttribute("msg", msg);
@@ -373,7 +382,7 @@ public class MainController {
 			}else if(subscriptUser !=null) {
 				//구독권이 있거나 예전에 구매한 기록이 있을 경우(기간이 남은 경우)
 				int t_no=1;
-				subscriptonService.updateEndDate(null, null, s_cardName,Integer.parseInt(s_cardNumberfirst), t_no,user_Info.getU_email());
+				subscriptonService.updateEndDate(null, null, s_cardName,Integer.parseInt(cartnumber[0]), t_no,user_Info.getU_email());
 				msg ="연장 완료! 다시 로그인 해주세요.";
 				session.invalidate();
 				request.setAttribute("msg", msg);
