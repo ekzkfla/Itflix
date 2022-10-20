@@ -173,7 +173,7 @@
 														<p class="time" style="text-align-last: left;">
 														<h3>개봉일</h3>
 														</p>
-														<input type="text" name=m_date class="m_date"
+														<input type="text" name="m_date" class="m_date"
 															placeholder="yyyy/MM/dd"><br>
 														<!-- ↓↓↓영화 정보(m_info)↓↓↓ -->
 														<h3>줄거리</h3>
