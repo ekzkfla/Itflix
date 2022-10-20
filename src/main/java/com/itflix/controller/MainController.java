@@ -233,16 +233,16 @@ public class MainController {
 		String m_actor=request.getParameter("m_actor");
 		String m_date=request.getParameter("m_date");
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		Date m_Date2=format.parse(m_date);
+		Date m_date2=format.parse(m_date);
+		System.out.println(m_date2);
 		String m_info=request.getParameter("m_info");
-		//String m_image=request.getParameter("m_image");
 		String m_url=request.getParameter("m_url");
 		
 		Enumeration files = multipartRequest.getFileNames();
 		String fname = (String) files.nextElement();
 		String m_image= multipartRequest.getFilesystemName(fname);
 		
-		int result=movieService.insertMovie(0, m_name, m_actor, m_info, m_image, 0, m_Date2, m_url, 0, 0, 0, Integer.parseInt(cg_no));
+		int result=movieService.insertMovie(0, m_name, m_actor, m_info, m_image, 0, m_date2, m_url, 0, 0, 0, Integer.parseInt(cg_no));
 		System.out.println(result);
 		int movieCount = movieService.movieAllCount();
 		List<Movie> movieList = movieService.selectAllNoFilter();
