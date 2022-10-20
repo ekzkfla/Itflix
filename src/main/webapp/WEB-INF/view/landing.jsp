@@ -87,7 +87,7 @@ input[type="radio"] {
 					<div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
 						<ul role="tablist"
 							class="nav bg-light nav-pills rounded nav-fill mb-3">
-							<li class="nav-item"><a data-toggle="pill"
+							<li class="nav-item" ><a data-toggle="pill"
 								href="#credit-card" class="nav-link active "> <i
 									class="fas fa-credit-card mr-2"></i> 신용카드
 							</a></li>
@@ -197,7 +197,7 @@ input[type="radio"] {
 											</div>
 										</div>
 									</div>
-									<div class="card-footer">
+									<div class="card-footer"  style="text-align:center; background:transparent; border:none;" >
 										<input type="submit" style="" onclick="subscriptPay()" value="결제하기">
 										
 										<!-- <button type="button" onclick="subscriptPay()"
