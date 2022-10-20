@@ -1,14 +1,20 @@
 package com.itflix.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Formatter;
 import java.util.List;
+import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,11 +22,14 @@ import org.apache.ibatis.javassist.expr.NewArray;
 import org.apache.jasper.tagplugins.jstl.core.If;
 import org.apache.logging.log4j.util.StringBuilderFormattable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.itflix.controller.interceptor.LoginCheck;
@@ -38,6 +47,8 @@ import com.itflix.service.NoticeService;
 import com.itflix.service.ReviewService;
 import com.itflix.service.SubscriptonService;
 import com.itflix.service.User_InfoService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 @Controller
@@ -200,8 +211,23 @@ public class MainController {
 	}
 	
 	//영화 생성 action
-	@RequestMapping(value = "movieInsert_action")
+	@RequestMapping(value = "movieInsert_action", method = {RequestMethod.GET,RequestMethod.POST})
 	public String movieInsert_action(HttpServletRequest request, Model model) throws Exception {
+		
+		ServletContext servletContext = request.getSession().getServletContext();
+		String saveDirectory = ""; //파일 업로드 절대 경로
+		
+		String saveFolder = "/WEB-INF/view/Documentation/assets/images";//파일 업로드 경로
+		saveDirectory = servletContext.getRealPath(saveFolder);
+
+		//String saveDirectory = "C:/00.JAVA/gitrepository/final-project-team1-itflix/src/main/resources/static/images";
+
+		int maxPostSize = 1024 * 1024 * 100;
+		String encoding = "UTF-8";
+
+		MultipartRequest multipartRequest = new MultipartRequest(request, saveDirectory, maxPostSize, encoding,
+				new DefaultFileRenamePolicy());
+		
 		String m_name=request.getParameter("m_name");
 		String cg_no=request.getParameter("cg_no");
 		String m_actor=request.getParameter("m_actor");
@@ -209,8 +235,12 @@ public class MainController {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		Date m_Date2=format.parse(m_date);
 		String m_info=request.getParameter("m_info");
-		String m_image=request.getParameter("m_image");
+		//String m_image=request.getParameter("m_image");
 		String m_url=request.getParameter("m_url");
+		
+		Enumeration files = multipartRequest.getFileNames();
+		String fname = (String) files.nextElement();
+		String m_image= multipartRequest.getFilesystemName(fname);
 		
 		int result=movieService.insertMovie(0, m_name, m_actor, m_info, m_image, 0, m_Date2, m_url, 0, 0, 0, Integer.parseInt(cg_no));
 		System.out.println(result);
@@ -220,6 +250,7 @@ public class MainController {
 		model.addAttribute("movieList", movieList);
 		return "moviegridfw";
 	}
+	
 	
 	//리뷰 리스트 페이지
 	@RequestMapping(value = "reviewlist",params = "m_no")

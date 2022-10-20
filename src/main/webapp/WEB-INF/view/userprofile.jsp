@@ -28,6 +28,8 @@
 		document.user.method = "POST";
 		document.user.submit();
 	}
+	
+
 </script>
 </head>
 <body>
@@ -83,7 +85,7 @@
 							<label style="align-self: auto; position: relative; left: 17px">구독권 종료일: 
 									
 									<c:if test="${subscription ==null }">
-										<a style="color: orange">구독권을 결제 해주세요.</a>
+										<a href="landing" style="color: orange;">구독권을 결제 해주세요.<span style="color:gray">(click)</span></a>
 									</c:if>
 									<c:if test="${subscription !=null }">
 									<fmt:formatDate value="${subscription.s_end }" pattern="yyyy/MM/dd"/>
