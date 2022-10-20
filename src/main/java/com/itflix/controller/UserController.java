@@ -75,7 +75,7 @@ public class UserController {
 					return "alert";
 				} else {
 					// 회원가입 성공 메세지
-					request.setAttribute("msg", "회원가입이 완료되었습니다.");
+					request.setAttribute("msg", "회원가입이 완료되었습니다. 로그인을 해주세요.");
 					request.setAttribute("url", "main");
 					return "alert";
 				}
