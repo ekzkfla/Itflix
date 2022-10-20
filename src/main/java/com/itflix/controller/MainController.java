@@ -217,7 +217,7 @@ public class MainController {
 		ServletContext servletContext = request.getSession().getServletContext();
 		String saveDirectory = ""; //파일 업로드 절대 경로
 		
-		String saveFolder = "/WEB-INF/view/Documentation/assets/images";//파일 업로드 경로
+		String saveFolder = "/resources/static/images";//파일 업로드 경로
 		saveDirectory = servletContext.getRealPath(saveFolder);
 
 		//String saveDirectory = "C:/00.JAVA/gitrepository/final-project-team1-itflix/src/main/resources/static/images";
