@@ -113,7 +113,7 @@ input[type="radio"] {
 										</label>
 										<div class="input-group">
 											<input type="text" name="s_cardNumber"
-												placeholder="카드번호'-'없이 16자리 " class="form-control "
+												placeholder="카드번호'-'포함 16자리 " class="form-control "
 												required>
 											<div class="input-group-append">
 												<span class="input-group-text text-muted"> <i

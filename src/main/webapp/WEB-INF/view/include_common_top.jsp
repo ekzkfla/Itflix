@@ -68,18 +68,9 @@ input#search {
 	
 	<!-- SignUpCheck(회원가입 체크) -->
     function pwCheck() {
-        var p1 = document.getElementById('u_pass1').value;
-        var p2 = document.getElementById('u_pass2').value;
-        
-            if( p1 != p2 ) {
-              alert("비밀번호가 일치하지 않습니다");
-              return false;
-            } else if(p1 ==p2){
               document.createUser.action="CreateUser_action";
               document.createUser.method="POST";
               document.createUser.submit();
-             	
-            }
       }
 	
 </script>

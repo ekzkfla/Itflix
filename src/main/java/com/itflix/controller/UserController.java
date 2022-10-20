@@ -51,9 +51,15 @@ public class UserController {
 		String u_name = request.getParameter("u_name");
 		String u_phone = request.getParameter("u_phone");
 		String forwardPath = "";
-		String msg= "";
-		
+		Boolean resultpass=u_pass1.equalsIgnoreCase(u_pass2);
 		try {
+			//비밀번호가 같은 경우 
+			if(resultpass ==false) {
+				request.setAttribute("url", "main");
+				request.setAttribute("msg", "니놈 틀렸다");
+				return "alert";
+			}
+			//비밀번호가 중복이지 않은 경우
 			User_Info checkUser=user_InfoService.selectByNameAndPhone(u_name, u_phone);
 				if(checkUser !=null) {
 					request.setAttribute("msg", "이미 가입이된 전화번호입니다.");
@@ -61,8 +67,8 @@ public class UserController {
 					return "alert";
 				}
 			User_Info user = new User_Info(u_email, u_pass1, u_name, u_phone);
-			int result = user_InfoService.insertUser_Info(user);
-				if (result == -1) {
+			int result2 = user_InfoService.insertUser_Info(user);
+				if (result2 == -1) {
 					// 중복일 시 -1 반환
 					request.setAttribute("msg", "이미 사용 중인 계정입니다.");
 					request.setAttribute("url", "userSearch");
@@ -76,7 +82,6 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			forwardPath = "404";
-			msg="오류발생";
 		}
 		return forwardPath;
 	}

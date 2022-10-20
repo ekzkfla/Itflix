@@ -112,7 +112,7 @@ CREATE TABLE Subscription(
 		s_start                       		DATE		 DEFAULT sysdate		 NULL ,
 		s_end                         		DATE		 NULL ,
 		s_cardName                    		VARCHAR2(20)		 NULL ,
-		s_cardNumber                  		NUMBER(20)		 NULL ,
+		s_cardNumber                  		NUMBER(30)		 NULL ,
 		t_no                          		NUMBER(10)		 NULL ,
 		u_email                       		VARCHAR2(50)		 NULL 
 );
