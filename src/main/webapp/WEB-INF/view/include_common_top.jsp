@@ -98,7 +98,7 @@ input#search {
 					<label for="email">Email:<input type="text" name="u_email"
 						id="u_email" placeholder="example@itflix.com"
 						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-						required="required" value="guard1@gmail.com" /> <!--  required="required" value="${User_info.u_email}" /> -->
+						required="required" value="admin@gmail.com" /> <!--  required="required" value="${User_info.u_email}" /> -->
 					</label>
 				</div>
 				<div class="row">
