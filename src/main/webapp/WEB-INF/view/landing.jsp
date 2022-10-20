@@ -205,7 +205,7 @@ input[type="radio"] {
 										</button> -->
 									</div>
 									<div class ="card-text">
-											<p class="text-muted">Note: 결제가 될거같이 생겼지만 결제는 안된다... 후....</p>
+											<p class="text-muted"><!-- Note: 결제가 될거같이 생겼지만 결제는 안된다... 후.... --></p>
 									</div>
 								</form>
 							</div>
