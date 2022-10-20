@@ -15,14 +15,16 @@
 				<div></div>
 				<div class="user-information">
 					<div class="user-img">
-						<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a><a
-							href="#" class="redbtn">Change avatar</a>
+						<a href="#"><img src="images/uploads/user-img.png" alt=""><br>
+					<a class="redbtn">${login_user.u_email}</a></a>
 					</div>
 					<div class="user-fav">
 						<!-- 
 						<p>상세페이지</p>
 					 -->
+					  
 						<p>&nbsp;&nbsp;&nbsp;반가워요!<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${login_user.u_name} 님&nbsp;<img src ="images/emotion.png" width="30px" height="30px"></p>
+					
 						<form name="userBar">
 						
 						
