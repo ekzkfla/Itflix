@@ -98,14 +98,14 @@ input#search {
 					<label for="email">Email:<input type="text" name="u_email"
 						id="u_email" placeholder="example@itflix.com"
 						pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-						required="required" value="guard1@gmail.com" /> <!--  required="required" value="${User_info.u_email}" /> -->
+						required="required" value="" /> <!--  required="required" value="${User_info.u_email}" /> -->
 					</label>
 				</div>
 				<div class="row">
 					<label for="password"> Password:<input type="password"
 						name="u_pass" id="u_pass" placeholder="영문자,숫자,특수문자 포함(최소8자리)"
 						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-						required="required" value="a123123!" /></label>
+						required="required" value="" /></label>
 					<!--  required="required" value="${User_info.u_pass}" /></label>  -->
 				</div>
 				<div class="row">
