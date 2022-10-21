@@ -62,7 +62,7 @@ public class ReviewServiceImpl implements ReviewService {
 	// 리뷰 수정
 	@Override
 	public int updateReview(String r_title, String r_content, int r_grade,int r_no) throws Exception {
-		return reviewDao.updateReview(r_content, r_content, r_grade, r_no);
+		return reviewDao.updateReview(r_title, r_content, r_grade, r_no);
 	}
 
 	// 리뷰 삭제
