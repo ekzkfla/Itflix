@@ -56,7 +56,7 @@ public class UserController {
 			//비밀번호가 같은 경우 
 			if(resultpass ==false) {
 				request.setAttribute("url", "main");
-				request.setAttribute("msg", "니놈 틀렸다");
+				request.setAttribute("msg", "비밀번호가 일치하지 않습니다.");
 				return "alert";
 			}
 			//비밀번호가 중복이지 않은 경우
@@ -81,7 +81,7 @@ public class UserController {
 				}
 		} catch (Exception e) {
 			e.printStackTrace();
-			forwardPath = "404";
+			forwardPath = "redirect:main";
 		}
 		return forwardPath;
 	}
