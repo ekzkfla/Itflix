@@ -4104,7 +4104,7 @@ ul {
 }
 .movie-items .movie-item .mv-img {
     position: relative;
-    height: 298px;
+    height: 370px;
 }
 .movie-items .movie-item .mv-img:after {
     box-shadow: inset -5px -50px 100px -15px #000000;
