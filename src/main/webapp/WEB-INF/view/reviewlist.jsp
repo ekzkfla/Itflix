@@ -183,16 +183,6 @@
 						</div>
 					</div>
 
-					<!-- ↓↓↓하단 페이지↓↓↓ -->
-					<div class="topbar-filter">
-						<label>Reviews per page:</label> <label> 5 Reviews</label>
-						<div class="pagination2">
-							<span>Page 1 of 5:</span><a class="active" href="#">1</a><a
-								href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a
-								href="#">5</a><a href="#"><i class="ion-arrow-right-b"></i></a>
-						</div>
-					</div>
-					<!-- ↑↑↑하단 페이지↑↑↑ -->
 
 				</div>
 			</div>
