@@ -11,7 +11,6 @@
 Date nowTime = new Date();
 SimpleDateFormat sf = new SimpleDateFormat("yy년 MM월 dd일");
 User_Info login_user = (User_Info) session.getAttribute("login_user");
-Subscription subscription = (Subscription) session.getAttribute("subscription");
 %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
