@@ -56,7 +56,7 @@
 										src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg"
 										alt="" width="30" height="30">
 									<div class="hvr-inner">
-										<a href="moviesingle?m_no=${movie.m_no }">Read more<i
+										<a href="moviesingle?m_no=${movie.m_no }">더보기<i
 											class="ion-android-arrow-dropright"></i></a>
 									</div>
 								</div>

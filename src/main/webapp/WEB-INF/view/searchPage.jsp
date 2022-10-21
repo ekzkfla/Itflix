@@ -74,10 +74,10 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1>Movie List</h1>
+						<h1>영화 리스트</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="index.jsp">Home</a></li>
-							<li><span class="ion-ios-arrow-right"></span>movie listing</li>
+							<li><span class="ion-ios-arrow-right"></span>movies</li>
 						</ul>
 					</div>
 				</div>

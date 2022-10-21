@@ -245,7 +245,7 @@ Subscription subscription = (Subscription) session.getAttribute("subscription");
 														
 														<!-- 비로그인 -->
 														<c:if test="${login_user == null }">
-															<a onclick="alert('로그인을 해주세요');" class="time"
+															<a onclick="alert('로그인을 해주세요');"  class="time"
 															 style="cursor: pointer">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>
 														</c:if>
 													
