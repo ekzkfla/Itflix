@@ -56,7 +56,7 @@
 										src="images/${movie.category.cg_name}/${movie.m_name}_1.jpg"
 										alt="" width="30" height="30">
 									<div class="hvr-inner">
-										<a href="moviesingle?m_no=${movie.m_no }">Read more<i
+										<a href="moviesingle?m_no=${movie.m_no }">더보기<i
 											class="ion-android-arrow-dropright"></i></a>
 									</div>
 								</div>
@@ -183,16 +183,6 @@
 						</div>
 					</div>
 
-					<!-- ↓↓↓하단 페이지↓↓↓ -->
-					<div class="topbar-filter">
-						<label>Reviews per page:</label> <label> 5 Reviews</label>
-						<div class="pagination2">
-							<span>Page 1 of 5:</span><a class="active" href="#">1</a><a
-								href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a
-								href="#">5</a><a href="#"><i class="ion-arrow-right-b"></i></a>
-						</div>
-					</div>
-					<!-- ↑↑↑하단 페이지↑↑↑ -->
 
 				</div>
 			</div>

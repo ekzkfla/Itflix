@@ -108,9 +108,9 @@ String login_email = (String) session.getAttribute("login_email");
 						<form name="Notice">
 							<div class="sb-search sb-it">
 								<h4 class="sb-title">공지 검색</h4>
-										<input type="text" name="keyword" placeholder="검색어를 입력하세요" style="background-color: #233a50; background:url" 
-										>
-							<input type="submit" value="검색" style="background:#dd003f; color: #ffffff; " onclick="searchNotice()" >
+										<input type="text" name="keyword" placeholder="검색어를 입력하세요" style="background-color: #233a50; background:url">
+							<!--  -->			
+							<input type="submit" value="" style="background:transparent; color: #ffffff; " onclick="searchNotice()" >
 								<!-- 	<input type="text" name="keyword" placeholder="Enter keywords" onkeyup="searchNotice()"> -->
 								
 							</div>

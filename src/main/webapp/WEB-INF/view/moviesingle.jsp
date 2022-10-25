@@ -97,11 +97,11 @@ Subscription subscription = (Subscription) session.getAttribute("subscription");
 
 								<!--구독권 연장을 안한 경우  -->
 								<c:if test="${subscription.ticket.t_no == 0 }">
-									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+									<a onclick="alert('구독권을 구매해주세요');" href="landing" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
 								</c:if>
 								<!--구독권 구매를 안한 경우  -->
 								<c:if test="${subscription== null }">
-									<a onclick="alert('구독권을 구매해주세요');" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
+									<a onclick="alert('구독권을 구매해주세요');" href="landing" class="item item-1 redbtn" style="position: relative; display: inline-block; height: 45px; transition: background-color 0.3s ease; cursor: pointer;"><i class="ion-play"></i>영화 시청</a>
 									
 								</c:if>
 								
@@ -245,7 +245,7 @@ Subscription subscription = (Subscription) session.getAttribute("subscription");
 														
 														<!-- 비로그인 -->
 														<c:if test="${login_user == null }">
-															<a onclick="alert('로그인을 해주세요');" class="time"
+															<a onclick="alert('로그인을 해주세요');"  class="time"
 															 style="cursor: pointer">리뷰작성하기<i class="ion-ios-arrow-right"></i></a>
 														</c:if>
 													
